@@ -225,25 +225,23 @@
 	<span class="hljs-built_in">plot</span>(x,<span class="hljs-built_in">sin</span>(x+<span class="hljs-built_in">i</span>));
 	print(gcf,<span class="hljs-string">&#x27;-deps&#x27;</span>,strcat(<span class="hljs-string">&#x27;plot&#x27;</span>,num2str(<span class="hljs-built_in">i</span>),<span class="hljs-string">&#x27;.ps&#x27;</span>));
 <span class="hljs-keyword">end</span></code></pre>
-
 <p>Run，快捷键为F5。</p>
 <p>善用上方的插入、查找功能！</p>
 <p>Ctrl+R，注释；Ctrl+T，取消注释。  <strong>%百分号为注释符！</strong></p>
 <p>%%，两对百分比符号之间的为“节”，可以单独运行节，利于debug！但“运行”按钮还是执行整个脚本。</p>
-<p><img src="https://i.loli.net/2020/07/28/5JlvPKcgIroH1XD.png" srcset="/img/loading.gif"></p>
-<p><img src="https://i.loli.net/2020/07/28/8scpXx6iB5kVKNz.png" srcset="/img/loading.gif"></p>
+<p><img src="https://i.loli.net/2020/07/28/5JlvPKcgIroH1XD.png" srcset="/img/loading.gif" alt=""></p>
+<p><img src="https://i.loli.net/2020/07/28/8scpXx6iB5kVKNz.png" srcset="/img/loading.gif" alt=""></p>
 <p>进入debug模式时，运行按钮会变成继续，鼠标放置到中断点时会显示内容！</p>
 <p>Ctrl+I，智能缩进！</p>
-<h4 id="1-2Structured-programming"><a href="#1-2Structured-programming" class="headerlink" title="1.2Structured programming"></a>1.2Structured programming</h4><p><img src="https://i.loli.net/2020/07/28/tfg1Eh7nibNaD69.png" srcset="/img/loading.gif"></p>
+<h4 id="1-2Structured-programming"><a href="#1-2Structured-programming" class="headerlink" title="1.2Structured programming"></a>1.2Structured programming</h4><p><img src="https://i.loli.net/2020/07/28/tfg1Eh7nibNaD69.png" srcset="/img/loading.gif" alt=""></p>
 <p>逻辑运算符 Relation（logical） operator</p>
-<p><img src="https://i.loli.net/2020/07/28/Yv6sG7PyhkFlTiO.png" srcset="/img/loading.gif"></p>
+<p><img src="https://i.loli.net/2020/07/28/Yv6sG7PyhkFlTiO.png" srcset="/img/loading.gif" alt=""></p>
 <h5 id="1-2-1-if-elseif-else"><a href="#1-2-1-if-elseif-else" class="headerlink" title="1.2.1 if elseif else"></a>1.2.1 if elseif else</h5><pre><code class="hljs maxima">a = <span class="hljs-number">3</span>;
 <span class="hljs-keyword">if</span> <span class="hljs-built_in">rem</span>(a, <span class="hljs-number">2</span>) == <span class="hljs-number">0</span>
 	<span class="hljs-built_in">disp</span>(&#x27;a <span class="hljs-built_in">is</span> <span class="hljs-built_in">even</span>&#x27;)
 <span class="hljs-keyword">else</span>
 	<span class="hljs-built_in">disp</span>(&#x27;a <span class="hljs-built_in">is</span> <span class="hljs-built_in">odd</span>&#x27;)
 end</code></pre>
-
 <p>rem(a, 2) 表示求a除以2的余数  rem=remainder； odd为奇数</p>
 <h5 id="1-2-2-switch"><a href="#1-2-2-switch" class="headerlink" title="1.2.2 switch"></a>1.2.2 switch</h5><pre><code class="hljs python">switch input_num %比如<span class="hljs-number">5</span>
 case <span class="hljs-number">-1</span>
@@ -255,7 +253,6 @@ case <span class="hljs-number">1</span>
 otherwise
 	disp(<span class="hljs-string">&#x27;other value&#x27;</span>);
 end</code></pre>
-
 <h5 id="1-2-3-wihle"><a href="#1-2-3-wihle" class="headerlink" title="1.2.3 wihle"></a>1.2.3 wihle</h5><pre><code class="hljs angelscript"><span class="hljs-keyword">while</span> expression
 	statement
 end
@@ -266,7 +263,6 @@ n = <span class="hljs-number">1</span>;
 end
 
 n %表示输出最后的n，不然不输出内容</code></pre>
-
 <p>prod 为求乘函数，示例为n的阶乘。</p>
 <p>1e100 表示1*10的100次方，此例n+1=70</p>
 <p>练习：计算1+2+3+…+999</p>
@@ -277,22 +273,18 @@ n %表示输出最后的n，不然不输出内容</code></pre>
     <span class="hljs-attribute">n</span>=n+1; 
 end
 disp(s)</code></pre>
-
 <p>也可以这么写：</p>
 <pre><code class="hljs stylus"><span class="hljs-selector-tag">a</span> = [<span class="hljs-number">1</span>:<span class="hljs-number">999</span>]
 <span class="hljs-function"><span class="hljs-title">sum</span><span class="hljs-params">(a)</span></span></code></pre>
-
 <h5 id="1-2-4-for"><a href="#1-2-4-for" class="headerlink" title="1.2.4 for"></a>1.2.4 for</h5><pre><code class="hljs angelscript"><span class="hljs-keyword">for</span> n = <span class="hljs-number">1</span>:<span class="hljs-number">10</span>
 	a(n) = <span class="hljs-number">2</span>^n
 end
 disp(a)</code></pre>
-
 <p>输出奇数次方：</p>
 <pre><code class="hljs angelscript"><span class="hljs-keyword">for</span> n=<span class="hljs-number">1</span>:<span class="hljs-number">2</span>:<span class="hljs-number">10</span>
     a((n+<span class="hljs-number">1</span>)/<span class="hljs-number">2</span>) = <span class="hljs-number">2</span>^n
 end
 disp(a)</code></pre>
-
 <h5 id="1-2-5-break"><a href="#1-2-5-break" class="headerlink" title="1.2.5 break"></a>1.2.5 break</h5><pre><code class="hljs sas"><span class="hljs-meta">x</span> = 2; k = 0; <span class="hljs-meta">error</span> = inf;
 error_threshold = 1e-32;
 <span class="hljs-meta">while</span> <span class="hljs-meta">error</span> &gt; error_threshold
@@ -303,7 +295,6 @@ error_threshold = 1e-32;
     <span class="hljs-meta">error</span> =<span class="hljs-meta"> abs(</span><span class="hljs-meta">x</span> - pi);
     k = k + 1;
 <span class="hljs-meta">end</span></code></pre>
-
 <h4 id="1-3-预先分配内存与运算时间"><a href="#1-3-预先分配内存与运算时间" class="headerlink" title="1.3 预先分配内存与运算时间"></a>1.3 预先分配内存与运算时间</h4><pre><code class="hljs angelscript">%%
 tic
 <span class="hljs-keyword">for</span> ii = <span class="hljs-number">1</span>:<span class="hljs-number">2000</span>
@@ -326,9 +317,6 @@ end
 toc
 %%
 历时 <span class="hljs-number">0.026128</span> 秒。</code></pre>
-
-
-
 <p>close all 关闭所有图形</p>
 <p>Ctrl+C，停止命令</p>
 <p>… 换行号</p>
@@ -336,9 +324,7 @@ toc
 <span class="hljs-number">4</span> <span class="hljs-number">5</span> <span class="hljs-number">6</span>]
 与↓相同（新版本可以直接换行）
 A = [<span class="hljs-number">1</span> <span class="hljs-number">2</span> <span class="hljs-number">3</span>; <span class="hljs-number">4</span> <span class="hljs-number">5</span> <span class="hljs-number">6</span>]</code></pre>
-
 <h3 id="2-函数"><a href="#2-函数" class="headerlink" title="2.函数"></a>2.函数</h3><pre><code class="hljs isbl"><span class="hljs-function"><span class="hljs-title">edit</span>(<span class="hljs-title">which</span>(<span class="hljs-string">&#x27;mean.m&#x27;</span>))</span></code></pre>
-
 <p>调出mean的用法:</p>
 <pre><code class="hljs python">function y = mean(x,dim,flag,flag2)
 %MEAN   Average <span class="hljs-keyword">or</span> mean value.
@@ -611,9 +597,6 @@ function s = mysize(x, dim)
 end
 
 end</code></pre>
-
-
-
 <h4 id="2-1自定义函数"><a href="#2-1自定义函数" class="headerlink" title="2.1自定义函数"></a>2.1自定义函数</h4><p>如，新建自由落体运动的计算公式：</p>
 <pre><code class="hljs matlab"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">x</span> = <span class="hljs-title">freebody</span><span class="hljs-params">(x0,v0,t)</span></span>
 <span class="hljs-comment">% calculation of free falling</span>
@@ -622,28 +605,21 @@ end</code></pre>
 <span class="hljs-comment">% t: the elapsed time in sec</span>
 <span class="hljs-comment">% x: the depth of falling in m</span>
 x = x0 + v0.*t + <span class="hljs-number">1</span>/<span class="hljs-number">2</span>*<span class="hljs-number">9.8</span>*t.*t;   <span class="hljs-comment">%此处选择点乘，可以多组数据一起运算（向量同样适用）</span></code></pre>
-
 <p>需要将文件保存成与函数名相同的名称！</p>
 <p>此时左下角会出现函数名！</p>
 <h4 id="2-2Functions-with-Multiple-Inputs-and-Outputs"><a href="#2-2Functions-with-Multiple-Inputs-and-Outputs" class="headerlink" title="2.2Functions with Multiple Inputs and Outputs"></a>2.2Functions with Multiple Inputs and Outputs</h4><pre><code class="hljs delphi"><span class="hljs-function"><span class="hljs-keyword">function</span> [<span class="hljs-title">a</span> <span class="hljs-title">F</span>] = <span class="hljs-title">acc</span><span class="hljs-params">(v2,v1,t2,t1,m)</span></span>
 <span class="hljs-function"><span class="hljs-title">a</span> = <span class="hljs-params">(v2-v1)</span>./<span class="hljs-params">(t2-t1)</span>;</span>
 F = m.*a;</code></pre>
-
 <pre><code class="hljs angelscript">[Acc Force] = acc(<span class="hljs-number">20</span>,<span class="hljs-number">10</span>,<span class="hljs-number">5</span>,<span class="hljs-number">4</span>,<span class="hljs-number">1</span>)</code></pre>
-
 <h4 id="2-3Function-Default-Variables"><a href="#2-3Function-Default-Variables" class="headerlink" title="2.3Function Default Variables"></a>2.3Function Default Variables</h4><pre><code class="hljs matlab"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">[volume]</span>=<span class="hljs-title">pillar</span><span class="hljs-params">(Do,Di,height)</span></span>
 <span class="hljs-keyword">if</span> nargin==<span class="hljs-number">2</span>,
 	height=<span class="hljs-number">1</span>;
 <span class="hljs-keyword">end</span>
 volume=<span class="hljs-built_in">abs</span>(Do.^<span class="hljs-number">2</span>-Di.^<span class="hljs-number">2</span>).*height*<span class="hljs-built_in">pi</span>/<span class="hljs-number">4</span>;</code></pre>
-
 <h4 id="2-4Function-Handles"><a href="#2-4Function-Handles" class="headerlink" title="2.4Function Handles"></a>2.4Function Handles</h4><p>函数指针？</p>
 <pre><code class="hljs gml">f = @(<span class="hljs-symbol">x</span>) <span class="hljs-built_in">exp</span>(<span class="hljs-number">-2</span>*<span class="hljs-symbol">x</span>);
 <span class="hljs-symbol">x</span> = <span class="hljs-number">0</span>:<span class="hljs-number">0.1</span>:<span class="hljs-number">2</span>;
 plot(<span class="hljs-symbol">x</span>, f(<span class="hljs-symbol">x</span>));</code></pre>
-
-
-
 
             </div>
             <hr>

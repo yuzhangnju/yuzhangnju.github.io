@@ -223,7 +223,6 @@
               <h3 id="1基础"><a href="#1基础" class="headerlink" title="1基础"></a>1基础</h3><h4 id="1-1plot"><a href="#1-1plot" class="headerlink" title="1.1plot()"></a>1.1plot()</h4><pre><code class="hljs matlab">ploy(x,y)	plots each vector pairs (x,y)
 <span class="hljs-built_in">plot</span>(y) 	plots each vector pairs (x,y),where x=[<span class="hljs-number">1</span>…n], n=<span class="hljs-built_in">length</span>(y) 默认横轴为<span class="hljs-number">1.2</span><span class="hljs-number">.3</span><span class="hljs-number">.4</span>...
 <span class="hljs-built_in">plot</span>(<span class="hljs-built_in">cos</span>(<span class="hljs-number">0</span>:<span class="hljs-built_in">pi</span>/<span class="hljs-number">20</span>:<span class="hljs-number">2</span>*<span class="hljs-built_in">pi</span>));	第一个图！</code></pre>
-
 <p>一幅图中多个曲线：</p>
 <pre><code class="hljs matlab"><span class="hljs-built_in">hold</span> on
 <span class="hljs-built_in">plot</span>(<span class="hljs-built_in">cos</span>(<span class="hljs-number">0</span>:<span class="hljs-built_in">pi</span>/<span class="hljs-number">20</span>:<span class="hljs-number">2</span>*<span class="hljs-built_in">pi</span>));
@@ -240,11 +239,8 @@ y3 = <span class="hljs-built_in">sin</span>(x<span class="hljs-number">-.5</span
 
 标识
 <span class="hljs-built_in">legend</span>(<span class="hljs-string">&#x27;sin(x)&#x27;</span>,<span class="hljs-string">&#x27;sin(x-.25)&#x27;</span>,<span class="hljs-string">&#x27;sin(x-.5)&#x27;</span>)</code></pre>
-
 <h4 id="1-2plot-style"><a href="#1-2plot-style" class="headerlink" title="1.2plot style"></a>1.2plot style</h4><pre><code class="hljs matlab"><span class="hljs-built_in">plot</span>(x,y,<span class="hljs-string">&#x27;str&#x27;</span>) 	plots each vector pairs (x,y) using the format defined in str (check linespec)</code></pre>
-
-<img src="https://i.loli.net/2020/08/01/m6WvyZ3Yr2Qwnkc.png" srcset="/img/loading.gif" style="zoom:80%;" />
-
+<p><img src="https://i.loli.net/2020/08/01/m6WvyZ3Yr2Qwnkc.png" srcset="/img/loading.gif" style="zoom:80%;" /></p>
 <p>改变颜色、线条，也可以在绘图框：查看→绘图浏览器，手动更改！</p>
 <pre><code class="hljs matlab">x=<span class="hljs-number">0</span>:<span class="hljs-number">0.5</span>:<span class="hljs-number">4</span>*<span class="hljs-built_in">pi</span>;
 y=<span class="hljs-built_in">sin</span>(x); h=<span class="hljs-built_in">cos</span>(x); w=<span class="hljs-number">1.</span>/(<span class="hljs-number">1</span>+<span class="hljs-built_in">exp</span>(-x));
@@ -252,27 +248,21 @@ g=(<span class="hljs-number">1</span>/(<span class="hljs-number">2</span>*<span 
 <span class="hljs-built_in">plot</span>(x,y,<span class="hljs-string">&#x27;bd-&#x27;</span>,x,h,<span class="hljs-string">&#x27;gp:&#x27;</span>,x,w,<span class="hljs-string">&#x27;ro-&#x27;</span>,x,g,<span class="hljs-string">&#x27;c^-&#x27;</span>);
 
 <span class="hljs-built_in">legend</span>(<span class="hljs-string">&#x27;sin(x)&#x27;</span>,<span class="hljs-string">&#x27;cos(x)&#x27;</span>,<span class="hljs-string">&#x27;Sigmoid&#x27;</span>,<span class="hljs-string">&#x27;Gauss function&#x27;</span>);	加标识</code></pre>
-
 <h4 id="1-3title-and-label"><a href="#1-3title-and-label" class="headerlink" title="1.3title() and label()"></a>1.3title() and label()</h4><pre><code class="hljs matlab">x = <span class="hljs-number">0</span>:<span class="hljs-number">0.1</span>:<span class="hljs-number">2</span>*<span class="hljs-built_in">pi</span>; y1 = <span class="hljs-built_in">sin</span>(x); y2 = <span class="hljs-built_in">exp</span>(-x);
 <span class="hljs-built_in">plot</span>(x, y1, <span class="hljs-string">&#x27;--*&#x27;</span>, x, y2, <span class="hljs-string">&#x27;:o&#x27;</span>);
 xlabel(<span class="hljs-string">&#x27;t = 0 to 2\pi&#x27;</span>);	x轴标题，\为转义字符
 ylabel(<span class="hljs-string">&#x27;values of sin(t) and e^&#123;-x&#125;&#x27;</span>)	y轴标题
 title(<span class="hljs-string">&#x27;Function Plots of sin(t) and e^&#123;-x&#125;&#x27;</span>);	加图名
 <span class="hljs-built_in">legend</span>(<span class="hljs-string">&#x27;sin(t)&#x27;</span>,<span class="hljs-string">&#x27;e^&#123;-x&#125;&#x27;</span>);	加图标</code></pre>
-
 <h4 id="1-4text-and-annotataion"><a href="#1-4text-and-annotataion" class="headerlink" title="1.4text() and annotataion()"></a>1.4text() and annotataion()</h4><pre><code class="hljs matlab">x = <span class="hljs-built_in">linspace</span>(<span class="hljs-number">0</span>,<span class="hljs-number">3</span>); y = x.^<span class="hljs-number">2.</span>*<span class="hljs-built_in">sin</span>(x); <span class="hljs-built_in">plot</span>(x,y);
 line([<span class="hljs-number">2</span>,<span class="hljs-number">2</span>],[<span class="hljs-number">0</span>,<span class="hljs-number">2</span>^<span class="hljs-number">2</span>*<span class="hljs-built_in">sin</span>(<span class="hljs-number">2</span>)]);
 str = <span class="hljs-string">&#x27;$$ \int_&#123;0&#125;^&#123;2&#125; x^2\sin(x) dx $$&#x27;</span>;	latex语法
 text(<span class="hljs-number">0.25</span>,<span class="hljs-number">2.5</span>,str,<span class="hljs-string">&#x27;Interpreter&#x27;</span>,<span class="hljs-string">&#x27;latex&#x27;</span>);	显示字符串的位置，解释器latex
 annotation(<span class="hljs-string">&#x27;arrow&#x27;</span>,<span class="hljs-string">&#x27;X&#x27;</span>,[<span class="hljs-number">0.32</span>,<span class="hljs-number">0.5</span>],<span class="hljs-string">&#x27;Y&#x27;</span>,[<span class="hljs-number">0.6</span>,<span class="hljs-number">0.4</span>]);	箭头起终位置</code></pre>
-
-<h4 id="1-5figure-adjustment"><a href="#1-5figure-adjustment" class="headerlink" title="1.5figure adjustment"></a>1.5figure adjustment</h4><img src="https://i.loli.net/2020/08/01/jiRlvwI5qDZ6gpP.png" srcset="/img/loading.gif" style="zoom:80%;" />
-
+<h4 id="1-5figure-adjustment"><a href="#1-5figure-adjustment" class="headerlink" title="1.5figure adjustment"></a>1.5figure adjustment</h4><p><img src="https://i.loli.net/2020/08/01/jiRlvwI5qDZ6gpP.png" srcset="/img/loading.gif" style="zoom:80%;" /></p>
 <p><strong>属性检查器</strong>可以更改很多绘图对象！</p>
-<h3 id="2更多自定义"><a href="#2更多自定义" class="headerlink" title="2更多自定义"></a>2更多自定义</h3><img src="https://i.loli.net/2020/08/01/vK5GSPZsQaf7iLn.png" srcset="/img/loading.gif" style="zoom:80%;" />
-
-<h4 id="2-1设定边界"><a href="#2-1设定边界" class="headerlink" title="2.1设定边界"></a>2.1设定边界</h4><img src="https://i.loli.net/2020/08/01/UrTphAX5Ne3zMwC.png" srcset="/img/loading.gif" style="zoom:80%;" />
-
+<h3 id="2更多自定义"><a href="#2更多自定义" class="headerlink" title="2更多自定义"></a>2更多自定义</h3><p><img src="https://i.loli.net/2020/08/01/vK5GSPZsQaf7iLn.png" srcset="/img/loading.gif" style="zoom:80%;" /></p>
+<h4 id="2-1设定边界"><a href="#2-1设定边界" class="headerlink" title="2.1设定边界"></a>2.1设定边界</h4><p><img src="https://i.loli.net/2020/08/01/UrTphAX5Ne3zMwC.png" srcset="/img/loading.gif" style="zoom:80%;" /></p>
 <p>各种自定义，但用属性编辑器调整，更为直观！</p>
 <h4 id="2-2多图"><a href="#2-2多图" class="headerlink" title="2.2多图"></a>2.2多图</h4><p>figure命令,</p>
 <pre><code class="hljs matlab">x = <span class="hljs-number">-10</span>:<span class="hljs-number">0.1</span>:<span class="hljs-number">10</span>;
@@ -280,23 +270,17 @@ y1 = x.^<span class="hljs-number">2</span> - <span class="hljs-number">8</span>;
 y2 = <span class="hljs-built_in">exp</span>(x);
 <span class="hljs-built_in">figure</span>, <span class="hljs-built_in">plot</span>(x,y1);
 <span class="hljs-built_in">figure</span>, <span class="hljs-built_in">plot</span>(x,y2);</code></pre>
-
 <p>Figure Position and Size 有点像css</p>
 <pre><code class="hljs matlab"><span class="hljs-built_in">figure</span>(<span class="hljs-string">&#x27;Position&#x27;</span>, [left, bottom, width, height]);</code></pre>
-
 <p>多图合一：</p>
 <pre><code class="hljs matlab">subplot(m, n,<span class="hljs-number">1</span>);</code></pre>
-
-<img src="https://i.loli.net/2020/08/01/cBTfr2zmJpM3yDF.png" srcset="/img/loading.gif" style="zoom:67%;" />
-
+<p><img src="https://i.loli.net/2020/08/01/cBTfr2zmJpM3yDF.png" srcset="/img/loading.gif" style="zoom:67%;" /></p>
 <pre><code class="hljs matlab">t = <span class="hljs-number">0</span>:<span class="hljs-number">0.1</span>:<span class="hljs-number">2</span>*<span class="hljs-built_in">pi</span>; x = <span class="hljs-number">3</span>*<span class="hljs-built_in">cos</span>(t); y = <span class="hljs-built_in">sin</span>(t);
 subplot(<span class="hljs-number">2</span>, <span class="hljs-number">2</span>, <span class="hljs-number">1</span>); <span class="hljs-built_in">plot</span>(x, y); axis normal
 subplot(<span class="hljs-number">2</span>, <span class="hljs-number">2</span>, <span class="hljs-number">2</span>); <span class="hljs-built_in">plot</span>(x, y); axis square
 subplot(<span class="hljs-number">2</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>); <span class="hljs-built_in">plot</span>(x, y); axis equal
 subplot(<span class="hljs-number">2</span>, <span class="hljs-number">2</span>, <span class="hljs-number">4</span>); <span class="hljs-built_in">plot</span>(x, y); axis equal tight</code></pre>
-
-<img src="https://i.loli.net/2020/08/01/X6ayoqYjC27iLZO.png" srcset="/img/loading.gif" style="zoom:80%;" />
-
+<p><img src="https://i.loli.net/2020/08/01/X6ayoqYjC27iLZO.png" srcset="/img/loading.gif" style="zoom:80%;" /></p>
 <h4 id="2-3一些功能"><a href="#2-3一些功能" class="headerlink" title="2.3一些功能"></a>2.3一些功能</h4><pre><code class="hljs matlab">grid on/off 		Make the grid visible or invisible
 box on/off 			Make the box visible or invisible
 axis on/off 		Make the axes visible or invisible
@@ -310,9 +294,7 @@ axis image 			Let the <span class="hljs-built_in">plot</span> box fits tightly a
 axis ij 			Place the origin of the coordinate system in the
 					upper left corner
 axis xy				 Place the origin in the lower left corner</code></pre>
-
-<h4 id="2-4保存"><a href="#2-4保存" class="headerlink" title="2.4保存"></a>2.4保存</h4><img src="https://i.loli.net/2020/08/01/VG9UWl4MACOpn7K.png" srcset="/img/loading.gif" style="zoom:80%;" />
-
+<h4 id="2-4保存"><a href="#2-4保存" class="headerlink" title="2.4保存"></a>2.4保存</h4><p><img src="https://i.loli.net/2020/08/01/VG9UWl4MACOpn7K.png" srcset="/img/loading.gif" style="zoom:80%;" /></p>
 <p>print 输出高解析度图片！</p>
 
             </div>

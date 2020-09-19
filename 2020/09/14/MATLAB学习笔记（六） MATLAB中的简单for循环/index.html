@@ -226,7 +226,6 @@
 	sum = sum + <span class="hljs-built_in">i</span>;
 	<span class="hljs-keyword">end</span>
 sum</code></pre>
-
 <p>解释：i从1到100，每次增加一个，该共循环100次<br>注意：分号的位置；不能使用“+=”符号；每写一层循环，必须以end结尾</p>
 <h3 id="2-带有步长的for循环"><a href="#2-带有步长的for循环" class="headerlink" title="2 带有步长的for循环"></a>2 带有步长的for循环</h3><p>例：输出1-10之间的奇数和</p>
 <pre><code class="hljs matlab">sum = <span class="hljs-number">0</span>;
@@ -234,20 +233,17 @@ sum</code></pre>
 	sum = sum + <span class="hljs-built_in">i</span>;
 <span class="hljs-keyword">end</span>
 sum</code></pre>
-
 <p>解释：i = 1:2:10中间的2表示步长，表示从1到10，每次增加2，即1，3，5，7，9五个数之和；步长也可以为负数</p>
 <h3 id="3-对向量和矩阵的遍历"><a href="#3-对向量和矩阵的遍历" class="headerlink" title="3 对向量和矩阵的遍历"></a>3 对向量和矩阵的遍历</h3><h4 id="3-1-对向量的遍历"><a href="#3-1-对向量的遍历" class="headerlink" title="3.1 对向量的遍历"></a>3.1 对向量的遍历</h4><pre><code class="hljs matlab">A = <span class="hljs-built_in">rand</span>(<span class="hljs-number">1</span>,<span class="hljs-number">4</span>);
 <span class="hljs-keyword">for</span> <span class="hljs-built_in">i</span> = A
 	<span class="hljs-built_in">i</span>
 <span class="hljs-keyword">end</span></code></pre>
-
 <p>解释：rand函数用于随机生成0~1之间的数，rand(1,4)生成1*4的列向量。</p>
 <h4 id="3-2-对矩阵的遍历"><a href="#3-2-对矩阵的遍历" class="headerlink" title="3.2 对矩阵的遍历"></a>3.2 对矩阵的遍历</h4><pre><code class="hljs matlab">A = <span class="hljs-built_in">magic</span>(<span class="hljs-number">4</span>);
 A
 <span class="hljs-keyword">for</span> <span class="hljs-built_in">i</span> = A;
 	<span class="hljs-built_in">i</span>
 <span class="hljs-keyword">end</span></code></pre>
-
 <p>解释：magic(n)函数用于生成任意一行或一列或主副对角线之和相等的方阵，对矩阵的循环遍历是依次取出矩阵中的每一列元素</p>
 <h3 id="4-break和continue的使用"><a href="#4-break和continue的使用" class="headerlink" title="4 break和continue的使用"></a>4 break和continue的使用</h3><p>break用于终止离它最近的一层for循环</p>
 <pre><code class="hljs matlab">x = <span class="hljs-number">1</span>;
@@ -258,7 +254,6 @@ A
 		x = x * <span class="hljs-built_in">i</span>
 	<span class="hljs-keyword">end</span>
 <span class="hljs-keyword">end</span></code></pre>
-
 <p>continue用于跳过离它最近的一层for循环，接着执行下一次循环</p>
 <pre><code class="hljs matlab">sum = <span class="hljs-number">0</span>;
 <span class="hljs-keyword">for</span> <span class="hljs-built_in">i</span> = <span class="hljs-number">1</span>:<span class="hljs-number">6</span>
@@ -268,14 +263,12 @@ A
 		sum = sum + <span class="hljs-built_in">i</span>
 	<span class="hljs-keyword">end</span>
 <span class="hljs-keyword">end</span></code></pre>
-
 <p>此时i=4的情形被跳过了</p>
 <h3 id="5-多层for循环"><a href="#5-多层for循环" class="headerlink" title="5 多层for循环"></a>5 多层for循环</h3><pre><code class="hljs matlab"><span class="hljs-keyword">for</span> <span class="hljs-built_in">i</span> = <span class="hljs-number">1</span>:<span class="hljs-number">2</span>:<span class="hljs-number">6</span>
 	<span class="hljs-keyword">for</span> <span class="hljs-built_in">j</span> = <span class="hljs-number">1</span>:<span class="hljs-number">3</span>
 		y = <span class="hljs-built_in">i</span> * <span class="hljs-built_in">j</span>
 	<span class="hljs-keyword">end</span>
 <span class="hljs-keyword">end</span></code></pre>
-
 <p>for循环可以按照需要进行嵌套</p>
 <p>文章来源：</p>
 <p><a target="_blank" rel="noopener" href="https://blog.csdn.net/denglavender/article/details/102649093?utm_medium=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-2.channel_param&amp;depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-2.channel_param">https://blog.csdn.net/denglavender/article/details/102649093?utm_medium=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-2.channel_param&amp;depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-2.channel_param</a></p>

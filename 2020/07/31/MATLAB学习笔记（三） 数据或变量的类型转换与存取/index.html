@@ -230,39 +230,30 @@ uint8() 	Convert to <span class="hljs-number">8</span>-bit unsigned integer
 uint16() 	Convert to <span class="hljs-number">16</span>-bit unsigned integer
 uint32() 	Convert to <span class="hljs-number">32</span>-bit unsigned integer
 uint64() 	Convert to <span class="hljs-number">64</span>-bit unsigned integer</code></pre>
-
 <p>例：</p>
 <pre><code class="hljs matlab">A = <span class="hljs-number">20</span>
 B = int8(<span class="hljs-number">20</span>)
 B = int8(A)</code></pre>
-
 <h4 id="1-1字符-character（char）"><a href="#1-1字符-character（char）" class="headerlink" title="1.1字符 character（char）"></a>1.1字符 character（char）</h4><pre><code class="hljs mipsasm"><span class="hljs-built_in">s1</span> = <span class="hljs-string">&#x27;h&#x27;</span>    将字母h指定到<span class="hljs-built_in">s1</span>，注意要家单引号
 whos
 uint16(<span class="hljs-built_in">s1</span>)  将<span class="hljs-built_in">s1</span>还原成 ASCII码</code></pre>
-
 <h4 id="1-2字符串-string"><a href="#1-2字符串-string" class="headerlink" title="1.2字符串 string"></a>1.2字符串 string</h4><pre><code class="hljs ini"><span class="hljs-attr">s1</span> = <span class="hljs-string">&#x27;Example&#x27;</span><span class="hljs-comment">;</span>
 <span class="hljs-attr">s2</span> = <span class="hljs-string">&#x27;String&#x27;</span><span class="hljs-comment">;</span></code></pre>
-
 <p>字符串可以组合变换：</p>
 <pre><code class="hljs matlab">s3 = [s1 s2];	横向组合
 s4 = [s1; s2];	纵向组合，此处会显示“要串联的数组的维度不一致”。</code></pre>
-
 <h4 id="1-3Logical-Operations-and-Assignments"><a href="#1-3Logical-Operations-and-Assignments" class="headerlink" title="1.3Logical Operations and Assignments"></a>1.3Logical Operations and Assignments</h4><pre><code class="hljs angelscript">str = <span class="hljs-string">&#x27;aardvark&#x27;</span>;
 str(<span class="hljs-number">3</span>)	会显示出“r”，即依据字符串的第三个字母索引
 <span class="hljs-string">&#x27;a&#x27;</span> == str	结果显示   “<span class="hljs-number">1</span>   <span class="hljs-number">1</span>   <span class="hljs-number">0</span>   <span class="hljs-number">0</span>   <span class="hljs-number">0</span>   <span class="hljs-number">1</span>   <span class="hljs-number">0</span>   <span class="hljs-number">0</span>”  此处两个等号，为逻辑判断，这里是将字母a与字符串每一序位的字母相比较</code></pre>
-
 <pre><code class="hljs matlab">str(str == <span class="hljs-string">&#x27;a&#x27;</span>) = <span class="hljs-string">&#x27;Z&#x27;</span>	这里，就是将字符串中a字母替换成z，即，一个等号为赋值</code></pre>
-
 <p>strcmp（）比较两个字符串是否相同：</p>
 <pre><code class="hljs stylus"><span class="hljs-selector-tag">a</span> = <span class="hljs-string">&#x27;asdf&#x27;</span>
 b=<span class="hljs-string">&#x27;zxcv&#x27;</span>
 <span class="hljs-function"><span class="hljs-title">strcmp</span><span class="hljs-params">(a,b)</span></span></code></pre>
-
 <p>将字符串倒序，以下三种方式皆可：</p>
 <pre><code class="hljs lisp">s2 = fliplr(<span class="hljs-name">s1</span>)
 s2 = reverse(<span class="hljs-name">s1</span>)
 s2 = s1(<span class="hljs-name">end</span><span class="hljs-symbol">:-1</span>:<span class="hljs-number">1</span>)</code></pre>
-
 <h4 id="1-4structure"><a href="#1-4structure" class="headerlink" title="1.4structure"></a>1.4structure</h4><p>一种存储异构数据的方法，相当于python中的字典？ <strong>结构体数组</strong>？</p>
 <pre><code class="hljs matlab">student.name = <span class="hljs-string">&#x27;John Doe&#x27;</span>;
 student.id = <span class="hljs-string">&#x27;jdo2@sfu.ca&#x27;</span>;
@@ -271,15 +262,12 @@ student.grade = [<span class="hljs-number">100</span>, <span class="hljs-number"
 student
 
 结果不会直接显示分数， 输入 student.grade会全部显示</code></pre>
-
 <pre><code class="hljs matlab">student(<span class="hljs-number">2</span>).name = <span class="hljs-string">&#x27;Ann Lane&#x27;</span>;
 student(<span class="hljs-number">2</span>).id = <span class="hljs-string">&#x27;aln4@sfu.ca&#x27;</span>;
 student(<span class="hljs-number">2</span>).number = <span class="hljs-number">301078853</span>;
 student(<span class="hljs-number">2</span>).grade = [<span class="hljs-number">95</span> <span class="hljs-number">100</span> <span class="hljs-number">90</span>; <span class="hljs-number">95</span> <span class="hljs-number">82</span> <span class="hljs-number">97</span>; <span class="hljs-number">100</span> <span class="hljs-number">85</span> <span class="hljs-number">100</span>];
 student(<span class="hljs-number">2</span>).grade(<span class="hljs-number">3</span>)	找出第二个学生的第三项成绩（注意从上到下、从左到右数）</code></pre>
-
-<img src="https://i.loli.net/2020/07/31/9J5mfQDxOjzdKCv.png" srcset="/img/loading.gif" style="zoom:50%;" />
-
+<p><img src="https://i.loli.net/2020/07/31/9J5mfQDxOjzdKCv.png" srcset="/img/loading.gif" style="zoom:50%;" /></p>
 <pre><code class="hljs smali">cell2struct 	Convert cell<span class="hljs-built_in"> array </span>to structure array
 fieldnames 		Field names of structure,<span class="hljs-built_in"> or </span>public fields of object
 getfield 		Field of structure array
@@ -291,17 +279,14 @@ setfield 		Assign values to structure<span class="hljs-built_in"> array </span>f
 struct 			Create structure array
 struct2cell 	Convert structure to cell array
 structfun 		Apply function to each field of scalar structure</code></pre>
-
 <pre><code class="hljs stylus"><span class="hljs-function"><span class="hljs-title">fieldnames</span><span class="hljs-params">(student)</span></span>		列出数据组有哪些类
 <span class="hljs-function"><span class="hljs-title">rmfield</span><span class="hljs-params">(student,<span class="hljs-string">&#x27;id&#x27;</span>)</span></span>	删除id这一类</code></pre>
-
 <h4 id="1-5Nesting-Structures嵌套结构"><a href="#1-5Nesting-Structures嵌套结构" class="headerlink" title="1.5Nesting Structures嵌套结构"></a>1.5Nesting Structures嵌套结构</h4><pre><code class="hljs lsl">A = struct(&#x27;data&#x27;, [<span class="hljs-number">3</span> <span class="hljs-number">4</span> <span class="hljs-number">7</span>; <span class="hljs-number">8</span> <span class="hljs-number">0</span> <span class="hljs-number">1</span>], &#x27;nest&#x27;, struct(&#x27;testnum&#x27;, &#x27;Test <span class="hljs-number">1</span>&#x27;, &#x27;xdata&#x27;, [<span class="hljs-number">4</span> <span class="hljs-number">2</span> <span class="hljs-number">8</span>],&#x27;ydata&#x27;, [<span class="hljs-number">7</span> <span class="hljs-number">1</span> <span class="hljs-number">6</span>]));
 A(<span class="hljs-number">2</span>).data = [<span class="hljs-number">9</span> <span class="hljs-number">3</span> <span class="hljs-number">2</span>; <span class="hljs-number">7</span> <span class="hljs-number">6</span> <span class="hljs-number">5</span>];
 A(<span class="hljs-number">2</span>).nest.testnum = &#x27;Test <span class="hljs-number">2</span>&#x27;;
 A(<span class="hljs-number">2</span>).nest.xdata = [<span class="hljs-number">3</span> <span class="hljs-number">4</span> <span class="hljs-number">2</span>];
 A(<span class="hljs-number">2</span>).nest.ydata = [<span class="hljs-number">5</span> <span class="hljs-number">0</span> <span class="hljs-number">9</span>];
 A.nest</code></pre>
-
 <h4 id="1-6cell-array单元数组"><a href="#1-6cell-array单元数组" class="headerlink" title="1.6cell array单元数组"></a>1.6cell array单元数组</h4><p>分块指定</p>
 <pre><code class="hljs matlab">A(<span class="hljs-number">1</span>,<span class="hljs-number">1</span>)=&#123;[<span class="hljs-number">1</span> <span class="hljs-number">4</span> <span class="hljs-number">3</span>; <span class="hljs-number">0</span> <span class="hljs-number">5</span> <span class="hljs-number">8</span>; <span class="hljs-number">7</span> <span class="hljs-number">2</span> <span class="hljs-number">9</span>]&#125;;
 A(<span class="hljs-number">1</span>,<span class="hljs-number">2</span>)=&#123;<span class="hljs-string">&#x27;Anne Smith&#x27;</span>&#125;;
@@ -314,14 +299,11 @@ A&#123;<span class="hljs-number">1</span>,<span class="hljs-number">2</span>&#12
 A&#123;<span class="hljs-number">2</span>,<span class="hljs-number">1</span>&#125;=<span class="hljs-number">3</span>+<span class="hljs-number">7</span><span class="hljs-built_in">i</span>;
 A&#123;<span class="hljs-number">2</span>,<span class="hljs-number">2</span>&#125;=-<span class="hljs-built_in">pi</span>:<span class="hljs-built_in">pi</span>:<span class="hljs-built_in">pi</span>;
 A</code></pre>
-
 <p>执行结果如下：</p>
-<img src="https://i.loli.net/2020/07/31/mTOUBIWH1CF2Dw9.png" srcset="/img/loading.gif" style="zoom:50%;" />
-
+<p><img src="https://i.loli.net/2020/07/31/mTOUBIWH1CF2Dw9.png" srcset="/img/loading.gif" style="zoom:50%;" /></p>
 <p>读取时需要使用大括号：</p>
 <pre><code class="hljs matlab">A&#123;<span class="hljs-number">1</span>,<span class="hljs-number">1</span>&#125;
 A&#123;<span class="hljs-number">1</span>,<span class="hljs-number">1</span>&#125;(<span class="hljs-number">3</span>)</code></pre>
-
 <p>cell array functions:</p>
 <pre><code class="hljs smali">cell 		Create cell array
 cell2mat 	Convert cell<span class="hljs-built_in"> array </span>to numeric array
@@ -334,12 +316,10 @@ iscell 		Determine whether input is cell array
 mat2cell 	Convert<span class="hljs-built_in"> array </span>to cell<span class="hljs-built_in"> array </span>with different sized cells
 num2cell 	Convert<span class="hljs-built_in"> array </span>to cell<span class="hljs-built_in"> array </span>with consistently sized cells
 struct2cell Convert structure to cell array</code></pre>
-
 <p>matrix与cell的转换：</p>
 <pre><code class="hljs angelscript">a = magic(<span class="hljs-number">3</span>)	magic表示魔法矩阵，每行每列以及对角线之和相等
 b = num2cell(a)
 c = mat2cell(a, [<span class="hljs-number">1</span> <span class="hljs-number">1</span> <span class="hljs-number">1</span>], <span class="hljs-number">3</span>)  <span class="hljs-number">3</span>表示将三个column放一起</code></pre>
-
 <h4 id="1-7Multidimensional-Array多维数组"><a href="#1-7Multidimensional-Array多维数组" class="headerlink" title="1.7Multidimensional Array多维数组"></a>1.7Multidimensional Array多维数组</h4><pre><code class="hljs angelscript">A&#123;<span class="hljs-number">1</span>,<span class="hljs-number">1</span>,<span class="hljs-number">1</span>&#125; = [<span class="hljs-number">1</span> <span class="hljs-number">2</span>;<span class="hljs-number">4</span> <span class="hljs-number">5</span>];
 A&#123;<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">1</span>&#125; = <span class="hljs-string">&#x27;Name&#x27;</span>;
 A&#123;<span class="hljs-number">2</span>,<span class="hljs-number">1</span>,<span class="hljs-number">1</span>&#125; = <span class="hljs-number">2</span><span class="hljs-number">-4</span>i;
@@ -348,19 +328,15 @@ A&#123;<span class="hljs-number">1</span>,<span class="hljs-number">1</span>,<sp
 A&#123;<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">2</span>&#125; = <span class="hljs-number">3</span>;
 A&#123;<span class="hljs-number">2</span>,<span class="hljs-number">1</span>,<span class="hljs-number">2</span>&#125; = <span class="hljs-number">0</span>:<span class="hljs-number">1</span>:<span class="hljs-number">3</span>;
 A&#123;<span class="hljs-number">2</span>,<span class="hljs-number">2</span>,<span class="hljs-number">2</span>&#125; = [<span class="hljs-number">4</span> <span class="hljs-number">5</span>]<span class="hljs-string">&#x27;;</span></code></pre>
-
-<p><img src="https://i.loli.net/2020/07/31/eg9IZTMObGqypAi.png" srcset="/img/loading.gif" style="zoom: 50%;" /><img src="https://i.loli.net/2020/07/31/IxUscMYaPDVjZCy.png" srcset="/img/loading.gif"></p>
-<img src="https://i.loli.net/2020/07/31/IxUscMYaPDVjZCy.png" srcset="/img/loading.gif" style="zoom:50%;" />
-
+<p><img src="https://i.loli.net/2020/07/31/eg9IZTMObGqypAi.png" srcset="/img/loading.gif" style="zoom: 50%;" /><img src="https://i.loli.net/2020/07/31/IxUscMYaPDVjZCy.png" srcset="/img/loading.gif" alt=""></p>
+<p><img src="https://i.loli.net/2020/07/31/IxUscMYaPDVjZCy.png" srcset="/img/loading.gif" style="zoom:50%;" /></p>
 <p>也可以用cat命令：</p>
 <pre><code class="hljs angelscript">A=[<span class="hljs-number">1</span> <span class="hljs-number">2</span>;<span class="hljs-number">3</span> <span class="hljs-number">4</span>]; B=[<span class="hljs-number">5</span> <span class="hljs-number">6</span>;<span class="hljs-number">7</span> <span class="hljs-number">8</span>];
 C=cat(<span class="hljs-number">1</span>,A,B) 	<span class="hljs-number">1</span>为纵向合并，即row
 C=cat(<span class="hljs-number">2</span>,A,B) 	<span class="hljs-number">2</span>为横向合并，即column
 C=cat(<span class="hljs-number">3</span>,A,B)	<span class="hljs-number">3</span>为高维合并，即layer</code></pre>
-
 <p>如图所示：</p>
-<img src="https://i.loli.net/2020/07/31/5dqNHgJxoSzIm4w.png" srcset="/img/loading.gif" style="zoom:80%;" />
-
+<p><img src="https://i.loli.net/2020/07/31/5dqNHgJxoSzIm4w.png" srcset="/img/loading.gif" style="zoom:80%;" /></p>
 <pre><code class="hljs matlab">A&#123;<span class="hljs-number">1</span>,<span class="hljs-number">1</span>&#125; = [<span class="hljs-number">1</span> <span class="hljs-number">2</span>;<span class="hljs-number">4</span> <span class="hljs-number">5</span>];
 A&#123;<span class="hljs-number">1</span>,<span class="hljs-number">2</span>&#125; = <span class="hljs-string">&#x27;Name&#x27;</span>;
 A&#123;<span class="hljs-number">2</span>,<span class="hljs-number">1</span>&#125; = <span class="hljs-number">2</span><span class="hljs-number">-4</span><span class="hljs-built_in">i</span>;
@@ -370,12 +346,10 @@ B&#123;<span class="hljs-number">1</span>,<span class="hljs-number">2</span>&#12
 B&#123;<span class="hljs-number">2</span>,<span class="hljs-number">1</span>&#125; = <span class="hljs-number">0</span>:<span class="hljs-number">1</span>:<span class="hljs-number">3</span>;
 B&#123;<span class="hljs-number">2</span>,<span class="hljs-number">2</span>&#125; = [<span class="hljs-number">4</span> <span class="hljs-number">5</span>]&#x27;;
 C = <span class="hljs-built_in">cat</span>(<span class="hljs-number">3</span>, A, B)</code></pre>
-
 <p><strong>reshape</strong></p>
 <p>Returns a new array with assigned rows and columns</p>
 <pre><code class="hljs angelscript">A = &#123;<span class="hljs-string">&#x27;James Bond&#x27;</span>, [<span class="hljs-number">1</span> <span class="hljs-number">2</span>;<span class="hljs-number">3</span> <span class="hljs-number">4</span>;<span class="hljs-number">5</span> <span class="hljs-number">6</span>]; pi, magic(<span class="hljs-number">5</span>)&#125;
 C = reshape(A,<span class="hljs-number">1</span>,<span class="hljs-number">4</span>)   将<span class="hljs-number">2</span>x2矩阵转成<span class="hljs-number">1</span>x4矩阵</code></pre>
-
 <h4 id="1-8Checking-Variable-And-Variable-Status检查变量类型"><a href="#1-8Checking-Variable-And-Variable-Status检查变量类型" class="headerlink" title="1.8Checking Variable And Variable Status检查变量类型"></a>1.8Checking Variable And Variable Status检查变量类型</h4><pre><code class="hljs smali">isinteger 		Determine<span class="hljs-built_in"> if </span>input is integer array
 islogical 		Determine<span class="hljs-built_in"> if </span>input is logical array
 isnan 			Detect an element that isnot a number (NaN)
@@ -390,43 +364,33 @@ isfloat 		Determine<span class="hljs-built_in"> if </span>input is floating-poin
 isglobal 		Determine<span class="hljs-built_in"> if </span>input is global variable
 ishandle 		Detect valid graphics object handles
 isinf 			Detect infinite elements of array</code></pre>
-
 <h3 id="2File-access"><a href="#2File-access" class="headerlink" title="2File access"></a>2File access</h3><h4 id="2-1save"><a href="#2-1save" class="headerlink" title="2.1save"></a>2.1save</h4><pre><code class="hljs matlab">clear; a = <span class="hljs-built_in">magic</span>(<span class="hljs-number">4</span>);
 save mydata1.mat
 save mydata2.mat -ascii   存成ASCII可以用记事本打开
 
 save(filename,<span class="hljs-string">&#x27;var&#x27;</span>)		可以存储特定变量，当然也可以鼠标右键另存为</code></pre>
-
 <h4 id="2-2load"><a href="#2-2load" class="headerlink" title="2.2load"></a>2.2load</h4><pre><code class="hljs stylus"><span class="hljs-function"><span class="hljs-title">load</span><span class="hljs-params">(<span class="hljs-string">&#x27;mydata1.mat&#x27;</span>)</span></span>
 <span class="hljs-function"><span class="hljs-title">load</span><span class="hljs-params">(<span class="hljs-string">&#x27;mydata2.mat&#x27;</span>,<span class="hljs-string">&#x27;-ascii&#x27;</span>)</span></span></code></pre>
-
 <h4 id="2-3xlsread"><a href="#2-3xlsread" class="headerlink" title="2.3xlsread()"></a>2.3xlsread()</h4><pre><code class="hljs matlab">Score = xlsread(<span class="hljs-string">&#x27;04Score.xlsx&#x27;</span>)					默认读数值部分
 Score = xlsread(<span class="hljs-string">&#x27;04Score.xlsx&#x27;</span>, <span class="hljs-string">&#x27;B2:D4&#x27;</span>)		指定行列</code></pre>
-
 <h4 id="2-4xlswrite"><a href="#2-4xlswrite" class="headerlink" title="2.4xlswrite()"></a>2.4xlswrite()</h4><pre><code class="hljs matlab">M = <span class="hljs-built_in">mean</span>(Score&#x27;)&#x27;;
 xlswrite(<span class="hljs-string">&#x27;04Score.xlsx&#x27;</span>, M, <span class="hljs-number">1</span>, <span class="hljs-string">&#x27;E2:E4&#x27;</span>);   顺序分别是文件名、变量名、sheet、写入的位置
 xlswrite(<span class="hljs-string">&#x27;04Score.xlsx&#x27;</span>, &#123;<span class="hljs-string">&#x27;Mean&#x27;</span>&#125;, <span class="hljs-number">1</span>, <span class="hljs-string">&#x27;E1&#x27;</span>);  将单元E1写成<span class="hljs-built_in">mean</span></code></pre>
-
 <h4 id="2-5获取文本"><a href="#2-5获取文本" class="headerlink" title="2.5获取文本"></a>2.5获取文本</h4><pre><code class="hljs matlab">[Score Header] = xlsread(<span class="hljs-string">&#x27;04Score.xlsx&#x27;</span>)</code></pre>
-
 <h4 id="2-6Low-level-File-I-O-Functions"><a href="#2-6Low-level-File-I-O-Functions" class="headerlink" title="2.6Low-level File I/O Functions"></a>2.6Low-level File I/O Functions</h4><pre><code class="hljs livecodeserver">fopen 		Open <span class="hljs-built_in">file</span>, <span class="hljs-keyword">or</span> obtain information about <span class="hljs-built_in">open</span> <span class="hljs-built_in">files</span>
 fclose 		Close <span class="hljs-literal">one</span> <span class="hljs-keyword">or</span> all <span class="hljs-built_in">open</span> <span class="hljs-built_in">files</span>
 fscanf 		Read data <span class="hljs-built_in">from</span> <span class="hljs-keyword">text</span> <span class="hljs-built_in">file</span>
 fprintf 	Write data <span class="hljs-built_in">to</span> <span class="hljs-keyword">text</span> <span class="hljs-built_in">file</span>
 feof 		Test <span class="hljs-keyword">for</span> <span class="hljs-keyword">end</span>-<span class="hljs-keyword">of</span>-<span class="hljs-built_in">file</span></code></pre>
-
 <pre><code class="hljs matlab">fid = fopen(<span class="hljs-string">&#x27;[filename]&#x27;</span>, <span class="hljs-string">&#x27;[permission]&#x27;</span>);</code></pre>
-
 <p>Writing Sine Values into A File:</p>
 <pre><code class="hljs matlab">x = <span class="hljs-number">0</span>:<span class="hljs-built_in">pi</span>/<span class="hljs-number">10</span>:<span class="hljs-built_in">pi</span>; y = <span class="hljs-built_in">sin</span>(x); fid = fopen(<span class="hljs-string">&#x27;sinx.txt&#x27;</span>,<span class="hljs-string">&#x27;w&#x27;</span>);
 <span class="hljs-keyword">for</span> <span class="hljs-built_in">i</span>=<span class="hljs-number">1</span>:<span class="hljs-number">11</span>
 fprintf(fid,<span class="hljs-string">&#x27;%5.3f %8.4f\n&#x27;</span>, x(<span class="hljs-built_in">i</span>), y(<span class="hljs-built_in">i</span>));
 <span class="hljs-keyword">end</span>
 fclose(fid); <span class="hljs-built_in">type</span> sinx.txt</code></pre>
-
-<img src="https://i.loli.net/2020/07/31/47Ss52jHwhLTvdx.png" srcset="/img/loading.gif" style="zoom:80%;" />
-
-<p><img src="https://i.loli.net/2020/07/31/TsHG25o6trUfNSX.png" srcset="/img/loading.gif" style="zoom:80%;" /><img src="https://i.loli.net/2020/07/31/KtYH9DGyhEMNQB3.png" srcset="/img/loading.gif"></p>
+<p><img src="https://i.loli.net/2020/07/31/47Ss52jHwhLTvdx.png" srcset="/img/loading.gif" style="zoom:80%;" /></p>
+<p><img src="https://i.loli.net/2020/07/31/TsHG25o6trUfNSX.png" srcset="/img/loading.gif" style="zoom:80%;" /><img src="https://i.loli.net/2020/07/31/KtYH9DGyhEMNQB3.png" srcset="/img/loading.gif" alt=""></p>
 
             </div>
             <hr>
