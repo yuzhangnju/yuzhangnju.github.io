@@ -221,7 +221,7 @@
             
             <div class="markdown-body" id="post-body">
               <p>主讲人：杨翠红   研究员    杰青</p>
-<p>邮箱：<a href="mailto:&#x63;&#x68;&#121;&#x61;&#x6e;&#x67;&#x40;&#105;&#115;&#x73;&#x2e;&#97;&#99;&#46;&#99;&#110;">&#x63;&#x68;&#121;&#x61;&#x6e;&#x67;&#x40;&#105;&#115;&#x73;&#x2e;&#97;&#99;&#46;&#99;&#110;</a></p>
+<p>邮箱：<a href="mailto:&#x63;&#x68;&#121;&#x61;&#x6e;&#x67;&#64;&#x69;&#x73;&#115;&#x2e;&#x61;&#x63;&#46;&#x63;&#110;">&#x63;&#x68;&#121;&#x61;&#x6e;&#x67;&#64;&#x69;&#x73;&#115;&#x2e;&#x61;&#x63;&#46;&#x63;&#110;</a></p>
 <p>固话：010-82541803</p>
 <p>单位：中国科学院数学与系统科学研究院</p>
 <p>主持人：张林秀    杰青（TWAS院士）   复旦管理学杰出贡献奖（2014）</p>
@@ -568,6 +568,45 @@
 
 
 
+
+  
+
+  
+    <!-- MathJax -->
+    <script>
+      MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']]
+        },
+        options: {
+          renderActions: {
+            findScript: [10, doc => {
+              document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                const display = !!node.type.match(/; *mode=display/);
+                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                const text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = { node: text, delim: '', n: 0 };
+                math.end = { node: text, delim: '', n: 0 };
+                doc.math.push(math);
+              });
+            }, '', false],
+            insertedScript: [200, () => {
+              document.querySelectorAll('mjx-container').forEach(node => {
+                let target = node.parentNode;
+                if (target.nodeName.toLowerCase() === 'li') {
+                  target.parentNode.classList.add('has-jax');
+                }
+              });
+            }, '', false]
+          }
+        }
+      };
+    </script>
+
+    <script async src="https://cdn.staticfile.org/mathjax/3.0.5/es5/tex-svg.js" ></script>
+
+  
 
 
 

@@ -223,7 +223,7 @@
               <p>《自然》及子刊集的交叉研究概览与优质期刊写作发文技巧</p>
 <p>主讲人信息</p>
 <p>姓名：夏瑒</p>
-<p>邮箱：<a href="mailto:&#89;&#97;&#x6e;&#103;&#x2e;&#x58;&#105;&#x61;&#64;&#x6e;&#97;&#x74;&#x75;&#114;&#101;&#x2e;&#x63;&#x6f;&#109;">&#89;&#97;&#x6e;&#103;&#x2e;&#x58;&#105;&#x61;&#64;&#x6e;&#97;&#x74;&#x75;&#114;&#101;&#x2e;&#x63;&#x6f;&#109;</a></p>
+<p>邮箱：<a href="mailto:&#89;&#97;&#110;&#103;&#46;&#x58;&#105;&#x61;&#x40;&#x6e;&#x61;&#x74;&#x75;&#x72;&#x65;&#x2e;&#99;&#x6f;&#109;">&#89;&#97;&#110;&#103;&#46;&#x58;&#105;&#x61;&#x40;&#x6e;&#x61;&#x74;&#x75;&#x72;&#x65;&#x2e;&#99;&#x6f;&#109;</a></p>
 <p><img src="https://i.loli.net/2020/09/15/wGheKvI7rcNz2Of.png" srcset="/img/loading.gif"></p>
 <h3 id="1-Nature介绍"><a href="#1-Nature介绍" class="headerlink" title="1. Nature介绍"></a>1. Nature介绍</h3><p>高质量的选稿</p>
 <p>全职的编辑委员会</p>
@@ -589,6 +589,45 @@
 
 
 
+
+  
+
+  
+    <!-- MathJax -->
+    <script>
+      MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']]
+        },
+        options: {
+          renderActions: {
+            findScript: [10, doc => {
+              document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                const display = !!node.type.match(/; *mode=display/);
+                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                const text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = { node: text, delim: '', n: 0 };
+                math.end = { node: text, delim: '', n: 0 };
+                doc.math.push(math);
+              });
+            }, '', false],
+            insertedScript: [200, () => {
+              document.querySelectorAll('mjx-container').forEach(node => {
+                let target = node.parentNode;
+                if (target.nodeName.toLowerCase() === 'li') {
+                  target.parentNode.classList.add('has-jax');
+                }
+              });
+            }, '', false]
+          }
+        }
+      };
+    </script>
+
+    <script async src="https://cdn.staticfile.org/mathjax/3.0.5/es5/tex-svg.js" ></script>
+
+  
 
 
 
