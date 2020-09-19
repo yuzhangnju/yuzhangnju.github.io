@@ -1,0 +1,684 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=&#34;auto&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="https://i.loli.net/2020/09/19/dVCNgHr9YflwSjt.png">
+  <link rel="icon" type="image/png" href="https://i.loli.net/2020/09/19/dVCNgHr9YflwSjt.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="Zhang Yu">
+  <meta name="keywords" content="">
+  <title>Typora基础笔记 - Yu&#39;s Space</title>
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/github-gist.min.css" />
+    
+  
+
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_pf9vaxs7x7b.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.2.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>Yu's Space</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/">
+                <i class="iconfont icon-link-fill"></i>
+                友链
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" href="javascript:">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner intro-2" id="background" parallax=true
+         style="background: url('https://i.loli.net/2020/06/04/Y8KFPB7T9bhLjtq.jpg') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="container page-header text-center fade-in-up">
+            <span class="h2" id="subtitle">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2020-04-11 21:00" pubdate>
+        2020年4月11日 晚上
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      2.1k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      23
+       分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="container nopadding-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto" id="post">
+            <!-- SEO header -->
+            <h1 style="display: none">Typora基础笔记</h1>
+            
+            <div class="markdown-body" id="post-body">
+              <h2 id="一、简介"><a href="#一、简介" class="headerlink" title="一、简介"></a>一、简介</h2><p><a target="_blank" rel="noopener" href="https://www.typora.io/">Typora</a>是一款支持Markdown语法的文本编辑器，有着“书写即美学”的美誉，将文字敲出时即完成排版<sup id="fnref:1" class="footnote-ref"><a href="#fn:1" rel="footnote"><span class="hint--top hint--rounded" aria-label="https://www.bilibili.com/video/BV1ox411y7Mc?from=search&amp;seid=4186236951465042906
+">[1]</span></a></sup>，它有诸多优点：</p>
+<ul>
+<li>解放鼠标操作，专注书写（严格来说这是Markdown语法的优势？）</li>
+<li>所写所见即所得，上传到网页一般不会发生排版变化</li>
+<li>极简设计，有种类似于<code>oneplus无负担的快</code>的感觉</li>
+<li>没有源代码和生成后对照模式，书写更为专注</li>
+<li>相比其他编辑器，Typora支持较多的快捷键</li>
+<li>丰富的主题、帮助和其他自定义设置</li>
+<li>易于导出和分享</li>
+</ul>
+<h2 id="二、基础语法"><a href="#二、基础语法" class="headerlink" title="二、基础语法"></a>二、基础语法</h2><h3 id="（一）多级标题"><a href="#（一）多级标题" class="headerlink" title="（一）多级标题"></a>（一）多级标题</h3><p>在原生的Markdown语法中，多级标题通过 <code>#</code> 加空格实现，如：</p>
+<pre><code class="hljs clean"># 一级标题
+## 二级标题
+### 三级标题</code></pre>
+
+<p><code>#</code>的个数表示标题级别，Typora最多支持六级标题，以上操作可以通过<code>Ctrl+（1~6）</code>实现，数字表示标题级别，如：</p>
+<pre><code class="hljs angelscript">Ctrl+<span class="hljs-number">1</span> 一级标题
+Ctrl+<span class="hljs-number">2</span> 二级标题
+Ctrl+<span class="hljs-number">3</span> 三级标题，以此类推，效果↓</code></pre>
+
+<h6 id=""><a href="#" class="headerlink" title=""></a><img src="/img/image-20200411193702341.png" srcset="/img/loading.gif" alt="image-20200411193702341"></h6><blockquote>
+<p>Typora支持快捷键调节标题级别，通过<code>Ctrl+（=/-）</code>实现</p>
+</blockquote>
+<h3 id="（二）突出-特殊显示"><a href="#（二）突出-特殊显示" class="headerlink" title="（二）突出/特殊显示"></a>（二）突出/特殊显示</h3><ul>
+<li><em>斜体</em>：<code>*要斜体的文本*</code>，在要斜体的文本前后各输入一个*，快捷键为<code>Ctrl+I</code></li>
+<li><strong>加粗</strong>：<code>**要加粗的文本** </code>，在要加粗的文本前后各输入两个*，快捷键为<code>Ctrl+B</code></li>
+<li><strong><em>粗斜</em></strong>：<code>***要加粗的斜体***</code>，在要加粗的斜体文本前后各输入三个***</li>
+<li>==高亮==：<code>==高亮==</code>，在要高亮的文本前后各输入两个=</li>
+<li><del>删除</del>：<code>~~删除~~</code>，在要画删除线的文本前后各输入两个~，快捷键为<code>Alt+Shift+5</code></li>
+<li><u>下划线</u>：<code>&lt;u&gt;下划线&lt;/u&gt;</code>，注意斜杠 /，文本前后分别为<code>&lt;u&gt;</code>和<code>&lt;/u&gt;</code>，快捷键为<code>Ctrl+U</code></li>
+<li><code>代码</code>：即在两个`反引号（英文输入状态下Esc键下方按键）之间插入想展示的内容，快捷键为<code>Ctrl+Shift+反引号</code></li>
+<li>$$e^x$$：上标，^^，在两个小尖尖内输入需要上标的内容 ,如<code>e^x^</code></li>
+<li>$$y_{t-1}$$：下标，~~，在两个波浪号间输入需要下标的内容，如<code>y~t-1~</code></li>
+</ul>
+<blockquote>
+<p>高亮在本博客无法正确显示，HTML高亮文本需要其他操作</p>
+</blockquote>
+<blockquote>
+<p>部分功能，如高亮，需要在偏好设置（Markdown扩展语法）内启用</p>
+</blockquote>
+<blockquote>
+<p>快捷键后接的内容通常是相应表示英文的首字母，如粗体Bold、斜体Italic</p>
+</blockquote>
+<blockquote>
+<p>以上文本与符号连接处不能存在空格，否则语法无效，如<code>==高亮 ==</code>，无法正确高亮</p>
+</blockquote>
+<blockquote>
+<p>若想展示带符号的标记语言或原文本，可通过在代码段内书写或在符号前插入 反斜杠 \  转义实现</p>
+</blockquote>
+<h3 id="（三）列表"><a href="#（三）列表" class="headerlink" title="（三）列表"></a>（三）列表</h3><h4 id="1-无序列表"><a href="#1-无序列表" class="headerlink" title="1. 无序列表"></a>1. 无序列表</h4><p>第二节的展示使用了无序列表，即没有顺序的标号，可通过  加号+空格 或  减号+空格  或  星号+空格  实现，如：</p>
+<ul>
+<li>无序列表1</li>
+<li>无序列表2<ul>
+<li>无序列表2.1<ul>
+<li>无序列表2.1.1</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>说是无序，其实也不是那么无序，可通过缩进表示内容层级</p>
+</blockquote>
+<blockquote>
+<p>快捷键为<code>Ctrl+Shift+[</code>，这个快捷键，说快捷其实并不快捷</p>
+</blockquote>
+<h4 id="2-有序列表"><a href="#2-有序列表" class="headerlink" title="2. 有序列表"></a>2. 有序列表</h4><p>即有顺序的列表，通过  数字+点+空格   实现，如：</p>
+<ol>
+<li><p>一级列表</p>
+</li>
+<li><p>二级列表</p>
+<p>2.1 二级细分</p>
+<p>2.2 二级细分</p>
+<p>​    2.2.1 二级再细分</p>
+</li>
+</ol>
+<blockquote>
+<p>不快捷的快捷键为<code>Ctrl+Shift+]</code></p>
+</blockquote>
+<blockquote>
+<p>与无序列表类似，可通过缩进展示更多细分层级</p>
+</blockquote>
+<h4 id="3-任务列表"><a href="#3-任务列表" class="headerlink" title="3. 任务列表"></a>3. 任务列表</h4><p>即可以check的列表，语法为<code>- [ ] </code>，减号后、括号内和括号后各有一个空格，括号内输入x及表示勾选</p>
+<ul>
+<li><input disabled="" type="checkbox"> 今天要做运动</li>
+</ul>
+<ul>
+<li><input checked="" disabled="" type="checkbox"> 晚上更新blog</li>
+</ul>
+<blockquote>
+<p>勾选的操作也可以通过鼠标点击实现</p>
+</blockquote>
+<blockquote>
+<p>类似地，任务列表也可以通过缩进表示更多细分层级且支持自动填充</p>
+</blockquote>
+<blockquote>
+<p>任务列表在本博客网页会出错，Typora预览模式的效果如下：</p>
+</blockquote>
+<p><img src="/img/image-20200411204423067.png" srcset="/img/loading.gif" alt="image-20200411204423067"></p>
+<h3 id="（四）插入内容"><a href="#（四）插入内容" class="headerlink" title="（四）插入内容"></a>（四）插入内容</h3><h4 id="1-表格"><a href="#1-表格" class="headerlink" title="1. 表格"></a>1. 表格</h4><p>​    源代码为如下，快捷键为<code>Ctrl+T</code>，对齐可通过在第二行调整冒号的位置和个数实现</p>
+<pre><code class="hljs gherkin">|<span class="hljs-string"> 姓名 </span>|<span class="hljs-string"> 年龄 </span>|<span class="hljs-string"> 职业 </span>|
+|<span class="hljs-string"> :--- </span>|<span class="hljs-string"> :--: </span>|<span class="hljs-string"> ---: </span>|
+|<span class="hljs-string"> Yui  </span>|<span class="hljs-string">  18  </span>|<span class="hljs-string"> 学生 </span>|</code></pre>
+
+<p>​    效果如下：</p>
+<table>
+<thead>
+<tr>
+<th align="left">姓名</th>
+<th align="center">年龄</th>
+<th align="right">职业</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">Yui</td>
+<td align="center">18</td>
+<td align="right">学生</td>
+</tr>
+</tbody></table>
+<p>​    可直接在表格内填入相应内容，本博客的渲染器显示的表格与Typora预览模式有所不同</p>
+<p>​    调整对齐方式、更改行/列数等操作通过鼠标点击似乎更为快速</p>
+<h4 id="2-图片"><a href="#2-图片" class="headerlink" title="2. 图片"></a>2. 图片</h4><p>一般而言，Typora插入图片主要有绝对位置、相对位置、图床链接（也可以算作相对位置，）三种方式，其语法为<code>![]()</code>，中括号内为图片名称，小括号内为图片位置或链接，再接”title”时，将光标移至图片可显示图片标签，快捷键为<code>Ctrl+Shift+I</code>，三种位置解释如下：</p>
+<ul>
+<li><p>绝对位置，即图片在本地的位置，可直接拉取或粘贴实现</p>
+</li>
+<li><p>相对位置，即Markdown文档和图片位置的相对不变即可，文件整体的移动不影响索引</p>
+</li>
+<li><p>图床链接，即将图片上传到相应的图床服务商，获取链接，也可以填入相关网络图片的链接</p>
+</li>
+</ul>
+<p>建议使用相对位置或图床，此处以hexo为例，演示相对位置的操作：</p>
+<ol>
+<li>Typora软件中，格式→图像→全局图像设置，做如下设置，即指定复制路径到博客图片根目录并勾选相关内容</li>
+</ol>
+<p><img src="/img/image-20200411165759287.png" srcset="/img/loading.gif" alt="image-20200411165759287" title="图像设置"></p>
+<ol start="2">
+<li>引用网络相关图片，按语法填入名称和位置即可</li>
+</ol>
+<h4 id="3-超链接"><a href="#3-超链接" class="headerlink" title="3. 超链接"></a>3. 超链接</h4><ul>
+<li><p>如本博客地址<a target="_blank" rel="noopener" href="https://www.yuzhangnju.me/">yuzhangnju.me</a>，点击即可跳转，其语法为中括号接小括号，<code>[]()</code>，中括号填入想要显示的字符，小括号内为链接地址。</p>
+</li>
+<li><p>设置点击原网址跳转，可写为：<code>&lt;https://www.yuzhangnju.me&gt;</code>，效果为<a target="_blank" rel="noopener" href="https://www.yuzhangnju.me/">https://www.yuzhangnju.me</a></p>
+</li>
+<li><p>给图片加超链接，即将插入图片与插入链接的语法结合起来，如点击下图可跳转至本博客的关于页（此处有错误暂不知如何处理）：</p>
+<p>语法示例：<code>[![touxiang](/img/touxiang.jpg)](https://www.yuzhangnju.me/about/)</code></p>
+</li>
+</ul>
+<p><a target="_blank" rel="noopener" href="https://www.yuzhangnju.me/about/"><img src="/img/touxiang.jpg" srcset="/img/loading.gif" alt="touxiang"></a></p>
+<blockquote>
+<p>各类链接可使用参考链接表示，放至文章末尾，使源代码模式下的正文内容更为简洁</p>
+</blockquote>
+<p>​    如：<code>[bilibili][B站]</code>，显示为  <a target="_blank" rel="noopener" href="https://www.bilibili.com/">bilibili</a></p>
+<p>​            <code>[B站]: https://www.bilibili.com </code></p>
+<h4 id="4-代码块"><a href="#4-代码块" class="headerlink" title="4. 代码块"></a>4. 代码块</h4><p>三个反引号或快捷键<code>Ctrl+Shift+K</code>，插入代码块，选择相应的语言名称可实现代码高亮:</p>
+<pre><code class="hljs python">hexo clean
+hexo g
+hexo d
+print(<span class="hljs-string">&quot;hello world&quot;</span>)</code></pre>
+
+<h4 id="5-公式块"><a href="#5-公式块" class="headerlink" title="5. 公式块"></a>5. 公式块</h4><p>两对美元符号之间插入，或快捷键<code>Ctrl+Shift+M</code>：</p>
+<pre><code class="hljs latex"><span class="hljs-formula">$$</span>
+<span class="hljs-formula">y=<span class="hljs-tag">\<span class="hljs-name">alpha</span></span>+<span class="hljs-tag">\<span class="hljs-name">beta</span></span>_1x_1+<span class="hljs-tag">\<span class="hljs-name">beta</span></span>_2x_2+...+<span class="hljs-tag">\<span class="hljs-name">beta</span></span>_&#123;n-1&#125;x_&#123;n-1&#125;+<span class="hljs-tag">\<span class="hljs-name">beta</span></span>_nx_n+u_i</span>
+<span class="hljs-formula">$$</span></code></pre>
+
+<p>$$<br>y=\alpha+\beta_1x_1+\beta_2x_2+…+\beta_{n-1}x_{n-1}+\beta_nx_n+u_i<br>$$</p>
+<p>此处可以选择引擎，本文应用的是latex语法和mathjax引擎，更多公式表达见脚注<sup id="fnref:2" class="footnote-ref"><a href="#fn:2" rel="footnote"><span class="hint--top hint--rounded" aria-label="https://blog.csdn.net/mingzhuo_126/article/details/82722455
+">[2]</span></a></sup></p>
+<h4 id="6-分割线"><a href="#6-分割线" class="headerlink" title="6. 分割线"></a>6. 分割线</h4><p>*+-，这三个符号三连都可以插入分割线（本博客主题内，+++不会出现分割线）</p>
+<hr>
+<h4 id="7-emoji表情"><a href="#7-emoji表情" class="headerlink" title="7. emoji表情"></a>7. emoji表情</h4><p>可以直接引入外部emoji，也可以使用  冒号+主题词+冒号  的形式输入，如：</p>
+<p><code>:love_letter:</code>，出现情书的emoji：   :love_letter:</p>
+<p>此功能在本博客网页无法显示，因此您看不到情书（本地可以看到）</p>
+<h4 id="8-缩进"><a href="#8-缩进" class="headerlink" title="8. 缩进"></a>8. 缩进</h4><p>​    缩进一个中文字符</p>
+<p>​        <code>&amp;emsp; 中文字符</code></p>
+<p>​    缩进半个中文字符</p>
+<p>​        <code>&amp;ensp; 中文字符</code></p>
+<p>​    缩进四分之一个中文字符</p>
+<p>​        <code>&amp;nbsp; 中文字符</code></p>
+<p>效果如下：</p>
+<p>&emsp; 中文字符</p>
+<p>&ensp; 中文字符</p>
+<p>&nbsp; 中文字符</p>
+<h2 id="三、其他"><a href="#三、其他" class="headerlink" title="三、其他"></a>三、其他</h2><p>Typora作为一款功能强大的编辑器，亦支持部分HTML语言，还有打字机模式、专注模式等辅助书写的功能<sup id="fnref:3" class="footnote-ref"><a href="#fn:3" rel="footnote"><span class="hint--top hint--rounded" aria-label="https://sspai.com/post/54912
+">[3]</span></a></sup>，期待后续的学习与应用。</p>
+<p>但它也有一定的问题，如对脚注的支持似乎没有简书编辑器直观方便，部分格式在网页端会变形或不可用。</p>
+<p>附：</p>
+<p>一些Markdown资源</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://mdnice.com/">https://mdnice.com/</a>，让微信排版变得更容易</li>
+<li><a target="_blank" rel="noopener" href="https://web.marp.app/">https://web.marp.app/</a>，使用Markdown语法即时编写PPT</li>
+</ul>
+<p>Reference:</p>
+<ol>
+<li><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1ox411y7Mc?from=search&amp;seid=4186236951465042906">https://www.bilibili.com/video/BV1ox411y7Mc?from=search&amp;seid=4186236951465042906</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/mingzhuo_126/article/details/82722455">https://blog.csdn.net/mingzhuo_126/article/details/82722455</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://sspai.com/post/54912">https://sspai.com/post/54912</a></p>
+</li>
+</ol>
+<section class="footnotes"><div class="footnote-list"><ol><li><span id="fn:1" class="footnote-text"><span><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1ox411y7Mc?from=search&amp;seid=4186236951465042906">https://www.bilibili.com/video/BV1ox411y7Mc?from=search&amp;seid=4186236951465042906</a>
+<a href="#fnref:1" rev="footnote" class="footnote-backref"> ↩</a></span></span></li><li><span id="fn:2" class="footnote-text"><span><a target="_blank" rel="noopener" href="https://blog.csdn.net/mingzhuo_126/article/details/82722455">https://blog.csdn.net/mingzhuo_126/article/details/82722455</a>
+<a href="#fnref:2" rev="footnote" class="footnote-backref"> ↩</a></span></span></li><li><span id="fn:3" class="footnote-text"><span><a target="_blank" rel="noopener" href="https://sspai.com/post/54912">https://sspai.com/post/54912</a>
+<a href="#fnref:3" rev="footnote" class="footnote-backref"> ↩</a></span></span></li></ol></div></section>
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/Typora/">Typora</a>
+                    
+                      <a class="hover-with-bg" href="/tags/%E7%AC%94%E8%AE%B0/">笔记</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext row">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2020/04/16/%E8%80%95%E5%9C%B0%E4%BF%9D%E6%8A%A4%E6%94%BF%E7%AD%96%E7%9A%84%E8%BD%AC%E5%9E%8B/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">并不永久的“永久基本农田”</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2020/04/05/%E4%B8%8E%E6%AF%8D%E4%B8%8A%E5%A4%A7%E4%BA%BA%E9%80%9B%E8%B6%85%E5%B8%82/">
+                        <span class="hidden-mobile">和母上大人逛超市</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div id="tocbot"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+  </main>
+
+  
+    <a id="scroll-top-button" href="#" role="button">
+      <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+    </a>
+  
+
+  
+    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+  
+
+  
+
+  
+
+  <footer class="mt-5">
+  <div class="text-center py-3">
+    <div>
+      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a>
+      <i class="iconfont icon-love"></i>
+      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener">
+        <span>Fluid</span></a>
+    </div>
+    
+
+    
+
+    
+  </div>
+</footer>
+
+<!-- SCRIPTS -->
+<script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
+<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/main.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
+  <script  src="/js/clipboard-use.js" ></script>
+
+
+
+
+
+
+
+  <script  src="https://cdn.staticfile.org/tocbot/4.11.1/tocbot.min.js" ></script>
+  <script>
+    $(document).ready(function () {
+      var boardCtn = $('#board-ctn');
+      var boardTop = boardCtn.offset().top;
+
+      tocbot.init({
+        tocSelector: '#tocbot',
+        contentSelector: '#post-body',
+        headingSelector: 'h1,h2,h3,h4,h5,h6',
+        linkClass: 'tocbot-link',
+        activeLinkClass: 'tocbot-active-link',
+        listClass: 'tocbot-list',
+        isCollapsedClass: 'tocbot-is-collapsed',
+        collapsibleClass: 'tocbot-is-collapsible',
+        collapseDepth: 0,
+        scrollSmooth: true,
+        headingsOffset: -boardTop
+      });
+      if ($('.toc-list-item').length > 0) {
+        $('#toc').css('visibility', 'visible');
+      }
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
+  <script>
+    var typed = new Typed('#subtitle', {
+      strings: [
+        '  ',
+        "Typora基础笔记&nbsp;",
+      ],
+      cursorChar: "_",
+      typeSpeed: 50,
+      loop: false,
+    });
+    typed.stop();
+    $(document).ready(function () {
+      $(".typed-cursor").addClass("h2");
+      typed.start();
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
+  <script>
+    anchors.options = {
+      placement: "right",
+      visible: "hover",
+      
+    };
+    var el = "h1,h2,h3,h4,h5,h6".split(",");
+    var res = [];
+    for (item of el) {
+      res.push(".markdown-body > " + item)
+    }
+    anchors.add(res.join(", "))
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    var path = "/local-search.xml";
+    var inputArea = document.querySelector("#local-search-input");
+    inputArea.onclick = function () {
+      searchFunc(path, 'local-search-input', 'local-search-result');
+      this.onclick = null
+    }
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+  <script>
+    $('#post img:not(.no-zoom img, img[no-zoom]), img[zoom]').each(
+      function () {
+        var element = document.createElement('a');
+        $(element).attr('data-fancybox', 'images');
+        $(element).attr('href', $(this).attr('src'));
+        $(this).wrap(element);
+      }
+    );
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
