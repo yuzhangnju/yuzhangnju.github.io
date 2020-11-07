@@ -8,7 +8,7 @@
     <link href="/2020/11/07/20201107%E6%8D%A2%E6%BA%90%E8%AE%B0%E5%BD%95/"/>
     <url>/2020/11/07/20201107%E6%8D%A2%E6%BA%90%E8%AE%B0%E5%BD%95/</url>
     
-    <content type="html"><![CDATA[<p>昨日观摩了fluid交流群某位群友在coding上部署的页面，发现访问速度非常棒，于是，今天自己也折腾着试试！</p><p>部署coding还算比较简单，可以直接从github克隆仓库过来，但是，之后git双路部署github和coding，花了很多时间。总是这样，小白出击，别人三分钟就能搞定的事情，我需要折腾一天。</p><p>下午将yuzhang.xyz也解析到了coding上，能立即生效。</p><p>但是，<a href="yuzhangnju.me">yuzhangnju.me</a>，通过cloudflare解析，还是没有生效，也可能是我的设置出错了…总之随缘吧，反正也是孤儿博客…</p><p>昨晚登入cloudflare，发现有境外的流量，才发现，自己的孤儿博客可以在谷歌上被搜到（百度未收录），于是，打开了访问记录，哈哈~</p><p>你好，陌生人。</p><p><img src="https://i.loli.net/2020/11/07/r64PCMtAsFYO3Iu.png" alt=""></p><p>希望coding能坚持久一些，请稳定下去！</p>]]></content>
+    <content type="html"><![CDATA[<p>昨日观摩了fluid交流群某位群友在coding上部署的页面，发现访问速度非常棒，于是，今天自己也折腾着试试！</p><p>部署coding还算简单，可以直接从github仓库克隆过来，但是，之后git双路部署github和coding，花了很多时间。总是这样，小白出击，别人三分钟就能搞定的事情，我需要折腾一天。</p><p>下午将<a href="https://yuzhang.xyz">yuzhang.xyz</a>也解析到了coding上，能立即生效。</p><p>但是，<a href="https://yuzhangnju.me">yuzhangnju.me</a>，通过cloudflare解析，还是没有生效，也可能是我的设置出错了…总之随缘吧，反正也是孤儿博客…</p><p>昨晚登入cloudflare，发现有境外的流量，才发现，自己的孤儿博客可以在谷歌上被搜到（百度未收录），于是，打开了访问记录（busuanzi的记录似乎有错误），哈哈~</p><p>你好，陌生人。</p><p><img src="https://i.loli.net/2020/11/07/r64PCMtAsFYO3Iu.png" alt=""></p><p>希望coding能坚持得久一些，请稳定下去！</p>]]></content>
     
     
     
