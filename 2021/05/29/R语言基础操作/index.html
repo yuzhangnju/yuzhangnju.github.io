@@ -1,0 +1,923 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=&#34;auto&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="https://cdn.jsdelivr.net/gh/yuzhangnju/image/img/dVCNgHr9YflwSjt.png">
+  <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/yuzhangnju/image/img/dVCNgHr9YflwSjt.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="Zhang Yu">
+  <meta name="keywords" content="">
+  <title>R语言操作基础 - Yu&#39;s Space</title>
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/github-gist.min.css" />
+    
+  
+
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_pf9vaxs7x7b.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.2.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>Yu's Space</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/">
+                <i class="iconfont icon-link-fill"></i>
+                友链
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" href="javascript:">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner intro-2" id="background" parallax=true
+         style="background: url('https://cdn.jsdelivr.net/gh/yuzhangnju/image/img/bannernew.jpg') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="container page-header text-center fade-in-up">
+            <span class="h2" id="subtitle">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2021-05-29 10:00" pubdate>
+        2021年5月29日 上午
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      4.9k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      60
+       分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="container nopadding-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto" id="post">
+            <!-- SEO header -->
+            <h1 style="display: none">R语言操作基础</h1>
+            
+            <div class="markdown-body" id="post-body">
+              <p>R语言在统计、计量及科研绘图领域有诸多应用，是强力的科研工具。</p>
+<p>为推进对文献的理解，以及入门强大的工具，学习R语言。</p>
+<p>由于主要作工具用，并不涉及“编程”，本节仅摘录相关基础知识，以便查阅。</p>
+<p>配置为：R4.0.2+Rstudio</p>
+<h3 id="1-Rstudio初识"><a href="#1-Rstudio初识" class="headerlink" title="1. Rstudio初识"></a>1. Rstudio初识</h3><p><img src="https://cdn.jsdelivr.net/gh/yuzhangnju/image/img/20210529205237.png" srcset="/img/loading.gif"  /></p>
+<h4 id="1-1-A区域"><a href="#1-1-A区域" class="headerlink" title="1.1 A区域"></a>1.1 A区域</h4><p>这个区域主要负责代码的撰写。刚安装的RStudio，启动时，可能会看不到这个A区域。</p>
+<p>而是B区域全部占据了A区域，可点击左上角的【File】→【New File】→【R Script】，即可看见。如果之前打开过R脚本，再打开RStudio会出现之前打开过的R脚本。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/yuzhangnju/image/img/20210529205619.png" srcset="/img/loading.gif" style="zoom:50%;" /></p>
+<p>上面步骤将新建一个名为“Untitled1”的R代码文件（后缀名默认为<code>.R</code>）。你可在文件内撰写代码，然后可按快捷键<code>Ctrl + S</code>保存文件。也可点击左上角的【File】→【Save】进行保存。接着会跳出“Save File”弹出框，然后可将“Untitled1”文件重命名。这里重命名为“test”，然后点“Save”保存文件。文件将保存在你想保存的工作路径下。接着会跳出“Save File”弹出框，然后可将“Untitled1”文件重命名。这里重命名为“test”，然后点“Save”保存文件。文件将保存在当前工作路径下。</p>
+<h4 id="1-2-B区域"><a href="#1-2-B区域" class="headerlink" title="1.2 B区域"></a>1.2 B区域</h4><p>这里是执行代码的地方，执行结果也会显示在这里。在A区域输入代码，没执行一行都会在这里显示。也可在这个区域直接输入代码，然后按回车键执行代码，输出结果。在这个区域直接输入代码，执行，和RGUI界面差不多。所有我们就不介绍RGUI。</p>
+<p>在A区域输入的代码，可通过点击Run运行光标所在行的代码，点一次运行一行，也可通过【Crtl +Enter】运行。运行的代码会在B区域显示，如果代码有错，也会出现相应的报错提示。B区域随着代码的运行，会越来越多，可通过掃把按钮清空，想要清除Console上的内容，还可按【Ctrl + L】快捷键或者在Console输入cat(‘\f’)。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/yuzhangnju/image/img/20210529205851.png" srcset="/img/loading.gif" alt=""></p>
+<h4 id="1-3-C区域"><a href="#1-3-C区域" class="headerlink" title="1.3 C区域"></a>1.3 C区域</h4><p> <strong>Environment</strong>：是用来记录当前变量的数值，方便查看当前变量的状况。</p>
+<p> <strong>History</strong>：是所有在 <strong>Console</strong>区内代码执行的历史记录。</p>
+<p> <strong>Connections</strong>：是用来方便连接外部数据库，用得非常少，先不介绍。</p>
+<h4 id="1-4-D区域"><a href="#1-4-D区域" class="headerlink" title="1.4 D区域"></a>1.4 D区域</h4><p>Files, Plots, Packages, Help, Viewer</p>
+<p><strong>Files：</strong>这里会显示当前工作路径下的文件，让使用者了解所在的工作路径，这对读写文件非常重要。</p>
+<p>你可通过在Console输入<code>getwd()</code>函数来获取当前工作路径：</p>
+<p>如果Files下显示的不是当前工作路径，那是由于没及时更新视图所导致的。可点击Console字符串旁边箭头的来更新，如下图。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/yuzhangnju/image/img/20210529213112.png" srcset="/img/loading.gif" style="zoom:50%;" /></p>
+<p><strong>Plots：</strong>画好的图将在这里显示。</p>
+<p><strong>Packages：</strong>显示已经安装好了的包，打勾代表已经加载。</p>
+<p>安装Package点击Install，然后输入包名；也可在Console中输入相应代码来安装包，比如<code>install.packages(&#39;data.table&#39;)</code>将安装“data.table”这个包。更新包点Update。</p>
+<p><strong>Help：</strong>查询函数如何使用，下图是查询read.table。</p>
+<p>也可在Console中输入help()函数，()内输入所要查询的函数。比如：help(read.table)。或者直接在Console输入<code>?read.table</code>，如下图。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/yuzhangnju/image/img/20210529213512.png" srcset="/img/loading.gif" alt=""></p>
+<p><strong>Viewer：</strong>是用来显示本地网页文件，用得比较少。</p>
+<h4 id="1-5-RStudio的相关设置"><a href="#1-5-RStudio的相关设置" class="headerlink" title="1.5 RStudio的相关设置"></a>1.5 RStudio的相关设置</h4><ul>
+<li>切换不同R版本</li>
+</ul>
+<p>R允许多个版本共存，比如在电脑上同时安装了2个版本（如下图）。通过RStudio可以很方便在各个R版本间进行切换。</p>
+<p>点击【Tools】→【Global Options…】</p>
+<p>接着点【General】→【Change…】→【Choose a specific version of R】→选中切换的R版本→【OK】→【OK】；下次启动RStudio后，R将切换到相应版本。这里需要注意的是，在Choose a specific version of R中出现的R版本是已经配置了环境变量的。没有配置环境变量不会自动显示，需要点击Browse去选择你安装的版本。</p>
+<ul>
+<li>包安装镜像切换</li>
+</ul>
+<p>由于网速慢的原因，有时安装包会安装失败。</p>
+<p>此时可以通过将包安装切换至中国镜像来解决：点【Tools】→【Global Options…】，接着点【Packages】→【Change…】→【选中一个中国镜像】→【OK】→【OK】。如下图，以后安装包都会通过这个镜像。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/yuzhangnju/image/img/20210529213853.png" srcset="/img/loading.gif" alt=""></p>
+<p>（哈哈，居然还有南大镜像）</p>
+<ul>
+<li>界面样式的修改</li>
+</ul>
+<p>可通过【Tools】→【Global Options…】，接着点【Appearance】进行设置。</p>
+<ul>
+<li>代码编译格式</li>
+</ul>
+<p>有时候打开别人给你发的代码，里边的中文注释换乱码，可通过【Tools】→【Global Options…】，接着点【Code】→【Saving】进行设置。一般选择UTF-8.</p>
+<p>其实也可直接编码重新打开：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/yuzhangnju/image/img/20210529214237.png" srcset="/img/loading.gif" style="zoom:50%;" /></p>
+<h3 id="2-R语言的包管理与应用"><a href="#2-R语言的包管理与应用" class="headerlink" title="2. R语言的包管理与应用"></a>2. R语言的包管理与应用</h3><h4 id="2-1-R包安装"><a href="#2-1-R包安装" class="headerlink" title="2.1 R包安装"></a>2.1 R包安装</h4><ul>
+<li>通过选择菜单</li>
+</ul>
+<p>程序包-&gt;安装程序包-&gt;在弹出的对话框中，选择你要安装的包，然后确定。</p>
+<ul>
+<li>使用命令</li>
+</ul>
+<pre><code class="hljs R">install.packages(<span class="hljs-string">&quot;package_name&quot;</span>,<span class="hljs-string">&quot;dir&quot;</span>)</code></pre>
+<p>package_name:是指定要安装的包名，请注意大小写。</p>
+<p>dir:包安装的路径。默认情况下是安装在..\library 文件夹中的。可以通过本参数来进行修改，来选择安装的文件夹。</p>
+<ul>
+<li>本地安装</li>
+</ul>
+<p>如果你已经下载的相应的包的压缩文件，则可以在本地来进行安装。请注意在windows、unix、macOS操作系统下安装文件的后缀名是不一样的：</p>
+<p>1）linux环境编译运行：tar.gz文件</p>
+<p>2）windows 环境编译运行 ：.zip文件</p>
+<p>3）MacOS环境编译运行:.tgz文件</p>
+<h4 id="2-2-R包加载"><a href="#2-2-R包加载" class="headerlink" title="2.2 R包加载"></a>2.2 R包加载</h4><p>包安装后，如果要使用包的功能。必须先把包加载到内存中（默认情况下，R启动后默认加载基本包），加载包命令：</p>
+<pre><code class="hljs R">Library(“包名”)
+Require(“包名”)</code></pre>
+<p>library和require都可以载入包，但二者存在区别。</p>
+<p>在一个函数中，如果一个包不存在，执行到library将会停止执行，require则会继续执行。</p>
+<h4 id="2-3-查看包的相关信息"><a href="#2-3-查看包的相关信息" class="headerlink" title="2.3 查看包的相关信息"></a>2.3 查看包的相关信息</h4><pre><code class="hljs R"><span class="hljs-keyword">library</span>(help=<span class="hljs-string">&quot;package_name&quot;</span>)</code></pre>
+<p>主要内容包括：例如：包名、作者、版本、更新时间、功能描述、开源协议、存储位置、主要的函数</p>
+<pre><code class="hljs R">help(package = <span class="hljs-string">&quot;package_name&quot;</span>)</code></pre>
+<p>主要内容包括：包的内置所有函数，是更为详细的帮助文档<br></p>
+<pre><code class="hljs R">find.package() 
+或者
+.path.package()</code></pre>
+<p>查看当前环境哪些包加载</p>
+<pre><code class="hljs R"><span class="hljs-keyword">detach</span>()</code></pre>
+<p>移除包出内存</p>
+<pre><code class="hljs R">data(dsname, package=<span class="hljs-string">&quot;package_name&quot;</span>)</code></pre>
+<p>把其它包的数据加载到内存中</p>
+<pre><code class="hljs R">data( package=<span class="hljs-string">&quot;package_name&quot;</span>)</code></pre>
+<p>查看这个包里的包有数据 </p>
+<pre><code class="hljs R"><span class="hljs-keyword">library</span>()</code></pre>
+<p>列出所有安装的包 </p>
+<h3 id="3-R语言语法基础"><a href="#3-R语言语法基础" class="headerlink" title="3. R语言语法基础"></a>3. R语言语法基础</h3><h4 id="3-1-基础命令"><a href="#3-1-基础命令" class="headerlink" title="3.1 基础命令"></a>3.1 基础命令</h4><ul>
+<li>ls() list当前工作区内存中的变量</li>
+<li>rm(args)  移除内存变量Remove Object</li>
+<li>history()  查看历史命令清单</li>
+<li>help(“函数”)  打开函数帮助文档</li>
+<li>names(变量)  返回数据集中名字属性</li>
+<li>mode(变量)/class(变量)  返回基本数据类型</li>
+<li>is(变量)  返回变量的基本数据类型和高级数据类型</li>
+</ul>
+<h4 id="3-2-变量命令规则"><a href="#3-2-变量命令规则" class="headerlink" title="3.2 变量命令规则"></a>3.2 变量命令规则</h4><ul>
+<li>字母、数字或者下划线组成</li>
+<li>变量名称以字母开头，或者点后面不带数字</li>
+</ul>
+<h4 id="3-3-运算符"><a href="#3-3-运算符" class="headerlink" title="3.3 运算符"></a>3.3 运算符</h4><ul>
+<li>算术运算符</li>
+</ul>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center">运算符</th>
+<th>描述</th>
+<th style="text-align:left">示例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">+</td>
+<td>两个向量相加</td>
+<td style="text-align:left">v &lt;- c( 2,5.5,6) <br> t &lt;- c(8, 3, 4) <br> print(v+t) <br> 它产生以下结果：<br> [1] 10.0  8.5  10.0</td>
+</tr>
+<tr>
+<td style="text-align:center">−</td>
+<td>从第一个向量减去第二个向量</td>
+<td style="text-align:left">v &lt;- c( 2,5.5,6)<br>t &lt;- c(8, 3, 4)<br>print(v-t) <br>它产生以下结果：<br>[1] -6.0  2.5  2.0</td>
+</tr>
+<tr>
+<td style="text-align:center">*</td>
+<td>两个矢量相乘</td>
+<td style="text-align:left">v &lt;- c( 2,5.5,6) <br> t &lt;- c(8, 3, 4) <br/>print(v*t) <br/>它产生以下结果：<br/>[1] 16.0 16.5 24.0</td>
+</tr>
+<tr>
+<td style="text-align:center">/</td>
+<td>将第一个向量与第二向量相除</td>
+<td style="text-align:left">v &lt;- c( 2,5.5,6) <br/>&lt;- c(8, 3, 4) <br/>print(v/t) <br/>它产生以下结果：<br/>[1] 0.250000 1.833333 1.500000</td>
+</tr>
+<tr>
+<td style="text-align:center">%%</td>
+<td>得到第一矢量与第二个矢量余数</td>
+<td style="text-align:left">v &lt;- c( 2,5.5,6) <br/>t &lt;- c(8, 3, 4) <br/>print(v%%t) <br/>它产生以下结果：<br/>[1] 2.0 2.5 2.0</td>
+</tr>
+<tr>
+<td style="text-align:center">%/%</td>
+<td>第一个向量与第二（商）相除的结果</td>
+<td style="text-align:left">v &lt;- c( 2,5.5,6) <br/>t &lt;- c(8, 3, 4) <br/>print(v%/%t) <br/>它产生以下结果：[1] 0 1 1</td>
+</tr>
+<tr>
+<td style="text-align:center">^</td>
+<td>第一向量提升到第二向量的指数</td>
+<td style="text-align:left">v &lt;- c( 2,5.5,6)<br/>t &lt;- c(8, 3, 4) <br/>print(v^t) <br/>它产生以下结果：<br/>[1]  256.000  166.375 1296.000</td>
+</tr>
+</tbody>
+</table>
+</div>
+<ul>
+<li>关系运算符</li>
+</ul>
+<p>第一向量的每个元素与第二向量的相应元素进行比较。比较的结果是一个布尔值。</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center">运算符</th>
+<th>描述</th>
+<th>示例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">&gt;</td>
+<td>检查是否第一向量的每个元素大于第二向量的相应元素。</td>
+<td>v &lt;- c(2,5.5,6,9) <br/>t &lt;- c(8,2.5,14,9) <br/>print(v&gt;t) <br/>它产生以下结果： <br/>[1] FALSE  TRUE FALSE FALSE</td>
+</tr>
+<tr>
+<td style="text-align:center">&lt;</td>
+<td>检查是否第一向量的每个元素小于第二向量的相应元素。</td>
+<td>v &lt;- c(2,5.5,6,9) <br/>t &lt;- c(8,2.5,14,9) <br/>print(v &lt; t) <br/>它产生以下结果：<br/>[1]  TRUE FALSE  TRUE FALSE</td>
+</tr>
+<tr>
+<td style="text-align:center">==</td>
+<td>检查是否第一向量的每个元素等于第二向量的相应元素。</td>
+<td>v &lt;- c(2,5.5,6,9) <br/>t &lt;- c(8,2.5,14,9) <br/>print(v==t) <br/>它产生以下结果：<br/>[1] FALSE FALSE FALSE  TRUE</td>
+</tr>
+<tr>
+<td style="text-align:center">&lt;=</td>
+<td>检查是否第一向量的每个元素是小于或等于第二向量的相应的元素。</td>
+<td>v &lt;- c(2,5.5,6,9) <br/>t &lt;- c(8,2.5,14,9) <br/>print(v&lt;=t) <br/>它产生以下结果：<br/>[1]  TRUE FALSE  TRUE  TRUE</td>
+</tr>
+<tr>
+<td style="text-align:center">&gt;=</td>
+<td>检查是否第一向量的每个元素是大于或等于第二向量的相应元素。</td>
+<td>v &lt;- c(2,5.5,6,9) <br/>t &lt;- c(8,2.5,14,9) <br/>print(v&gt;=t) <br/>它产生以下结果：<br/>[1] FALSE  TRUE FALSE  TRUE</td>
+</tr>
+<tr>
+<td style="text-align:center">!=</td>
+<td>检查是否第一向量的每个元素不等于第二向量的相应元素。</td>
+<td>v &lt;- c(2,5.5,6,9) <br/>t &lt;- c(8,2.5,14,9) <br/>print(v!=t) <br/>它产生以下结果：<br/>[1]  TRUE  TRUE  TRUE FALSE</td>
+</tr>
+</tbody>
+</table>
+</div>
+<ul>
+<li>逻辑运算符</li>
+</ul>
+<p>它仅适用于一种逻辑，数字或复杂的矢量。所有数值大于1则认为逻辑值为TRUE。</p>
+<p>所述第一向量的每个元素与所述第二向量的相应元素进行比较。比较的结果是一个布尔值。</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center">运算符</th>
+<th style="text-align:left">描述</th>
+<th>示例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">&amp;</td>
+<td style="text-align:left">这就是所谓的元素逻辑AND运算符。它结合与第二向量的相应元素的第一向量的每个元素，如果这两个元素都为TRUE则给出一个TRUE。</td>
+<td>v &lt;- c(3,1,TRUE,2+3i) <br/>t &lt;- c(4,1,FALSE,2+3i) <br/>print(v&amp;t) <br/>它产生以下结果：<br/>[1]  TRUE  TRUE FALSE  TRUE</td>
+</tr>
+<tr>
+<td style="text-align:center">\</td>
+<td style="text-align:left">这就是所谓的逐元素逻辑或运算符。它结合与第二向量的相应元素的第一向量的每个元素，如果使用这些元素之一为TRUE则给出一个TRUE。</td>
+<td>v &lt;- c(3,0,TRUE,2+2i) <br/>t &lt;- c(4,0,FALSE,2+3i) <br/>print(v\t) <br/>它产生以下结果：<br/>[1]  TRUE FALSE  TRUE  TRUE</td>
+</tr>
+<tr>
+<td style="text-align:center">!</td>
+<td style="text-align:left">这就是所谓的逻辑非运算符。取向量的每个元素，并给出了相反逻辑值。</td>
+<td>v &lt;- c(3,0,TRUE,2+2i) <br/>print(!v) <br/>它产生以下结果：<br/>[1] FALSE  TRUE FALSE FALSE</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>逻辑运算符&amp;&amp;和||考虑矢量仅第一元素并给单个元素作为输出的向量。</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center">运算符</th>
+<th>描述</th>
+<th>示例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">&amp;&amp;</td>
+<td>所谓的逻辑与运算符。取两个向量的第一元素，仅当两个都为TRUE结果取TRUE。</td>
+<td>v &lt;- c(3,0,TRUE,2+2i) <br/>t &lt;- c(1,3,TRUE,2+3i) <br/>print(v&amp;&amp;t) <br/>它产生以下结果：<br/>[1] TRUE</td>
+</tr>
+<tr>
+<td style="text-align:center">\</td>
+<td>所谓的逻辑或运算符。取两个向量的第一元素，仅当两个都为TRUE结果为TRUE。</td>
+<td>v &lt;- c(0,0,TRUE,2+2i) <br/>t &lt;- c(0,3,TRUE,2+3i) <br/>print(v\t)<br/>[1] FALSE</td>
+</tr>
+</tbody>
+</table>
+</div>
+<ul>
+<li>赋值运算符</li>
+</ul>
+<p>这些操作符是用来分配值到向量。</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>运算符</th>
+<th>描述</th>
+<th>示例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>&lt;-  <br/>or <br/>=  <br/>or  <br/>&lt;&lt;-</td>
+<td>叫做左分配</td>
+<td>v1 &lt;- c(3,1,TRUE,2+3i) <br/>v2 &lt;&lt;- c(3,1,TRUE,2+3i) <br/>v3 = c(3,1,TRUE,2+3i) <br/>print(v1) <br/>print(v2) <br/>print(v3) <br/>它产生以下结果：<br/>[1] 3+0i 1+0i 1+0i 2+3i <br/>[1] 3+0i 1+0i 1+0i 2+3i <br/>[1] 3+0i 1+0i 1+0i 2+3i</td>
+</tr>
+<tr>
+<td>-&gt;  <br/>or <br/>-&gt;&gt;</td>
+<td>叫做右分配</td>
+<td>c(3,1,TRUE,2+3i) -&gt; v1 <br/>c(3,1,TRUE,2+3i) -&gt;&gt; v2  <br/>print(v1) <br/>print(v2) <br/>它产生以下结果：<br/>[1] 3+0i 1+0i 1+0i 2+3i <br/>[1] 3+0i 1+0i 1+0i 2+3i</td>
+</tr>
+</tbody>
+</table>
+</div>
+<ul>
+<li>其他运算符</li>
+</ul>
+<p>这些操作符被用于为特定的目的，而不是一般的数学或逻辑运算。</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center">运算符</th>
+<th>描述</th>
+<th>示例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">:</td>
+<td>冒号运算符。它创建顺序一系列数字的向量</td>
+<td>v &lt;- 2:8 <br/>print(v) <br/>它产生以下结果：<br/>[1] 2 3 4 5 6 7 8</td>
+</tr>
+<tr>
+<td style="text-align:center">%in%</td>
+<td>这个操作符用于识别一个元素是否属于（在）一个向量。</td>
+<td>v1 &lt;- 8 <br/>v2 &lt;- 12 <br/>t &lt;- 1:10 <br/>print(v1 %in% t)  <br/>print(v2 %in% t) <br/>它产生以下结果：<br/>[1] TRUE <br/>[1] FALSE</td>
+</tr>
+<tr>
+<td style="text-align:center">%*%</td>
+<td>这个操作符是用来乘以它的转置矩阵。</td>
+<td>M = matrix( c(2,6,5,1,10,4), nrow=2,ncol=3,byrow = TRUE) <br/>t = M %*% t(M)<br/> print(t) <br/>它产生以下结果：  <br/>[,1] [,2] [1,]   65   82 [2,]   82  117</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h3 id="4-文件的输入与输出"><a href="#4-文件的输入与输出" class="headerlink" title="4. 文件的输入与输出"></a>4. 文件的输入与输出</h3><ul>
+<li>从文件中读取数据库获矩阵</li>
+</ul>
+<p>read.table()函数是R最基本函数之一，主要用来读取矩形表格数据。</p>
+<pre><code class="hljs R">Usage
+read.table(file, header = <span class="hljs-literal">FALSE</span>, sep = <span class="hljs-string">&quot;&quot;</span>, quote = <span class="hljs-string">&quot;\&quot;&#x27;&quot;</span>,
+           dec = <span class="hljs-string">&quot;.&quot;</span>, numerals = c(<span class="hljs-string">&quot;allow.loss&quot;</span>, <span class="hljs-string">&quot;warn.loss&quot;</span>, <span class="hljs-string">&quot;no.loss&quot;</span>),
+           row.names, col.names, as.is = !stringsAsFactors,
+           na.strings = <span class="hljs-string">&quot;NA&quot;</span>, colClasses = <span class="hljs-literal">NA</span>, nrows = -<span class="hljs-number">1</span>,
+           skip = <span class="hljs-number">0</span>, check.names = <span class="hljs-literal">TRUE</span>, fill = !blank.lines.skip,
+           strip.white = <span class="hljs-literal">FALSE</span>, blank.lines.skip = <span class="hljs-literal">TRUE</span>,
+           comment.char = <span class="hljs-string">&quot;#&quot;</span>,
+           allowEscapes = <span class="hljs-literal">FALSE</span>, flush = <span class="hljs-literal">FALSE</span>,
+           stringsAsFactors = default.stringsAsFactors(),
+           fileEncoding = <span class="hljs-string">&quot;&quot;</span>, encoding = <span class="hljs-string">&quot;unknown&quot;</span>, text, skipNul = <span class="hljs-literal">FALSE</span>)</code></pre>
+<p>各参数的说明如下：</p>
+<p>（1）file</p>
+<p>file是一个带分隔符的ASCII文本文件。</p>
+<p>（2）header</p>
+<p>一个表示文件是否在第一行包含了变量的逻辑型变量。</p>
+<p>如果header设置为TRUE，则要求第一行要比数据列的数量少一列。</p>
+<p>（3）sep</p>
+<p>分开数据的分隔符。默认sep=””。</p>
+<p>read.table()函数可以将1个或多个空格、tab制表符、换行符或回车符作为分隔符。</p>
+<p>（4）quote</p>
+<p>用于对有特殊字符的字符串划定接线的字符串，默认值是TRUE(“)或单引号。（`）</p>
+<p>（5）dec</p>
+<p>decimal用于指明数据文件中小数的小数点。</p>
+<p>（6）numerals</p>
+<p>字符串类型。用于指定文件中的数字转换为双精度数据时丢失精度的情况下如何进行转换。</p>
+<p>（7）row.names</p>
+<p>保存行名的向量。可以使用此参数以向量的形式给出每行的实际行名。或者要读取的表中包含行名称的列序号或列名字符串。</p>
+<p>在数据文件中有行头且首行的字段名比数据列少一个的情况下，数据文件中第1列将被视为行名称。除此情况外，在没有给定row.names参数时，读取的行名将会自动编号。</p>
+<p>可以使用row.names = NULL强制行进行编号。</p>
+<p>（8）col.names</p>
+<p>指定列名的向量。缺省情况下是又”V”加上列序构成，即V1,V2,V3……</p>
+<p>Tip:</p>
+<p>rownames、colnames是base包中的行名、列名函数；</p>
+<p>而row.names、col.names是read.table函数中的行名、参数</p>
+<p>（9）as.is</p>
+<p>该参数用于确定read.table()函数读取字符型数据时是否转换为因子型变量。当其取值为FALSE时，该函数将把字符型数据转换为因子型数据，取值为TRUE时，仍将其保留为字符型数据。其取值可以是逻辑值向量（必要时可以循环赋值），数值型向量或字符型向量，以控制哪些列不被转换为因子。</p>
+<p>注意：可以通过设置参数 colClasses = “character”来阻止所有列转换为因子，包括数值型的列。</p>
+<p>（10）na.strings</p>
+<p>可选的用于表示缺失值的字符向量。</p>
+<p>na.strings=c(“-9”,”?”)把-9和？值在读取数据时候转换成NA</p>
+<p>（11）colClasses</p>
+<p>用于指定列所属类的字符串向量。</p>
+<p>（12）nrows</p>
+<p>整型数。用于指定从文件中读取的最大行数。负数或其它无效值将会被忽略。</p>
+<p>（13）skip</p>
+<p>整型数。读取数据时忽略的行数。</p>
+<p>（14）check.names</p>
+<p>逻辑值。该参数值设置为TRUE时，数据框中的变量名将会被检查，以确保符在语法上是有效的变量名称。</p>
+<p>（15）fill</p>
+<p>逻辑值。在没有忽略空白行的情况下（即blank.lines.skip=FLASE），且fill设置为TRUE时，如果数据文件中某行的数据少于其他行，则自动添加空白域。</p>
+<p>（16）strip.white</p>
+<p>逻辑值，默认为FALSE。此参数只在指定了sep参数时有效。当此参数设置为TRUE时，数据文件中没有包围的字符串域的前边和后边的空格将会被去掉。</p>
+<p>（17）blank.lines.skip</p>
+<p>逻辑值，此参数值设置为TRUE时，数据文件中的空白行将被忽略。默认值为TRUE。</p>
+<p>（18）comment.char</p>
+<p>字符型。包含单个字符或空字符的向量。代表注释字符的开始字符。可以使用””关闭注释。</p>
+<p>（19）allowEscapes</p>
+<p>逻辑值。类似“\n”这种C风格的转义符。如果这种转义符并不是包含在字符串中，该函数可能解释为字段分隔符。</p>
+<p>（20）flush</p>
+<p>逻辑值。默认值为FALSE。当该参数值设置为TRUE时，则该函数读取完指定列数后将转到下一行。这允许用户在最后一个字段后面添加注释。</p>
+<p>（21）stringsAsFactors</p>
+<p>逻辑值，标记处字符向量是否需要转化为因子，默认是TRUE。</p>
+<p>（22）fileEncoding</p>
+<p>字符串类型，指定文件的编码方式。如果指定了该参数，则文本数据按照指定的格式重新编码。</p>
+<p>（23）encoding</p>
+<p>假定输入字符串的编码方式。</p>
+<p>（24）text</p>
+<p>字符串类型。当未提供file参数时，则函数可以通过一个文本链接从text中读取数据。</p>
+<p>（25）skipNul</p>
+<p>逻辑值。是否忽略空值。默认为FALSE。</p>
+<ul>
+<li>写文件</li>
+</ul>
+<p>R 主要用于统计分析，可能读文件比写文件更加常用，但写文件也很重要。读文件用read.table()，写文件就用write.table()。</p>
+<pre><code class="hljs R">write.table(x, file = <span class="hljs-string">&quot;&quot;</span>, append = <span class="hljs-literal">FALSE</span>, quote = <span class="hljs-literal">TRUE</span>, sep = <span class="hljs-string">&quot; &quot;</span>,
+            eol = <span class="hljs-string">&quot;\n&quot;</span>, na = <span class="hljs-string">&quot;NA&quot;</span>, dec = <span class="hljs-string">&quot;.&quot;</span>, row.names = <span class="hljs-literal">TRUE</span>,
+            col.names = <span class="hljs-literal">TRUE</span>, qmethod = c(<span class="hljs-string">&quot;escape&quot;</span>, <span class="hljs-string">&quot;double&quot;</span>),
+            fileEncoding = <span class="hljs-string">&quot;&quot;</span>)</code></pre>
+<p><strong>参数说明：</strong></p>
+<p>x: 要写入的对象，最好是矩阵或数据框。如果不是，它是试图强迫x到一个数据框。</p>
+<p>file: 一个字符串命名文件或编写而打开的一个连接。” “表示输出到控制台。</p>
+<p>append: 逻辑。只有当file是一个字符串才相关。</p>
+<p>如果TRUE，输出追加到文件</p>
+<p>如果FALSE，任何现有文件的名称被摧毁</p>
+<p>quote: 一个逻辑值（TRUE或FALSE）或数字向量。如果TRUE，任何字符或因素列将用双引号包围。如果一个数值向量，其元素为引用的列的索引。在这两种情况下，行和列名报价，如果他们被写入。如果FALSE，并没有被引用。</p>
+<p>sep: 字段分隔符字符串。每一行x中的值都被这个字符串分隔开。</p>
+<p>row.names: 表示x的行名是否与x一起写的逻辑值，或者是写行名的字符向量</p>
+<p>col.names: 类似上面。</p>
+<p><br></p>
+<p>本篇主要摘录自：</p>
+<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/76576574">https://zhuanlan.zhihu.com/p/76576574</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/csguo/p/7293945.html">https://www.cnblogs.com/csguo/p/7293945.html</a></p>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/R%E8%AF%AD%E8%A8%80/">R语言</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext row">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2021/05/28/%E6%88%91%E6%AF%95%E4%B8%9A%E4%BA%86/">
+                        <span class="hidden-mobile">我毕业了</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div id="tocbot"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+  </main>
+
+  
+    <a id="scroll-top-button" href="#" role="button">
+      <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+    </a>
+  
+
+  
+    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+  
+
+  
+
+  
+
+  <footer class="mt-5">
+  <div class="text-center py-3">
+    <div>
+      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a>
+      <i class="iconfont icon-love"></i>
+      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener">
+        <span>Fluid</span></a>
+    </div>
+    
+
+    
+
+    
+  </div>
+</footer>
+
+<!-- SCRIPTS -->
+<script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
+<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/main.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
+  <script  src="/js/clipboard-use.js" ></script>
+
+
+
+
+
+
+
+  <script  src="https://cdn.staticfile.org/tocbot/4.11.1/tocbot.min.js" ></script>
+  <script>
+    $(document).ready(function () {
+      var boardCtn = $('#board-ctn');
+      var boardTop = boardCtn.offset().top;
+
+      tocbot.init({
+        tocSelector: '#tocbot',
+        contentSelector: '#post-body',
+        headingSelector: 'h1,h2,h3,h4,h5,h6',
+        linkClass: 'tocbot-link',
+        activeLinkClass: 'tocbot-active-link',
+        listClass: 'tocbot-list',
+        isCollapsedClass: 'tocbot-is-collapsed',
+        collapsibleClass: 'tocbot-is-collapsible',
+        collapseDepth: 0,
+        scrollSmooth: true,
+        headingsOffset: -boardTop
+      });
+      if ($('.toc-list-item').length > 0) {
+        $('#toc').css('visibility', 'visible');
+      }
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
+  <script>
+    var typed = new Typed('#subtitle', {
+      strings: [
+        '  ',
+        "R语言操作基础&nbsp;",
+      ],
+      cursorChar: "_",
+      typeSpeed: 90,
+      loop: false,
+    });
+    typed.stop();
+    $(document).ready(function () {
+      $(".typed-cursor").addClass("h2");
+      typed.start();
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
+  <script>
+    anchors.options = {
+      placement: "right",
+      visible: "hover",
+      
+    };
+    var el = "h1,h2,h3,h4,h5,h6".split(",");
+    var res = [];
+    for (item of el) {
+      res.push(".markdown-body > " + item)
+    }
+    anchors.add(res.join(", "))
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    var path = "/local-search.xml";
+    var inputArea = document.querySelector("#local-search-input");
+    inputArea.onclick = function () {
+      searchFunc(path, 'local-search-input', 'local-search-result');
+      this.onclick = null
+    }
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+  <script>
+    $('#post img:not(.no-zoom img, img[no-zoom]), img[zoom]').each(
+      function () {
+        var element = document.createElement('a');
+        $(element).attr('data-fancybox', 'images');
+        $(element).attr('href', $(this).attr('src'));
+        $(this).wrap(element);
+      }
+    );
+  </script>
+
+
+
+
+
+  
+
+  
+    <!-- MathJax -->
+    <script>
+      MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']]
+        },
+        options: {
+          renderActions: {
+            findScript: [10, doc => {
+              document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                const display = !!node.type.match(/; *mode=display/);
+                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                const text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = { node: text, delim: '', n: 0 };
+                math.end = { node: text, delim: '', n: 0 };
+                doc.math.push(math);
+              });
+            }, '', false],
+            insertedScript: [200, () => {
+              document.querySelectorAll('mjx-container').forEach(node => {
+                let target = node.parentNode;
+                if (target.nodeName.toLowerCase() === 'li') {
+                  target.parentNode.classList.add('has-jax');
+                }
+              });
+            }, '', false]
+          }
+        }
+      };
+    </script>
+
+    <script async src="https://cdn.staticfile.org/mathjax/3.0.5/es5/tex-svg.js" ></script>
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
