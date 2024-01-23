@@ -1,0 +1,673 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="https://cdn.jsdelivr.net/gh/yuzhangnju/image2022/uchiha2.png">
+  <link rel="icon" href="https://cdn.jsdelivr.net/gh/yuzhangnju/image2022/uchiha2.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="John Doe">
+  <meta name="keywords" content="MATLAB, MRIO">
+  
+    <meta name="description" content="一切都是为了MRIO！">
+<meta property="og:type" content="article">
+<meta property="og:title" content="MATLAB学习笔记（四） 基础绘图Basic Plotting structure and File access">
+<meta property="og:url" content="http://example.com/2020/08/01/MATLAB%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E5%9B%9B%EF%BC%89%20%E5%9F%BA%E7%A1%80%E7%BB%98%E5%9B%BE/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="一切都是为了MRIO！">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/yuzhangnju/image/img/7tCznWUBilEaNoj.png">
+<meta property="article:published_time" content="2020-08-01T10:00:00.000Z">
+<meta property="article:modified_time" content="2021-03-07T03:05:27.000Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="MRIO">
+<meta property="article:tag" content="MATLAB">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/yuzhangnju/image/img/7tCznWUBilEaNoj.png">
+  
+  
+  
+  <title>MATLAB学习笔记（四） 基础绘图Basic Plotting structure and File access - Hexo</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.7","typing":{"enable":true,"typeSpeed":100,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 7.1.1"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Yu&#39;s Space</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/" target="_self">
+                <i class="iconfont icon-link-fill"></i>
+                <span>友链</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('https://cdn.jsdelivr.net/gh/yuzhangnju/image/img/bannernew.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="MATLAB学习笔记（四） 基础绘图Basic Plotting structure and File access"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2020-08-01 18:00" pubdate>
+          2020年8月1日 晚上
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          532 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          5 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">MATLAB学习笔记（四） 基础绘图Basic Plotting structure and File access</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h3 id="1基础"><a href="#1基础" class="headerlink" title="1基础"></a>1基础</h3><h4 id="1-1plot"><a href="#1-1plot" class="headerlink" title="1.1plot()"></a>1.1plot()</h4><figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs matlab">ploy(x,y)	plots each vector pairs (x,y)<br><span class="hljs-built_in">plot</span>(y) 	plots each vector pairs (x,y),where x=[<span class="hljs-number">1</span>…n], n=<span class="hljs-built_in">length</span>(y) 默认横轴为<span class="hljs-number">1.2</span><span class="hljs-number">.3</span><span class="hljs-number">.4</span>...<br><span class="hljs-built_in">plot</span>(<span class="hljs-built_in">cos</span>(<span class="hljs-number">0</span>:<span class="hljs-built_in">pi</span>/<span class="hljs-number">20</span>:<span class="hljs-number">2</span>*<span class="hljs-built_in">pi</span>));	第一个图！<br></code></pre></td></tr></table></figure>
+
+<p>一幅图中多个曲线：</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs matlab"><span class="hljs-built_in">hold</span> on<br><span class="hljs-built_in">plot</span>(<span class="hljs-built_in">cos</span>(<span class="hljs-number">0</span>:<span class="hljs-built_in">pi</span>/<span class="hljs-number">20</span>:<span class="hljs-number">2</span>*<span class="hljs-built_in">pi</span>));<br><span class="hljs-built_in">plot</span>(<span class="hljs-built_in">sin</span>(<span class="hljs-number">0</span>:<span class="hljs-built_in">pi</span>/<span class="hljs-number">20</span>:<span class="hljs-number">2</span>*<span class="hljs-built_in">pi</span>));<br><span class="hljs-built_in">hold</span> off<br><br>也可以<br><br>x = <span class="hljs-number">0</span>:<span class="hljs-built_in">pi</span>/<span class="hljs-number">100</span>:<span class="hljs-number">2</span>*<span class="hljs-built_in">pi</span>;<br>y = <span class="hljs-built_in">sin</span>(x);<br>y2 = <span class="hljs-built_in">sin</span>(x<span class="hljs-number">-.25</span>);<br>y3 = <span class="hljs-built_in">sin</span>(x<span class="hljs-number">-.5</span>);<br><span class="hljs-built_in">plot</span>(x,y,x,y2,x,y3)<br><br>标识<br><span class="hljs-built_in">legend</span>(<span class="hljs-string">&#x27;sin(x)&#x27;</span>,<span class="hljs-string">&#x27;sin(x-.25)&#x27;</span>,<span class="hljs-string">&#x27;sin(x-.5)&#x27;</span>)<br></code></pre></td></tr></table></figure>
+
+<h4 id="1-2plot-style"><a href="#1-2plot-style" class="headerlink" title="1.2plot style"></a>1.2plot style</h4><figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs matlab"><span class="hljs-built_in">plot</span>(x,y,<span class="hljs-string">&#x27;str&#x27;</span>) 	plots each vector pairs (x,y) using the format defined in str (check linespec)<br></code></pre></td></tr></table></figure>
+
+<img src="https://i.loli.net/2020/08/01/m6WvyZ3Yr2Qwnkc.png" srcset="/img/loading.gif" lazyload style="zoom:80%;" />
+
+<p>改变颜色、线条，也可以在绘图框：查看→绘图浏览器，手动更改！</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs matlab">x=<span class="hljs-number">0</span>:<span class="hljs-number">0.5</span>:<span class="hljs-number">4</span>*<span class="hljs-built_in">pi</span>;<br>y=<span class="hljs-built_in">sin</span>(x); h=<span class="hljs-built_in">cos</span>(x); w=<span class="hljs-number">1.</span>/(<span class="hljs-number">1</span>+<span class="hljs-built_in">exp</span>(-x));<br>g=(<span class="hljs-number">1</span>/(<span class="hljs-number">2</span>*<span class="hljs-built_in">pi</span>*<span class="hljs-number">2</span>)^<span class="hljs-number">0.5</span>).*<span class="hljs-built_in">exp</span>((<span class="hljs-number">-1.</span>*(x<span class="hljs-number">-2</span>*<span class="hljs-built_in">pi</span>).^<span class="hljs-number">2</span>)./(<span class="hljs-number">2</span>*<span class="hljs-number">2</span>^<span class="hljs-number">2</span>));<br><span class="hljs-built_in">plot</span>(x,y,<span class="hljs-string">&#x27;bd-&#x27;</span>,x,h,<span class="hljs-string">&#x27;gp:&#x27;</span>,x,w,<span class="hljs-string">&#x27;ro-&#x27;</span>,x,g,<span class="hljs-string">&#x27;c^-&#x27;</span>);<br><br><span class="hljs-built_in">legend</span>(<span class="hljs-string">&#x27;sin(x)&#x27;</span>,<span class="hljs-string">&#x27;cos(x)&#x27;</span>,<span class="hljs-string">&#x27;Sigmoid&#x27;</span>,<span class="hljs-string">&#x27;Gauss function&#x27;</span>);	加标识<br></code></pre></td></tr></table></figure>
+
+<h4 id="1-3title-and-label"><a href="#1-3title-and-label" class="headerlink" title="1.3title() and label()"></a>1.3title() and label()</h4><figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs matlab">x = <span class="hljs-number">0</span>:<span class="hljs-number">0.1</span>:<span class="hljs-number">2</span>*<span class="hljs-built_in">pi</span>; y1 = <span class="hljs-built_in">sin</span>(x); y2 = <span class="hljs-built_in">exp</span>(-x);<br><span class="hljs-built_in">plot</span>(x, y1, <span class="hljs-string">&#x27;--*&#x27;</span>, x, y2, <span class="hljs-string">&#x27;:o&#x27;</span>);<br>xlabel(<span class="hljs-string">&#x27;t = 0 to 2\pi&#x27;</span>);	x轴标题，\为转义字符<br>ylabel(<span class="hljs-string">&#x27;values of sin(t) and e^&#123;-x&#125;&#x27;</span>)	y轴标题<br>title(<span class="hljs-string">&#x27;Function Plots of sin(t) and e^&#123;-x&#125;&#x27;</span>);	加图名<br><span class="hljs-built_in">legend</span>(<span class="hljs-string">&#x27;sin(t)&#x27;</span>,<span class="hljs-string">&#x27;e^&#123;-x&#125;&#x27;</span>);	加图标<br></code></pre></td></tr></table></figure>
+
+<h4 id="1-4text-and-annotataion"><a href="#1-4text-and-annotataion" class="headerlink" title="1.4text() and annotataion()"></a>1.4text() and annotataion()</h4><figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs matlab">x = <span class="hljs-built_in">linspace</span>(<span class="hljs-number">0</span>,<span class="hljs-number">3</span>); y = x.^<span class="hljs-number">2.</span>*<span class="hljs-built_in">sin</span>(x); <span class="hljs-built_in">plot</span>(x,y);<br>line([<span class="hljs-number">2</span>,<span class="hljs-number">2</span>],[<span class="hljs-number">0</span>,<span class="hljs-number">2</span>^<span class="hljs-number">2</span>*<span class="hljs-built_in">sin</span>(<span class="hljs-number">2</span>)]);<br>str = <span class="hljs-string">&#x27;$$ \int_&#123;0&#125;^&#123;2&#125; x^2\sin(x) dx $$&#x27;</span>;	latex语法<br>text(<span class="hljs-number">0.25</span>,<span class="hljs-number">2.5</span>,str,<span class="hljs-string">&#x27;Interpreter&#x27;</span>,<span class="hljs-string">&#x27;latex&#x27;</span>);	显示字符串的位置，解释器latex<br>annotation(<span class="hljs-string">&#x27;arrow&#x27;</span>,<span class="hljs-string">&#x27;X&#x27;</span>,[<span class="hljs-number">0.32</span>,<span class="hljs-number">0.5</span>],<span class="hljs-string">&#x27;Y&#x27;</span>,[<span class="hljs-number">0.6</span>,<span class="hljs-number">0.4</span>]);	箭头起终位置<br></code></pre></td></tr></table></figure>
+
+<h4 id="1-5figure-adjustment"><a href="#1-5figure-adjustment" class="headerlink" title="1.5figure adjustment"></a>1.5figure adjustment</h4><img src="https://i.loli.net/2020/08/01/jiRlvwI5qDZ6gpP.png" srcset="/img/loading.gif" lazyload style="zoom:80%;" />
+
+<p><strong>属性检查器</strong>可以更改很多绘图对象！</p>
+<h3 id="2更多自定义"><a href="#2更多自定义" class="headerlink" title="2更多自定义"></a>2更多自定义</h3><img src="https://i.loli.net/2020/08/01/vK5GSPZsQaf7iLn.png" srcset="/img/loading.gif" lazyload style="zoom:80%;" />
+
+<h4 id="2-1设定边界"><a href="#2-1设定边界" class="headerlink" title="2.1设定边界"></a>2.1设定边界</h4><img src="https://i.loli.net/2020/08/01/UrTphAX5Ne3zMwC.png" srcset="/img/loading.gif" lazyload style="zoom:80%;" />
+
+<p>各种自定义，但用属性编辑器调整，更为直观！</p>
+<h4 id="2-2多图"><a href="#2-2多图" class="headerlink" title="2.2多图"></a>2.2多图</h4><p>figure命令,</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs matlab">x = <span class="hljs-number">-10</span>:<span class="hljs-number">0.1</span>:<span class="hljs-number">10</span>;<br>y1 = x.^<span class="hljs-number">2</span> - <span class="hljs-number">8</span>;<br>y2 = <span class="hljs-built_in">exp</span>(x);<br><span class="hljs-built_in">figure</span>, <span class="hljs-built_in">plot</span>(x,y1);<br><span class="hljs-built_in">figure</span>, <span class="hljs-built_in">plot</span>(x,y2);<br></code></pre></td></tr></table></figure>
+
+<p>Figure Position and Size 有点像css</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs matlab"><span class="hljs-built_in">figure</span>(<span class="hljs-string">&#x27;Position&#x27;</span>, [left, bottom, width, height]);<br></code></pre></td></tr></table></figure>
+
+<p>多图合一：</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs matlab">subplot(m, n,<span class="hljs-number">1</span>);<br></code></pre></td></tr></table></figure>
+
+<img src="https://i.loli.net/2020/08/01/cBTfr2zmJpM3yDF.png" srcset="/img/loading.gif" lazyload style="zoom:67%;" />
+
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs matlab">t = <span class="hljs-number">0</span>:<span class="hljs-number">0.1</span>:<span class="hljs-number">2</span>*<span class="hljs-built_in">pi</span>; x = <span class="hljs-number">3</span>*<span class="hljs-built_in">cos</span>(t); y = <span class="hljs-built_in">sin</span>(t);<br>subplot(<span class="hljs-number">2</span>, <span class="hljs-number">2</span>, <span class="hljs-number">1</span>); <span class="hljs-built_in">plot</span>(x, y); axis normal<br>subplot(<span class="hljs-number">2</span>, <span class="hljs-number">2</span>, <span class="hljs-number">2</span>); <span class="hljs-built_in">plot</span>(x, y); axis square<br>subplot(<span class="hljs-number">2</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>); <span class="hljs-built_in">plot</span>(x, y); axis equal<br>subplot(<span class="hljs-number">2</span>, <span class="hljs-number">2</span>, <span class="hljs-number">4</span>); <span class="hljs-built_in">plot</span>(x, y); axis equal tight<br></code></pre></td></tr></table></figure>
+
+<img src="https://i.loli.net/2020/08/01/X6ayoqYjC27iLZO.png" srcset="/img/loading.gif" lazyload style="zoom:80%;" />
+
+<h4 id="2-3一些功能"><a href="#2-3一些功能" class="headerlink" title="2.3一些功能"></a>2.3一些功能</h4><figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs matlab">grid on/off 		Make the grid visible or invisible<br>box on/off 			Make the box visible or invisible<br>axis on/off 		Make the axes visible or invisible<br>axis normal 		Automatically adjust the aspect ratio of the axes<br>					and the relative scaling of the data units<br>axis square 		Make the current axes region square<br>axis equal 			Set the aspect ratio so that the data units are the<br>					same in every direction<br>axis equal tight 	Set the axis limits to the range of the data<br>axis image 			Let the <span class="hljs-built_in">plot</span> box fits tightly around the data<br>axis ij 			Place the origin of the coordinate system in the<br>					upper left corner<br>axis xy				 Place the origin in the lower left corner<br></code></pre></td></tr></table></figure>
+
+<h4 id="2-4保存"><a href="#2-4保存" class="headerlink" title="2.4保存"></a>2.4保存</h4><img src="https://i.loli.net/2020/08/01/VG9UWl4MACOpn7K.png" srcset="/img/loading.gif" lazyload style="zoom:80%;" />
+
+<p>print 输出高解析度图片！</p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/MRIO/" class="print-no-link">#MRIO</a>
+      
+        <a href="/tags/MATLAB/" class="print-no-link">#MATLAB</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>MATLAB学习笔记（四） 基础绘图Basic Plotting structure and File access</div>
+      <div>http://example.com/2020/08/01/MATLAB学习笔记（四） 基础绘图/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>John Doe</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2020年8月1日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2020/08/02/%E6%8A%95%E5%85%A5%E4%BA%A7%E5%87%BA%E5%88%86%E6%9E%90%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E4%BA%8C%EF%BC%89%20%E4%B8%AD%E7%A7%91%E9%99%A2%E6%9D%A8%E7%BF%A0%E7%BA%A2-%E6%8A%95%E5%85%A5%E4%BA%A7%E5%87%BA%E6%A8%A1%E5%9E%8B%E7%AE%80%E8%A6%81%E4%BB%8B%E7%BB%8D/" title="投入产出分析学习笔记（二） 投入产出模型及其在经济分析与模拟中的应用">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">投入产出分析学习笔记（二） 投入产出模型及其在经济分析与模拟中的应用</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2020/07/31/MATLAB%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%89%EF%BC%89%20%E6%95%B0%E6%8D%AE%E6%88%96%E5%8F%98%E9%87%8F%E7%9A%84%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2%E4%B8%8E%E5%AD%98%E5%8F%96/" title="MATLAB学习笔记（三） 数据或变量的类型转换与存取 Data structure and File access">
+                        <span class="hidden-mobile">MATLAB学习笔记（三） 数据或变量的类型转换与存取 Data structure and File access</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

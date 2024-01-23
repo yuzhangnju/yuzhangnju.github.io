@@ -1,0 +1,1285 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="https://cdn.jsdelivr.net/gh/yuzhangnju/image2022/uchiha2.png">
+  <link rel="icon" href="https://cdn.jsdelivr.net/gh/yuzhangnju/image2022/uchiha2.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="John Doe">
+  <meta name="keywords" content="快捷键">
+  
+    <meta name="description" content="Mac terminal上的操作小抄！">
+<meta property="og:type" content="article">
+<meta property="og:title" content="The Mac Terminal Commands Cheat Sheet">
+<meta property="og:url" content="http://example.com/2023/02/15/The%20Mac%20Terminal%20Commands%20Cheat%20Sheet/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="Mac terminal上的操作小抄！">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/yuzhangnju/image2022/image-20230215154901219.png">
+<meta property="article:published_time" content="2023-02-15T06:00:00.000Z">
+<meta property="article:modified_time" content="2023-02-15T12:06:23.301Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="快捷键">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/yuzhangnju/image2022/image-20230215154901219.png">
+  
+  
+  
+  <title>The Mac Terminal Commands Cheat Sheet - Hexo</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.7","typing":{"enable":true,"typeSpeed":100,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 7.1.1"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Yu&#39;s Space</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/" target="_self">
+                <i class="iconfont icon-link-fill"></i>
+                <span>友链</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('https://cdn.jsdelivr.net/gh/yuzhangnju/image/img/bannernew.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="The Mac Terminal Commands Cheat Sheet"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2023-02-15 14:00" pubdate>
+          2023年2月15日 下午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          1.4k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          12 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">The Mac Terminal Commands Cheat Sheet</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h4 id="来自ChatGPT的回答："><a href="#来自ChatGPT的回答：" class="headerlink" title="来自ChatGPT的回答："></a>来自ChatGPT的回答：</h4><blockquote>
+<p>在 macOS 上，Terminal 是一个非常有用的工具，可以通过命令行来完成各种任务。以下是一些常用的命令：</p>
+<ol>
+<li><code>ls</code>：列出当前目录下的文件和文件夹。</li>
+<li><code>cd</code>：改变当前目录到指定的目录，例如 <code>cd Documents</code>。</li>
+<li><code>mkdir</code>：创建一个新的目录，例如 <code>mkdir new_folder</code>。</li>
+<li><code>touch</code>：创建一个新的文件，例如 <code>touch new_file.txt</code>。</li>
+<li><code>rm</code>：删除一个文件或目录，例如 <code>rm file.txt</code> 或 <code>rm -r folder</code>（删除一个目录及其内容）。</li>
+<li><code>cp</code>：复制文件或目录，例如 <code>cp file.txt folder</code>（将文件复制到目录中）。</li>
+<li><code>mv</code>：移动文件或目录，例如 <code>mv file.txt folder</code>（将文件移动到目录中）。</li>
+<li><code>cat</code>：显示文件的内容，例如 <code>cat file.txt</code>。</li>
+<li><code>echo</code>：在终端输出指定的文本，例如 <code>echo &quot;Hello, World!&quot;</code>。</li>
+<li><code>grep</code>：在文件中查找指定的字符串，例如 <code>grep &quot;search_term&quot; file.txt</code>。</li>
+</ol>
+<p>还有很多其他命令可用，这些命令只是一些常见的例子。要学习更多命令，可以在终端中输入 <code>man</code> 命令来查看命令的帮助文档。例如，要查看 <code>ls</code> 命令的帮助文档，可以在终端中输入 <code>man ls</code>。</p>
+</blockquote>
+<br/>
+
+<h4 id="来自New-Bing的回答："><a href="#来自New-Bing的回答：" class="headerlink" title="来自New Bing的回答："></a>来自New Bing的回答：</h4><blockquote>
+<p>你好，这是必应。我找到了一些网页，可以帮助你了解 Mac 上的 Terminal 命令。你可以参考以下的搜索结果：</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://www.cnblogs.com/abeen/p/4104158.html">1</a> Mac OS Terminal 几个快捷键 - ABeen - 博客园</li>
+<li><a target="_blank" rel="noopener" href="https://www.cnblogs.com/favana/p/5545132.html">2</a> Mac上简单常用Terminal命令 - favana - 博客园</li>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/a11101171/article/details/52239467">3</a> mac常用Terminal命令與快捷鍵參考_a11101171的博客-CSDN博客</li>
+<li><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/97c0f76ee09a">4</a> Mac Terminal 终端常用命令总结 - 简书</li>
+<li><a target="_blank" rel="noopener" href="https://www.cnblogs.com/yong001/p/12052453.html">5</a> 在Mac上打开终端的7种简单方法 - 余生不见空 - 博客园</li>
+<li><a target="_blank" rel="noopener" href="https://support.apple.com/zh-cn/guide/terminal/apdb66b5242-0d18-49fc-9c47-a2498b7c91d5/mac">6</a> 在 Mac 上的“终端”中执行命令和运行工具 - 官方 Apple 支持 (中国)</li>
+</ul>
+<p>另外，我还找到了一个英文的 Terminal 命令速查表[7](<a target="_blank" rel="noopener" href="https://www.makeuseof.com/tag/mac-terminal-commands-cheat-sheet/#:~:text=The">https://www.makeuseof.com/tag/mac-terminal-commands-cheat-sheet/#:~:text=The</a> Mac Terminal Commands Cheat Sheet  ,you’re current …  46 more rows )，你可以用来参考一些常用的命令和操作。这里是一些例子：</p>
+<ul>
+<li>Tab: 自动补全文件和文件夹的名称</li>
+<li>Ctrl + A: 将光标移动到行首</li>
+<li>Ctrl + E: 将光标移动到行尾</li>
+<li>Ctrl + L: 清除屏幕</li>
+<li>Ctrl + R: 搜索以前使用的命令</li>
+<li>Ctrl + C: 中断当前的命令</li>
+<li>Ctrl + D: 退出 Terminal，同 exit 命令</li>
+<li>Ctrl + Z: 暂停当前的命令</li>
+<li>cd: 进入到某个文件路径下</li>
+<li>pwd: 显示当前文件路径</li>
+<li>ls: 列出当前文件夹下的文件和文件夹</li>
+<li>cp: 复制文件或文件夹</li>
+<li>mv: 移动或重命名文件或文件夹</li>
+<li>rm: 删除文件或文件夹</li>
+<li>mkdir: 创建一个新的文件夹</li>
+<li>rmdir: 删除一个空的文件夹</li>
+<li>touch: 创建一个新的空文件</li>
+<li>cat: 查看或合并文件的内容</li>
+<li>echo: 显示一行文本或一个变量的值</li>
+<li>ping: 测试网络连接</li>
+<li>curl: 从网上下载文件</li>
+<li>ssh: 通过安全的 shell 连接到远程服务器</li>
+<li>scp: 通过安全的 shell 复制文件到远程服务器</li>
+<li>man: 显示某个命令的手册页</li>
+<li>help: 显示某个命令的帮助信息</li>
+<li>history: 显示命令历史记录</li>
+<li>clear: 清除屏幕</li>
+<li>exit: 退出 Terminal</li>
+</ul>
+<p>希望这些信息对你有用。😊</p>
+</blockquote>
+<br/>
+
+<h4 id="下文转自：The-Mac-Terminal-Commands-Cheat-Sheet"><a href="#下文转自：The-Mac-Terminal-Commands-Cheat-Sheet" class="headerlink" title="下文转自：The Mac Terminal Commands Cheat Sheet"></a>下文转自：<a target="_blank" rel="noopener" href="https://www.makeuseof.com/tag/mac-terminal-commands-cheat-sheet/">The Mac Terminal Commands Cheat Sheet</a></h4><p>macOS is an intuitive operating system, so you don’t have to spend lot of time learning the basics; Knowing this, why should you learn and take advantage of the Unix command line available on your Mac? We have four good reasons:</p>
+<ol>
+<li>There are dozens of open source and freely available Unix-based apps. You don’t have to spend money on these.</li>
+<li>When you’re having difficulty searching for files in Spotlight, you can turn to Unix search tools. They’re way more powerful than Spotlight.</li>
+<li>You can manage files, folders, and file archives in an automated manner. Setting up a cron job will handle this automatically.</li>
+<li>It gives you more power and control over your system.</li>
+</ol>
+<p>With so many Mac commands, it’s often difficult to remember and use them all. We’re here to help with a detailed cheat sheet of Mac Terminal commands you can use to unlock enhanced productivity on your system.</p>
+<h4 id="The-Mac-Terminal-Commands-Cheat-Sheet"><a href="#The-Mac-Terminal-Commands-Cheat-Sheet" class="headerlink" title="The Mac Terminal Commands Cheat Sheet"></a>The Mac Terminal Commands Cheat Sheet</h4><table>
+<thead>
+<tr>
+<th align="left">COMMAND&#x2F;</th>
+<th align="left">ACTION</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><strong>Shortcuts</strong></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">Tab</td>
+<td align="left">Auto-complete file and folder names</td>
+</tr>
+<tr>
+<td align="left">Ctrl + A</td>
+<td align="left">Go to the beginning of the line you’re currently typing on</td>
+</tr>
+<tr>
+<td align="left">Ctrl + E</td>
+<td align="left">Go to the end of the line you’re currently typing on</td>
+</tr>
+<tr>
+<td align="left">Ctrl + U</td>
+<td align="left">Clear the line before the cursor</td>
+</tr>
+<tr>
+<td align="left">Ctrl + K</td>
+<td align="left">Clear the line after the cursor</td>
+</tr>
+<tr>
+<td align="left">Ctrl + W</td>
+<td align="left">Delete the word before the cursor</td>
+</tr>
+<tr>
+<td align="left">Ctrl + T</td>
+<td align="left">Swap the last two characters before the cursor</td>
+</tr>
+<tr>
+<td align="left">Esc + T</td>
+<td align="left">Swap the last two words before the cursor</td>
+</tr>
+<tr>
+<td align="left">Ctrl + L</td>
+<td align="left">Clear the screen</td>
+</tr>
+<tr>
+<td align="left">Ctrl + C</td>
+<td align="left">Kill whatever you’re running</td>
+</tr>
+<tr>
+<td align="left">Ctrl + D</td>
+<td align="left">Exit the current shell</td>
+</tr>
+<tr>
+<td align="left">Option + →</td>
+<td align="left">Move cursor one word forward</td>
+</tr>
+<tr>
+<td align="left">Option + ←</td>
+<td align="left">Move cursor one word backward</td>
+</tr>
+<tr>
+<td align="left">Ctrl + F</td>
+<td align="left">Move cursor one character forward</td>
+</tr>
+<tr>
+<td align="left">Ctrl + B</td>
+<td align="left">Move cursor one character backward</td>
+</tr>
+<tr>
+<td align="left">Ctrl + Y</td>
+<td align="left">Paste whatever was cut by the last command</td>
+</tr>
+<tr>
+<td align="left">Ctrl + Z</td>
+<td align="left">Puts whatever you’re running into a suspended background process</td>
+</tr>
+<tr>
+<td align="left">Ctrl + _</td>
+<td align="left">Undo the last command</td>
+</tr>
+<tr>
+<td align="left">Option + Shift + Cmd + C</td>
+<td align="left">Copy plain text</td>
+</tr>
+<tr>
+<td align="left">Shift + Cmd + V</td>
+<td align="left">Paste the selection</td>
+</tr>
+<tr>
+<td align="left">exit</td>
+<td align="left">End a shell session</td>
+</tr>
+<tr>
+<td align="left"><strong>Basics</strong></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">&#x2F; (Forward Slash)</td>
+<td align="left">Top level directory</td>
+</tr>
+<tr>
+<td align="left">. (Single Period)</td>
+<td align="left">Current directory</td>
+</tr>
+<tr>
+<td align="left">.. (Double Period)</td>
+<td align="left">Parent directory</td>
+</tr>
+<tr>
+<td align="left">~ (Tilde)</td>
+<td align="left">Home directory</td>
+</tr>
+<tr>
+<td align="left">sudo [command]</td>
+<td align="left">Run command with the security privileges of the super user</td>
+</tr>
+<tr>
+<td align="left">nano [file]</td>
+<td align="left">Opens the Terminal editor</td>
+</tr>
+<tr>
+<td align="left">open [file]</td>
+<td align="left">Opens a file</td>
+</tr>
+<tr>
+<td align="left">[command] -h</td>
+<td align="left">Get help about a command</td>
+</tr>
+<tr>
+<td align="left">man [command]</td>
+<td align="left">Show the help manual of the command</td>
+</tr>
+<tr>
+<td align="left"><strong>Change Directory</strong></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">cd</td>
+<td align="left">Home directory</td>
+</tr>
+<tr>
+<td align="left">cd [folder]</td>
+<td align="left">Change directory, e.g. cd Documents</td>
+</tr>
+<tr>
+<td align="left">cd ~</td>
+<td align="left">Home directory</td>
+</tr>
+<tr>
+<td align="left">cd&#x2F;</td>
+<td align="left">Root of the drive</td>
+</tr>
+<tr>
+<td align="left">cd -</td>
+<td align="left">Previous directory or folder you last browsed</td>
+</tr>
+<tr>
+<td align="left">pwd</td>
+<td align="left">Show your working directory</td>
+</tr>
+<tr>
+<td align="left">cd..</td>
+<td align="left">Move up to the parent directory</td>
+</tr>
+<tr>
+<td align="left">cd..&#x2F;..</td>
+<td align="left">Move up two levels</td>
+</tr>
+<tr>
+<td align="left"><strong>List Directory Contents</strong></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">ls</td>
+<td align="left">Display the name of files and subdirectories in the directory</td>
+</tr>
+<tr>
+<td align="left">ls -C</td>
+<td align="left">Force multi-column output of the listing</td>
+</tr>
+<tr>
+<td align="left">ls -a</td>
+<td align="left">List all entries including those with .(period) and ..(double period)</td>
+</tr>
+<tr>
+<td align="left">ls -1</td>
+<td align="left">Output the list of files in one entry per line format</td>
+</tr>
+<tr>
+<td align="left">ls -F</td>
+<td align="left">Display a &#x2F; (slash) immediately after each path that is a directory, * (asterisk) after executable programs or scripts, and @ after a symbolic link</td>
+</tr>
+<tr>
+<td align="left">ls -S</td>
+<td align="left">Sort files or entries by size</td>
+</tr>
+<tr>
+<td align="left">ls -l</td>
+<td align="left">List in a long format. Includes file mode, owner and group name, date and time file was modified, pathname, and more</td>
+</tr>
+<tr>
+<td align="left">ls -l &#x2F;</td>
+<td align="left">List of the file system from root with symbolic links</td>
+</tr>
+<tr>
+<td align="left">ls -lt</td>
+<td align="left">List the files sorted by time modified (most recent first)</td>
+</tr>
+<tr>
+<td align="left">ls -lh</td>
+<td align="left">Long listing with human readable file sizes in KB, MB, or GB</td>
+</tr>
+<tr>
+<td align="left">ls -lo</td>
+<td align="left">List the file names with size, owner, and flags</td>
+</tr>
+<tr>
+<td align="left">ls -la</td>
+<td align="left">List detailed directory contents, including hidden files</td>
+</tr>
+<tr>
+<td align="left"><strong>File Size and Disk Space</strong></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">du</td>
+<td align="left">List usage for each subdirectory and its contents</td>
+</tr>
+<tr>
+<td align="left">du -sh [folder]</td>
+<td align="left">Human readable output of all files in a directory</td>
+</tr>
+<tr>
+<td align="left">du -s</td>
+<td align="left">Display an entry for each specified file</td>
+</tr>
+<tr>
+<td align="left">du -sk* | sort -nr</td>
+<td align="left">List files and folders, totaling the size including the subfolders. Replace sk* with sm* to list directories in MB</td>
+</tr>
+<tr>
+<td align="left">df -h</td>
+<td align="left">Calculate your system’s free disk space</td>
+</tr>
+<tr>
+<td align="left">df -H</td>
+<td align="left">Calculate free disk space in powers of 1,000 (as opposed to 1,024)</td>
+</tr>
+<tr>
+<td align="left"><strong>File and Directory Management</strong></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left"><code>mkdir &lt;dir&gt;</code></td>
+<td align="left">Create new folder named <code>&lt;dir&gt;</code></td>
+</tr>
+<tr>
+<td align="left"><code>mkdir -p &lt;dir&gt;/&lt;dir&gt;</code></td>
+<td align="left">Create nested folders</td>
+</tr>
+<tr>
+<td align="left"><code>mkdir &lt;dir1&gt; &lt;dir2&gt; &lt;dir3&gt;</code></td>
+<td align="left">Create several folders at once</td>
+</tr>
+<tr>
+<td align="left"><code>mkdir &quot;&lt;dir&gt;&quot;</code></td>
+<td align="left">Create a folder with a space in the filename</td>
+</tr>
+<tr>
+<td align="left"><code>rmdir &lt;dir&gt;</code></td>
+<td align="left">Delete a folder (only works on empty folders)</td>
+</tr>
+<tr>
+<td align="left"><code>rm -R &lt;dir&gt;</code></td>
+<td align="left">Delete a folder and its contents</td>
+</tr>
+<tr>
+<td align="left"><code>touch &lt;file&gt;</code></td>
+<td align="left">Create a new file without any extension</td>
+</tr>
+<tr>
+<td align="left"><code>cp &lt;file&gt; &lt;dir&gt;</code></td>
+<td align="left">Copy a file to the folder</td>
+</tr>
+<tr>
+<td align="left"><code>cp &lt;file&gt; &lt;newfile&gt;</code></td>
+<td align="left">Copy a file to the current folder</td>
+</tr>
+<tr>
+<td align="left"><code>cp &lt;file&gt;~/&lt;dir&gt;/&lt;newfile&gt;</code></td>
+<td align="left">Copy a file to the folder and rename the copied file</td>
+</tr>
+<tr>
+<td align="left"><code>cp -R &lt;dir&gt; &lt;&quot;new dir&quot;&gt;</code></td>
+<td align="left">Copy a folder to a new folder with spaces in the filename</td>
+</tr>
+<tr>
+<td align="left"><code>cp -i &lt;file&gt;&lt;dir&gt;</code></td>
+<td align="left">Prompts you before copying a file with a warning overwrite message</td>
+</tr>
+<tr>
+<td align="left"><code>cp &lt;file1&gt; &lt;file2&gt; &lt;file3&gt;/Users/&lt;dir&gt;</code></td>
+<td align="left">Copy multiple files to a folder</td>
+</tr>
+<tr>
+<td align="left">ditto -V [folder path][new folder]</td>
+<td align="left">Copy the contents of a folder to new folder. In here “-V” print a line of status for every file copied</td>
+</tr>
+<tr>
+<td align="left"><code>rm &lt;file&gt;</code></td>
+<td align="left">Delete a file (This deletes the file permanently; use with caution.)</td>
+</tr>
+<tr>
+<td align="left"><code>rm -i &lt;file&gt;</code></td>
+<td align="left">Delete a file only when you give confirmation</td>
+</tr>
+<tr>
+<td align="left"><code>rm -f &lt;file&gt;</code></td>
+<td align="left">Force removal without confirmation</td>
+</tr>
+<tr>
+<td align="left"><code>rm &lt;file1&gt; &lt;file2&gt; &lt;file3&gt;</code></td>
+<td align="left">Delete multiple files without any confirmation</td>
+</tr>
+<tr>
+<td align="left"><code>mv &lt;file&gt; &lt;newfilename&gt;</code></td>
+<td align="left">Move&#x2F;rename</td>
+</tr>
+<tr>
+<td align="left"><code>mv &lt;file&gt; &lt;dir&gt;</code></td>
+<td align="left">Move a file to the folder, possibly by overwriting an existing file</td>
+</tr>
+<tr>
+<td align="left"><code>mv -i &lt;file&gt; &lt;dir&gt;</code></td>
+<td align="left">Optional -i flag to warn you before overwriting the file</td>
+</tr>
+<tr>
+<td align="left"><code>mv *.png ~/&lt;dir&gt;</code></td>
+<td align="left">Move all PNG files from current folder to a different folder</td>
+</tr>
+<tr>
+<td align="left"><strong>Command History</strong></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">Ctrl + R</td>
+<td align="left">Search through previously used commands</td>
+</tr>
+<tr>
+<td align="left">history n</td>
+<td align="left">Shows the previous commands you’ve typed. Add a number to limit to the last n items</td>
+</tr>
+<tr>
+<td align="left">![value]</td>
+<td align="left">Execute the last command typed that starts with a value</td>
+</tr>
+<tr>
+<td align="left">!!</td>
+<td align="left">Execute the last command typed</td>
+</tr>
+<tr>
+<td align="left"><strong>Permissions</strong></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">ls -ld</td>
+<td align="left">Display the default permission for a home directory</td>
+</tr>
+<tr>
+<td align="left">ls -ld&#x2F;<code>&lt;dir&gt;</code></td>
+<td align="left">Display the read, write, and access permission of a particular folder</td>
+</tr>
+<tr>
+<td align="left">chmod 755 <code>&lt;file&gt;</code></td>
+<td align="left">Change the permission of a file to 755</td>
+</tr>
+<tr>
+<td align="left">chmod -R 600 <code>&lt;dir&gt;</code></td>
+<td align="left">Change the permission of a folder (and its contents) to 600</td>
+</tr>
+<tr>
+<td align="left">chown<code> &lt;user&gt;</code>:<code>&lt;group&gt; </code> <code>&lt;file&gt;</code></td>
+<td align="left">Change the ownership of a file to user and group. Add -R to include folder contents</td>
+</tr>
+<tr>
+<td align="left"><strong>Processes</strong></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">ps -ax</td>
+<td align="left">Output currently running processes. Here, a shows processes from all users and x shows processes that are not connected with the Terminal</td>
+</tr>
+<tr>
+<td align="left">ps -aux</td>
+<td align="left">Shows all the processes with %cpu, %mem, page in, PID, and command</td>
+</tr>
+<tr>
+<td align="left">top</td>
+<td align="left">Display live information about currently running processes</td>
+</tr>
+<tr>
+<td align="left">top -ocpu -s 5</td>
+<td align="left">Display processes sorted by CPU usage, updating every 5 seconds</td>
+</tr>
+<tr>
+<td align="left">top -o rsize</td>
+<td align="left">Sort top by memory usage</td>
+</tr>
+<tr>
+<td align="left">kill PID</td>
+<td align="left">Quit process with ID <code>&lt;PID&gt;</code>. You’ll see PID as a column in the Activity Monitor</td>
+</tr>
+<tr>
+<td align="left">ps -ax | grep <code>&lt;appname&gt;</code></td>
+<td align="left">Find a process by name or PID</td>
+</tr>
+<tr>
+<td align="left"><strong>Network</strong></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">ping <code>&lt;host&gt;</code></td>
+<td align="left">Ping host and display status</td>
+</tr>
+<tr>
+<td align="left">whois <code>&lt;domain&gt;</code></td>
+<td align="left">Output whois info for a domain</td>
+</tr>
+<tr>
+<td align="left">curl -O &lt;url&#x2F;to&#x2F;file&gt;</td>
+<td align="left">Download file via HTTP, HTTPS, or FTP</td>
+</tr>
+<tr>
+<td align="left">ssh <code>&lt;username&gt;</code>@<code>&lt;host&gt;</code></td>
+<td align="left">Establish SSH connection to <code>&lt;host&gt;</code> with user <code>&lt;username&gt;</code></td>
+</tr>
+<tr>
+<td align="left">scp<code> &lt;file&gt;</code> <code>&lt;user&gt;</code>@<code>&lt;host&gt;</code>:&#x2F;remote&#x2F;path</td>
+<td align="left"><code>Copy </code> <code>&lt;file&gt;</code> to a remote<code> &lt;host&gt;</code></td>
+</tr>
+<tr>
+<td align="left">arp -a</td>
+<td align="left">View a list of all devices on your local network. It will show you the IP and MAC address of all the devices</td>
+</tr>
+<tr>
+<td align="left">ifconfig en0</td>
+<td align="left">View your device IP and MAC address</td>
+</tr>
+<tr>
+<td align="left">traceroute [hostname]</td>
+<td align="left">Identify the path and the hops traversed by the packets from your device to the destination address</td>
+</tr>
+<tr>
+<td align="left"><strong>Homebrew</strong></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">brew doctor</td>
+<td align="left">Check brew for potential problems</td>
+</tr>
+<tr>
+<td align="left">brew help</td>
+<td align="left">List of useful homebrew formula and cask commands</td>
+</tr>
+<tr>
+<td align="left">brew install <code>&lt;formula&gt;</code>|<code>&lt;cask&gt;</code></td>
+<td align="left">Install a formula or cask</td>
+</tr>
+<tr>
+<td align="left">brew uninstall <code>&lt;formula&gt;</code>|cask&gt;</td>
+<td align="left">Uninstall a formula or cask</td>
+</tr>
+<tr>
+<td align="left">brew list –formula</td>
+<td align="left">List only installed formulas</td>
+</tr>
+<tr>
+<td align="left">brew list –cask</td>
+<td align="left">List only installed cask</td>
+</tr>
+<tr>
+<td align="left">brew deps <code>&lt;formula&gt;</code>|<code>&lt;cask&gt;</code></td>
+<td align="left">List all the dependencies of a formula or cask</td>
+</tr>
+<tr>
+<td align="left">brew search text|&#x2F;regex&#x2F;</td>
+<td align="left">Search formula or cask through regex</td>
+</tr>
+<tr>
+<td align="left">brew upgrade <code>&lt;formula&gt;</code>|<code>&lt;cask&gt;</code></td>
+<td align="left">Upgrade the formula or cask</td>
+</tr>
+<tr>
+<td align="left">brew outdated <code>&lt;formula&gt;</code>|<code>&lt;cask&gt;</code></td>
+<td align="left">Search for outdated formula or cask</td>
+</tr>
+<tr>
+<td align="left">brew outdated –formula</td>
+<td align="left">Search for outdated formula</td>
+</tr>
+<tr>
+<td align="left">brew outdated –cask</td>
+<td align="left">Search for outdated cask</td>
+</tr>
+<tr>
+<td align="left">brew pin [installed_formula]</td>
+<td align="left">Pin a formula from getting upgraded</td>
+</tr>
+<tr>
+<td align="left">brew unpin [installed_formula]</td>
+<td align="left">Unpin to upgrade a package</td>
+</tr>
+<tr>
+<td align="left">brew cleanup</td>
+<td align="left">Remove stale lock files and outdated packages for all formula and casks.</td>
+</tr>
+<tr>
+<td align="left"><strong>Environment Variable or Path</strong></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">printenv</td>
+<td align="left">Display a list of currently set environment variables. Also tells you which shell you’re using</td>
+</tr>
+<tr>
+<td align="left">$echo</td>
+<td align="left">Tells the terminal to print something and show it to you</td>
+</tr>
+<tr>
+<td align="left">echo $PATH</td>
+<td align="left">Check the value of the PATH variable which storea a list of directories with executable files</td>
+</tr>
+<tr>
+<td align="left">echo $PATH &gt;path.txt</td>
+<td align="left">Export the path directory to a text file</td>
+</tr>
+<tr>
+<td align="left">export PATH&#x3D;$PATH:absolute&#x2F;path to&#x2F;program&#x2F;</td>
+<td align="left">Execute a program via terminal only in your current session. If you use a program regularly, add the path to shell configuration file.</td>
+</tr>
+<tr>
+<td align="left"><strong>Search</strong></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">find<code>&lt;dir&gt;</code>-name &lt;”file”&gt;</td>
+<td align="left">Find all files named <code>&lt;file&gt;</code> inside <code>&lt;dir&gt;</code>. Use wildcards (*) to search for parts of filenames</td>
+</tr>
+<tr>
+<td align="left">grep “<code>&lt;text&gt;</code>“ <code>&lt;file&gt;</code></td>
+<td align="left">Output all occurrences of <code>&lt;text&gt; </code>inside<code>&lt;file&gt;</code>(add -i for case insensitivity)</td>
+</tr>
+<tr>
+<td align="left">grep -rl “<code>&lt;text&gt;</code>“ <code>&lt;dir&gt;</code></td>
+<td align="left">Search for all files containing <code>&lt;text&gt;</code> inside <code>&lt;dir&gt;</code></td>
+</tr>
+<tr>
+<td align="left"><strong>Output</strong></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">cat <code>&lt;file&gt;</code></td>
+<td align="left">Output the content of <code>&lt;file&gt;</code></td>
+</tr>
+<tr>
+<td align="left">less <code>&lt;file&gt;</code></td>
+<td align="left">Output the contents of <code>&lt;file&gt;</code> using the less command that supports pagination and more</td>
+</tr>
+<tr>
+<td align="left">head <code>&lt;file&gt;</code></td>
+<td align="left">Output the first 10 lines of <code>&lt;file&gt;</code></td>
+</tr>
+<tr>
+<td align="left"><code>&lt;cmd&gt; &gt; &gt; &lt;file&gt;</code></td>
+<td align="left">Appends the output of <code>&lt;cmd&gt;</code> to <code>&lt;file&gt;</code></td>
+</tr>
+<tr>
+<td align="left"><code>&lt;cmd&gt; &gt; &lt;file&gt;</code></td>
+<td align="left">Direct the output of<code>&lt;cmd&gt; into</code> <code>&lt;file&gt;</code></td>
+</tr>
+<tr>
+<td align="left">&#96;<cmd1></td>
+<td align="left"><cmd2>&#96;</td>
+</tr>
+</tbody></table>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E5%BF%AB%E6%8D%B7%E9%94%AE/" class="print-no-link">#快捷键</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>The Mac Terminal Commands Cheat Sheet</div>
+      <div>http://example.com/2023/02/15/The Mac Terminal Commands Cheat Sheet/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>John Doe</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2023年2月15日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2023/04/06/Keyboard%20shortcuts%20in%20Notion/" title="Keyboard shortcuts in Notion">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">Keyboard shortcuts in Notion</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2023/02/15/Mac%E4%B8%8A%E2%80%9C%E7%BB%88%E7%AB%AF%E2%80%9D%E4%B8%AD%E7%9A%84%E9%94%AE%E7%9B%98%E5%BF%AB%E6%8D%B7%E9%94%AE/" title="Mac上“终端”中的键盘快捷键">
+                        <span class="hidden-mobile">Mac上“终端”中的键盘快捷键</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

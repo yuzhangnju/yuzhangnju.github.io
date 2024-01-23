@@ -1,0 +1,1562 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="https://cdn.jsdelivr.net/gh/yuzhangnju/image2022/uchiha2.png">
+  <link rel="icon" href="https://cdn.jsdelivr.net/gh/yuzhangnju/image2022/uchiha2.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="John Doe">
+  <meta name="keywords" content="DID, 因果推断">
+  
+    <meta name="description" content="与DID有关的文章，侧重于实践。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Handbook of DID family">
+<meta property="og:url" content="http://example.com/2023/10/25/Handbook%20of%20DID%20family_20231026/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="与DID有关的文章，侧重于实践。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/yuzhangnju/image2022/image-20231023133624641.png">
+<meta property="article:published_time" content="2023-10-25T13:30:00.000Z">
+<meta property="article:modified_time" content="2023-11-15T11:03:19.444Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="因果推断">
+<meta property="article:tag" content="DID">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/yuzhangnju/image2022/image-20231023133624641.png">
+  
+  
+  
+  <title>Handbook of DID family - Hexo</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.7","typing":{"enable":true,"typeSpeed":100,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 7.1.1"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Yu&#39;s Space</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/" target="_self">
+                <i class="iconfont icon-link-fill"></i>
+                <span>友链</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('https://cdn.jsdelivr.net/gh/yuzhangnju/image/img/bannernew.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="Handbook of DID family"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2023-10-25 21:30" pubdate>
+          2023年10月25日 晚上
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          16k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          131 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">Handbook of DID family</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <p>本篇博客文章是我学习DID（difference in differences）的记录，侧重<strong>实践性</strong>（主要是太多底层计量原理我也搞不懂）。我期望将它做成一个实用的小册子，方便与感兴趣的小伙伴交流和用时复查。作为近些年最流行的因果推断实证设计，DID的重要性已无需多言。在本文中，我将对DID的基本原理、适用情景和限制进行概述，并介绍DID的多种变体，包括交错DID、DDD、广义DID等，这其中最重要的是<mark><strong>交错DID</strong></mark>。同时，对于找到的各类实用软件包，也一并介绍。如发现文中的错误之处或有其他补充，请直接告诉我（联系方式见本博客“<a target="_blank" rel="noopener" href="https://yuzhangnju.github.io/about/">关于</a>”页）。</p>
+<p>本文重点参考、摘录了“<a target="_blank" rel="noopener" href="https://www.lianxh.cn/">连享会</a>”网站的内容，感谢lianxh的工作！</p>
+<h2 id="1-标准DID"><a href="#1-标准DID" class="headerlink" title="1 标准DID"></a>1 标准DID</h2><h3 id="1-1-DID的基本思想-Canonical-DID"><a href="#1-1-DID的基本思想-Canonical-DID" class="headerlink" title="1.1 DID的基本思想 - Canonical DID"></a>1.1 DID的基本思想 - Canonical DID</h3><blockquote>
+<ul>
+<li>框架：潜在结果因果框架</li>
+<li>结构：2 X 2，【处理组&amp;对照组】 X 【处理前&amp;处理后】，即“两组*两期”，这一结构也意味着冲击是一次推开的</li>
+<li>基本假设：<ul>
+<li>平行趋势假设（认为事前平行使反事实也平行）；</li>
+<li>政策影响无溢出效应或交互效应（SUVTA）；</li>
+<li>无预期效应</li>
+<li>处理效应同质</li>
+</ul>
+</li>
+<li>必做检验：<ul>
+<li>平行趋势检验</li>
+<li>安慰剂检验</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<p>举个例子：</p>
+<blockquote>
+<p>两个相距较远的城市M和N长期以来经济发展水平有相同的趋势，两地经济交流较少。从某一年起，M市成为一项减税政策的试点城市，而N市不受影响，此后，M城市的经济增速发生了变化，而N市不变。此时，政策实施后两城市的经济水平之差减去政策实施前的经济水平差，即为政策效应（差分再差分，即双重差分）。</p>
+</blockquote>
+<p>⬇️如下图所示</p>
+<ul>
+<li>处理效应（政策效应）TE &#x3D;（C-E）-（A-B）&#x3D; CD</li>
+<li>AD是AC的反事实，由于DE无法直接观察到，此时以AB代替</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/yuzhangnju/image2022/image-20231025135914225.png" srcset="/img/loading.gif" lazyload alt="image-20231025135914225"></p>
+<p>图1 双重差分法的示意</p>
+<h3 id="1-2-Canonical-DID的标准构造"><a href="#1-2-Canonical-DID的标准构造" class="headerlink" title="1.2 Canonical DID的标准构造"></a>1.2 Canonical DID的标准构造</h3><p>从DID的基本原理可知，DID的实验设计需包含事件冲击和时间先后，其基本构造如下：<br>$$<br>y_{it} &#x3D; \beta_0 + \beta_1 Treat_i + \beta_2 Post_t + \beta_3 Treat_i Post_t + \epsilon_{it} \quad(1)<br>$$<br>如式（1）所示，$yit$为结果变量，$Treat_i$是事件冲击虚拟变量，$Post_t$是时间虚拟变量，$\beta_3$是我们关注的变量，为处理效应。该式的图解如图2所示</p>
+<p><img src="https://cdn.jsdelivr.net/gh/yuzhangnju/image2022/CF-1.png" srcset="/img/loading.gif" lazyload alt="Counterfactual, betas"></p>
+<p>图2 DID系数的含义</p>
+<p>表1 2X2 DID的系数释义</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Treatment &#x3D; 0</th>
+<th>Treatment &#x3D; 1</th>
+<th><em><strong>Difference</strong></em></th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Post &#x3D; 0</strong></td>
+<td>$$ \beta_0 $$</td>
+<td>$$ \beta_0 + \beta_1 $$</td>
+<td>$$ \beta_1 $$</td>
+</tr>
+<tr>
+<td><strong>Post &#x3D; 1</strong></td>
+<td>$$\beta_0 + \beta_2$$</td>
+<td>$$ \beta_0 + \beta_1 + \beta_2 + \beta_3 $$</td>
+<td>$$ \beta_1 + \beta_3 $$</td>
+</tr>
+<tr>
+<td><em><strong>Difference</strong></em></td>
+<td>$$ \beta_2 $$</td>
+<td>$$ \beta_2 + \beta_3 $$</td>
+<td>$$ \beta_3 $$</td>
+</tr>
+</tbody></table>
+<h3 id="1-3-DID的数据结构"><a href="#1-3-DID的数据结构" class="headerlink" title="1.3 DID的数据结构"></a>1.3 DID的数据结构</h3><h4 id="1-3-1-政策效果不随时间变化"><a href="#1-3-1-政策效果不随时间变化" class="headerlink" title="1.3.1 政策效果不随时间变化"></a>1.3.1 政策效果不随时间变化</h4><p>对于第一个个体，y在第五期接受干预，出现上升，此后趋势不变。</p>
+<p>其实不论政策效果随不随时间变化，计算的处理效应都是平均处理效应ATE。</p>
+<table>
+<thead>
+<tr>
+<th>id</th>
+<th>year</th>
+<th>y</th>
+<th>d</th>
+<th>t</th>
+<th>dt</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>1</td>
+<td>3</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>1</td>
+<td>2</td>
+<td>4</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>1</td>
+<td>3</td>
+<td>5</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>1</td>
+<td>4</td>
+<td>6</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>1</td>
+<td>5</td>
+<td>10</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr>
+<td>1</td>
+<td>6</td>
+<td>11</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr>
+<td>1</td>
+<td>7</td>
+<td>12</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr>
+<td>1</td>
+<td>8</td>
+<td>13</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr>
+<td>2</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>2</td>
+<td>2</td>
+<td>2</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>2</td>
+<td>3</td>
+<td>3</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>2</td>
+<td>4</td>
+<td>4</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>2</td>
+<td>5</td>
+<td>5</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+</tr>
+<tr>
+<td>2</td>
+<td>6</td>
+<td>6</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+</tr>
+<tr>
+<td>2</td>
+<td>7</td>
+<td>7</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+</tr>
+<tr>
+<td>2</td>
+<td>8</td>
+<td>8</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+</tr>
+</tbody></table>
+<h4 id="1-3-2-政策效果随时间变化"><a href="#1-3-2-政策效果随时间变化" class="headerlink" title="1.3.2 政策效果随时间变化"></a>1.3.2 政策效果随时间变化</h4><p>对于第一个个体，y在第五期接受干预，出现上升，此后趋势逐渐增强。</p>
+<table>
+<thead>
+<tr>
+<th>id</th>
+<th>year</th>
+<th>y</th>
+<th>d</th>
+<th>t</th>
+<th>dt</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>1</td>
+<td>3</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>1</td>
+<td>2</td>
+<td>4</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>1</td>
+<td>3</td>
+<td>5</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>1</td>
+<td>4</td>
+<td>6</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>1</td>
+<td>5</td>
+<td>8</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr>
+<td>1</td>
+<td>6</td>
+<td>11</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr>
+<td>1</td>
+<td>7</td>
+<td>15</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr>
+<td>1</td>
+<td>8</td>
+<td>20</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr>
+<td>2</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>2</td>
+<td>2</td>
+<td>2</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>2</td>
+<td>3</td>
+<td>3</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>2</td>
+<td>4</td>
+<td>4</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>2</td>
+<td>5</td>
+<td>5</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+</tr>
+<tr>
+<td>2</td>
+<td>6</td>
+<td>6</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+</tr>
+<tr>
+<td>2</td>
+<td>7</td>
+<td>7</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+</tr>
+<tr>
+<td>2</td>
+<td>8</td>
+<td>8</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+</tr>
+</tbody></table>
+<h3 id="1-4-计算处理效应"><a href="#1-4-计算处理效应" class="headerlink" title="1.4 计算处理效应"></a>1.4 计算处理效应</h3><p>在Stata中有多种命令可以计算处理效应，早期的有<code>diff</code>，<code>reg</code>、<code>areg</code>、<code>xtreg</code>也可以，实证中使用较多的是<code>reghdfe</code>，该命令的优点是处理速度快、输出结果简洁，在各大top刊中常见。</p>
+<p>从Stata17开始，官方提供了DID命令，分别是<code>didregress</code>和<code>xtdidregress</code>，其中后者适用于面板数据。官方命令的优点是方便回归后绘制时间趋势图。</p>
+<p>命令的使用及介绍见文末代码。</p>
+<h3 id="1-5-平行趋势检验"><a href="#1-5-平行趋势检验" class="headerlink" title="1.5 平行趋势检验"></a>1.5 平行趋势检验</h3><p>事前平行趋势对于基于准实验设计的因果推断方法至关重要，因为事前的平行趋势是使得观测不到的反事实平行于对照组的最重要条件。</p>
+<p>平行趋势检验一般有画<strong>时间趋势图</strong>和<strong>事件研究法</strong>（Event study）两种。</p>
+<h4 id="1-5-1-时间趋势图"><a href="#1-5-1-时间趋势图" class="headerlink" title="1.5.1 时间趋势图"></a>1.5.1 时间趋势图</h4><p>画时间趋势图是一个比较粗糙的方法，大致看看处理组和控制组在冲击前后的趋势变化，如果是一个好的实验设计，事件冲击前处理组和控制组的均值应该有平行趋势，冲击后处理组的趋势发生变化。</p>
+<p>绘制时间趋势图的命令可以基于xtdidreg实现，也可以手动计算。</p>
+<h4 id="1-5-2-事件研究法"><a href="#1-5-2-事件研究法" class="headerlink" title="1.5.2 事件研究法"></a>1.5.2 事件研究法</h4><p>DID是双重差分，事件研究是单次差分，在DID中运用事件研究有两个好处：</p>
+<ul>
+<li>一是可以利用回归方法对双重差分法中最重要的平行趋势假设进行检验，与画时间趋势图相比，好处在于可以控制协变量的影响，方程形式也更加灵活；</li>
+<li>二是可以更加清楚地得到政策效果在时间维度上的变化。因此，这部分检验在论文中也往往被称为政策的动态效果(Dynamic Effects) 或者灵活的 DID （Flexible DID Estimates）。</li>
+</ul>
+<p><strong>注意</strong>：此处涉及到基准期的选择，一般选择drop掉第一期或者政策前一期。</p>
+<h3 id="1-6-安慰剂检验"><a href="#1-6-安慰剂检验" class="headerlink" title="1.6 安慰剂检验"></a>1.6 安慰剂检验</h3><p>关于「安慰剂效应」，维基百科的解释如下：</p>
+<blockquote>
+<p>安慰剂效应 (placebo effect)，又名伪药效应、假药效应、代设剂效应，是指病人虽然获得无效的治疗，但却让其 “预料” 或 “相信” 治疗有效，而让病患症状得到舒缓的现象。</p>
+</blockquote>
+<p>随着「因果推断方法」在实证研究中的使用比例不断提升，越来越多的文章也会进行安慰剂检验。其检验基本原理与医学中的安慰剂类似，即使用「假的政策发生时间或实验组」进行分析，以检验能否得到政策效应。如果依然得到了政策效应，则表明基准回归中的政策效应并不可靠。进一步，经济结果可能是由其他不可观测因素导致的，而非关注的政策所产生。</p>
+<p>在实证研究中，无论是稳健性检验，还是安慰剂检验，亦或是异质性分析，其背后真实的目的只有两方面：</p>
+<ul>
+<li>第一，使得文章故事性更强，逻辑更加严密；</li>
+<li>第二，为因果推断服务，让读者相信研究对象之间的因果效应。</li>
+</ul>
+<p>当然，不同的因果推断方法有着不同的安慰剂检验方法，这也进一步说明安慰剂检验是为因果推断服务的。而无论是哪一种因果推断方法，其对应的安慰剂检验思想均可理解为「构造伪政策」。但是，在应用安慰剂检验时，需要注意的是，不能为了安慰剂检验而进行安慰剂检验，其背后一定要有理论的逻辑。</p>
+<p>例如，在使用 DID 方法后，通过随机构造实验组，并模拟 10000 次，然后将系数或 $t$值在一张图中绘制出来，以告诉读者前文的识别是可靠的。</p>
+<p>基于 2x2 DID的基本要素（处理组、对照组、事前、事后），一个直观的思路是让这些要素发生随机偏离，来实现安慰剂检验。由此，常见的安慰剂检验方法有：</p>
+<ul>
+<li><strong>改变政策发生时间</strong></li>
+</ul>
+<blockquote>
+<p>采用政策发生之前的数据。将政策实施前的除第一年之外的所有年份“人为地”设定成为处理组的政策实施年份，然后根据DID模型逐年回归。当所有回归中的交互项系数都不显著时,说明通过了安慰剂检验,表明之前识别的政策平均效应是可靠的，否则就是不可靠的。如果政策实施前有n年数据，那么就要做n-1次上述回归。（其实就是将政策发生事件随机改为政策发生之前的年份）</p>
+</blockquote>
+<ul>
+<li><strong>随机生成实验组</strong></li>
+</ul>
+<blockquote>
+<p>通过随机抽取实验组，重复多次，提取安慰剂结果系数或 $t$ 值，然后将其绘制在图中，并观察真实的政策效应与安慰剂结果。当真实的政策效应与安慰剂检验结果显著不同时，可排除其他随机因素对结果的干扰。</p>
+</blockquote>
+<ul>
+<li><strong>替换样本</strong></li>
+</ul>
+<blockquote>
+<p>替换样本进行安慰剂检验与随机生成实验组的方法较为相似。不同之处在于，随机生成实验组的安慰剂检验方法最终结果以图形展示，而替换样本安慰剂检验结果多以表格形式展示。在实际操作过程中，替换样本安慰剂检验不需要重复模拟，这在技术上显得容易一点，但在理论逻辑上更加严谨。比如，某政策颁布后，受政策影响的是污染行业，在因果识别后，可对非污染行业进行分析，探究是否存在政策效应 (亦或对政策范围外的污染行业进行分析)。如果对于非污染行业依然存在所谓的政策效应，那么前文的分析并不可靠。</p>
+</blockquote>
+<ul>
+<li><strong>替换变量</strong></li>
+</ul>
+<blockquote>
+<p>替换变量进行安慰剂检验主要分为替换被解释变量和替换解释变量。与稳健性检验有所不同的是，稳健性检验希望在替换变量后结果依然稳健，而安慰剂检验希望替换变量后结果不再显著。首先，替换被解释变量。某项政策实施后，对特定经济活动会产生影响，但并不是对所有的经济活动都会产生影响。因此，将被解释变量替换为预期不会受到政策影响的变量进行安慰剂检验，以排除其他可能的干扰因素。</p>
+</blockquote>
+<p>关于平行趋势检验和安慰剂检验的更多资料，参见：</p>
+<ul>
+<li><p><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/wqkUfU0PMkFQhjbazGHYqA">双重差分法（DID）平行趋势及安慰剂检验方法案例合集</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.lianxh.cn/details/498.html">安慰剂检验！安慰剂检验！</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/Ipsr5lau0Mps1YlYqtXOKA">DID中平行趋势检验及drop掉的基期选择问题</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.lianxh.cn/details/760.html">Stata：平行趋势不满足？主成分DID来帮你！- pcdid</a></p>
+</li>
+</ul>
+<h3 id="1-7-固定效应注意事项"><a href="#1-7-固定效应注意事项" class="headerlink" title="1.7 固定效应注意事项"></a>1.7 固定效应注意事项</h3><p>基本控制的是个体固定效应和时间固定效应，有时会控制更高维度的交互项。</p>
+<p>转自群聊：</p>
+<blockquote>
+<p>关于不同维度固定效应意义的总结：</p>
+<p>A.针对面板数据，我们通常采用固定效应来减轻不可观测因素对结果的影响。其中一维固定效应是常见的方法，包括但不限于：</p>
+<p>个体固定效应：通过排除个体层面不受时间变化影响的不可观测因素（例如，个人性别、公司CEO特征），以减少其可能对结果造成的影响。</p>
+<p>日期固定效应：用以缓解那些不随个体变化但会随着时间变化而发生变化的不可观测因素对估计结果的影响，比如节假日因素等。</p>
+<p>B.随后，我们逐步将固定效应的维度提升至二维。例如：</p>
+<p>个体-日期固定效应：用以控制个体层面随时间变化的不可观测因素对结果的影响，也就是这些不可观测因素同时随着个体和日期而变化。</p>
+<p>行业-日期固定效应：用以控制行业层面随时间变化的不可观测因素对结果变量的影响，比如行业层面逐年变化的行业竞争程度。</p>
+<p>省份-日期固定效应：用以控制省份层面随时间变化的不可观测因素对结果的影响，比如省份层面逐年变化的经济波动（不同省份不同年份肯定不同）。</p>
+<p>例如，以省份-日期固定效应为例，通过控制这组固定效应，我们能够从同一年同一个省内不同地级市之间获取关键解释变量系数δ的变异。这样识别出来的δ相比不控制这一组固定效应时更为准确，可以参考Wang(2013)在研究我国开发区经济效果的文章。</p>
+<p>*当然，省份-年份固定效应就是用省份和年份一起来分组的，无论企业变动与否，都能完全分组，那么省份-年份可以以表出省份，也可以表出年份，所以控制了省份-年份就不用再控制省份和年份。这意味着，一旦控制了省份-年份固定效应，就不再需要额外控制省份固定效应、年份固定效应。如果将省份-年份虚拟变量纳入模型后，再加入年份虚拟变量，会导致冗余，从而被自动剔除。同样，如果将省份虚拟变量加入模型，也会面临相同的情况。</p>
+<p>下面三维固定效应也是同样的道理。</p>
+<p>C.当前，我们正逐渐升级固定效应的维度，从二维逐步拓展至三维甚至更多维度。在模型中引入了高维度的固定效应：</p>
+<p>城市-年份-周固定效应：用以控制城市层面随时间变化的不可观测因素，从而减轻那些随城市变化同时也会随时间变化（包括年、月和周）的不可观测因素对结果的影响。值得特别注意的是，相较于城市-年份-月份固定效应，城市-年份-周固定效应控制了更高阶的城市时变不可观测因素，因此通常是我们首选的固定效应。</p>
+<p>城市-行业-年份固定效应：用以控制那些随着城市和行业变动，同时也会随着时间进行变化的不可观测因素对结果的影响。</p>
+<p>这些高维度固定效应的引入使得我们能够更全面地理解并控制潜在的影响因素，从而提高模型的准确性和可靠性。</p>
+</blockquote>
+<p><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/ZeAJMJNTIpDSWsLysaJg7g">关于控制交互固定效应的总结: 代码及示例托盘而出</a></p>
+<h2 id="2-DID家族"><a href="#2-DID家族" class="headerlink" title="2 DID家族"></a>2 DID家族</h2><p>Canonical DID有很多假设，现实情况中，这些假设常常无法得到满足，如事前不平行、政策不是一次性推开等。在Canonical DID的基本假设被放松的情况下，采取各种策略实现合理估计，便诞生了各种DID变体。</p>
+<p>参见：</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/IQzm0eHBnXgZhTO9wdI49g">知否知否？——双重差分法（DID）“大家族”的成员们</a></li>
+<li>黄炜,张子尧,刘安然.从双重差分法到事件研究法[J].产业经济评论,2022(02):17-36.</li>
+</ul>
+<h3 id="2-1-三重差分-DDD"><a href="#2-1-三重差分-DDD" class="headerlink" title="2.1 三重差分 DDD"></a>2.1 三重差分 DDD</h3><ul>
+<li><p>基本原理：给标准DID再找一组对照组，不要求一个DID满足组内平行趋势，但要求两组DID的组内差异满足组间平行趋势；</p>
+</li>
+<li><p>参见：<a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/efm1qnT-HvRmn1AqgZjGzw">计量TOP刊最全三重差分DDD估计指导！！！</a> or <a target="_blank" rel="noopener" href="https://www.lianxh.cn/details/276.html">Stata：三重差分 DDD 模型简介</a></p>
+</li>
+<li><p>为什么要用DDD：</p>
+<ul>
+<li><p>政策冲击在标准DID的组内可能存在溢出效应</p>
+</li>
+<li><p>跨组找对照样本，但对照样本不满足平行趋势</p>
+</li>
+<li><p>举个例子：假设研究对象是美国的两个州，处理州(T)引入了一项医疗保健改革，而控制州(C)没有。此外，这两个州的人口可以细分为两组，A组和B组。我们打算研究的医疗保健措施只被引入B组，即B组是可以从该措施中受益的群体。最后，时间跨度上假设为两期，即保健措施实施前和实施后。</p>
+<p>直接比较处理状态下的A组和B组似乎很方便。但如果医疗改革在处理州内存在溢出效应（B组溢出到A组），那所得结果就无法取信。另一个可能的选择是比较处理州的B组和控制州的B组。但，如果不同的州有不同的经济状况，那么无论医疗措施如何，处理州B组与控制州B组的趋势总是不同的，这种做法也就不成立。</p>
+<p>然而，一种合理地假设是，一般的经济状况差别不会影响A组和B组人群间的相对差别。在这种情况下，我们就可以用相对差别来估计处理州中A组和B组（差异）的反事实结果。</p>
+</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/yuzhangnju/image2022/image-20231025133323120.png" srcset="/img/loading.gif" lazyload alt="image-20231025133323120"></p>
+<p>图3 三重差分法的图示</p>
+<ul>
+<li>处理效应（政策效应）TE &#x3D;（C-E）-（D-E）&#x3D; （C-E）-（O-P）&#x3D; CD</li>
+<li>此时，DE是AB差在干预后的反事实，由于DE无法直接观察到，此时以OP代替</li>
+</ul>
+<p>$$<br>y_{it} &#x3D; \beta_0 + \beta_1 P_{i} + \beta_2 C_{j} + \beta_3 T_t + \beta_4 (P_i T_t) + \beta_5 (C_j T_t) + \beta_6 (P_i C_j) + \beta_7 (P_i C_j T_t) + \epsilon_{it}\quad(2)<br>$$</p>
+<p>相比DID，DDD额外增加了一个Group，变量设置也是01变量，此时，如式（2）所示，$\beta_7$是处理效应。</p>
+<p>在纯对照的Group（$C&#x3D;0$）⬇️：</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>T &#x3D; 0</th>
+<th>T &#x3D; 1</th>
+<th><em><strong>Difference</strong></em></th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>P &#x3D; 0</strong></td>
+<td>$$ \beta_0 $$</td>
+<td>$$ \beta_0 + \beta_3 $$</td>
+<td>$$ \beta_3 $$</td>
+</tr>
+<tr>
+<td><strong>P &#x3D; 1</strong></td>
+<td>$$ \beta_0 + \beta_1 $$</td>
+<td>$$ \beta_0 + \beta_1 + \beta_3 + \beta_4 $$</td>
+<td>$$ \beta_3 + \beta_4 $$</td>
+</tr>
+<tr>
+<td><em><strong>Difference</strong></em></td>
+<td>$$ \beta_1 $$</td>
+<td>$$ \beta_1 + \beta_4 $$</td>
+<td>$$ \beta_4 $$</td>
+</tr>
+</tbody></table>
+<p>在有实验的Group中（$C&#x3D;1$）⬇️</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>T &#x3D; 0</th>
+<th>T &#x3D; 1</th>
+<th><em><strong>Difference</strong></em></th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>P &#x3D; 0</strong></td>
+<td>$$ \beta_0 + \beta_2 $$</td>
+<td>$$ \beta_0 + \beta_2 + \beta_3 + \beta_5  $$</td>
+<td>$$ \beta_3 + \beta_5 $$</td>
+</tr>
+<tr>
+<td><strong>P &#x3D; 1</strong></td>
+<td>$$ \beta_0 + \beta_1 + \beta_2 + \beta_6  $$</td>
+<td>$$ \beta_0 + \beta_1 + \beta_2 + \beta_3 + \beta_4 + \beta_5 + \beta_6 + \beta_7 $$</td>
+<td>$$ \beta_3 + \beta_4 + \beta_5 + \beta_7  $$</td>
+</tr>
+<tr>
+<td><em><strong>Difference</strong></em></td>
+<td>$$ \beta_1 + \beta_6  $$</td>
+<td>$$ \beta_1 + \beta_4 + \beta_6 + \beta_7 $$</td>
+<td>$$ \beta_4 + \beta_7 $$</td>
+</tr>
+</tbody></table>
+<p>将两者做差即可以得到处理效应 $\beta_7$ ⬇️</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>T &#x3D; 0</th>
+<th>T &#x3D; 1</th>
+<th><em><strong>Difference</strong></em></th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>P &#x3D; 0</strong></td>
+<td>$$ \beta_2  $$</td>
+<td>$$ \beta_2 + \beta_5 $$</td>
+<td>$$ \beta_5 $$</td>
+</tr>
+<tr>
+<td><strong>P &#x3D; 1</strong></td>
+<td>$$ \beta_2 + \beta_6 $$</td>
+<td>$$ \beta_2 + \beta_5 + \beta_6 + \beta_7 $$</td>
+<td>$$ \beta_5 + \beta_7 $$</td>
+</tr>
+<tr>
+<td><em><strong>Difference</strong></em></td>
+<td>$$ \beta_6 $$</td>
+<td>$$ \beta_6 + \beta_7 $$</td>
+<td>$$ \beta_7 $$</td>
+</tr>
+</tbody></table>
+<p><strong>注：</strong>标准DDD也可用双向固定效应TWFE。参见：<a target="_blank" rel="noopener" href="https://asjadnaqvi.github.io/DiD/docs/code/06_twfe/">The Twoway Fixed Effects (TWFE) model</a></p>
+<p>其他资料：</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/Qw8CkRX6zum9bSI5bTujRg">三重差分DDD估计中平行趋势检验如何操作呢？</a></li>
+<li><img src="https://cdn.jsdelivr.net/gh/yuzhangnju/image2022/image-20231025104507993.png" srcset="/img/loading.gif" lazyload alt="image-20231025104507993" style="zoom:50%;" /></li>
+</ul>
+<h3 id="2-2-交错DID-（Staggered-DID）"><a href="#2-2-交错DID-（Staggered-DID）" class="headerlink" title="2.2 交错DID （Staggered DID）"></a>2.2 交错DID （Staggered DID）</h3><p>亦称多期DID、多时点DID、渐进DID、时变DID、异时DID，是目前应用非常广泛的DID变体，非常重要。相比标准DID，staggered DID放宽了政策冲击在同一时间影响处理组的条件。</p>
+<p>标准双重差分法模型和双向固定效应双重差分法模型涉 及的政策实施时点或冲击发生时点为同一时期。然而，现实生活中诸多政策实施未必发生在某一时点，而是先有试点再逐步推广，在渐进的过程中推而行之，如增值税转型、土地确权、新农保实施、 高铁开通、官员晋升等。交错双重差分法为处理这类情形提供了方法。（黄炜等，2022）<br>$$<br>Y_{it} &#x3D; \beta_0 + \beta_1 * Treat_{it} + \beta * \Sigma Z_{it} + \mu_i + \tau_t + \epsilon_{it}\quad(3)<br>$$<br>Staggered DID一般化模型设定见式（3），$\beta_1$是政策效应的大小，相比标准DID，Staggered DID使用一个随时间和个体变化的处理变量代替了交互项（其实就是将标准DID中的交互项写成一个变量）。</p>
+<p>Staggered DID的数据结构如下：</p>
+<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs stata">id    year treati postit treati*postit Dit<br>----------------------------------------------<br>1    2001    1      0          0        0<br>1    2002    1      0          0        0<br>1    2003    1      1          1        1<br>1    2004    1      1          1        1<br>1    2005    1      1          1        1<br>----------------------------------------------<br>2    2001    1      0          0        0<br>2    2002    1      0          0        0<br>2    2003    1      0          0        0<br>2    2004    1      1          1        1<br>2    2005    1      1          1        1<br>----------------------------------------------<br>3    2001    0      0          0        0<br>3    2002    0      0          0        0<br>3    2003    0      0          0        0<br>3    2004    0      0          0        0<br>3    2005    0      0          0        0<br></code></pre></td></tr></table></figure>
+
+<p>图示⬇️（刘冲等，2022）</p>
+<p><img src="https://cdn.jsdelivr.net/gh/yuzhangnju/image2022/image-20231027143649692.png" srcset="/img/loading.gif" lazyload alt="image-20231027143649692"></p>
+<p>Staggered DID可以使用 <code>panelview</code>命令进行可视化，参见<a target="_blank" rel="noopener" href="https://www.lianxh.cn/details/1035.html">Stata绘图：面板数据可视化-panelview</a>  或 <a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/9RVw0n9dkeE2001FSb3diA">【视频号29】用panelview可视化交叠DID</a> 。</p>
+<p>有关Staggered DID的Stata模拟和处理，参见：</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://www.lianxh.cn/details/72.html">倍分法DID详解 (二)：多时点 DID (渐进DID)</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.lianxh.cn/details/9.html">倍分法DID详解 (三)：多时点 DID (渐进DID) 的进一步分析</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.lianxh.cn/news/42611191cca93.html">Big Bad Banks：多期 DID 经典论文介绍</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.lianxh.cn/news/439e934fd68c9.html">Stata：多期倍分法 (DID) 详解及其图示</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.lianxh.cn/details/112.html">多期DID：平行趋势检验图示</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.lianxh.cn/details/1201.html">多时点DID保姆级教程(上)-平行趋势检验</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.lianxh.cn/details/1163.html">多时点DID保姆级教程(下)-安慰剂检验</a></li>
+<li><a target="_blank" rel="noopener" href="https://pwya.github.io/post/%E8%AE%A1%E9%87%8F%E4%BA%A4%E5%8F%A0did%E5%AE%9E%E7%94%A8%E6%95%99%E7%A8%8B/">【计量】交叠DID实用教程</a> or <a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/yLaDp8Yy6xSjCfqjo80AIQ">分享: 交叠DID简明使用教程, 降低学者DID的学习成本！</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.lianxh.cn/details/1116.html">Stata：Mundlak方法的DID-jwdid</a></li>
+</ul>
+<p><strong>新进展-非常重要：</strong></p>
+<blockquote>
+<p>计量经济学领域的最新研究成果表明，当试点政策在不同时点开展时，双向固定效应下得到的多时点DID回归估计值可能存在偏差（Goodman-Bacon, 2021），这是由处理时点差异和异质性处理效应所导致的结果。本文分别将Callaway and Sant’Anna （2022）的稳健估计方法和堆叠DID方法（Stacked Regression Approach）应用于本文的基准模型中，重新估计试点政策的平均处理效应。本文将Callaway and Sant’Anna (2022)提出的估计方法应用于本文的基准模型中，重新估计试点政策的平均处理效应。【张莉,刘昭聪,程可为等.产业用地审批改革与资源配置效率——基于微观企业土地存量数据的研究[J].中国工业经济,2023(09):61-79.DOI:10.19581&#x2F;j.cnki.ciejournal.2023.09.004.】</p>
+<ul>
+<li><p><a target="_blank" rel="noopener" href="https://www.sciencedirect.com/science/article/pii/S0304405X22000204">How much should we trust staggered difference-in-differences estimates?</a> </p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.sciencedirect.com/science/article/pii/S0304407620303948">Difference-in-Differences with multiple time periods</a> </p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.sciencedirect.com/science/article/pii/S0304407621001445">Difference-in-differences with variation in treatment timing</a></p>
+<p>上述三篇文章发现TWFE在staggered DID中可能存在严重的问题（bacon分解 诊断），因此需要使用其他方法，如csdid、堆叠DID方法（Stacked Regression Approach）、两步回归法等。【王鹏超,韩立彬.多时点双重差分法的潜在问题与解决措施[J].东北财经大学学报,2023,No.146(02):27-39】</p>
+</li>
+</ul>
+<p>权威文章参见：</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/dF4JM5Z3toQxjCa9eyo_hw">典范! 这篇AER在一图表里用了所有DID最新进展方法, 审稿人直接服了！</a></li>
+</ul>
+<p>其他国内分析文章参见：</p>
+<ul>
+<li>刘冲,沙学康,张妍.交错双重差分：处理效应异质性与估计方法选择[J].数量经济技术经济研究,2022,39(09):177-204.</li>
+<li>许文立.双重差分法的最新理论进展与经验研究新趋势[J].广东社会科学,2023(05):51-62.<ul>
+<li>许文立提到，在实证研究中的，对于估计偏误的诊断有五种方法：1️⃣回归法；2️⃣Bacon分解，但只适用于强平衡面板数据的情况；3️⃣CD分解法；4️⃣SA分解法；5️⃣静态效应检验。</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<p>交叠DID使用TWFE，问题出在哪里（参见：<a target="_blank" rel="noopener" href="https://pwya.github.io/post/%E8%AE%A1%E9%87%8F%E4%BA%A4%E5%8F%A0did%E5%AE%9E%E7%94%A8%E6%95%99%E7%A8%8B/">【计量】交叠DID实用教程</a> ）：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/yuzhangnju/image2022/image-20231031142456912.png" srcset="/img/loading.gif" lazyload alt="image-20231031142456912"></p>
+<h4 id="2-2-1-Bacon-decomposition"><a href="#2-2-1-Bacon-decomposition" class="headerlink" title="2.2.1 Bacon decomposition"></a>2.2.1 Bacon decomposition</h4><p>标准的 DID 通常用来估计处理组与控制组在处理前后的结果差异，然而在实践中，由于处理往往发生在不同的时间点上，研究者通常使用下式估计处理效应 $\beta^{DD}$：<br>$$<br>y_{it} &#x3D; \alpha_i + \alpha_t + \beta^{DD}D_{it} + e_{it}\quad(4)<br>$$<br>式（4）中，$\alpha_i$ 为截面个体效应，$\alpha_t$ 为时间固定效应，$D_{it}$ 为个体 $i$ 在 $t$ 时刻是否接受处理哑变量。但事实上，我们对于这种不同时点的处理效应理解有很大局限性，且通常依赖于 “条件于群组与时间固定效应，干预应当近似于随机分配” 的一般假定。Andrew Goodman-Bacon (2021) 提出，双向固定效应估计量 (TWFEDD) 等于数据中所有可能的两组或两期 DD 估计量的加权平均值。</p>
+<p>其估计的因果解释需要平行趋势假设和随时间恒定的处理效应，他展示了如何分解两个规范之间的差异，并提供了对包含时变控制模型的新分析。本文将简要概述这篇文章，并介绍基于这一分解方法的 Stata 命令 <code>bacondecomp</code>。</p>
+<p>Bacon decomposition是一种TWFE估计量偏误诊断的方法，可以看出TWFE在Staggered DID应用的效果。</p>
+<p>参见：</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://asjadnaqvi.github.io/DiD/docs/code/06_bacon/">Bacon decomposition</a></li>
+<li><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/hS9mfZui2uu05ExxE8EHVw">Stata：多处理时点效应估计的Bacon分解-bacondecomp</a></li>
+<li><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/cy6cnwL3fGUkhX4NTY0LwQ">【视频号24】交叠DID的陷阱：从Bacon分解说起（1）</a></li>
+<li><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/cewB6XboKQmWrcjRCQSryg">【视频号25】交叠DID的陷阱：从Bacon分解说起（2）</a></li>
+<li><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/NKy9uBMzijNzn6tR6lTXpQ">【应用计量系列52】再谈培根分解：新升级、新操作、新结果</a></li>
+<li><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/w-m5-ihcCFg9PiLcqFTu7A">【香樟推文2505】交叠DID偏误的诊断、解决与应用——兼论连续DID的偏误</a></li>
+<li><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/Ipsr5lau0Mps1YlYqtXOKA">Bacon分解结果的解读</a></li>
+</ul>
+<h4 id="2-2-2-csdid"><a href="#2-2-2-csdid" class="headerlink" title="2.2.2 csdid"></a>2.2.2 csdid</h4><p>标准的 DID 模型将样本分为两组：实验组和对照组；将时间分为两个阶段：政策发生前和政策发生后。所有的实验组样本都在同一时间点受到政策冲击。</p>
+<p>随着 DID 方法的拓展，许多实证研究将其拓展为多期 DID，即实验组并非在同一时点遭受政策冲击。但是，自 2019 年来，不少学者纷纷指出这种多期 DID 有可能会产生有偏估计 (Athey and Imbens，2022；Baker et al.，2022；Goodman-Bacon，2021)。</p>
+<p>其主要原因在于，多期 DID 估计的本质是多个不同处理效应的加权平均，权重可能存在为负的情形。在权重为负的情下，不同处理效应加权平均后得到的平均处理效应，可能会与真实的平均处理效应方向相反。Baker et al. (2021) 通过数据模拟发现，多期 DID 估计出来有偏误的处理效应甚至会与真实处理效应的符号相反。</p>
+<p>为此，Callaway and Sant’Anna (2021) 提出了一种用于识别异质性多期 DID 的新方法，该新方法适用于以下三种情形：</p>
+<ul>
+<li>时间分为多期；</li>
+<li>实验组受到政策冲击的时间并非同一；</li>
+<li>实验组和对照组只有在控制了协变量之后才满足平行趋势假定。</li>
+</ul>
+<p><code>csdid</code>现在已成为Stata的程序包（也有R的版本），可以汇报Staggered DID的稳健估计量，结果与TWFE做比较，可以看看基准回归是否合理。</p>
+<p>参见：</p>
+<ul>
+<li><p><a target="_blank" rel="noopener" href="https://asjadnaqvi.github.io/DiD/docs/code/06_did_csdid/">csdid (Callaway and Sant’Anna 2021)</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://friosavila.github.io/playingwithstata/main_csdid.html">CSDID Version 1.6</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/oR7XoFs3qXdw0kecUhavMw">异质性多期DID估计的新方法-csdid</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.lianxh.cn/details/1027.html">DID偏误问题：多时期DID的双重稳健估计量(下)-csdid</a></p>
+</li>
+</ul>
+<h4 id="2-2-3-Stacked-DID"><a href="#2-2-3-Stacked-DID" class="headerlink" title="2.2.3 Stacked DID"></a>2.2.3 Stacked DID</h4><p>stackedev实现在 Cunningham (2021) and Baker (2021)  中讨论并在 Cengiz 等人 （2010） 中实现的堆叠事件研究估计。</p>
+<p>该包将各个数据集或堆叠追加在一起。每个堆叠包括来自同一时间段内接受治疗的一组单位和从未接受过治疗的所有单位的所有观察结果。通过将单个治疗单位队列与从未治疗过的单位进行比较，在每个堆叠中确定效果。</p>
+<p>这种方法避免了对后期实施单位和早期实施单位的错误比较，如果效果因治疗队列而异，则可能会偏向双向固定效应 （TWFE） 估计（Goodman-Bacon，2021年）。</p>
+<p>堆叠事件研究分三个步骤进行估计：</p>
+<ul>
+<li>首先，创建单个堆叠；</li>
+<li>其次，它们被附加在一起；</li>
+<li>最后，该软件包通过 reghdfe 估计事件研究，其中包括逐个堆叠的固定效应、逐个堆叠的时间固定效应和逐个堆叠上的标准误差聚类。</li>
+</ul>
+<p><code>stackedev</code>也是一个Stata软件包，可以结合下面的资料安装尝试。</p>
+<p>参见：</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://asjadnaqvi.github.io/DiD/docs/code/06_stackedev/">stackedev (Cengiz, Dube, Lindner, Zipperer 2019)</a></li>
+<li><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/LaaHH98vEscnqhBCWffP0Q">系统梳理DID最新进展: 从多期DID的潜在问题到当前主流解决方法和代码!</a></li>
+<li><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/TWlq-RrYATUJyqkaYtCyPQ">【香樟推文2435】从交叠双重差分法到堆叠双重差分法——举例与讨论</a></li>
+<li><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/v_WJR_QuTEs04BF5RXXEHQ">Stata–交叠DID异质稳健估计之堆叠DID</a></li>
+</ul>
+<h4 id="2-2-4-did2s-两步回归法"><a href="#2-2-4-did2s-两步回归法" class="headerlink" title="2.2.4 did2s 两步回归法"></a>2.2.4 did2s 两步回归法</h4><p>最近一系列文献都表明，当处理组个体接受处理的时间是交错的，而且平均处理效应随着组别以及时间发生变化时，常见的双重差分估计就不能识别一个典型处理效应并做出合理的度量 (Borusyak and Jaravel, 2017; Athey and Imbens, 2018; Goodman-Bacon, 2018; de Chaisemartin and D’Haultfoeuille, 2020; Imai andKim, 2020; Sun and Abraham, 2020)。</p>
+<p>为此，本文将介绍可能缓解上述问题的方法——两阶段双重差分。具体地，本篇推文主要分为以下内容：</p>
+<ul>
+<li>首先，提供了一些简单的直觉来解释为什么双重差分回归不能确定 group ×× period 平均处理效应；</li>
+<li>其次，提出了一个可供选择的二阶段 GMM 估计框架 (two-stage estimation framework)。在这个框架中，我们在第一阶段识别组别效应和时期效应，在移除了组别效应和时期效应之后，在第二阶段，通过比较处理组和对照组的结果差异来识别平均处理效应。两阶段方法对于被处理的时间是交错的以及处理效应具有异质性的情况下估计结果是稳健的，而且还能够用来识别许多不同的平均处理效应，方法简单直接好用；</li>
+<li>最后，为了方便大家理解，我们用实例并结合 Stata 操作来演示该方法的实现，其中重点介绍 <code>did2s</code> 命令。</li>
+</ul>
+<p>参见：</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://asjadnaqvi.github.io/DiD/docs/code/06_did2s/">did2s (Gardner 2021)</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.lianxh.cn/news/cb98eb5208c55.html">Stata倍分法新趋势：did2s-两阶段双重差分模型</a></li>
+</ul>
+<h4 id="2-2-5-did-multiplegt-多期多个体模型"><a href="#2-2-5-did-multiplegt-多期多个体模型" class="headerlink" title="2.2.5 did_multiplegt 多期多个体模型"></a>2.2.5 did_multiplegt 多期多个体模型</h4><p>双边固定效应多期 DID 模型假设对于样本的处理是不变的，这样的假设在现实中常常不成立。首先，处理变量可能不是一个二元变量，如不同地区的政策力度不同。其次，处理也并非是一次性的，样本不能简单地一分为二处理组和控制组，如降雨对于地区的影响，会出现从有到无、从无到有的多个交替过程，这时就需要一个动态的处理组。</p>
+<p>动态处理组的设定放松了传统 DID 模型中处理不变的设定，可以有效解决了上述的问题。并且，在模型中处理变量 $D$ 可以为二元变量，也可以是非二元变量。</p>
+<p><code>did_multiplegt</code>也是一个Stata命令，同时，该命令还可以处理很多其他情况，如<strong>允许个体退出实验</strong>。</p>
+<p>参见：</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://asjadnaqvi.github.io/DiD/docs/code/06_did_multiplegt/">did_multiplegt (Chaisemartin and D’Haultfœuille 2020, 2021)</a></li>
+<li><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/GOWZlN9dq7sanOo5S16kyA">DIDM：多期多个体倍分法-did_multiplegt</a></li>
+</ul>
+<h4 id="2-2-6-did-imputation"><a href="#2-2-6-did-imputation" class="headerlink" title="2.2.6 did_imputation"></a>2.2.6 did_imputation</h4><p><code>did_imputation</code>也是一个Stata命令，可以作事件研究法的稳健有效估计量，好像也可以应用于Staggered DID？</p>
+<p>参见：</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://asjadnaqvi.github.io/DiD/docs/code/06_did_imputation/">did_imputation (Borusyak, Jaravel, Spiess 2021)</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.lianxh.cn/details/853.html">Stata：事件研究法的稳健有效估计量-did_imputation</a></li>
+</ul>
+<h4 id="2-2-7-eventstudyinteract"><a href="#2-2-7-eventstudyinteract" class="headerlink" title="2.2.7 eventstudyinteract"></a>2.2.7 eventstudyinteract</h4><p>The <code>eventstudyinteract</code> command is written by Liyang Sun based on the Sun and Abraham 2020 paper <a target="_blank" rel="noopener" href="https://www.sciencedirect.com/science/article/pii/S030440762030378X">Estimating Dynamic Treatment Effects in Event Studies with Heterogeneous Treatment Effects</a>.</p>
+<p>The command potentially has some issues.</p>
+<p>参见：</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://asjadnaqvi.github.io/DiD/docs/code/06_eventstudyinteract/">eventstudyinteract (Sun and Abraham 2020)</a></li>
+<li><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/k2kxnRvzHFk3LLdwByZzyw">最新Sun和Abraham(2020)和TWFE估计多期或交错DID并绘图展示结果！详细解读code！</a></li>
+</ul>
+<h4 id="2-2-8-各种估计量的比较"><a href="#2-2-8-各种估计量的比较" class="headerlink" title="2.2.8 各种估计量的比较"></a>2.2.8 各种估计量的比较</h4><p>就是将TWFE、did_multiplegt、csdid、did_imputation、eventstudyinteract、stackedev、did2s等方法的估计结果放一起对比。（图片来自<a target="_blank" rel="noopener" href="https://asjadnaqvi.github.io/DiD/docs/code/06_combined/">All estimators</a>）</p>
+<p><img src="https://cdn.jsdelivr.net/gh/yuzhangnju/image2022/allestimators2.png" srcset="/img/loading.gif" lazyload alt="img"></p>
+<p>许文立也做了比较：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/yuzhangnju/image2022/image-20231027200000742.png" srcset="/img/loading.gif" lazyload alt="image-20231027200000742"></p>
+<p>刘冲等（2022）也做了比较，感兴趣的小伙伴也可以自行查看论文并复现。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/yuzhangnju/image2022/image-20231028195711047.png" srcset="/img/loading.gif" lazyload alt="image-20231028195711047"></p>
+<p>参见：</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://www.lianxh.cn/details/1097.html">Stata：各种DID估计量的比较分析</a></li>
+<li><a target="_blank" rel="noopener" href="https://asjadnaqvi.github.io/DiD/docs/code/06_combined/">All estimators</a></li>
+</ul>
+<h3 id="2-3-队列DID-（Cohort-DID）"><a href="#2-3-队列DID-（Cohort-DID）" class="headerlink" title="2.3 队列DID （Cohort DID）"></a>2.3 队列DID （Cohort DID）</h3><p>亦称截面DID，即使用横截面数据来评估某一历史事件对个体的长期影响。常用于评估特殊历史事件对个体和家庭的长期影响（通常使用的都是横截面数据）。与标准DID相似，队列DID也有两个维度的变异，通常而言，一个维度是地区，另一个维度是出生（年龄）队列，如果感觉难以理解的话，其实只需把出生队列这个维度理解为时间就好了。</p>
+<p>推荐阅读：</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://www.aeaweb.org/articles?id=10.1257/aer.20191414">Chen, Y., Fan, Z., Gu, X., &amp; Zhou, L. A. (2020). Arrival of young talent: The send-down movement and rural education in China. <em>American Economic Review</em>, <em>110</em>(11), 3393-3430.</a></li>
+<li><a target="_blank" rel="noopener" href="https://doi.org/10.1093/ej/uead061">Guo, S., Gao, N., &amp; Liang, P. (2023). Winter Is Coming: Early-life Experiences and Politicians’ Decisions. <em>The Economic Journal</em>, uead061.</a> （这篇文章我精读并做了复现，感觉非常厉害。）</li>
+<li><a target="_blank" rel="noopener" href="https://nsd.pku.edu.cn/docs/20221021150423034989.pdf">疫苗接种、人力资本积累与收入增长</a> （Dr.Wang 的大作，《经济学（季刊）》待刊）</li>
+<li><a target="_blank" rel="noopener" href="https://www.lianxh.cn/details/639.html">队列DID：以知识青年“上山下乡”为例-T401</a></li>
+<li><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/5P8-jrGp1MlPthTHhiXD8A">截面数据的DID设计：Cohort DID（队列DID）的Stata使用“说明书”</a></li>
+</ul>
+<h3 id="2-4-广义DID-（Generalized-DID）"><a href="#2-4-广义DID-（Generalized-DID）" class="headerlink" title="2.4 广义DID （Generalized DID）"></a>2.4 广义DID （Generalized DID）</h3><p>亦称强度DID、连续DID。见得不多。</p>
+<blockquote>
+<p>当所有研究对象均或多或少同时受到了政策干预，即仅有处理组而无控制组时，仍然能够考虑应用双重差分法。对此，可以根据研究对象受到的具体冲击情况来构建处理强度(treatment intensity)指标来进行分析，此时个体维度并不是从 0 到 1 的改变，而是连续的变化。因此，可以将个体维度的政策分组虚拟变量替换为用以表示不同个体受政策影响程度的连续型变量，该种方法被称为广义双重差分法。Nunn 和 Qian(2011)研究了一个经典的例子，他们研究了土豆种植扩散对欧洲人口增长的影响。欧洲几乎所有地区都种植了土豆，不存在未种植土豆的地区，因此没有标准意义上的控制组。他们的选择是将地区间土豆种植适宜度作为处理强度，以 1700 年前后为处理时点，使用广义双重差分法估计了引入土豆对人口增长的影响。（黄炜等，2022）</p>
+</blockquote>
+<p>推荐阅读：</p>
+<ul>
+<li><p><a target="_blank" rel="noopener" href="https://www.lianxh.cn/details/1190.html">论文复现：土豆对人口与城市化的贡献-连续DID应用</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/TbB2swZ77-Cd-_ZBtLWrHw">【应用计量系列64】强度DID最新进展与应用</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/oPVre9GbbfgQsCMrecinuQ">【香樟推文2475】运河与叛乱：中国学者AER量化历史最新力作</a></p>
+</li>
+</ul>
+<h3 id="2-5-模糊DID-（Fuzzy-DID）"><a href="#2-5-模糊DID-（Fuzzy-DID）" class="headerlink" title="2.5 模糊DID （Fuzzy DID）"></a>2.5 模糊DID （Fuzzy DID）</h3><blockquote>
+<p>在标准双重差分法等方法的应用情境中，处理组和控制组之间通常泾渭分明，因此可以通过分组差分得到较为“干净”的处理效应。但是，有时冲击并未带来急剧(sharp)变化，所谓的“处理组”中虽然受冲击率高于其他组别，但并没有完全被干预或受政策冲击，而所谓的“控制组”中也并非完全没有受到冲击，即处理组和控制组之间没有明确的分野，不存在“干净”的处理组与控制组。模糊双重差分法为处理此类情形提供了可能，de Chaisemartin 和 d’Haultfoeuille(2018)在文章中详细介绍了该种方法，并利用该方法重新评估了印度尼西亚的教育回报。（黄炜等，2022）</p>
+</blockquote>
+<p>更多内容参见：</p>
+<ul>
+<li><p><a target="_blank" rel="noopener" href="https://www.lianxh.cn/details/536.html">Fuzzy DID：模糊倍分法</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/nV1hcRIh_qp312NYsOy0ew">前沿, 模糊双重差分法FDID方法介绍和示例, 附code和数据！</a></p>
+</li>
+</ul>
+<h3 id="2-6-混合截面DID"><a href="#2-6-混合截面DID" class="headerlink" title="2.6 混合截面DID"></a>2.6 混合截面DID</h3><blockquote>
+<p>混合截面数据与面板数据相比，其不同之处在于它的不同时点的观测个体是不同的，但是它也有时间和个体两个维度，所以只要进行巧妙的构思，依然可以构建DID模型进行政策评估。伍德里奇同志在《计量经济学导论》一书13.2节举了一个经典的例子“垃圾焚化炉的区位对住房价格的影响”（Kiel and McClain，1995），来讲解混合截面DID的做法，大家有兴趣可以去看下。（江河JH，2022）</p>
+</blockquote>
+<p>参见：</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/3Im5kuVV-MYmMw6SrdVpUg">DID大法续论 | 听说混合截面数据也能做DID</a></li>
+</ul>
+<h3 id="2-7-其他情况"><a href="#2-7-其他情况" class="headerlink" title="2.7 其他情况"></a>2.7 其他情况</h3><p>DID家族百花齐放，且在不断发展中，还有很多类型、策略或模式，如“进入-退出型”DID、双重机器学习、合成双重差分DID、<a target="_blank" rel="noopener" href="https://www.lianxh.cn/details/840.html">空间DID</a>、<a target="_blank" rel="noopener" href="https://www.lianxh.cn/details/649.html">一刀切的DID</a>、<a target="_blank" rel="noopener" href="https://www.lianxh.cn/details/499.html">考虑溢出效应的DID</a>、<a target="_blank" rel="noopener" href="https://www.lianxh.cn/details/438.html">非线性DID</a>（或称 NL-DID、CIC）、分位数DID、<a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/F4F301Vj4y07UOCJ_OKoZw">被解释变量为虚拟变量的DID</a>，DID还可以与其他策略相结合，如PSMDID、<a target="_blank" rel="noopener" href="https://www.lianxh.cn/details/763.html">RDD&amp;DID</a>！内容繁杂，但基础原理离不开标准DID，可以自行查看。</p>
+<p>黄炜等学者认为“几乎任何两个维度的差异之差异都可以从双重差分的角度去理解。也就是说，几乎所有的<strong>交互项模型</strong>都可以理解为一种双重差分法。”更多说明可以阅读原文。</p>
+<p>其他资料参见：</p>
+<ul>
+<li><p><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/YvwTCtQxZeRemQK_4Ix_Rg">科研随笔：重磅更新 ——《前沿计量部分最新进展：一个简明实用手册》</a> or <a target="_blank" rel="noopener" href="https://pwya.github.io/post/%E8%AE%A1%E9%87%8F%E5%89%8D%E6%B2%BFdid%E6%96%B9%E6%B3%95%E5%AE%9E%E7%94%A8%E6%89%8B%E5%86%8C/">【计量】前沿DID方法实用手册：Fuzzy DID,合成控制DID,DML</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/sKaLgD21Qcdy3Kkobp3-oQ">【香樟推文2791】新的DiD理论文献让你眼花缭乱？系统性梳理DiD方法前沿进展</a></p>
+</li>
+</ul>
+<h2 id="3-DID-Checklist"><a href="#3-DID-Checklist" class="headerlink" title="3 DID Checklist"></a>3 DID Checklist</h2><p> Jonathan Roth等学者近期在Journal of Econometrics发表了一篇<a target="_blank" rel="noopener" href="https://www.sciencedirect.com/science/article/pii/S0304407623001318">文章</a>，讲述了DID的新进展，文章也是一个Handbook，列出了使用DID的待查清单。“计量经济圈”的推文里有清单的翻译版，在此摘录：</p>
+<blockquote>
+<ul>
+<li><p><strong>每个个体都在同一时间受到政策冲击吗？</strong></p>
+<ul>
+<li>如果是，并且面板是平衡的，则使用式 (5) 或 (7) 等双向固定效应TWFE估计方法。TWFE会产生易于解释的估计值。</li>
+<li>如果不是，请考虑使用“异质性稳健估计值“来估计时间上交错执行的政策处理效应（如3节所述）。至于使用哪种方法的估计值，取决于一项政策的出现和结束情况，以及研究者打算施加的平行趋势假设。只有当你很确信政策处理效应具有同质性才使用双向固定效应TWFE估计值。</li>
+</ul>
+</li>
+<li><p><strong>你确定平行趋势假设有效吗？</strong></p>
+<ul>
+<li>如果是，请解释有效的原因，包括回归方程所设定的函数形式的验证。如果理由是政策发生在时间上的（准）随机性，请考虑使用第6节中讨论的更有效的估计值。</li>
+<li>如果不是，请按照以下步骤开展：<ul>
+<li>如果以协变量为条件的平行趋势假设更合理，请考虑第4.2节所述的以协变量为条件的估计值。</li>
+<li>通过构建事件研究图来评估平行趋势假设的合理性。如果有一个共同的政策冲击日期，并且使用的是无条件平行趋势假设，请根据 (16) 等回归方程绘制系数。如果不是，请参阅4.3节以获取有关事件图构建的建议。</li>
+<li>在汇报事件研究图时，也可以采用4.4.1节所述的方法对事前趋势进行进一步的验证。</li>
+<li>如4.5节所述，报告正式的敏感性分析，描述结论对潜在违反平行趋势的稳健性。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>你是否有大量从超总体（super-population）中通过整群抽样（cluster sampling）获得的处理组和控制组样本？</strong></p>
+<ul>
+<li>如果是，则在相应聚类级别上使用聚类稳健方法（cluster-robust methods）。一个经验法则，是在独立分配处理效应的级别上进行聚类（例如，政策在州级别上实行时就在州级上聚类），具体可以参见5.2节。</li>
+<li>如果有少量受到政策冲击的整群样本，可以考虑使用5.1节中替代性政策效应推断方法。</li>
+<li>如果你无法想象或获取超总体，请考虑5.2节中基于模型设计（design based）的政策效应推断方法。</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<p>翻译来自：</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/Ipsr5lau0Mps1YlYqtXOKA">使用最新DID方法需要做的几项检查清单！</a></li>
+</ul>
+<p>关于JoE论文的其他内容参见：</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/sKaLgD21Qcdy3Kkobp3-oQ">【香樟推文2791】新的DiD理论文献让你眼花缭乱？系统性梳理DiD方法前沿进展</a></li>
+</ul>
+<h2 id="4-实用软件包"><a href="#4-实用软件包" class="headerlink" title="4 实用软件包"></a>4 实用软件包</h2><h3 id="4-1-DID相关的软件包"><a href="#4-1-DID相关的软件包" class="headerlink" title="4.1 DID相关的软件包"></a>4.1 DID相关的软件包</h3><p>Jonathan Roth等在JoE论文里还对DID相关的软件包进行了表格总结，包含平行趋势诊断，并带上了出处，我这里一并摘录过来。（Markdown显示的表格不美观，建议还是看原文。。。）</p>
+<p><a target="_blank" rel="noopener" href="https://www.sciencedirect.com/science/article/pii/S0304407623001318">Table 2. Statistical packages for recent DiD methods.</a></p>
+<table>
+<thead>
+<tr>
+<th align="left">Heterogeneity Robust Estimators for Staggered Treatment Timing</th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><u>Package</u></td>
+<td><u>Software</u></td>
+<td><u>Description</u></td>
+</tr>
+<tr>
+<td align="left">did, csdid</td>
+<td>R, Stata</td>
+<td>Implements <a target="_blank" rel="noopener" href="https://doi.org/10.1016/j.jeconom.2020.12.001">Callaway and Sant’Anna (2021)</a></td>
+</tr>
+<tr>
+<td align="left">did2s</td>
+<td>R, Stata</td>
+<td>Implements [Gardner (2021)](<a target="_blank" rel="noopener" href="https://doi.org/10.48550/arXiv.2207.05943"> https://doi.org/10.48550/arXiv.2207.05943</a>), [Borusyak et al. (2021)](<a target="_blank" rel="noopener" href="https://doi.org/10.48550/arXiv.2108.12419"> https://doi.org/10.48550/arXiv.2108.12419</a>), <a target="_blank" rel="noopener" href="https://doi.org/10.1016/j.jeconom.2020.09.006">Sun and Abraham (2021)</a>, <a target="_blank" rel="noopener" href="https://doi.org/10.1016/j.jeconom.2020.12.001">Callaway and Sant’Anna (2021)</a>, [Roth and Sant’Anna (2021)](<a target="_blank" rel="noopener" href="https://doi.org/10.48550/arXiv.2102.01291"> https://doi.org/10.48550/arXiv.2102.01291</a>)</td>
+</tr>
+<tr>
+<td align="left">didimputation, did_imputation</td>
+<td>R, Stata</td>
+<td>Implements [Borusyak et al. (2021)](<a target="_blank" rel="noopener" href="https://doi.org/10.48550/arXiv.2108.12419"> https://doi.org/10.48550/arXiv.2108.12419</a>)</td>
+</tr>
+<tr>
+<td align="left">DIDmultiplegt, did_multiplegt</td>
+<td>R, Stata</td>
+<td>Implements <a target="_blank" rel="noopener" href="https://www.aeaweb.org/articles?id=10.1257/aer.20181169">de Chaisemartin and D’Haultfoeuille (2020)</a></td>
+</tr>
+<tr>
+<td align="left">eventstudyinteract</td>
+<td>Stata</td>
+<td>Implements <a target="_blank" rel="noopener" href="https://doi.org/10.1016/j.jeconom.2020.09.006">Sun and Abraham (2021)</a></td>
+</tr>
+<tr>
+<td align="left">flexpaneldid</td>
+<td>Stata</td>
+<td>Implements <a target="_blank" rel="noopener" href="http://dx.doi.org/10.2139/ssrn.3692458">Dettmann (2020)</a>, based on <a target="_blank" rel="noopener" href="https://www.jstor.org/stable/2999630">Heckman et al. (1998)</a></td>
+</tr>
+<tr>
+<td align="left">fixest</td>
+<td>R</td>
+<td>Implements <a target="_blank" rel="noopener" href="https://doi.org/10.1016/j.jeconom.2020.09.006">Sun and Abraham (2021)</a></td>
+</tr>
+<tr>
+<td align="left">stackedev</td>
+<td>Stata</td>
+<td>Implements stacking approach in <a target="_blank" rel="noopener" href="https://doi.org/10.1093/qje/qjz014">Cengiz et al. (2019)</a></td>
+</tr>
+<tr>
+<td align="left">staggered</td>
+<td>R</td>
+<td>Implements <a target="_blank" rel="noopener" href="https://doi.org/10.48550/arXiv.2102.01291">Roth and Sant’Anna (2021)</a>, <a target="_blank" rel="noopener" href="https://doi.org/10.1016/j.jeconom.2020.12.001">Callaway and Sant’Anna (2021)</a>, and <a target="_blank" rel="noopener" href="https://doi.org/10.1016/j.jeconom.2020.09.006">Sun and Abraham (2021)</a></td>
+</tr>
+<tr>
+<td align="left">xtevent</td>
+<td>Stata</td>
+<td>Implements <a target="_blank" rel="noopener" href="https://www.aeaweb.org/articles?id=10.1257/aer.20180609">Freyaldenhoven et al. (2019)</a></td>
+</tr>
+<tr>
+<td align="left"><strong>DiD with Covariates</strong></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td align="left"><u>Package</u></td>
+<td><u>Software</u></td>
+<td><u>Description</u></td>
+</tr>
+<tr>
+<td align="left">DRDID, drdid</td>
+<td>R, Stata</td>
+<td>Implements <a target="_blank" rel="noopener" href="https://doi.org/10.1016/j.jeconom.2020.06.003">Sant’Anna and Zhao (2020)</a></td>
+</tr>
+<tr>
+<td align="left"><strong>Diagnostics for TWFE with Staggered Timing</strong></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td align="left"><u>Package</u></td>
+<td><u>Software</u></td>
+<td><u>Description</u></td>
+</tr>
+<tr>
+<td align="left">bacondecomp, ddtiming</td>
+<td>R, Stata</td>
+<td>Diagnostics from <a target="_blank" rel="noopener" href="https://doi.org/10.1016/j.jeconom.2021.03.014">Goodman-Bacon (2021)</a></td>
+</tr>
+<tr>
+<td align="left">TwoWayFEWeights</td>
+<td>R, Stata</td>
+<td>Diagnostics from <a target="_blank" rel="noopener" href="https://www.aeaweb.org/articles?id=10.1257/aer.20181169">de Chaisemartin and D’Haultfoeuille (2020)</a></td>
+</tr>
+<tr>
+<td align="left"><strong>Diagnostic&#x2F; Sensitivity for Violations of Parallel Trends</strong></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td align="left"><u>Package</u></td>
+<td><u>Software</u></td>
+<td><u>Description</u></td>
+</tr>
+<tr>
+<td align="left">honestDiD</td>
+<td>R, Stata</td>
+<td>Implements <a target="_blank" rel="noopener" href="https://doi.org/10.1093/restud/rdad018">Rambachan and Roth (2023)</a></td>
+</tr>
+<tr>
+<td align="left">pretrends</td>
+<td>R</td>
+<td>Diagnostics from <a target="_blank" rel="noopener" href="https://www.aeaweb.org/articles?id=10.1257/aeri.20210236">Roth (2022)</a></td>
+</tr>
+</tbody></table>
+<p>Note: This table lists R and Stata packages for recent DiD methods, and is based on Asjad Naqvi’s repository at <a target="_blank" rel="noopener" href="https://asjadnaqvi.github.io/DiD/">https://asjadnaqvi.github.io/DiD/</a>. Several of the packages listed under “Heterogeneity Robust Estimators” also accommodate covariates.</p>
+<p>其实看这个Note里的<a target="_blank" rel="noopener" href="https://asjadnaqvi.github.io/DiD/">博客</a>也是可以的。</p>
+<h3 id="4-2-其他软件包"><a href="#4-2-其他软件包" class="headerlink" title="4.2 其他软件包"></a>4.2 其他软件包</h3><ul>
+<li><code>didplacebo</code> Stata命令，可以<a href="">一键进行DID安慰剂检验</a> ，适用于单时点冲击的标准DID，以及多时间冲击的交叠DID（staggered DID）</li>
+<li><code>permute</code> Stata命令，也可以简单进行<a target="_blank" rel="noopener" href="https://www.lianxh.cn/details/731.html">安慰剂检验</a>；</li>
+<li><code>eventdd</code> Stata命令，可以<a target="_blank" rel="noopener" href="https://lianxh.cn/news/e715545930fcf.html">一行代码绘制平行趋势图</a>。</li>
+</ul>
+<h2 id="5-其他参考资料"><a href="#5-其他参考资料" class="headerlink" title="5 其他参考资料"></a>5 其他参考资料</h2><p>（1）一个很详细的博客</p>
+<p><a target="_blank" rel="noopener" href="https://diff.healthpolicydatascience.org/">https://diff.healthpolicydatascience.org/</a></p>
+<p>（2）一个三四年前的博客？Data science for public service</p>
+<p><a target="_blank" rel="noopener" href="https://ds4ps.org/PROG-EVAL-III/DiffInDiff.html">https://ds4ps.org/PROG-EVAL-III/DiffInDiff.html</a></p>
+<p>（3）一个有用的关于DID的R markdown书</p>
+<p><a target="_blank" rel="noopener" href="https://bookdown.org/mike/data_analysis/difference-in-differences.html">https://bookdown.org/mike/data_analysis/difference-in-differences.html</a></p>
+<p>（4）The effect</p>
+<p><a target="_blank" rel="noopener" href="https://theeffectbook.net/ch-DifferenceinDifference.html">https://theeffectbook.net/ch-DifferenceinDifference.html</a></p>
+<p>（5）The mixtape</p>
+<p><a target="_blank" rel="noopener" href="https://mixtape.scunning.com/09-difference_in_differences">https://mixtape.scunning.com/09-difference_in_differences</a></p>
+<p>（6）一个网页，有各种DID相关的包和进展–这个非常重要</p>
+<p><a target="_blank" rel="noopener" href="https://asjadnaqvi.github.io/DiD/">https://asjadnaqvi.github.io/DiD/</a></p>
+<p><a target="_blank" rel="noopener" href="https://asjadnaqvi.github.io/DiD/docs/code">https://asjadnaqvi.github.io/DiD/docs/code</a></p>
+<p>（7）因果推理的统计工具-一本很强大的R书</p>
+<p><a target="_blank" rel="noopener" href="https://chabefer.github.io/STCI/">https://chabefer.github.io/STCI/</a></p>
+<p>（8）与DID有关的一系列问题</p>
+<p><a target="_blank" rel="noopener" href="https://friosavila.github.io/playingwithstata/index.html">https://friosavila.github.io/playingwithstata/index.html</a></p>
+<p>（9）DID资源站，<strong>JoE文章作者</strong>、DID专家的博客，他的小狗🐶似乎很可爱</p>
+<p><a target="_blank" rel="noopener" href="https://www.jonathandroth.com/did-resources/">https://www.jonathandroth.com/did-resources/</a></p>
+<p>（10）这个人的博客有点意思</p>
+<p><a target="_blank" rel="noopener" href="https://christinecai.github.io/items/PublicGoods.html">https://christinecai.github.io/items/PublicGoods.html</a></p>
+<h2 id="6-附：DID实验代码"><a href="#6-附：DID实验代码" class="headerlink" title="6 附：DID实验代码"></a>6 附：DID实验代码</h2><h3 id="6-1-标准DID数据模拟、分析与检验代码"><a href="#6-1-标准DID数据模拟、分析与检验代码" class="headerlink" title="6.1 标准DID数据模拟、分析与检验代码"></a>6.1 标准DID数据模拟、分析与检验代码</h3><figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br><span class="line">224</span><br><span class="line">225</span><br><span class="line">226</span><br><span class="line">227</span><br><span class="line">228</span><br><span class="line">229</span><br><span class="line">230</span><br><span class="line">231</span><br><span class="line">232</span><br><span class="line">233</span><br><span class="line">234</span><br><span class="line">235</span><br><span class="line">236</span><br><span class="line">237</span><br><span class="line">238</span><br><span class="line">239</span><br><span class="line">240</span><br><span class="line">241</span><br><span class="line">242</span><br><span class="line">243</span><br><span class="line">244</span><br><span class="line">245</span><br><span class="line">246</span><br><span class="line">247</span><br><span class="line">248</span><br><span class="line">249</span><br><span class="line">250</span><br><span class="line">251</span><br><span class="line">252</span><br><span class="line">253</span><br><span class="line">254</span><br><span class="line">255</span><br><span class="line">256</span><br><span class="line">257</span><br><span class="line">258</span><br><span class="line">259</span><br><span class="line">260</span><br><span class="line">261</span><br><span class="line">262</span><br><span class="line">263</span><br><span class="line">264</span><br><span class="line">265</span><br><span class="line">266</span><br><span class="line">267</span><br><span class="line">268</span><br></pre></td><td class="code"><pre><code class="hljs stata"><span class="hljs-comment">***DID family code***</span><br><span class="hljs-comment">***资料主要来源于连享会官方网站 https://www.lianxh.cn/ ，有一定改编</span><br><br><span class="hljs-keyword">cd</span> <span class="hljs-string">&quot;/Users/yu/worklist/casual_inference/14-张宇 DID家族&quot;</span><br><span class="hljs-comment">*请替换成你的工作目录，或删除上面这一行，这样会选择默认工作目录</span><br><br><br><br><span class="hljs-comment">*************************************************************</span><br><span class="hljs-comment">************************** 一、标准DID ***********************</span><br><span class="hljs-comment">*************************************************************</span><br><br><br><br><span class="hljs-comment">**1.1 生成模拟数据</span><br><br><span class="hljs-comment">///设定300个观测值，设定随机数种子</span><br><br><span class="hljs-keyword">clear</span> all<br><span class="hljs-keyword">set</span> obs 300 <br><span class="hljs-keyword">set</span> seed 10101<br><span class="hljs-keyword">gen</span> id =_n<br><br><span class="hljs-comment">/// 每一个数值的数量扩大11倍，再减去前300个观测值，为300个体10年的面板数据，跟常用的地级市面板比较接近</span><br><br><span class="hljs-keyword">expand</span> 11<br><span class="hljs-keyword">drop</span> <span class="hljs-keyword">in</span> 1/300<br><span class="hljs-keyword">count</span><br><br><span class="hljs-comment">///以id分组生成时间标识</span><br><br><span class="hljs-keyword">bys</span> id: <span class="hljs-keyword">gen</span> year = _n+1999<br><span class="hljs-keyword">xtset</span> id year<br><br><span class="hljs-comment">///生成协变量x1, x2</span><br><br><span class="hljs-keyword">gen</span> x1 = rnormal(1,7)<br><span class="hljs-keyword">gen</span> x2 = rnormal(2,5)<br><br><span class="hljs-comment">///生成个体固定效应和时间固定效应</span><br><br><span class="hljs-keyword">sort</span> year id<br><span class="hljs-keyword">by</span> year: <span class="hljs-keyword">gen</span> ind = _n<br><span class="hljs-keyword">sort</span> id year<br><span class="hljs-keyword">by</span> id: <span class="hljs-keyword">gen</span> T = _n<br><br><span class="hljs-comment">//生成treat和post变量，以2005年为接受政策干预的时点，id为151-300的个体为处理组，其余为控制组</span><br><span class="hljs-keyword">gen</span> <span class="hljs-keyword">D</span> = 0 <br><span class="hljs-keyword">replace</span> <span class="hljs-keyword">D</span> = 1 <span class="hljs-keyword">if</span>  id &gt; 150<br><span class="hljs-keyword">gen</span> <span class="hljs-keyword">post</span> = 0<br><span class="hljs-keyword">replace</span> <span class="hljs-keyword">post</span> = 1 <span class="hljs-keyword">if</span> year &gt;= 2005<br><span class="hljs-comment">//（这里是为了后面构造数据时使用，在真实世界中，个体固定效应和时间固定效应是观察不到的）</span><br><span class="hljs-comment">/*</span><br><span class="hljs-comment">计量经济学中的固定效应模型是用于考虑非观测异质性的一个重要方法。这种非观测异质性是指一些无法被观测到的、与因变量相关的变量，它们可能导致普通最小二乘法（OLS）估计量出现偏误。固定效应模型可以帮助我们控制这些非观测的、时间不变的异质性。</span><br><span class="hljs-comment"></span><br><span class="hljs-comment">固定效应是什么:</span><br><span class="hljs-comment">固定效应是指那些对所有观测单位而言是恒定的，或对某一特定观测单位在所有时期中都是恒定的效应。换句话说，固定效应捕获了那些对因变量有影响、但在数据中没有观测到的、时间不变的异质性。</span><br><span class="hljs-comment"></span><br><span class="hljs-comment">个体固定效应:</span><br><span class="hljs-comment">当我们在横截面数据中（如不同国家、企业或个体）观察到的某种异质性与因变量相关时，这种异质性可能是由于我们没有观测到的某些特质造成的。例如，考虑一个分析国家的经济增长的研究，每个国家都有其独特的政治制度、文化和历史背景。这些因素可能会影响其经济增长，但在模型中很难明确度量。个体固定效应就是用来捕获这种时间不变的、与因变量相关的异质性。</span><br><span class="hljs-comment"></span><br><span class="hljs-comment">时间固定效应:</span><br><span class="hljs-comment">时间固定效应考虑的是所有观测单位在某一特定时间点共同受到的影响。例如，全球经济危机可能影响所有国家的经济增长。通过加入时间固定效应，我们可以控制所有国家在某一特定年份所共同受到的影响。这样，我们就可以准确估计其他解释变量对因变量的影响，而不受到这种共同时点效应的干扰。</span><br><span class="hljs-comment"></span><br><span class="hljs-comment">总之，固定效应模型可以帮助我们控制那些非观测的、时间不变的异质性，从而得到更为准确的估计结果。在实际研究中，选择是否应用固定效应模型以及选择个体固定效应还是时间固定效应，都需要根据具体的研究背景和目的来决定。</span><br><span class="hljs-comment">*/</span><br><br><span class="hljs-comment">///将基础数据结构保存成dta文件，命名为DID_Basic_Simu.dta, 默认保存在当前的 working directory 路径下</span><br><br><span class="hljs-keyword">save</span> <span class="hljs-string">&quot;DID_Basic_Simu.dta&quot;</span>, <span class="hljs-keyword">replace</span><br><br><br><br><br><br><span class="hljs-comment">***1.2 政策效果不随时间而变的 Standard DID 的模拟</span><br><br><span class="hljs-comment">///调用1.1生成的基础数据结构</span><br><span class="hljs-keyword">clear</span><br><span class="hljs-keyword">use</span> <span class="hljs-string">&quot;DID_Basic_Simu.dta&quot;</span><br><br><span class="hljs-comment">///生成两种潜在结果，并且合成最终的结果变量，令政策的真实效果为10，且不随时间发生变化，直到最后一期</span><br><br><span class="hljs-keyword">bysort</span> id: <span class="hljs-keyword">gen</span> y0 = 10  + 5 * x1 + 3 * x2 + T + ind + rnormal()<br><span class="hljs-keyword">bysort</span> id: <span class="hljs-keyword">gen</span> y1 = 10  + 5 * x1 + 3 * x2 + T + ind + rnormal() <span class="hljs-keyword">if</span> year &lt; 2005<br><span class="hljs-keyword">bysort</span> id: <span class="hljs-keyword">replace</span> y1 = 10  + 5 * x1 + 3 * x2 + 10 + T + ind + rnormal() <span class="hljs-keyword">if</span> year &gt;= 2005<br><span class="hljs-comment">*将y1的2005年之后的部分 +10，构成政策效果</span><br><span class="hljs-keyword">gen</span> y = y0 + <span class="hljs-keyword">D</span> * (y1 - y0)<br><span class="hljs-comment">*这里的y，在前30个个体等于y0，在后30个个体等于y1,即前30个个体为控制组，在所有期内都不受政策影响，后30个个体为对照组，在2005年后受政策影响</span><br><br><span class="hljs-comment">///去除协变量和个体效应对y的影响，画出剩余残差的图像</span><br><br><span class="hljs-keyword">xtreg</span> y x1 x2, fe r<br><span class="hljs-keyword">predict</span> <span class="hljs-keyword">e</span>,ue <span class="hljs-comment">//生成残差ue并取变量名为e</span><br>binscatter <span class="hljs-keyword">e</span> year, <span class="hljs-keyword">line</span>(connect) <span class="hljs-keyword">by</span>(<span class="hljs-keyword">D</span>)<br><br><span class="hljs-comment">///输出生成的图片，令格式为800*600</span><br><span class="hljs-keyword">graph</span> export <span class="hljs-string">&quot;article1_1.png&quot;</span>,<span class="hljs-keyword">as</span>(png) <span class="hljs-keyword">replace</span> width(800) height(600)<br><br><span class="hljs-comment">//计算处理效应</span><br><span class="hljs-comment">*估计处理效应有很多种命令，比较推荐reghdfe，运行速度快，结果简洁，看的文章里也大多用的这个，此处是双向固定效应</span><br>reghdfe y c.<span class="hljs-keyword">D</span>#c.<span class="hljs-keyword">post</span> x1 x2, absorb(id year) <span class="hljs-keyword">vce</span>(robust)<br><span class="hljs-comment">*Stata17开始有了官方命令xtdidregress，xtdidregress (y1 x1 x2) (treat1), group(grpvar1) time(tvar)，xtdidreg的优点在于可以方便绘制时间趋势图</span><br><span class="hljs-keyword">gen</span> did = <span class="hljs-keyword">D</span>*<span class="hljs-keyword">post</span> <span class="hljs-comment">//在xtdidreg命令中，不允许使用标记符的写法</span><br>xtdidregress (y x1 x2) (did), <span class="hljs-built_in">group</span>(id) time(year) <span class="hljs-keyword">vce</span>(robust id)<br><br><span class="hljs-comment">//绘制时间趋势图</span><br><span class="hljs-keyword">estat</span> trendplots<br><br><span class="hljs-keyword">save</span> <span class="hljs-string">&quot;DID_test.dta&quot;</span>, <span class="hljs-keyword">replace</span><br><br><br><br><br><br><span class="hljs-comment">***1.3 政策效果随时间变化的 Standard DID 的模拟</span><br><br><span class="hljs-comment">///调用本文第二部分生成的基础数据结构</span><br><span class="hljs-keyword">clear</span><br><span class="hljs-keyword">use</span> <span class="hljs-string">&quot;DID_Basic_Simu.dta&quot;</span><br><br><span class="hljs-comment">///生成两种潜在结果，并且合成最终的结果变量，令政策的真实效果随时间发生变化，即（5*T-T），由于从2005年开始接受干预，因此，每年的政策效果应为24，28，32，36，40.</span><br><br><span class="hljs-keyword">bysort</span> id: <span class="hljs-keyword">gen</span> y0 = 10  + 5 * x1 + 3 * x2 + T + ind  + rnormal()<br><span class="hljs-keyword">bysort</span> id: <span class="hljs-keyword">gen</span> y1 = 10  + 5 * x1 + 3 * x2 + T + ind  + rnormal() <span class="hljs-keyword">if</span> year &lt; 2005<br><br><span class="hljs-keyword">bysort</span> id: <span class="hljs-keyword">replace</span> y1 = 10  + 5 * x1 + 3 * x2 + T * 5 + ind   + rnormal() <span class="hljs-keyword">if</span> year &gt;= 2005<br><br><span class="hljs-keyword">gen</span> y = y0 + <span class="hljs-keyword">D</span> * (y1 - y0)<br><br><span class="hljs-comment">///去除协变量和个体效应对y的影响，画出剩余残差的图像</span><br><br><span class="hljs-keyword">xtreg</span> y x1 x2 , fe r<br><span class="hljs-keyword">predict</span> <span class="hljs-keyword">e</span>,ue<br>binscatter <span class="hljs-keyword">e</span> year, <span class="hljs-keyword">line</span>(connect) <span class="hljs-keyword">by</span>(<span class="hljs-keyword">D</span>)<br><br><span class="hljs-comment">//计算处理效应（此处是处理期的平均处理效应 ATE，即24，28，32，36，40的均值）</span><br>reghdfe y c.<span class="hljs-keyword">D</span>#c.<span class="hljs-keyword">post</span> x1 x2, absorb(id year) <span class="hljs-keyword">vce</span>(robust)<br><br><span class="hljs-keyword">gen</span> did = <span class="hljs-keyword">D</span>*<span class="hljs-keyword">post</span> <br>xtdidregress (y x1 x2) (did), <span class="hljs-built_in">group</span>(id) time(year) <span class="hljs-keyword">vce</span>(robust id)<br><br><span class="hljs-comment">//绘制时间趋势图</span><br><span class="hljs-keyword">estat</span> trendplots<br><br><br><br><br><br><span class="hljs-comment">***1.4 事件研究法</span><br><br><span class="hljs-comment">///政策效应不变的情况</span><br><span class="hljs-comment">///调用1.1生成的基础数据结构</span><br><span class="hljs-keyword">clear</span><br><span class="hljs-keyword">use</span> <span class="hljs-string">&quot;DID_test.dta&quot;</span><br><br><span class="hljs-keyword">xtset</span> id year<br><br><span class="hljs-comment">//方法1：通过标记符设置虚拟变量</span><br>reghdfe y i.<span class="hljs-keyword">D</span>#i.year x1 x2, <span class="hljs-keyword">vce</span>(robust) absorb(id year) <span class="hljs-comment">//默认第一期（最小变量）为参考期</span><br><span class="hljs-comment">*注意：不知为何此处结果的系数与方法2正好相反，从结果看，此处显示的是D=0的结果。从一些top期刊看，使用方法2的多一些。</span><br><br><br><span class="hljs-comment">//方法2: 通过手动生成时间虚拟变量，构造交互项，此时可以指定某一个组别作为参照组，在本文中将样本中的第一期作为基准组，另外在论文中常用的还有将政策实施的前一期和当期作为基准参照组。</span><br><span class="hljs-comment">///预先生成年度虚拟变量</span><br><span class="hljs-keyword">tab</span> year, <span class="hljs-keyword">gen</span>(yeardummy)<br>reghdfe y c.<span class="hljs-keyword">D</span>#(c.yeardummy2-yeardummy10) x1 x2, absorb(id year) <span class="hljs-keyword">vce</span>(robust)<br><br><span class="hljs-comment">//将每期的系数画出来，作为结果汇报</span><br>coefplot, <span class="hljs-comment">///</span><br>   <span class="hljs-keyword">keep</span>(c.<span class="hljs-keyword">D</span>#c.yeardummy2 c.<span class="hljs-keyword">D</span>#c.yeardummy3 c.<span class="hljs-keyword">D</span>#c.yeardummy4 c.<span class="hljs-keyword">D</span>#c.yeardummy5 c.<span class="hljs-keyword">D</span>#c.yeardummy6 c.<span class="hljs-keyword">D</span>#c.yeardummy7 c.<span class="hljs-keyword">D</span>#c.yeardummy8 c.<span class="hljs-keyword">D</span>#c.yeardummy9 c.<span class="hljs-keyword">D</span>#c.yeardummy10)  <span class="hljs-comment">///保留指定的系数</span><br>   coeflabels(c.<span class="hljs-keyword">D</span>#c.yeardummy2 = <span class="hljs-string">&quot;-4&quot;</span>   <span class="hljs-comment">///将期数标在横轴</span><br>   c.<span class="hljs-keyword">D</span>#c.yeardummy3 = <span class="hljs-string">&quot;-3&quot;</span>           <span class="hljs-comment">///</span><br>   c.<span class="hljs-keyword">D</span>#c.yeardummy4 = <span class="hljs-string">&quot;-2&quot;</span>           <span class="hljs-comment">///</span><br>   c.<span class="hljs-keyword">D</span>#c.yeardummy5 = <span class="hljs-string">&quot;-1&quot;</span>           <span class="hljs-comment">///</span><br>   c.<span class="hljs-keyword">D</span>#c.yeardummy6  = <span class="hljs-string">&quot;0&quot;</span>             <span class="hljs-comment">///</span><br>   c.<span class="hljs-keyword">D</span>#c.yeardummy7  = <span class="hljs-string">&quot;1&quot;</span>              <span class="hljs-comment">///</span><br>   c.<span class="hljs-keyword">D</span>#c.yeardummy8  = <span class="hljs-string">&quot;2&quot;</span>              <span class="hljs-comment">///</span><br>   c.<span class="hljs-keyword">D</span>#c.yeardummy9  = <span class="hljs-string">&quot;3&quot;</span>              <span class="hljs-comment">///</span><br>   c.<span class="hljs-keyword">D</span>#c.yeardummy10 = <span class="hljs-string">&quot;4&quot;</span>)            <span class="hljs-comment">///</span><br>   vertical                             <span class="hljs-comment">///</span><br>   yline(0)                             <span class="hljs-comment">///</span><br>   ytitle(<span class="hljs-string">&quot;Coef&quot;</span>)                 <span class="hljs-comment">///</span><br>   xtitle(<span class="hljs-string">&quot;Time passage relative to year of adoption of implied contract exception&quot;</span>) <span class="hljs-comment">///</span><br>   addplot(<span class="hljs-keyword">line</span> @b @at)                 <span class="hljs-comment">///增加点之间的连线</span><br>   ciopts(<span class="hljs-keyword">recast</span>(rcap))                 <span class="hljs-comment">///设置置信区间样式，常用的是上下区间虚线，估计系数粗实线</span><br>   scheme(s1mono)<br><br><br><span class="hljs-comment">//将每期的系数画出来，换一种置信区间表示方法（在本案中用起来有点抽象。。）</span><br>coefplot, <span class="hljs-comment">///</span><br>   <span class="hljs-keyword">keep</span>(c.<span class="hljs-keyword">D</span>#c.yeardummy2 c.<span class="hljs-keyword">D</span>#c.yeardummy3 c.<span class="hljs-keyword">D</span>#c.yeardummy4 c.<span class="hljs-keyword">D</span>#c.yeardummy5 c.<span class="hljs-keyword">D</span>#c.yeardummy6 c.<span class="hljs-keyword">D</span>#c.yeardummy7 c.<span class="hljs-keyword">D</span>#c.yeardummy8 c.<span class="hljs-keyword">D</span>#c.yeardummy9 c.<span class="hljs-keyword">D</span>#c.yeardummy10)  <span class="hljs-comment">///保留指定的系数</span><br>   coeflabels(c.<span class="hljs-keyword">D</span>#c.yeardummy2 = <span class="hljs-string">&quot;-4&quot;</span>   <span class="hljs-comment">///将期数标在横轴</span><br>   c.<span class="hljs-keyword">D</span>#c.yeardummy3 = <span class="hljs-string">&quot;-3&quot;</span>           <span class="hljs-comment">///</span><br>   c.<span class="hljs-keyword">D</span>#c.yeardummy4 = <span class="hljs-string">&quot;-2&quot;</span>           <span class="hljs-comment">///</span><br>   c.<span class="hljs-keyword">D</span>#c.yeardummy5 = <span class="hljs-string">&quot;-1&quot;</span>           <span class="hljs-comment">///</span><br>   c.<span class="hljs-keyword">D</span>#c.yeardummy6  = <span class="hljs-string">&quot;0&quot;</span>             <span class="hljs-comment">///</span><br>   c.<span class="hljs-keyword">D</span>#c.yeardummy7  = <span class="hljs-string">&quot;1&quot;</span>              <span class="hljs-comment">///</span><br>   c.<span class="hljs-keyword">D</span>#c.yeardummy8  = <span class="hljs-string">&quot;2&quot;</span>              <span class="hljs-comment">///</span><br>   c.<span class="hljs-keyword">D</span>#c.yeardummy9  = <span class="hljs-string">&quot;3&quot;</span>              <span class="hljs-comment">///</span><br>   c.<span class="hljs-keyword">D</span>#c.yeardummy10 = <span class="hljs-string">&quot;4&quot;</span>)            <span class="hljs-comment">///</span><br>   vertical                             <span class="hljs-comment">///</span><br>   yline(0)                             <span class="hljs-comment">///</span><br>   ytitle(<span class="hljs-string">&quot;Coef&quot;</span>)                 <span class="hljs-comment">///</span><br>   xtitle(<span class="hljs-string">&quot;Time passage relative to year of adoption of implied contract exception&quot;</span>) <span class="hljs-comment">///</span><br>   msymbol(O) msize(small) mcolor(gs1) <span class="hljs-comment">///plot样式</span><br>   addplot(<span class="hljs-keyword">line</span> @b @at)                 <span class="hljs-comment">///增加点之间的连线</span><br>   ciopts(<span class="hljs-keyword">recast</span>(rline) lwidth(thin) lpattern(dash) lcolor(gs2))                  <span class="hljs-comment">///</span><br>   scheme(s1mono)<br><br>   <br>   <br><br>   <br><span class="hljs-comment">***1.5 安慰剂检验</span><br><span class="hljs-comment">*DID家族现在有便捷的安慰剂检验包 didplacebo 见陈强老师推文 https://mp.weixin.qq.com/s/egERxrpCFQyliH4FimCalQ</span><br><span class="hljs-comment">*安慰剂检验的本质：随机改变冲击的时间和被试样本</span><br><br><span class="hljs-comment">//方法1: 使用 didplacebo 一键进行时间、空间和混合安慰剂检验</span><br><br><span class="hljs-keyword">clear</span><br><span class="hljs-keyword">use</span> <span class="hljs-string">&quot;DID_test.dta&quot;</span><br><br>reghdfe y did x1 x2, absorb(id year) <span class="hljs-keyword">vce</span>(robust)<br><br><span class="hljs-keyword">estimates</span> store did_test<br><br>didplacebo did_test, treatvar(did) pbotime(1(1)4)<br>didplacebo did_test, treatvar(did) pbounit rep(500) seed(1)<br>didplacebo did_test, treatvar(did) pbomix(1) <span class="hljs-comment">//pbomix(1)表示适合于标准DID的混合安慰剂检验</span><br><br><span class="hljs-comment">//也可以同时进行时间、空间与混合安慰剂检验</span><br>didplacebo did_test, treatvar(did) pbotime(1(1)4) pbounit pbomix(1)<br><br><br><span class="hljs-comment">//方法2: 随机生成实验组（有了方法1，感觉方法2没啥用了）</span><br><span class="hljs-comment">*参见 https://www.lianxh.cn/details/731.html</span><br><span class="hljs-comment">*一行代码进行安慰剂检验 permute</span><br><br><span class="hljs-keyword">clear</span><br><span class="hljs-keyword">use</span> <span class="hljs-string">&quot;DID_test.dta&quot;</span><br><br><span class="hljs-keyword">permute</span> did _b[did], reps(1000) rseed(123): reghdfe y did x1 x2, absorb(id year) <span class="hljs-keyword">vce</span>(robust)<br><span class="hljs-comment">*did就是交互项</span><br><span class="hljs-comment">*reps(1000) 重复抽样1000次</span><br><br><span class="hljs-comment">//抽样1000，记录系数存入新数据集中</span><br><span class="hljs-keyword">permute</span> did beta = _b[did],  <span class="hljs-comment">///</span><br>        reps(1000) rseed(123) saving(<span class="hljs-string">&quot;simulations.dta&quot;</span>, <span class="hljs-keyword">replace</span>):  <span class="hljs-comment">///</span><br>        reghdfe y did x1 x2, absorb(id year) <span class="hljs-keyword">vce</span>(robust)<br><br><span class="hljs-comment">//图示系数</span><br><span class="hljs-keyword">use</span> <span class="hljs-string">&quot;simulations.dta&quot;</span>, <span class="hljs-keyword">clear</span><br>#delimit ;<br>dpplot beta, xline(10.02, lc(black*0.5) lp(dash))<br>             xline(0, lc(black*0.5) lp(solid))<br>             xtitle(<span class="hljs-string">&quot;Estimator&quot;</span>, size(*0.8)) <br>             xlabel(-5(1)5, <span class="hljs-keyword">format</span>(%4.1f) labsize(small))<br>             ytitle(<span class="hljs-string">&quot;Density&quot;</span>, size(*0.8)) <br>             ylabel(, nogrid <span class="hljs-keyword">format</span>(%4.1f) labsize(small)) <br>             <span class="hljs-keyword">note</span>(<span class="hljs-string">&quot;&quot;</span>) caption(<span class="hljs-string">&quot;&quot;</span>) <br>             graphregion(fcolor(white)) ;<br>#delimit cr<br><span class="hljs-keyword">graph</span> export <span class="hljs-string">&quot;安慰剂检验.png&quot;</span>, width(1000) <span class="hljs-keyword">replace</span><br><br><span class="hljs-comment">*系数分布在零的附近，且服从正态分布，就符合安慰剂检验的预期；在实际应用中，只需要真实的估计值在核密度图的尾部即可，如「刘瑞明, 毛宇, 亢延锟. 制度松绑、市场活力激发与旅游经济发展——来自中国文化体制改革的证据[J]. 经济研究, 2020, 55(01):115-131.」</span><br><br><span class="hljs-comment">*如果想使用老方法，重走旧时路，也是可以的：https://mp.weixin.qq.com/s/snYGfrWF5Cd_R3eZzIK3NA</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="6-2-Staggered-DID数据模拟、分析与检验代码"><a href="#6-2-Staggered-DID数据模拟、分析与检验代码" class="headerlink" title="6.2 Staggered DID数据模拟、分析与检验代码"></a>6.2 Staggered DID数据模拟、分析与检验代码</h3><figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br><span class="line">224</span><br><span class="line">225</span><br><span class="line">226</span><br><span class="line">227</span><br><span class="line">228</span><br><span class="line">229</span><br><span class="line">230</span><br><span class="line">231</span><br><span class="line">232</span><br><span class="line">233</span><br><span class="line">234</span><br><span class="line">235</span><br><span class="line">236</span><br><span class="line">237</span><br><span class="line">238</span><br><span class="line">239</span><br><span class="line">240</span><br><span class="line">241</span><br><span class="line">242</span><br><span class="line">243</span><br><span class="line">244</span><br><span class="line">245</span><br><span class="line">246</span><br><span class="line">247</span><br><span class="line">248</span><br><span class="line">249</span><br><span class="line">250</span><br><span class="line">251</span><br><span class="line">252</span><br><span class="line">253</span><br><span class="line">254</span><br><span class="line">255</span><br><span class="line">256</span><br><span class="line">257</span><br><span class="line">258</span><br><span class="line">259</span><br><span class="line">260</span><br><span class="line">261</span><br><span class="line">262</span><br><span class="line">263</span><br><span class="line">264</span><br><span class="line">265</span><br><span class="line">266</span><br><span class="line">267</span><br><span class="line">268</span><br><span class="line">269</span><br><span class="line">270</span><br><span class="line">271</span><br><span class="line">272</span><br><span class="line">273</span><br><span class="line">274</span><br><span class="line">275</span><br><span class="line">276</span><br><span class="line">277</span><br><span class="line">278</span><br><span class="line">279</span><br><span class="line">280</span><br><span class="line">281</span><br><span class="line">282</span><br><span class="line">283</span><br><span class="line">284</span><br><span class="line">285</span><br><span class="line">286</span><br><span class="line">287</span><br><span class="line">288</span><br><span class="line">289</span><br><span class="line">290</span><br><span class="line">291</span><br><span class="line">292</span><br><span class="line">293</span><br><span class="line">294</span><br><span class="line">295</span><br><span class="line">296</span><br><span class="line">297</span><br><span class="line">298</span><br><span class="line">299</span><br><span class="line">300</span><br><span class="line">301</span><br><span class="line">302</span><br><span class="line">303</span><br><span class="line">304</span><br><span class="line">305</span><br><span class="line">306</span><br><span class="line">307</span><br><span class="line">308</span><br><span class="line">309</span><br><span class="line">310</span><br><span class="line">311</span><br><span class="line">312</span><br><span class="line">313</span><br><span class="line">314</span><br><span class="line">315</span><br><span class="line">316</span><br><span class="line">317</span><br><span class="line">318</span><br><span class="line">319</span><br><span class="line">320</span><br><span class="line">321</span><br><span class="line">322</span><br><span class="line">323</span><br><span class="line">324</span><br><span class="line">325</span><br><span class="line">326</span><br><span class="line">327</span><br><span class="line">328</span><br><span class="line">329</span><br><span class="line">330</span><br><span class="line">331</span><br><span class="line">332</span><br><span class="line">333</span><br><span class="line">334</span><br><span class="line">335</span><br><span class="line">336</span><br><span class="line">337</span><br><span class="line">338</span><br><span class="line">339</span><br><span class="line">340</span><br><span class="line">341</span><br><span class="line">342</span><br><span class="line">343</span><br><span class="line">344</span><br><span class="line">345</span><br><span class="line">346</span><br><span class="line">347</span><br><span class="line">348</span><br><span class="line">349</span><br><span class="line">350</span><br><span class="line">351</span><br><span class="line">352</span><br><span class="line">353</span><br><span class="line">354</span><br><span class="line">355</span><br><span class="line">356</span><br><span class="line">357</span><br><span class="line">358</span><br><span class="line">359</span><br><span class="line">360</span><br><span class="line">361</span><br><span class="line">362</span><br><span class="line">363</span><br><span class="line">364</span><br><span class="line">365</span><br><span class="line">366</span><br><span class="line">367</span><br><span class="line">368</span><br><span class="line">369</span><br><span class="line">370</span><br><span class="line">371</span><br><span class="line">372</span><br><span class="line">373</span><br><span class="line">374</span><br><span class="line">375</span><br><span class="line">376</span><br><span class="line">377</span><br><span class="line">378</span><br><span class="line">379</span><br><span class="line">380</span><br><span class="line">381</span><br><span class="line">382</span><br><span class="line">383</span><br><span class="line">384</span><br><span class="line">385</span><br><span class="line">386</span><br><span class="line">387</span><br><span class="line">388</span><br><span class="line">389</span><br><span class="line">390</span><br><span class="line">391</span><br><span class="line">392</span><br><span class="line">393</span><br><span class="line">394</span><br><span class="line">395</span><br><span class="line">396</span><br><span class="line">397</span><br><span class="line">398</span><br><span class="line">399</span><br><span class="line">400</span><br><span class="line">401</span><br><span class="line">402</span><br><span class="line">403</span><br><span class="line">404</span><br><span class="line">405</span><br><span class="line">406</span><br></pre></td><td class="code"><pre><code class="hljs stata"><span class="hljs-comment">*******************************************************************</span><br><span class="hljs-comment">************************** 二、Staggered DID ***********************</span><br><span class="hljs-comment">*******************************************************************</span><br><br><span class="hljs-comment">*在标准DID的各种变体里，交错DID是最重要的，因为现实中大量政策不是一次性推开的，而是先试点再推广。在DID的前沿进展研究与应用中，交错DID都是最重要的，因此，有必要系统学习交错DID的各项操作，面向Stata实践交错DID</span><br><br><span class="hljs-keyword">cd</span> <span class="hljs-string">&quot;/Users/yu/worklist/casual_inference/14-张宇 DID家族&quot;</span><br><span class="hljs-comment">*请替换成你的工作目录，或删除上面这一行，这样会选择默认工作目录</span><br><br><span class="hljs-comment">***2.1 所有个体最终都进入了实验组的情况</span><br><br><span class="hljs-comment">***2.1.1 交错DID的数据生成</span><br><br><span class="hljs-comment">///设定60个观测值，设定随机数种子</span><br><span class="hljs-keyword">clear</span> all<br><span class="hljs-keyword">set</span> obs 60 <br><span class="hljs-keyword">set</span> seed 10101<br><span class="hljs-keyword">gen</span> id =_n<br><br><span class="hljs-comment">/// 每一个数值的数量扩大11倍，再减去前六十个观测值，即60*11-60 = 600，为60个体10年的面板数据</span><br><span class="hljs-keyword">expand</span> 11<br><span class="hljs-keyword">drop</span> <span class="hljs-keyword">in</span> 1/60<br><span class="hljs-keyword">count</span><br><br><span class="hljs-comment">///以id分组生成时间标识</span><br><span class="hljs-keyword">bys</span> id: <span class="hljs-keyword">gen</span> time = _n+1999<br><span class="hljs-keyword">xtset</span> id time<br><br><span class="hljs-comment">///生成协变量以及个体和时间效应</span><br><span class="hljs-keyword">gen</span> x1 = rnormal(1,7)<br><span class="hljs-keyword">gen</span> x2 = rnormal(2,5)<br><br><span class="hljs-keyword">sort</span> time id<br><span class="hljs-keyword">by</span> time: <span class="hljs-keyword">gen</span> ind = _n<br><span class="hljs-keyword">sort</span> id time<br><br><span class="hljs-keyword">by</span> id: <span class="hljs-keyword">gen</span> T = _n<br><span class="hljs-keyword">gen</span> y = 0<br><br><span class="hljs-comment">///生成处理变量,此时D为Dit,设定1-20在2004年接受冲击，21-40为2006年，36-60为2008年</span><br><span class="hljs-keyword">gen</span> <span class="hljs-keyword">D</span> = 0<br><span class="hljs-keyword">gen</span> birth_date = 0<br><br><span class="hljs-keyword">forvalues</span> i = 1/20&#123;<br>    <span class="hljs-keyword">replace</span> <span class="hljs-keyword">D</span> = 1 <span class="hljs-keyword">if</span> id  == <span class="hljs-symbol">`i&#x27;</span> &amp; time &gt;= 2004<br>    <span class="hljs-keyword">replace</span> birth_date = 2004 <span class="hljs-keyword">if</span> id == <span class="hljs-symbol">`i&#x27;</span><br>&#125;<br><br><span class="hljs-keyword">forvalues</span> i = 21/40&#123;<br>    <span class="hljs-keyword">replace</span> <span class="hljs-keyword">D</span> = 1 <span class="hljs-keyword">if</span> id  == <span class="hljs-symbol">`i&#x27;</span> &amp; time &gt;= 2006<br>    <span class="hljs-keyword">replace</span> birth_date = 2006 <span class="hljs-keyword">if</span> id == <span class="hljs-symbol">`i&#x27;</span><br>&#125;<br><br><span class="hljs-keyword">forvalues</span> i = 41/60&#123;<br>    <span class="hljs-keyword">replace</span> <span class="hljs-keyword">D</span> = 1 <span class="hljs-keyword">if</span> id  == <span class="hljs-symbol">`i&#x27;</span> &amp; time &gt;= 2008<br>    <span class="hljs-keyword">replace</span> birth_date = 2008 <span class="hljs-keyword">if</span> id == <span class="hljs-symbol">`i&#x27;</span><br>&#125;<br><br><span class="hljs-comment">///将基础数据结构保存成dta文件，Staggered_DID_Basic_Simu1.dta,默认保存在当前的 working directory 路径下</span><br><br><span class="hljs-keyword">save</span> <span class="hljs-string">&quot;Staggered_DID_Basic_Simu1.dta&quot;</span>, <span class="hljs-keyword">replace</span><br><br><br><br><br><br><span class="hljs-comment">***2.1.2 政策效果不随时间发生变化的Staggered DID</span><br><br><span class="hljs-comment">///调用生成的基础数据文件</span><br><span class="hljs-keyword">clear</span><br><span class="hljs-keyword">use</span> <span class="hljs-string">&quot;Staggered_DID_Basic_Simu1.dta&quot;</span><br><br><span class="hljs-comment">///Y的生成，使得接受冲击的个体的政策真实效果为10</span><br><span class="hljs-keyword">bysort</span> id: <span class="hljs-keyword">gen</span> y0 = 10  + 5 * x1 + 3 * x2 + T + ind  + rnormal()<br><span class="hljs-keyword">bysort</span> id: <span class="hljs-keyword">gen</span> y1 = 10  + 5 * x1 + 3 * x2 + T + ind  + 10 + rnormal() <span class="hljs-keyword">if</span> time &gt;= 2004 &amp; id &gt;= 1 &amp; id &lt;= 20<br><span class="hljs-keyword">bysort</span> id: <span class="hljs-keyword">replace</span> y1 = 10  + 5 * x1 + 3 * x2 + T + ind  + 10 + rnormal() <span class="hljs-keyword">if</span> time &gt;= 2006 &amp; id &gt;= 21 &amp; id &lt;= 40<br><span class="hljs-keyword">bysort</span> id: <span class="hljs-keyword">replace</span> y1 = 10  + 5 * x1 + 3 * x2 + T + ind  + 10 + rnormal() <span class="hljs-keyword">if</span> time &gt;= 2008 &amp; id &gt;= 41 &amp; id &lt;= 60<br><span class="hljs-keyword">bysort</span> id: <span class="hljs-keyword">replace</span> y1 = 10  + 5 * x1 + 3 * x2 + T + ind  + rnormal() <span class="hljs-keyword">if</span> y1 == .<br><br><span class="hljs-keyword">replace</span> y = y0 + <span class="hljs-keyword">D</span> * (y1 - y0)<br><br><span class="hljs-comment">///去除个体效应和协变量对Y的影响，得到残差并画图</span><br><span class="hljs-keyword">xtreg</span> y x1 x2 , fe r<br><span class="hljs-keyword">predict</span> <span class="hljs-keyword">e</span>, ue<br>binscatter <span class="hljs-keyword">e</span> time, <span class="hljs-keyword">line</span>(connect) <span class="hljs-keyword">by</span>(<span class="hljs-keyword">D</span>)<br><br><span class="hljs-comment">///输出生成的图片，令格式为800*600</span><br><span class="hljs-keyword">graph</span> export <span class="hljs-string">&quot;article2_1.png&quot;</span>,<span class="hljs-keyword">as</span>(png) <span class="hljs-keyword">replace</span> width(800) height(600)<br><br><span class="hljs-comment">//计算处理效应</span><br>reghdfe y c.<span class="hljs-keyword">D</span> x1 x2, absorb(id time) <span class="hljs-keyword">vce</span>(robust)<br><br><span class="hljs-comment">//用事件研究法看看</span><br><span class="hljs-comment">///用当前年份减去个体接受处理的年份，得到相对的时间值event，将 -4 期之前的时间归并到第 -4 期，由于部分个体没有多于 -4 期的时间</span><br><span class="hljs-comment">///然后生成相对时间值的虚拟变量，eventt，并将首期设定为基准对照组</span><br><span class="hljs-keyword">gen</span> event = time - birth_date<br><span class="hljs-keyword">replace</span> event = -4 <span class="hljs-keyword">if</span> event &lt;= -4<br><span class="hljs-keyword">tab</span> event, <span class="hljs-keyword">gen</span>(eventt)<br><span class="hljs-keyword">drop</span> eventt1 <span class="hljs-comment">//这里的操作就是将第一期作为基准期，不加这一步的话，第一期会被omitted，好像也可以</span><br><br><span class="hljs-keyword">xtreg</span> y eventt* x1 x2 i.time, r fe<br><br><span class="hljs-comment">/*其实下面这样操作也可以</span><br><span class="hljs-comment"></span><br><span class="hljs-comment">gen tt = event + 5</span><br><span class="hljs-comment">reghdfe y i.tt x1 x2, absorb(id time) vce(robust)</span><br><span class="hljs-comment"></span><br><span class="hljs-comment">*/</span><br><br>coefplot, <span class="hljs-comment">///</span><br>   <span class="hljs-keyword">keep</span>(eventt*)  <span class="hljs-comment">///</span><br>   coeflabels(eventt2 = <span class="hljs-string">&quot;-3&quot;</span>   <span class="hljs-comment">///</span><br>   eventt3 = <span class="hljs-string">&quot;-2&quot;</span>             <span class="hljs-comment">///</span><br>   eventt4 = <span class="hljs-string">&quot;-1&quot;</span>             <span class="hljs-comment">///</span><br>   eventt5 = <span class="hljs-string">&quot;0&quot;</span>              <span class="hljs-comment">///</span><br>   eventt6  = <span class="hljs-string">&quot;1&quot;</span>             <span class="hljs-comment">///</span><br>   eventt7  = <span class="hljs-string">&quot;2&quot;</span>             <span class="hljs-comment">///</span><br>   eventt8  = <span class="hljs-string">&quot;3&quot;</span>             <span class="hljs-comment">///</span><br>   eventt9  = <span class="hljs-string">&quot;4&quot;</span>             <span class="hljs-comment">///</span><br>   eventt10 = <span class="hljs-string">&quot;5&quot;</span>)           <span class="hljs-comment">///</span><br>   vertical                       <span class="hljs-comment">///</span><br>   yline(0)                       <span class="hljs-comment">///</span><br>   ytitle(<span class="hljs-string">&quot;Coef&quot;</span>)               <span class="hljs-comment">///</span><br>   xtitle(<span class="hljs-string">&quot;Time passage relative to year of adoption of implied contract exception&quot;</span>) <span class="hljs-comment">///</span><br>   addplot(<span class="hljs-keyword">line</span> @b @at)                 <span class="hljs-comment">///</span><br>   ciopts(<span class="hljs-keyword">recast</span>(rcap))                 <span class="hljs-comment">///</span><br>   scheme(s1mono)<br><br><span class="hljs-comment">///输出生成的图片，令格式为800*600</span><br><span class="hljs-keyword">graph</span> export <span class="hljs-string">&quot;article2_2.png&quot;</span>,<span class="hljs-keyword">as</span>(png) <span class="hljs-keyword">replace</span> width(800) height(600)<br><br><br><br><br><span class="hljs-comment">***2.1.3 政策效果随时间发生变化的Staggered DID</span><br><br><span class="hljs-comment">///调用生成的基础数据文件</span><br><span class="hljs-keyword">clear</span><br><span class="hljs-keyword">use</span> <span class="hljs-string">&quot;Staggered_DID_Basic_Simu1.dta&quot;</span><br><br><span class="hljs-comment">///Y的生成，设定真实的政策效果为当年为3，并且每年增加3</span><br><span class="hljs-keyword">bysort</span> id: <span class="hljs-keyword">gen</span> y0 = 10  + 5 * x1 + 3 * x2 + T + ind + rnormal()<br><span class="hljs-keyword">bysort</span> id: <span class="hljs-keyword">gen</span> y1 = 10  + 5 * x1 + 3 * x2 + T + ind  + (time - birth + 1 ) * 3 + rnormal() <span class="hljs-keyword">if</span> time &gt;= 2004 &amp; id &gt;= 1 &amp; id &lt;= 20<br><span class="hljs-keyword">bysort</span> id: <span class="hljs-keyword">replace</span> y1 = 10  + 5 * x1 + 3 * x2 +  T + ind  + (time - birth + 1 ) * 3  + rnormal() <span class="hljs-keyword">if</span> time &gt;= 2006 &amp; id &gt;= 21 &amp; id &lt;= 40<br><span class="hljs-keyword">bysort</span> id: <span class="hljs-keyword">replace</span> y1 = 10  + 5 * x1 + 3 * x2 +  T + ind  + (time - birth + 1 ) * 3  + rnormal() <span class="hljs-keyword">if</span> time &gt;= 2008 &amp; id &gt;= 41 &amp; id &lt;= 60<br><span class="hljs-keyword">bysort</span> id: <span class="hljs-keyword">replace</span> y1 = 10  + 5 * x1 + 3 * x2 +  T + ind  + rnormal() <span class="hljs-keyword">if</span> y1 == .<br><br><span class="hljs-keyword">replace</span> y = y0 + <span class="hljs-keyword">D</span> * (y1 - y0)<br><br><span class="hljs-comment">///去除个体效应和协变量对Y的影响，得到残差并画图</span><br><span class="hljs-keyword">xtreg</span> y x1 x2 , fe r<br><span class="hljs-keyword">predict</span> <span class="hljs-keyword">e</span>, ue<br>binscatter <span class="hljs-keyword">e</span> time, <span class="hljs-keyword">line</span>(connect) <span class="hljs-keyword">by</span>(<span class="hljs-keyword">D</span>)<br><br><span class="hljs-comment">///输出生成的图片，令格式为800*600</span><br><span class="hljs-keyword">graph</span> export <span class="hljs-string">&quot;article2_3.png&quot;</span>,<span class="hljs-keyword">as</span>(png) <span class="hljs-keyword">replace</span> width(800) height(600)<br><br><span class="hljs-comment">//计算处理效应</span><br>reghdfe y c.<span class="hljs-keyword">D</span> x1 x2, absorb(id time) <span class="hljs-keyword">vce</span>(robust)<br><br><span class="hljs-comment">//用事件研究法看看</span><br><span class="hljs-comment">///用当前年份减去个体接受处理的年份，得到相对的时间值 event，将 -4 期之前的时间归并到第 -4 期，由于部分个体没有多于 -4 期的时间</span><br><span class="hljs-comment">///然后生成相对时间值的虚拟变量，eventt，并将首期设定为基准对照组</span><br><br><span class="hljs-keyword">gen</span> event = time - birth_date<br><span class="hljs-keyword">replace</span> event = -4 <span class="hljs-keyword">if</span> event &lt;= -4<br><span class="hljs-keyword">tab</span> event, <span class="hljs-keyword">gen</span>(eventt)<br><span class="hljs-keyword">drop</span> eventt1<br><br><span class="hljs-keyword">xtreg</span> y eventt* x1 x2 i.time, r fe<br><br>coefplot, <span class="hljs-comment">///</span><br>   <span class="hljs-keyword">keep</span>(eventt*)  <span class="hljs-comment">///</span><br>   coeflabels(eventt2 = <span class="hljs-string">&quot;-3&quot;</span>   <span class="hljs-comment">///</span><br>   eventt3 = <span class="hljs-string">&quot;-2&quot;</span>           <span class="hljs-comment">///</span><br>   eventt4 = <span class="hljs-string">&quot;-1&quot;</span>           <span class="hljs-comment">///</span><br>   eventt5 = <span class="hljs-string">&quot;0&quot;</span>           <span class="hljs-comment">///</span><br>   eventt6  = <span class="hljs-string">&quot;1&quot;</span>             <span class="hljs-comment">///</span><br>   eventt7  = <span class="hljs-string">&quot;2&quot;</span>              <span class="hljs-comment">///</span><br>   eventt8  = <span class="hljs-string">&quot;3&quot;</span>              <span class="hljs-comment">///</span><br>   eventt9  = <span class="hljs-string">&quot;4&quot;</span>              <span class="hljs-comment">///</span><br>   eventt10 = <span class="hljs-string">&quot;5&quot;</span>)            <span class="hljs-comment">///</span><br>   vertical                             <span class="hljs-comment">///</span><br>   yline(0)                             <span class="hljs-comment">///</span><br>   ytitle(<span class="hljs-string">&quot;Coef&quot;</span>)                 <span class="hljs-comment">///</span><br>   xtitle(<span class="hljs-string">&quot;Time passage relative to year of adoption of implied contract exception&quot;</span>) <span class="hljs-comment">///</span><br>   addplot(<span class="hljs-keyword">line</span> @b @at)                 <span class="hljs-comment">///</span><br>   ciopts(<span class="hljs-keyword">recast</span>(rcap))                 <span class="hljs-comment">///</span><br>   scheme(s1mono)<br><br><span class="hljs-comment">///输出生成的图片，令格式为800*600</span><br><span class="hljs-keyword">graph</span> export <span class="hljs-string">&quot;article2_4.png&quot;</span>,<span class="hljs-keyword">as</span>(png) <span class="hljs-keyword">replace</span> width(800) height(600)<br><br><br><br><br><br><span class="hljs-comment">***2.2 有样本始终没有进入处理组的情况</span><br><br><span class="hljs-comment">***2.2.1 交错DID的数据生成</span><br><br><span class="hljs-comment">///设定60个观测值，设定随机数种子</span><br><span class="hljs-keyword">clear</span> all<br><span class="hljs-keyword">set</span> obs 60 <br><span class="hljs-keyword">set</span> seed 10101<br><span class="hljs-keyword">gen</span> id =_n<br><br><span class="hljs-comment">/// 每一个数值的数量扩大11倍，再减去前六十个观测值，即60*11-60 = 600，为60个体10年的面板数据</span><br><span class="hljs-keyword">expand</span> 11<br><span class="hljs-keyword">drop</span> <span class="hljs-keyword">in</span> 1/60<br><span class="hljs-keyword">count</span><br><br><span class="hljs-comment">///以id分组生成时间标识</span><br><span class="hljs-keyword">bys</span> id: <span class="hljs-keyword">gen</span> time = _n+1999<br><span class="hljs-keyword">xtset</span> id time<br><br><span class="hljs-comment">///生成协变量以及个体和时间效应</span><br><span class="hljs-keyword">gen</span> x1 = rnormal(1,7)<br><span class="hljs-keyword">gen</span> x2 = rnormal(2,5)<br><br><span class="hljs-keyword">sort</span> time id<br><span class="hljs-keyword">by</span> time: <span class="hljs-keyword">gen</span> ind = _n<br><span class="hljs-keyword">sort</span> id time<br><span class="hljs-keyword">by</span> id: <span class="hljs-keyword">gen</span> T = _n<br><span class="hljs-keyword">gen</span> y = 0<br><br><span class="hljs-comment">///生成处理变量,此时D为Dit,设定1-20在2004年接受冲击，21-40为2006年，41-60个体一直不接受干预</span><br><br><span class="hljs-keyword">gen</span> <span class="hljs-keyword">D</span> = 0<br><span class="hljs-keyword">gen</span> birth_date = 0<br><span class="hljs-keyword">gen</span> <span class="hljs-keyword">G</span> = 0<br><br><span class="hljs-keyword">forvalues</span> i = 1/20&#123;<br>	<span class="hljs-keyword">replace</span> <span class="hljs-keyword">D</span> = 1 <span class="hljs-keyword">if</span> id  == <span class="hljs-symbol">`i&#x27;</span> &amp; time &gt;= 2004<br>	<span class="hljs-keyword">replace</span> birth_date = 2004 <span class="hljs-keyword">if</span> id == <span class="hljs-symbol">`i&#x27;</span><br>    <span class="hljs-keyword">replace</span>  <span class="hljs-keyword">G</span> = 1 <span class="hljs-keyword">if</span> id == <span class="hljs-symbol">`i&#x27;</span><br>&#125;<br><br><span class="hljs-keyword">forvalues</span> i = 21/40&#123;<br>	<span class="hljs-keyword">replace</span> <span class="hljs-keyword">D</span> = 1 <span class="hljs-keyword">if</span> id  == <span class="hljs-symbol">`i&#x27;</span> &amp; time &gt;= 2006<br>	<span class="hljs-keyword">replace</span> birth_date = 2006 <span class="hljs-keyword">if</span> id == <span class="hljs-symbol">`i&#x27;</span><br>    <span class="hljs-keyword">replace</span>  <span class="hljs-keyword">G</span> = 2 <span class="hljs-keyword">if</span> id == <span class="hljs-symbol">`i&#x27;</span><br>&#125;<br><br><span class="hljs-comment">///将基础数据结构保存成dta文件，Staggered_DID_Basic_Simu2.dta,默认保存在当前的 working directory 路径下</span><br><br><span class="hljs-keyword">save</span> <span class="hljs-string">&quot;Staggered_DID_Basic_Simu2.dta&quot;</span>, <span class="hljs-keyword">replace</span><br><br><br><br><br><br><span class="hljs-comment">***2.2.2 政策效果随时间发生改变</span><br><br><span class="hljs-comment">///调用生成的基础数据文件</span><br><span class="hljs-keyword">use</span> <span class="hljs-string">&quot;Staggered_DID_Basic_Simu2.dta&quot;</span>, <span class="hljs-keyword">clear</span> <br><br><span class="hljs-comment">///Y的生成，设定真实的政策效果为当年为3，并且每年增加3</span><br><span class="hljs-keyword">bysort</span> id: <span class="hljs-keyword">gen</span>     y0 = 10 + 5*x1 + 3*x2 + T + ind + rnormal()<br><span class="hljs-keyword">bysort</span> id: <span class="hljs-keyword">gen</span>     y1 = 10 + 5*x1 + 3*x2 + T + ind + (time - birth_date + 1) * 3 + rnormal() <span class="hljs-keyword">if</span> time &gt;= 2004 &amp; id &gt;= 1 &amp; id &lt;= 20<br><span class="hljs-keyword">bysort</span> id: <span class="hljs-keyword">replace</span> y1 = 10 + 5*x1 + 3*x2 + T + ind + (time - birth_date + 1) * 3 + rnormal() <span class="hljs-keyword">if</span> time &gt;= 2006 &amp; id &gt;= 21 &amp; id &lt;= 40<br><span class="hljs-keyword">bysort</span> id: <span class="hljs-keyword">replace</span> y1 = 10 + 5*x1 + 3*x2 + T + ind + rnormal() <span class="hljs-keyword">if</span> y1 == .<br><br><span class="hljs-keyword">replace</span> y = y0 + <span class="hljs-keyword">D</span> * (y1 - y0)<br><br><span class="hljs-comment">///去除个体效应和协变量对Y的影响，得到残差并画图</span><br><span class="hljs-keyword">xtreg</span> y x1 x2 , fe r<br><span class="hljs-keyword">predict</span> <span class="hljs-keyword">e</span>, ue<br>binscatter <span class="hljs-keyword">e</span> time, <span class="hljs-keyword">line</span>(connect) <span class="hljs-keyword">by</span>(<span class="hljs-keyword">G</span>)<br><br><span class="hljs-comment">///输出生成的图片，令格式为800*600</span><br><span class="hljs-keyword">graph</span> export <span class="hljs-string">&quot;article_3.png&quot;</span>, <span class="hljs-keyword">as</span>(png) <span class="hljs-keyword">replace</span> width(800) height(600)<br><br><span class="hljs-comment">//计算处理效应</span><br>reghdfe y c.<span class="hljs-keyword">D</span> x1 x2, absorb(id time) <span class="hljs-keyword">vce</span>(robust)<br><br><span class="hljs-comment">/*</span><br><span class="hljs-comment">//也用xthdidiregress命令看看,Stata18的新命令，这部分我没看懂，因此下面的结果不可信,更多资料见Stata关于该命令的官方文档或https://mp.weixin.qq.com/s/_wz283xgl56MMsYY1GVguQ 或陈强老师的公众号 https://mp.weixin.qq.com/s/mgXcnGESfm0PnrZetowj9w</span><br><span class="hljs-comment"></span><br><span class="hljs-comment">xthdidregress aipw (y x1 x2) (D), group(id)</span><br><span class="hljs-comment"></span><br><span class="hljs-comment">//每个群组的ATT的时间分布</span><br><span class="hljs-comment">estat atetplot, sci</span><br><span class="hljs-comment"></span><br><span class="hljs-comment">//计算每个组群在时间内的ATT</span><br><span class="hljs-comment">estat aggregation, cohort graph</span><br><span class="hljs-comment">*/</span><br><br><span class="hljs-comment">//用事件研究法看看</span><br><span class="hljs-comment">///用当前年份减去个体接受处理的年份，得到相对的时间值 event，将 -4 期之前的时间归并到第 -4 期，由于部分个体没有多于 -4 期的时间</span><br><span class="hljs-comment">/*</span><br><span class="hljs-comment">在设定相对时间值的时候，我们会发现如果存在一直在控制组的个体，那么对于这些个体的相对时间进行赋值就是一个难题——因为它一直没有接受干预，那么自然就不存在有政策前 N 期和政策后 N 期。因此无论将其赋值成什么都会造成问题，那么将此类个体的相对时间设定成缺失值是不是可以呢？答案是不可以。因为将这些个体的相对时间值设定为缺失值，会导致这些个体的相对时间值的虚拟变量也会是缺失值。这进一步会使得 ESA 方程可用的个体仅剩下了样本中的实验组个体，那么自然也无法实现我们想要的估计出每年度的政策效果，进而对平行趋势进行检验的目的。</span><br><span class="hljs-comment"></span><br><span class="hljs-comment">那么如何来解决这个问题呢？最简单的办法就是在生成每一个个体的相对时间值的虚拟变量后，我们可以手动将虚拟变量中的缺失值赋值为0。这样就可以在回归中利用上这些个体。另外，将这些个体的缺失值赋值为0还可以表示它们是控制组个体。</span><br><span class="hljs-comment">*/</span><br><span class="hljs-comment">///由于存在一直处于控制组的个体，因此 event 变量对于这些个体为缺失值</span><br><span class="hljs-comment">///然后生成相对时间值的虚拟变量 eventt，对于一直存在控制组的个体 eventt 虚拟变量的值全取为 0 ，并将首期设定为基准对照组</span><br><br><span class="hljs-keyword">gen</span> event = time - birth_date <span class="hljs-keyword">if</span> id &lt;= 40<br><br><span class="hljs-keyword">replace</span> event = -4 <span class="hljs-keyword">if</span> event &lt;= -4<br><span class="hljs-keyword">tab</span> event, <span class="hljs-keyword">gen</span>(eventt)<br><br><span class="hljs-keyword">forvalues</span> i = 1/10&#123;<br>	<span class="hljs-keyword">replace</span> eventt<span class="hljs-symbol">`i&#x27;</span> = 0 <span class="hljs-keyword">if</span> eventt<span class="hljs-symbol">`i&#x27;</span> == .<br>&#125;<br><br><span class="hljs-keyword">drop</span> eventt1<br><br>reghdfe y eventt* x1 x2, absorb(id time) <span class="hljs-keyword">vce</span>(robust)<br><br><span class="hljs-comment">///图示法</span><br>coefplot, <span class="hljs-comment">///</span><br>   <span class="hljs-keyword">keep</span>(eventt*)  <span class="hljs-comment">///</span><br>   coeflabels(eventt2 = <span class="hljs-string">&quot;-3&quot;</span>   <span class="hljs-comment">///</span><br>   eventt3 = <span class="hljs-string">&quot;-2&quot;</span>           <span class="hljs-comment">///</span><br>   eventt4 = <span class="hljs-string">&quot;-1&quot;</span>           <span class="hljs-comment">///</span><br>   eventt5 = <span class="hljs-string">&quot;0&quot;</span>           <span class="hljs-comment">///</span><br>   eventt6  = <span class="hljs-string">&quot;1&quot;</span>             <span class="hljs-comment">///</span><br>   eventt7  = <span class="hljs-string">&quot;2&quot;</span>              <span class="hljs-comment">///</span><br>   eventt8  = <span class="hljs-string">&quot;3&quot;</span>              <span class="hljs-comment">///</span><br>   eventt9  = <span class="hljs-string">&quot;4&quot;</span>              <span class="hljs-comment">///</span><br>   eventt10 = <span class="hljs-string">&quot;5&quot;</span>)            <span class="hljs-comment">///</span><br>   vertical                             <span class="hljs-comment">///</span><br>   yline(0)                             <span class="hljs-comment">///</span><br>   ytitle(<span class="hljs-string">&quot;Coef&quot;</span>)                 <span class="hljs-comment">///</span><br>   xtitle(<span class="hljs-string">&quot;Time passage relative to year of adoption of implied contract exception&quot;</span>) <span class="hljs-comment">///</span><br>   addplot(<span class="hljs-keyword">line</span> @b @at)                 <span class="hljs-comment">///</span><br>   ciopts(<span class="hljs-keyword">recast</span>(rcap))                 <span class="hljs-comment">///</span><br>   <span class="hljs-comment">///rescale(100)                         ///</span><br>   scheme(s1mono)<br><br><span class="hljs-comment">///输出生成的图片，令格式为800*600&gt; </span><br><span class="hljs-keyword">graph</span> export <span class="hljs-string">&quot;article3_3.png&quot;</span>,<span class="hljs-keyword">as</span>(png) <span class="hljs-keyword">replace</span> width(800) height(600)<br><br><br><br><br><br><span class="hljs-comment">***2.2.3 也来试试安慰剂检验 （对于处理效应随时间而变的情形，didplacebo其实是不适用的，此处仅运行看看代码）</span><br><span class="hljs-comment">//方法1: 使用 didplacebo 一键进行时间、空间和混合安慰剂检验</span><br><br><span class="hljs-keyword">clear</span><br><span class="hljs-keyword">use</span> <span class="hljs-string">&quot;Staggered_DID_Basic_Simu2.dta&quot;</span><br><br><span class="hljs-comment">///Y的生成，设定真实的政策效果为当年为3，并且每年增加3</span><br><span class="hljs-keyword">bysort</span> id: <span class="hljs-keyword">gen</span>     y0 = 10 + 5*x1 + 3*x2 + T + ind + rnormal()<br><span class="hljs-keyword">bysort</span> id: <span class="hljs-keyword">gen</span>     y1 = 10 + 5*x1 + 3*x2 + T + ind + (time - birth_date + 1) * 3 + rnormal() <span class="hljs-keyword">if</span> time &gt;= 2004 &amp; id &gt;= 1 &amp; id &lt;= 20<br><span class="hljs-keyword">bysort</span> id: <span class="hljs-keyword">replace</span> y1 = 10 + 5*x1 + 3*x2 + T + ind + (time - birth_date + 1) * 3 + rnormal() <span class="hljs-keyword">if</span> time &gt;= 2006 &amp; id &gt;= 21 &amp; id &lt;= 40<br><span class="hljs-keyword">bysort</span> id: <span class="hljs-keyword">replace</span> y1 = 10 + 5*x1 + 3*x2 + T + ind + rnormal() <span class="hljs-keyword">if</span> y1 == .<br><br><span class="hljs-keyword">replace</span> y = y0 + <span class="hljs-keyword">D</span> * (y1 - y0)<br><br><br>reghdfe y <span class="hljs-keyword">D</span> x1 x2, absorb(id time) <span class="hljs-keyword">vce</span>(robust)<br><br><span class="hljs-keyword">estimates</span> store did_test<br><br>didplacebo did_test, treatvar(<span class="hljs-keyword">D</span>) pbotime(1(1)4)<br>didplacebo did_test, treatvar(<span class="hljs-keyword">D</span>) pbounit rep(500) seed(1)<br>didplacebo did_test, treatvar(<span class="hljs-keyword">D</span>) pbomix(2) <span class="hljs-comment">//选择项&quot;pbomix(2)&quot;表示以无约束（unrestricted）的方式（version 2），进行适合于交叠DID的混合安慰剂检验,详见陈强老师公众号推文https://mp.weixin.qq.com/s/3dDjSqLfq04aXE0YiEHLFA</span><br>didplacebo did_test, treatvar(<span class="hljs-keyword">D</span>) pbomix(3) <span class="hljs-comment">//选择项&quot;pbomix(3)&quot;表示针对交叠DID模型，进行有约束的混合安慰剂检验（version 3），以保持组群结构。详见陈强老师公众号推文https://mp.weixin.qq.com/s/3dDjSqLfq04aXE0YiEHLFA</span><br><br><br><br><span class="hljs-comment">//也可以同时进行时间、空间与混合安慰剂检验</span><br>didplacebo did_test, treatvar(<span class="hljs-keyword">D</span>) pbotime(1(1)4) pbounit pbomix(3)<br><br><br><span class="hljs-comment">//方法2: 随机生成实验组（有了方法1，感觉方法2没啥用了）</span><br><span class="hljs-comment">*参见 https://www.lianxh.cn/details/731.html</span><br><span class="hljs-comment">*一行代码进行安慰剂检验 permute</span><br><br><span class="hljs-keyword">clear</span><br><span class="hljs-keyword">use</span> <span class="hljs-string">&quot;Staggered_DID_Basic_Simu2.dta&quot;</span><br><br><span class="hljs-comment">///Y的生成，设定真实的政策效果为当年为3，并且每年增加3</span><br><span class="hljs-keyword">bysort</span> id: <span class="hljs-keyword">gen</span>     y0 = 10 + 5*x1 + 3*x2 + T + ind + rnormal()<br><span class="hljs-keyword">bysort</span> id: <span class="hljs-keyword">gen</span>     y1 = 10 + 5*x1 + 3*x2 + T + ind + (time - birth_date + 1) * 3 + rnormal() <span class="hljs-keyword">if</span> time &gt;= 2004 &amp; id &gt;= 1 &amp; id &lt;= 20<br><span class="hljs-keyword">bysort</span> id: <span class="hljs-keyword">replace</span> y1 = 10 + 5*x1 + 3*x2 + T + ind + (time - birth_date + 1) * 3 + rnormal() <span class="hljs-keyword">if</span> time &gt;= 2006 &amp; id &gt;= 21 &amp; id &lt;= 40<br><span class="hljs-keyword">bysort</span> id: <span class="hljs-keyword">replace</span> y1 = 10 + 5*x1 + 3*x2 + T + ind + rnormal() <span class="hljs-keyword">if</span> y1 == .<br><br><span class="hljs-keyword">replace</span> y = y0 + <span class="hljs-keyword">D</span> * (y1 - y0)<br><br><span class="hljs-keyword">permute</span> <span class="hljs-keyword">D</span> _b[<span class="hljs-keyword">D</span>], reps(1000) rseed(123): reghdfe y <span class="hljs-keyword">D</span> x1 x2, absorb(id time) <span class="hljs-keyword">vce</span>(robust)<br><span class="hljs-comment">*did就是交互项</span><br><span class="hljs-comment">*reps(1000) 重复抽样1000次</span><br><br><span class="hljs-comment">//抽样1000，记录系数存入新数据集中</span><br><span class="hljs-keyword">permute</span> <span class="hljs-keyword">D</span> beta = _b[<span class="hljs-keyword">D</span>],  <span class="hljs-comment">///</span><br>        reps(1000) rseed(123) saving(<span class="hljs-string">&quot;simulations2.dta&quot;</span>, <span class="hljs-keyword">replace</span>):  <span class="hljs-comment">///</span><br>        reghdfe y <span class="hljs-keyword">D</span> x1 x2, absorb(id time) <span class="hljs-keyword">vce</span>(robust)<br><br><span class="hljs-comment">//图示系数</span><br><span class="hljs-keyword">use</span> <span class="hljs-string">&quot;simulations2.dta&quot;</span>, <span class="hljs-keyword">clear</span><br>#delimit ;<br>dpplot beta, xline(10.02, lc(black*0.5) lp(dash))<br>             xline(0, lc(black*0.5) lp(solid))<br>             xtitle(<span class="hljs-string">&quot;Estimator&quot;</span>, size(*0.8)) <br>             xlabel(-5(1)5, <span class="hljs-keyword">format</span>(%4.1f) labsize(small))<br>             ytitle(<span class="hljs-string">&quot;Density&quot;</span>, size(*0.8)) <br>             ylabel(, nogrid <span class="hljs-keyword">format</span>(%4.1f) labsize(small)) <br>             <span class="hljs-keyword">note</span>(<span class="hljs-string">&quot;&quot;</span>) caption(<span class="hljs-string">&quot;&quot;</span>) <br>             graphregion(fcolor(white)) ;<br>#delimit cr<br><span class="hljs-keyword">graph</span> export <span class="hljs-string">&quot;安慰剂检验2.png&quot;</span>, width(1000) <span class="hljs-keyword">replace</span><br></code></pre></td></tr></table></figure>
+
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E5%9B%A0%E6%9E%9C%E6%8E%A8%E6%96%AD/" class="print-no-link">#因果推断</a>
+      
+        <a href="/tags/DID/" class="print-no-link">#DID</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>Handbook of DID family</div>
+      <div>http://example.com/2023/10/25/Handbook of DID family_20231026/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>John Doe</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2023年10月25日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2023/11/07/%E5%A6%82%E4%BD%95%E5%9C%A8hexo%E5%8D%9A%E5%AE%A2%E4%B8%AD%E5%B5%8C%E5%85%A5PDF/" title="如何在hexo博客中嵌入PDF">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">如何在hexo博客中嵌入PDF</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2023/10/14/CIT5_20231014/" title="CIT5-人类行为之决定 官员行为与合作行为论文共读">
+                        <span class="hidden-mobile">CIT5-人类行为之决定 官员行为与合作行为论文共读</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
