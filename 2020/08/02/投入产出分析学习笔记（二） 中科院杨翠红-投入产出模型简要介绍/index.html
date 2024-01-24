@@ -278,7 +278,7 @@
               <div class="markdown-body">
                 
                 <p>主讲人：杨翠红   研究员    杰青</p>
-<p>邮箱：<a href="mailto:&#x63;&#104;&#121;&#x61;&#x6e;&#x67;&#64;&#x69;&#115;&#115;&#46;&#97;&#x63;&#x2e;&#x63;&#x6e;">&#x63;&#104;&#121;&#x61;&#x6e;&#x67;&#64;&#x69;&#115;&#115;&#46;&#97;&#x63;&#x2e;&#x63;&#x6e;</a></p>
+<p>邮箱：<a href="mailto:&#x63;&#x68;&#x79;&#x61;&#x6e;&#x67;&#64;&#x69;&#115;&#115;&#46;&#97;&#x63;&#x2e;&#x63;&#110;">&#x63;&#x68;&#x79;&#x61;&#x6e;&#x67;&#64;&#x69;&#115;&#115;&#46;&#97;&#x63;&#x2e;&#x63;&#110;</a></p>
 <p>固话：010-82541803</p>
 <p>单位：中国科学院数学与系统科学研究院</p>
 <p>主持人：张林秀    杰青（TWAS院士）   复旦管理学杰出贡献奖（2014）</p>
@@ -526,6 +526,12 @@
   
 
 
+  
+  
+
+
+
+
 
 
 
@@ -717,6 +723,49 @@
 
 
   <script>Fluid.plugins.imageCaption();</script>
+
+  
+      <script>
+        if (!window.MathJax) {
+          window.MathJax = {
+            tex    : {
+              inlineMath: { '[+]': [['$', '$']] }
+            },
+            loader : {
+              load: ['ui/lazy']
+            },
+            options: {
+              renderActions: {
+                insertedScript: [200, () => {
+                  document.querySelectorAll('mjx-container').forEach(node => {
+                    let target = node.parentNode;
+                    if (target.nodeName.toLowerCase() === 'li') {
+                      target.parentNode.classList.add('has-jax');
+                    }
+                  });
+                }, '', false]
+              }
+            }
+          };
+        } else {
+          MathJax.startup.document.state(0);
+          MathJax.texReset();
+          MathJax.typeset();
+          MathJax.typesetPromise();
+        }
+
+        Fluid.events.registerRefreshCallback(function() {
+          if ('MathJax' in window && MathJax.startup.document && typeof MathJax.startup.document.state === 'function') {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+            MathJax.typesetPromise();
+          }
+        });
+      </script>
+    
+
+  <script  src="https://lib.baomitu.com/mathjax/3.2.2/es5/tex-mml-chtml.js" ></script>
 
   <script  src="/js/local-search.js" ></script>
 

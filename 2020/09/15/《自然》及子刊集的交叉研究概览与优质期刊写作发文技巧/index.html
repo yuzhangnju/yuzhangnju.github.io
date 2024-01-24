@@ -278,7 +278,7 @@
                 <p>《自然》及子刊集的交叉研究概览与优质期刊写作发文技巧</p>
 <p>主讲人信息</p>
 <p>姓名：夏瑒</p>
-<p>邮箱：<a href="mailto:&#89;&#x61;&#x6e;&#x67;&#x2e;&#x58;&#105;&#x61;&#x40;&#x6e;&#97;&#x74;&#x75;&#x72;&#x65;&#x2e;&#x63;&#111;&#109;">&#89;&#x61;&#x6e;&#x67;&#x2e;&#x58;&#105;&#x61;&#x40;&#x6e;&#97;&#x74;&#x75;&#x72;&#x65;&#x2e;&#x63;&#111;&#109;</a></p>
+<p>邮箱：<a href="mailto:&#x59;&#x61;&#x6e;&#103;&#x2e;&#x58;&#x69;&#97;&#x40;&#x6e;&#97;&#x74;&#117;&#x72;&#101;&#x2e;&#x63;&#x6f;&#109;">&#x59;&#x61;&#x6e;&#103;&#x2e;&#x58;&#x69;&#97;&#x40;&#x6e;&#97;&#x74;&#117;&#x72;&#101;&#x2e;&#x63;&#x6f;&#109;</a></p>
 <p><img src="https://i.loli.net/2020/09/15/wGheKvI7rcNz2Of.png" srcset="/img/loading.gif" lazyload></p>
 <h3 id="1-Nature介绍"><a href="#1-Nature介绍" class="headerlink" title="1. Nature介绍"></a>1. Nature介绍</h3><p>高质量的选稿</p>
 <p>全职的编辑委员会</p>
@@ -551,6 +551,12 @@
   
 
 
+  
+  
+
+
+
+
 
 
 
@@ -742,6 +748,49 @@
 
 
   <script>Fluid.plugins.imageCaption();</script>
+
+  
+      <script>
+        if (!window.MathJax) {
+          window.MathJax = {
+            tex    : {
+              inlineMath: { '[+]': [['$', '$']] }
+            },
+            loader : {
+              load: ['ui/lazy']
+            },
+            options: {
+              renderActions: {
+                insertedScript: [200, () => {
+                  document.querySelectorAll('mjx-container').forEach(node => {
+                    let target = node.parentNode;
+                    if (target.nodeName.toLowerCase() === 'li') {
+                      target.parentNode.classList.add('has-jax');
+                    }
+                  });
+                }, '', false]
+              }
+            }
+          };
+        } else {
+          MathJax.startup.document.state(0);
+          MathJax.texReset();
+          MathJax.typeset();
+          MathJax.typesetPromise();
+        }
+
+        Fluid.events.registerRefreshCallback(function() {
+          if ('MathJax' in window && MathJax.startup.document && typeof MathJax.startup.document.state === 'function') {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+            MathJax.typesetPromise();
+          }
+        });
+      </script>
+    
+
+  <script  src="https://lib.baomitu.com/mathjax/3.2.2/es5/tex-mml-chtml.js" ></script>
 
   <script  src="/js/local-search.js" ></script>
 
