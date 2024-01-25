@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/yuzhangnju/image2022/image-20231106102506771.png">
 <meta property="article:published_time" content="2023-11-11T02:00:00.000Z">
-<meta property="article:modified_time" content="2023-11-15T07:18:07.444Z">
+<meta property="article:modified_time" content="2024-01-25T08:24:59.707Z">
 <meta property="article:author" content="Yu Zhang">
 <meta property="article:tag" content="因果推断">
 <meta property="article:tag" content="DID">
@@ -311,15 +311,13 @@ alt="image-20231106154603637" />
 <p>如果用DID的回归结果，我们能得到处理效应的大小，但是观测不到处理效应随时间的变化。使用事件研究法，我们可以发现在事前不存在处理效应，事后处理效应凸显，且效应的大小随时间增大。更丰富的处理效应，正是我们所关心的。</p>
 <h3 id="结合方程与模拟数据的理解">1.2 结合方程与模拟数据的理解</h3>
 <p>来看看<a
-target="_blank" rel="noopener" href="https://www.lianxh.cn/details/826.html">估计方程</a>（不清楚为何公式1和2在网页渲染不成功，暂未找到解决方案，先用本地截图吧）：
+target="_blank" rel="noopener" href="https://www.lianxh.cn/details/826.html">估计方程</a>（更换了渲染器，现在复杂公式也可以正常渲染了！）：
 <span class="math display">\[
 y_{st} = \alpha + \sum_{j=2}^J\beta_j(\text{Lag}\ j)_{st} +
 \sum_{k=1}^K(\text{Lead}\ k)_{st} + \mu_s + \lambda_t +
 X&#39;_{st}\Gamma + \epsilon_{st} \quad(1)
-\]</span>
-<img src="https://cdn.jsdelivr.net/gh/yuzhangnju/image2022/image-20231112154728833.png" srcset="/img/loading.gif" lazyload alt="image-20231112154728833" style="zoom: 33%;" /></p>
-<p>式（1），<span class="math inline">\(y_{st}\)</span> 是第 <span
-class="math inline">\(s\)</span> 个个体在第 <span
+\]</span> 式（1），<span class="math inline">\(y_{st}\)</span> 是第
+<span class="math inline">\(s\)</span> 个个体在第 <span
 class="math inline">\(t\)</span> 期的因变量，<span
 class="math inline">\(J\)</span> 和 <span
 class="math inline">\(K\)</span>
@@ -338,9 +336,7 @@ y_{it} =\underbrace{ (\sum_{j\in\{-m,_\cdots,0,_\cdots,n\}
 \underbrace{\alpha_i+\delta_t}_{\mathrm{Panel\ Fixed\ Effects} } +
 \underbrace{\beta\cdot X_{it} }_{\mathrm{ (Optional)\ Control Variables}
 } + \epsilon_{it}\quad(2)
-\]</span>
-<img src="https://cdn.jsdelivr.net/gh/yuzhangnju/image2022/image-20231112154811584.png" srcset="/img/loading.gif" lazyload alt="image-20231112154811584" style="zoom:33%;" /></p>
-<p>式（2）中的重要系数含义如下：</p>
+\]</span> 式（2）中的重要系数含义如下：</p>
 <ul>
 <li><span class="math inline">\(\gamma_j\)</span> :
 事件系数，事后的系数能显示了事件处理的动态效果，事前的系数能提供安慰剂检验；</li>
