@@ -71,7 +71,7 @@
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
     Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"yuzhang.net","root":"/","version":"1.9.7","typing":{"enable":true,"typeSpeed":100,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml","include_content_in_search":true};
+    var CONFIG = {"hostname":"yuzhang.net","root":"/","version":"1.9.7","typing":{"enable":true,"typeSpeed":100,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":false},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml","include_content_in_search":true};
 
     if (CONFIG.web_analytics.follow_dnt) {
       var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
@@ -222,7 +222,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          164 字
+          163 字
         
       </span>
     
@@ -275,14 +275,16 @@
             
               <div class="markdown-body">
                 
-                <h3 id="1-Apriori-先验算法"><a href="#1-Apriori-先验算法" class="headerlink" title="1 Apriori-先验算法"></a>1 Apriori-先验算法</h3><p>重要链接：</p>
-<p><a target="_blank" rel="noopener" href="https://kmdsy.github.io/surveys/correlation.html">https://kmdsy.github.io/surveys/correlation.html</a>     （一些关联分析&#x2F;因果分析调研）</p>
-<p><a target="_blank" rel="noopener" href="https://towardsdatascience.com/apriori-association-rule-mining-explanation-and-python-implementation-290b42afdfc6">https://towardsdatascience.com/apriori-association-rule-mining-explanation-and-python-implementation-290b42afdfc6</a></p>
-<p><a target="_blank" rel="noopener" href="https://bainingchao.github.io/2018/09/27/%E4%B8%80%E6%AD%A5%E6%AD%A5%E6%95%99%E4%BD%A0%E8%BD%BB%E6%9D%BE%E5%AD%A6%E5%85%B3%E8%81%94%E8%A7%84%E5%88%99Apriori%E7%AE%97%E6%B3%95/">https://bainingchao.github.io/2018/09/27/%E4%B8%80%E6%AD%A5%E6%AD%A5%E6%95%99%E4%BD%A0%E8%BD%BB%E6%9D%BE%E5%AD%A6%E5%85%B3%E8%81%94%E8%A7%84%E5%88%99Apriori%E7%AE%97%E6%B3%95/</a></p>
-<p><a target="_blank" rel="noopener" href="https://www.geeksforgeeks.org/implementing-apriori-algorithm-in-python/">https://www.geeksforgeeks.org/implementing-apriori-algorithm-in-python/</a></p>
-<p><a target="_blank" rel="noopener" href="https://artsdatascience.wordpress.com/2019/12/10/python-%E5%AF%A6%E6%88%B0%E7%AF%87%EF%BC%9Aapriori-algorithm/">https://artsdatascience.wordpress.com/2019/12/10/python-%E5%AF%A6%E6%88%B0%E7%AF%87%EF%BC%9Aapriori-algorithm/</a></p>
-<p><a target="_blank" rel="noopener" href="https://github.com/rasbt/mlxtend">https://github.com/rasbt/mlxtend</a></p>
-<p><a target="_blank" rel="noopener" href="https://github.com/bainingchao/MachineLearning-1/blob/dev/docs/11.%E4%BD%BF%E7%94%A8Apriori%E7%AE%97%E6%B3%95%E8%BF%9B%E8%A1%8C%E5%85%B3%E8%81%94%E5%88%86%E6%9E%90.md">https://github.com/bainingchao/MachineLearning-1/blob/dev/docs/11.%E4%BD%BF%E7%94%A8Apriori%E7%AE%97%E6%B3%95%E8%BF%9B%E8%A1%8C%E5%85%B3%E8%81%94%E5%88%86%E6%9E%90.md</a></p>
+                <h3 id="apriori-先验算法">1 Apriori-先验算法</h3>
+<p>重要链接：</p>
+<p>https://kmdsy.github.io/surveys/correlation.html
+（一些关联分析/因果分析调研）</p>
+<p>https://towardsdatascience.com/apriori-association-rule-mining-explanation-and-python-implementation-290b42afdfc6</p>
+<p>https://bainingchao.github.io/2018/09/27/%E4%B8%80%E6%AD%A5%E6%AD%A5%E6%95%99%E4%BD%A0%E8%BD%BB%E6%9D%BE%E5%AD%A6%E5%85%B3%E8%81%94%E8%A7%84%E5%88%99Apriori%E7%AE%97%E6%B3%95/</p>
+<p>https://www.geeksforgeeks.org/implementing-apriori-algorithm-in-python/</p>
+<p>https://artsdatascience.wordpress.com/2019/12/10/python-%E5%AF%A6%E6%88%B0%E7%AF%87%EF%BC%9Aapriori-algorithm/</p>
+<p>https://github.com/rasbt/mlxtend</p>
+<p>https://github.com/bainingchao/MachineLearning-1/blob/dev/docs/11.%E4%BD%BF%E7%94%A8Apriori%E7%AE%97%E6%B3%95%E8%BF%9B%E8%A1%8C%E5%85%B3%E8%81%94%E5%88%86%E6%9E%90.md</p>
 
                 
               </div>
@@ -418,8 +420,6 @@
   
 
 
-
-  
 
 
   
@@ -617,8 +617,6 @@
   });
 </script>
 
-
-  <script>Fluid.plugins.imageCaption();</script>
 
   
       <script>

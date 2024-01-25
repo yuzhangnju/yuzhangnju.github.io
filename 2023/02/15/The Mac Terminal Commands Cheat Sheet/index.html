@@ -71,7 +71,7 @@
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
     Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"yuzhang.net","root":"/","version":"1.9.7","typing":{"enable":true,"typeSpeed":100,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml","include_content_in_search":true};
+    var CONFIG = {"hostname":"yuzhang.net","root":"/","version":"1.9.7","typing":{"enable":true,"typeSpeed":100,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":false},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml","include_content_in_search":true};
 
     if (CONFIG.web_analytics.follow_dnt) {
       var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
@@ -275,35 +275,58 @@
             
               <div class="markdown-body">
                 
-                <h4 id="来自ChatGPT的回答："><a href="#来自ChatGPT的回答：" class="headerlink" title="来自ChatGPT的回答："></a>来自ChatGPT的回答：</h4><blockquote>
-<p>在 macOS 上，Terminal 是一个非常有用的工具，可以通过命令行来完成各种任务。以下是一些常用的命令：</p>
-<ol>
+                <h4 id="来自chatgpt的回答">来自ChatGPT的回答：</h4>
+<blockquote>
+<p>在 macOS 上，Terminal
+是一个非常有用的工具，可以通过命令行来完成各种任务。以下是一些常用的命令：</p>
+<ol type="1">
 <li><code>ls</code>：列出当前目录下的文件和文件夹。</li>
-<li><code>cd</code>：改变当前目录到指定的目录，例如 <code>cd Documents</code>。</li>
-<li><code>mkdir</code>：创建一个新的目录，例如 <code>mkdir new_folder</code>。</li>
-<li><code>touch</code>：创建一个新的文件，例如 <code>touch new_file.txt</code>。</li>
-<li><code>rm</code>：删除一个文件或目录，例如 <code>rm file.txt</code> 或 <code>rm -r folder</code>（删除一个目录及其内容）。</li>
-<li><code>cp</code>：复制文件或目录，例如 <code>cp file.txt folder</code>（将文件复制到目录中）。</li>
-<li><code>mv</code>：移动文件或目录，例如 <code>mv file.txt folder</code>（将文件移动到目录中）。</li>
-<li><code>cat</code>：显示文件的内容，例如 <code>cat file.txt</code>。</li>
-<li><code>echo</code>：在终端输出指定的文本，例如 <code>echo &quot;Hello, World!&quot;</code>。</li>
-<li><code>grep</code>：在文件中查找指定的字符串，例如 <code>grep &quot;search_term&quot; file.txt</code>。</li>
+<li><code>cd</code>：改变当前目录到指定的目录，例如
+<code>cd Documents</code>。</li>
+<li><code>mkdir</code>：创建一个新的目录，例如
+<code>mkdir new_folder</code>。</li>
+<li><code>touch</code>：创建一个新的文件，例如
+<code>touch new_file.txt</code>。</li>
+<li><code>rm</code>：删除一个文件或目录，例如 <code>rm file.txt</code>
+或 <code>rm -r folder</code>（删除一个目录及其内容）。</li>
+<li><code>cp</code>：复制文件或目录，例如
+<code>cp file.txt folder</code>（将文件复制到目录中）。</li>
+<li><code>mv</code>：移动文件或目录，例如
+<code>mv file.txt folder</code>（将文件移动到目录中）。</li>
+<li><code>cat</code>：显示文件的内容，例如
+<code>cat file.txt</code>。</li>
+<li><code>echo</code>：在终端输出指定的文本，例如
+<code>echo "Hello, World!"</code>。</li>
+<li><code>grep</code>：在文件中查找指定的字符串，例如
+<code>grep "search_term" file.txt</code>。</li>
 </ol>
-<p>还有很多其他命令可用，这些命令只是一些常见的例子。要学习更多命令，可以在终端中输入 <code>man</code> 命令来查看命令的帮助文档。例如，要查看 <code>ls</code> 命令的帮助文档，可以在终端中输入 <code>man ls</code>。</p>
+<p>还有很多其他命令可用，这些命令只是一些常见的例子。要学习更多命令，可以在终端中输入
+<code>man</code> 命令来查看命令的帮助文档。例如，要查看 <code>ls</code>
+命令的帮助文档，可以在终端中输入 <code>man ls</code>。</p>
 </blockquote>
-<br/>
-
-<h4 id="来自New-Bing的回答："><a href="#来自New-Bing的回答：" class="headerlink" title="来自New Bing的回答："></a>来自New Bing的回答：</h4><blockquote>
-<p>你好，这是必应。我找到了一些网页，可以帮助你了解 Mac 上的 Terminal 命令。你可以参考以下的搜索结果：</p>
+<p><br/></p>
+<h4 id="来自new-bing的回答">来自New Bing的回答：</h4>
+<blockquote>
+<p>你好，这是必应。我找到了一些网页，可以帮助你了解 Mac 上的 Terminal
+命令。你可以参考以下的搜索结果：</p>
 <ul>
-<li><a target="_blank" rel="noopener" href="https://www.cnblogs.com/abeen/p/4104158.html">1</a> Mac OS Terminal 几个快捷键 - ABeen - 博客园</li>
-<li><a target="_blank" rel="noopener" href="https://www.cnblogs.com/favana/p/5545132.html">2</a> Mac上简单常用Terminal命令 - favana - 博客园</li>
-<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/a11101171/article/details/52239467">3</a> mac常用Terminal命令與快捷鍵參考_a11101171的博客-CSDN博客</li>
-<li><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/97c0f76ee09a">4</a> Mac Terminal 终端常用命令总结 - 简书</li>
-<li><a target="_blank" rel="noopener" href="https://www.cnblogs.com/yong001/p/12052453.html">5</a> 在Mac上打开终端的7种简单方法 - 余生不见空 - 博客园</li>
-<li><a target="_blank" rel="noopener" href="https://support.apple.com/zh-cn/guide/terminal/apdb66b5242-0d18-49fc-9c47-a2498b7c91d5/mac">6</a> 在 Mac 上的“终端”中执行命令和运行工具 - 官方 Apple 支持 (中国)</li>
+<li><a target="_blank" rel="noopener" href="https://www.cnblogs.com/abeen/p/4104158.html">1</a> Mac OS
+Terminal 几个快捷键 - ABeen - 博客园</li>
+<li><a target="_blank" rel="noopener" href="https://www.cnblogs.com/favana/p/5545132.html">2</a>
+Mac上简单常用Terminal命令 - favana - 博客园</li>
+<li><a
+target="_blank" rel="noopener" href="https://blog.csdn.net/a11101171/article/details/52239467">3</a>
+mac常用Terminal命令與快捷鍵參考_a11101171的博客-CSDN博客</li>
+<li><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/97c0f76ee09a">4</a> Mac Terminal
+终端常用命令总结 - 简书</li>
+<li><a target="_blank" rel="noopener" href="https://www.cnblogs.com/yong001/p/12052453.html">5</a>
+在Mac上打开终端的7种简单方法 - 余生不见空 - 博客园</li>
+<li><a
+target="_blank" rel="noopener" href="https://support.apple.com/zh-cn/guide/terminal/apdb66b5242-0d18-49fc-9c47-a2498b7c91d5/mac">6</a>
+在 Mac 上的“终端”中执行命令和运行工具 - 官方 Apple 支持 (中国)</li>
 </ul>
-<p>另外，我还找到了一个英文的 Terminal 命令速查表[7](<a target="_blank" rel="noopener" href="https://www.makeuseof.com/tag/mac-terminal-commands-cheat-sheet/#:~:text=The">https://www.makeuseof.com/tag/mac-terminal-commands-cheat-sheet/#:~:text=The</a> Mac Terminal Commands Cheat Sheet  ,you’re current …  46 more rows )，你可以用来参考一些常用的命令和操作。这里是一些例子：</p>
+<p>另外，我还找到了一个英文的 Terminal 命令速查表<a
+target="_blank" rel="noopener" href="https://www.makeuseof.com/tag/mac-terminal-commands-cheat-sheet/#:~:text=The%20Mac%20Terminal%20Commands%20Cheat%20Sheet%20,you&#39;re%20current%20...%2046%20more%20rows">7</a>，你可以用来参考一些常用的命令和操作。这里是一些例子：</p>
 <ul>
 <li>Tab: 自动补全文件和文件夹的名称</li>
 <li>Ctrl + A: 将光标移动到行首</li>
@@ -336,604 +359,732 @@
 </ul>
 <p>希望这些信息对你有用。😊</p>
 </blockquote>
-<br/>
-
-<h4 id="下文转自：The-Mac-Terminal-Commands-Cheat-Sheet"><a href="#下文转自：The-Mac-Terminal-Commands-Cheat-Sheet" class="headerlink" title="下文转自：The Mac Terminal Commands Cheat Sheet"></a>下文转自：<a target="_blank" rel="noopener" href="https://www.makeuseof.com/tag/mac-terminal-commands-cheat-sheet/">The Mac Terminal Commands Cheat Sheet</a></h4><p>macOS is an intuitive operating system, so you don’t have to spend lot of time learning the basics; Knowing this, why should you learn and take advantage of the Unix command line available on your Mac? We have four good reasons:</p>
-<ol>
-<li>There are dozens of open source and freely available Unix-based apps. You don’t have to spend money on these.</li>
-<li>When you’re having difficulty searching for files in Spotlight, you can turn to Unix search tools. They’re way more powerful than Spotlight.</li>
-<li>You can manage files, folders, and file archives in an automated manner. Setting up a cron job will handle this automatically.</li>
+<p><br/></p>
+<h4 id="下文转自the-mac-terminal-commands-cheat-sheet">下文转自：<a
+target="_blank" rel="noopener" href="https://www.makeuseof.com/tag/mac-terminal-commands-cheat-sheet/">The
+Mac Terminal Commands Cheat Sheet</a></h4>
+<p>macOS is an intuitive operating system, so you don't have to spend
+lot of time learning the basics; Knowing this, why should you learn and
+take advantage of the Unix command line available on your Mac? We have
+four good reasons:</p>
+<ol type="1">
+<li>There are dozens of open source and freely available Unix-based
+apps. You don't have to spend money on these.</li>
+<li>When you're having difficulty searching for files in Spotlight, you
+can turn to Unix search tools. They're way more powerful than
+Spotlight.</li>
+<li>You can manage files, folders, and file archives in an automated
+manner. Setting up a cron job will handle this automatically.</li>
 <li>It gives you more power and control over your system.</li>
 </ol>
-<p>With so many Mac commands, it’s often difficult to remember and use them all. We’re here to help with a detailed cheat sheet of Mac Terminal commands you can use to unlock enhanced productivity on your system.</p>
-<h4 id="The-Mac-Terminal-Commands-Cheat-Sheet"><a href="#The-Mac-Terminal-Commands-Cheat-Sheet" class="headerlink" title="The Mac Terminal Commands Cheat Sheet"></a>The Mac Terminal Commands Cheat Sheet</h4><table>
+<p>With so many Mac commands, it's often difficult to remember and use
+them all. We're here to help with a detailed cheat sheet of Mac Terminal
+commands you can use to unlock enhanced productivity on your system.</p>
+<h4 id="the-mac-terminal-commands-cheat-sheet">The Mac Terminal Commands
+Cheat Sheet</h4>
+<table>
+
 <thead>
-<tr>
-<th align="left">COMMAND&#x2F;</th>
-<th align="left">ACTION</th>
+<tr class="header">
+<th style="text-align: left;">COMMAND/</th>
+<th style="text-align: left;">ACTION</th>
 </tr>
 </thead>
-<tbody><tr>
-<td align="left"><strong>Shortcuts</strong></td>
-<td align="left"></td>
-</tr>
-<tr>
-<td align="left">Tab</td>
-<td align="left">Auto-complete file and folder names</td>
-</tr>
-<tr>
-<td align="left">Ctrl + A</td>
-<td align="left">Go to the beginning of the line you’re currently typing on</td>
-</tr>
-<tr>
-<td align="left">Ctrl + E</td>
-<td align="left">Go to the end of the line you’re currently typing on</td>
-</tr>
-<tr>
-<td align="left">Ctrl + U</td>
-<td align="left">Clear the line before the cursor</td>
-</tr>
-<tr>
-<td align="left">Ctrl + K</td>
-<td align="left">Clear the line after the cursor</td>
-</tr>
-<tr>
-<td align="left">Ctrl + W</td>
-<td align="left">Delete the word before the cursor</td>
-</tr>
-<tr>
-<td align="left">Ctrl + T</td>
-<td align="left">Swap the last two characters before the cursor</td>
-</tr>
-<tr>
-<td align="left">Esc + T</td>
-<td align="left">Swap the last two words before the cursor</td>
-</tr>
-<tr>
-<td align="left">Ctrl + L</td>
-<td align="left">Clear the screen</td>
-</tr>
-<tr>
-<td align="left">Ctrl + C</td>
-<td align="left">Kill whatever you’re running</td>
-</tr>
-<tr>
-<td align="left">Ctrl + D</td>
-<td align="left">Exit the current shell</td>
-</tr>
-<tr>
-<td align="left">Option + →</td>
-<td align="left">Move cursor one word forward</td>
-</tr>
-<tr>
-<td align="left">Option + ←</td>
-<td align="left">Move cursor one word backward</td>
-</tr>
-<tr>
-<td align="left">Ctrl + F</td>
-<td align="left">Move cursor one character forward</td>
-</tr>
-<tr>
-<td align="left">Ctrl + B</td>
-<td align="left">Move cursor one character backward</td>
-</tr>
-<tr>
-<td align="left">Ctrl + Y</td>
-<td align="left">Paste whatever was cut by the last command</td>
-</tr>
-<tr>
-<td align="left">Ctrl + Z</td>
-<td align="left">Puts whatever you’re running into a suspended background process</td>
-</tr>
-<tr>
-<td align="left">Ctrl + _</td>
-<td align="left">Undo the last command</td>
-</tr>
-<tr>
-<td align="left">Option + Shift + Cmd + C</td>
-<td align="left">Copy plain text</td>
-</tr>
-<tr>
-<td align="left">Shift + Cmd + V</td>
-<td align="left">Paste the selection</td>
-</tr>
-<tr>
-<td align="left">exit</td>
-<td align="left">End a shell session</td>
-</tr>
-<tr>
-<td align="left"><strong>Basics</strong></td>
-<td align="left"></td>
-</tr>
-<tr>
-<td align="left">&#x2F; (Forward Slash)</td>
-<td align="left">Top level directory</td>
-</tr>
-<tr>
-<td align="left">. (Single Period)</td>
-<td align="left">Current directory</td>
-</tr>
-<tr>
-<td align="left">.. (Double Period)</td>
-<td align="left">Parent directory</td>
-</tr>
-<tr>
-<td align="left">~ (Tilde)</td>
-<td align="left">Home directory</td>
-</tr>
-<tr>
-<td align="left">sudo [command]</td>
-<td align="left">Run command with the security privileges of the super user</td>
-</tr>
-<tr>
-<td align="left">nano [file]</td>
-<td align="left">Opens the Terminal editor</td>
-</tr>
-<tr>
-<td align="left">open [file]</td>
-<td align="left">Opens a file</td>
-</tr>
-<tr>
-<td align="left">[command] -h</td>
-<td align="left">Get help about a command</td>
-</tr>
-<tr>
-<td align="left">man [command]</td>
-<td align="left">Show the help manual of the command</td>
-</tr>
-<tr>
-<td align="left"><strong>Change Directory</strong></td>
-<td align="left"></td>
-</tr>
-<tr>
-<td align="left">cd</td>
-<td align="left">Home directory</td>
-</tr>
-<tr>
-<td align="left">cd [folder]</td>
-<td align="left">Change directory, e.g. cd Documents</td>
-</tr>
-<tr>
-<td align="left">cd ~</td>
-<td align="left">Home directory</td>
-</tr>
-<tr>
-<td align="left">cd&#x2F;</td>
-<td align="left">Root of the drive</td>
-</tr>
-<tr>
-<td align="left">cd -</td>
-<td align="left">Previous directory or folder you last browsed</td>
-</tr>
-<tr>
-<td align="left">pwd</td>
-<td align="left">Show your working directory</td>
-</tr>
-<tr>
-<td align="left">cd..</td>
-<td align="left">Move up to the parent directory</td>
-</tr>
-<tr>
-<td align="left">cd..&#x2F;..</td>
-<td align="left">Move up two levels</td>
-</tr>
-<tr>
-<td align="left"><strong>List Directory Contents</strong></td>
-<td align="left"></td>
-</tr>
-<tr>
-<td align="left">ls</td>
-<td align="left">Display the name of files and subdirectories in the directory</td>
-</tr>
-<tr>
-<td align="left">ls -C</td>
-<td align="left">Force multi-column output of the listing</td>
-</tr>
-<tr>
-<td align="left">ls -a</td>
-<td align="left">List all entries including those with .(period) and ..(double period)</td>
-</tr>
-<tr>
-<td align="left">ls -1</td>
-<td align="left">Output the list of files in one entry per line format</td>
-</tr>
-<tr>
-<td align="left">ls -F</td>
-<td align="left">Display a &#x2F; (slash) immediately after each path that is a directory, * (asterisk) after executable programs or scripts, and @ after a symbolic link</td>
-</tr>
-<tr>
-<td align="left">ls -S</td>
-<td align="left">Sort files or entries by size</td>
-</tr>
-<tr>
-<td align="left">ls -l</td>
-<td align="left">List in a long format. Includes file mode, owner and group name, date and time file was modified, pathname, and more</td>
-</tr>
-<tr>
-<td align="left">ls -l &#x2F;</td>
-<td align="left">List of the file system from root with symbolic links</td>
-</tr>
-<tr>
-<td align="left">ls -lt</td>
-<td align="left">List the files sorted by time modified (most recent first)</td>
-</tr>
-<tr>
-<td align="left">ls -lh</td>
-<td align="left">Long listing with human readable file sizes in KB, MB, or GB</td>
-</tr>
-<tr>
-<td align="left">ls -lo</td>
-<td align="left">List the file names with size, owner, and flags</td>
-</tr>
-<tr>
-<td align="left">ls -la</td>
-<td align="left">List detailed directory contents, including hidden files</td>
-</tr>
-<tr>
-<td align="left"><strong>File Size and Disk Space</strong></td>
-<td align="left"></td>
-</tr>
-<tr>
-<td align="left">du</td>
-<td align="left">List usage for each subdirectory and its contents</td>
-</tr>
-<tr>
-<td align="left">du -sh [folder]</td>
-<td align="left">Human readable output of all files in a directory</td>
-</tr>
-<tr>
-<td align="left">du -s</td>
-<td align="left">Display an entry for each specified file</td>
-</tr>
-<tr>
-<td align="left">du -sk* | sort -nr</td>
-<td align="left">List files and folders, totaling the size including the subfolders. Replace sk* with sm* to list directories in MB</td>
-</tr>
-<tr>
-<td align="left">df -h</td>
-<td align="left">Calculate your system’s free disk space</td>
-</tr>
-<tr>
-<td align="left">df -H</td>
-<td align="left">Calculate free disk space in powers of 1,000 (as opposed to 1,024)</td>
-</tr>
-<tr>
-<td align="left"><strong>File and Directory Management</strong></td>
-<td align="left"></td>
-</tr>
-<tr>
-<td align="left"><code>mkdir &lt;dir&gt;</code></td>
-<td align="left">Create new folder named <code>&lt;dir&gt;</code></td>
-</tr>
-<tr>
-<td align="left"><code>mkdir -p &lt;dir&gt;/&lt;dir&gt;</code></td>
-<td align="left">Create nested folders</td>
-</tr>
-<tr>
-<td align="left"><code>mkdir &lt;dir1&gt; &lt;dir2&gt; &lt;dir3&gt;</code></td>
-<td align="left">Create several folders at once</td>
-</tr>
-<tr>
-<td align="left"><code>mkdir &quot;&lt;dir&gt;&quot;</code></td>
-<td align="left">Create a folder with a space in the filename</td>
-</tr>
-<tr>
-<td align="left"><code>rmdir &lt;dir&gt;</code></td>
-<td align="left">Delete a folder (only works on empty folders)</td>
-</tr>
-<tr>
-<td align="left"><code>rm -R &lt;dir&gt;</code></td>
-<td align="left">Delete a folder and its contents</td>
-</tr>
-<tr>
-<td align="left"><code>touch &lt;file&gt;</code></td>
-<td align="left">Create a new file without any extension</td>
-</tr>
-<tr>
-<td align="left"><code>cp &lt;file&gt; &lt;dir&gt;</code></td>
-<td align="left">Copy a file to the folder</td>
-</tr>
-<tr>
-<td align="left"><code>cp &lt;file&gt; &lt;newfile&gt;</code></td>
-<td align="left">Copy a file to the current folder</td>
-</tr>
-<tr>
-<td align="left"><code>cp &lt;file&gt;~/&lt;dir&gt;/&lt;newfile&gt;</code></td>
-<td align="left">Copy a file to the folder and rename the copied file</td>
-</tr>
-<tr>
-<td align="left"><code>cp -R &lt;dir&gt; &lt;&quot;new dir&quot;&gt;</code></td>
-<td align="left">Copy a folder to a new folder with spaces in the filename</td>
-</tr>
-<tr>
-<td align="left"><code>cp -i &lt;file&gt;&lt;dir&gt;</code></td>
-<td align="left">Prompts you before copying a file with a warning overwrite message</td>
-</tr>
-<tr>
-<td align="left"><code>cp &lt;file1&gt; &lt;file2&gt; &lt;file3&gt;/Users/&lt;dir&gt;</code></td>
-<td align="left">Copy multiple files to a folder</td>
-</tr>
-<tr>
-<td align="left">ditto -V [folder path][new folder]</td>
-<td align="left">Copy the contents of a folder to new folder. In here “-V” print a line of status for every file copied</td>
-</tr>
-<tr>
-<td align="left"><code>rm &lt;file&gt;</code></td>
-<td align="left">Delete a file (This deletes the file permanently; use with caution.)</td>
-</tr>
-<tr>
-<td align="left"><code>rm -i &lt;file&gt;</code></td>
-<td align="left">Delete a file only when you give confirmation</td>
-</tr>
-<tr>
-<td align="left"><code>rm -f &lt;file&gt;</code></td>
-<td align="left">Force removal without confirmation</td>
-</tr>
-<tr>
-<td align="left"><code>rm &lt;file1&gt; &lt;file2&gt; &lt;file3&gt;</code></td>
-<td align="left">Delete multiple files without any confirmation</td>
-</tr>
-<tr>
-<td align="left"><code>mv &lt;file&gt; &lt;newfilename&gt;</code></td>
-<td align="left">Move&#x2F;rename</td>
-</tr>
-<tr>
-<td align="left"><code>mv &lt;file&gt; &lt;dir&gt;</code></td>
-<td align="left">Move a file to the folder, possibly by overwriting an existing file</td>
-</tr>
-<tr>
-<td align="left"><code>mv -i &lt;file&gt; &lt;dir&gt;</code></td>
-<td align="left">Optional -i flag to warn you before overwriting the file</td>
-</tr>
-<tr>
-<td align="left"><code>mv *.png ~/&lt;dir&gt;</code></td>
-<td align="left">Move all PNG files from current folder to a different folder</td>
-</tr>
-<tr>
-<td align="left"><strong>Command History</strong></td>
-<td align="left"></td>
-</tr>
-<tr>
-<td align="left">Ctrl + R</td>
-<td align="left">Search through previously used commands</td>
-</tr>
-<tr>
-<td align="left">history n</td>
-<td align="left">Shows the previous commands you’ve typed. Add a number to limit to the last n items</td>
-</tr>
-<tr>
-<td align="left">![value]</td>
-<td align="left">Execute the last command typed that starts with a value</td>
-</tr>
-<tr>
-<td align="left">!!</td>
-<td align="left">Execute the last command typed</td>
-</tr>
-<tr>
-<td align="left"><strong>Permissions</strong></td>
-<td align="left"></td>
-</tr>
-<tr>
-<td align="left">ls -ld</td>
-<td align="left">Display the default permission for a home directory</td>
-</tr>
-<tr>
-<td align="left">ls -ld&#x2F;<code>&lt;dir&gt;</code></td>
-<td align="left">Display the read, write, and access permission of a particular folder</td>
-</tr>
-<tr>
-<td align="left">chmod 755 <code>&lt;file&gt;</code></td>
-<td align="left">Change the permission of a file to 755</td>
-</tr>
-<tr>
-<td align="left">chmod -R 600 <code>&lt;dir&gt;</code></td>
-<td align="left">Change the permission of a folder (and its contents) to 600</td>
-</tr>
-<tr>
-<td align="left">chown<code> &lt;user&gt;</code>:<code>&lt;group&gt; </code> <code>&lt;file&gt;</code></td>
-<td align="left">Change the ownership of a file to user and group. Add -R to include folder contents</td>
-</tr>
-<tr>
-<td align="left"><strong>Processes</strong></td>
-<td align="left"></td>
-</tr>
-<tr>
-<td align="left">ps -ax</td>
-<td align="left">Output currently running processes. Here, a shows processes from all users and x shows processes that are not connected with the Terminal</td>
-</tr>
-<tr>
-<td align="left">ps -aux</td>
-<td align="left">Shows all the processes with %cpu, %mem, page in, PID, and command</td>
-</tr>
-<tr>
-<td align="left">top</td>
-<td align="left">Display live information about currently running processes</td>
-</tr>
-<tr>
-<td align="left">top -ocpu -s 5</td>
-<td align="left">Display processes sorted by CPU usage, updating every 5 seconds</td>
-</tr>
-<tr>
-<td align="left">top -o rsize</td>
-<td align="left">Sort top by memory usage</td>
-</tr>
-<tr>
-<td align="left">kill PID</td>
-<td align="left">Quit process with ID <code>&lt;PID&gt;</code>. You’ll see PID as a column in the Activity Monitor</td>
-</tr>
-<tr>
-<td align="left">ps -ax | grep <code>&lt;appname&gt;</code></td>
-<td align="left">Find a process by name or PID</td>
-</tr>
-<tr>
-<td align="left"><strong>Network</strong></td>
-<td align="left"></td>
-</tr>
-<tr>
-<td align="left">ping <code>&lt;host&gt;</code></td>
-<td align="left">Ping host and display status</td>
-</tr>
-<tr>
-<td align="left">whois <code>&lt;domain&gt;</code></td>
-<td align="left">Output whois info for a domain</td>
-</tr>
-<tr>
-<td align="left">curl -O &lt;url&#x2F;to&#x2F;file&gt;</td>
-<td align="left">Download file via HTTP, HTTPS, or FTP</td>
-</tr>
-<tr>
-<td align="left">ssh <code>&lt;username&gt;</code>@<code>&lt;host&gt;</code></td>
-<td align="left">Establish SSH connection to <code>&lt;host&gt;</code> with user <code>&lt;username&gt;</code></td>
-</tr>
-<tr>
-<td align="left">scp<code> &lt;file&gt;</code> <code>&lt;user&gt;</code>@<code>&lt;host&gt;</code>:&#x2F;remote&#x2F;path</td>
-<td align="left"><code>Copy </code> <code>&lt;file&gt;</code> to a remote<code> &lt;host&gt;</code></td>
-</tr>
-<tr>
-<td align="left">arp -a</td>
-<td align="left">View a list of all devices on your local network. It will show you the IP and MAC address of all the devices</td>
-</tr>
-<tr>
-<td align="left">ifconfig en0</td>
-<td align="left">View your device IP and MAC address</td>
-</tr>
-<tr>
-<td align="left">traceroute [hostname]</td>
-<td align="left">Identify the path and the hops traversed by the packets from your device to the destination address</td>
-</tr>
-<tr>
-<td align="left"><strong>Homebrew</strong></td>
-<td align="left"></td>
-</tr>
-<tr>
-<td align="left">brew doctor</td>
-<td align="left">Check brew for potential problems</td>
-</tr>
-<tr>
-<td align="left">brew help</td>
-<td align="left">List of useful homebrew formula and cask commands</td>
-</tr>
-<tr>
-<td align="left">brew install <code>&lt;formula&gt;</code>|<code>&lt;cask&gt;</code></td>
-<td align="left">Install a formula or cask</td>
-</tr>
-<tr>
-<td align="left">brew uninstall <code>&lt;formula&gt;</code>|cask&gt;</td>
-<td align="left">Uninstall a formula or cask</td>
-</tr>
-<tr>
-<td align="left">brew list –formula</td>
-<td align="left">List only installed formulas</td>
-</tr>
-<tr>
-<td align="left">brew list –cask</td>
-<td align="left">List only installed cask</td>
-</tr>
-<tr>
-<td align="left">brew deps <code>&lt;formula&gt;</code>|<code>&lt;cask&gt;</code></td>
-<td align="left">List all the dependencies of a formula or cask</td>
-</tr>
-<tr>
-<td align="left">brew search text|&#x2F;regex&#x2F;</td>
-<td align="left">Search formula or cask through regex</td>
-</tr>
-<tr>
-<td align="left">brew upgrade <code>&lt;formula&gt;</code>|<code>&lt;cask&gt;</code></td>
-<td align="left">Upgrade the formula or cask</td>
-</tr>
-<tr>
-<td align="left">brew outdated <code>&lt;formula&gt;</code>|<code>&lt;cask&gt;</code></td>
-<td align="left">Search for outdated formula or cask</td>
-</tr>
-<tr>
-<td align="left">brew outdated –formula</td>
-<td align="left">Search for outdated formula</td>
-</tr>
-<tr>
-<td align="left">brew outdated –cask</td>
-<td align="left">Search for outdated cask</td>
-</tr>
-<tr>
-<td align="left">brew pin [installed_formula]</td>
-<td align="left">Pin a formula from getting upgraded</td>
-</tr>
-<tr>
-<td align="left">brew unpin [installed_formula]</td>
-<td align="left">Unpin to upgrade a package</td>
-</tr>
-<tr>
-<td align="left">brew cleanup</td>
-<td align="left">Remove stale lock files and outdated packages for all formula and casks.</td>
-</tr>
-<tr>
-<td align="left"><strong>Environment Variable or Path</strong></td>
-<td align="left"></td>
-</tr>
-<tr>
-<td align="left">printenv</td>
-<td align="left">Display a list of currently set environment variables. Also tells you which shell you’re using</td>
-</tr>
-<tr>
-<td align="left">$echo</td>
-<td align="left">Tells the terminal to print something and show it to you</td>
-</tr>
-<tr>
-<td align="left">echo $PATH</td>
-<td align="left">Check the value of the PATH variable which storea a list of directories with executable files</td>
-</tr>
-<tr>
-<td align="left">echo $PATH &gt;path.txt</td>
-<td align="left">Export the path directory to a text file</td>
-</tr>
-<tr>
-<td align="left">export PATH&#x3D;$PATH:absolute&#x2F;path to&#x2F;program&#x2F;</td>
-<td align="left">Execute a program via terminal only in your current session. If you use a program regularly, add the path to shell configuration file.</td>
-</tr>
-<tr>
-<td align="left"><strong>Search</strong></td>
-<td align="left"></td>
-</tr>
-<tr>
-<td align="left">find<code>&lt;dir&gt;</code>-name &lt;”file”&gt;</td>
-<td align="left">Find all files named <code>&lt;file&gt;</code> inside <code>&lt;dir&gt;</code>. Use wildcards (*) to search for parts of filenames</td>
-</tr>
-<tr>
-<td align="left">grep “<code>&lt;text&gt;</code>“ <code>&lt;file&gt;</code></td>
-<td align="left">Output all occurrences of <code>&lt;text&gt; </code>inside<code>&lt;file&gt;</code>(add -i for case insensitivity)</td>
-</tr>
-<tr>
-<td align="left">grep -rl “<code>&lt;text&gt;</code>“ <code>&lt;dir&gt;</code></td>
-<td align="left">Search for all files containing <code>&lt;text&gt;</code> inside <code>&lt;dir&gt;</code></td>
-</tr>
-<tr>
-<td align="left"><strong>Output</strong></td>
-<td align="left"></td>
-</tr>
-<tr>
-<td align="left">cat <code>&lt;file&gt;</code></td>
-<td align="left">Output the content of <code>&lt;file&gt;</code></td>
-</tr>
-<tr>
-<td align="left">less <code>&lt;file&gt;</code></td>
-<td align="left">Output the contents of <code>&lt;file&gt;</code> using the less command that supports pagination and more</td>
-</tr>
-<tr>
-<td align="left">head <code>&lt;file&gt;</code></td>
-<td align="left">Output the first 10 lines of <code>&lt;file&gt;</code></td>
-</tr>
-<tr>
-<td align="left"><code>&lt;cmd&gt; &gt; &gt; &lt;file&gt;</code></td>
-<td align="left">Appends the output of <code>&lt;cmd&gt;</code> to <code>&lt;file&gt;</code></td>
-</tr>
-<tr>
-<td align="left"><code>&lt;cmd&gt; &gt; &lt;file&gt;</code></td>
-<td align="left">Direct the output of<code>&lt;cmd&gt; into</code> <code>&lt;file&gt;</code></td>
-</tr>
-<tr>
-<td align="left">&#96;<cmd1></td>
-<td align="left"><cmd2>&#96;</td>
-</tr>
-</tbody></table>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Shortcuts</strong></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Tab</td>
+<td style="text-align: left;">Auto-complete file and folder names</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Ctrl + A</td>
+<td style="text-align: left;">Go to the beginning of the line you're
+currently typing on</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Ctrl + E</td>
+<td style="text-align: left;">Go to the end of the line you're currently
+typing on</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Ctrl + U</td>
+<td style="text-align: left;">Clear the line before the cursor</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Ctrl + K</td>
+<td style="text-align: left;">Clear the line after the cursor</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Ctrl + W</td>
+<td style="text-align: left;">Delete the word before the cursor</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Ctrl + T</td>
+<td style="text-align: left;">Swap the last two characters before the
+cursor</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Esc + T</td>
+<td style="text-align: left;">Swap the last two words before the
+cursor</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Ctrl + L</td>
+<td style="text-align: left;">Clear the screen</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Ctrl + C</td>
+<td style="text-align: left;">Kill whatever you're running</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Ctrl + D</td>
+<td style="text-align: left;">Exit the current shell</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Option + →</td>
+<td style="text-align: left;">Move cursor one word forward</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Option + ←</td>
+<td style="text-align: left;">Move cursor one word backward</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Ctrl + F</td>
+<td style="text-align: left;">Move cursor one character forward</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Ctrl + B</td>
+<td style="text-align: left;">Move cursor one character backward</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Ctrl + Y</td>
+<td style="text-align: left;">Paste whatever was cut by the last
+command</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Ctrl + Z</td>
+<td style="text-align: left;">Puts whatever you're running into a
+suspended background process</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Ctrl + _</td>
+<td style="text-align: left;">Undo the last command</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Option + Shift + Cmd + C</td>
+<td style="text-align: left;">Copy plain text</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Shift + Cmd + V</td>
+<td style="text-align: left;">Paste the selection</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">exit</td>
+<td style="text-align: left;">End a shell session</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>Basics</strong></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">/ (Forward Slash)</td>
+<td style="text-align: left;">Top level directory</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">. (Single Period)</td>
+<td style="text-align: left;">Current directory</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">.. (Double Period)</td>
+<td style="text-align: left;">Parent directory</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">~ (Tilde)</td>
+<td style="text-align: left;">Home directory</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">sudo [command]</td>
+<td style="text-align: left;">Run command with the security privileges
+of the super user</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">nano [file]</td>
+<td style="text-align: left;">Opens the Terminal editor</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">open [file]</td>
+<td style="text-align: left;">Opens a file</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">[command] -h</td>
+<td style="text-align: left;">Get help about a command</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">man [command]</td>
+<td style="text-align: left;">Show the help manual of the command</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>Change Directory</strong></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">cd</td>
+<td style="text-align: left;">Home directory</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">cd [folder]</td>
+<td style="text-align: left;">Change directory, e.g. cd Documents</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">cd ~</td>
+<td style="text-align: left;">Home directory</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">cd/</td>
+<td style="text-align: left;">Root of the drive</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">cd -</td>
+<td style="text-align: left;">Previous directory or folder you last
+browsed</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">pwd</td>
+<td style="text-align: left;">Show your working directory</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">cd..</td>
+<td style="text-align: left;">Move up to the parent directory</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">cd../..</td>
+<td style="text-align: left;">Move up two levels</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>List Directory
+Contents</strong></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">ls</td>
+<td style="text-align: left;">Display the name of files and
+subdirectories in the directory</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">ls -C</td>
+<td style="text-align: left;">Force multi-column output of the
+listing</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">ls -a</td>
+<td style="text-align: left;">List all entries including those with
+.(period) and ..(double period)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">ls -1</td>
+<td style="text-align: left;">Output the list of files in one entry per
+line format</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">ls -F</td>
+<td style="text-align: left;">Display a / (slash) immediately after each
+path that is a directory, * (asterisk) after executable programs or
+scripts, and @ after a symbolic link</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">ls -S</td>
+<td style="text-align: left;">Sort files or entries by size</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">ls -l</td>
+<td style="text-align: left;">List in a long format. Includes file mode,
+owner and group name, date and time file was modified, pathname, and
+more</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">ls -l /</td>
+<td style="text-align: left;">List of the file system from root with
+symbolic links</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">ls -lt</td>
+<td style="text-align: left;">List the files sorted by time modified
+(most recent first)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">ls -lh</td>
+<td style="text-align: left;">Long listing with human readable file
+sizes in KB, MB, or GB</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">ls -lo</td>
+<td style="text-align: left;">List the file names with size, owner, and
+flags</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">ls -la</td>
+<td style="text-align: left;">List detailed directory contents,
+including hidden files</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>File Size and Disk
+Space</strong></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">du</td>
+<td style="text-align: left;">List usage for each subdirectory and its
+contents</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">du -sh [folder]</td>
+<td style="text-align: left;">Human readable output of all files in a
+directory</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">du -s</td>
+<td style="text-align: left;">Display an entry for each specified
+file</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">du -sk* | sort -nr</td>
+<td style="text-align: left;">List files and folders, totaling the size
+including the subfolders. Replace sk* with sm* to list directories in
+MB</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">df -h</td>
+<td style="text-align: left;">Calculate your system's free disk
+space</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">df -H</td>
+<td style="text-align: left;">Calculate free disk space in powers of
+1,000 (as opposed to 1,024)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>File and Directory
+Management</strong></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>mkdir &lt;dir&gt;</code></td>
+<td style="text-align: left;">Create new folder named
+<code>&lt;dir&gt;</code></td>
+</tr>
+<tr class="even">
+<td
+style="text-align: left;"><code>mkdir -p &lt;dir&gt;/&lt;dir&gt;</code></td>
+<td style="text-align: left;">Create nested folders</td>
+</tr>
+<tr class="odd">
+<td
+style="text-align: left;"><code>mkdir &lt;dir1&gt; &lt;dir2&gt; &lt;dir3&gt;</code></td>
+<td style="text-align: left;">Create several folders at once</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>mkdir "&lt;dir&gt;"</code></td>
+<td style="text-align: left;">Create a folder with a space in the
+filename</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>rmdir &lt;dir&gt;</code></td>
+<td style="text-align: left;">Delete a folder (only works on empty
+folders)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>rm -R &lt;dir&gt;</code></td>
+<td style="text-align: left;">Delete a folder and its contents</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>touch &lt;file&gt;</code></td>
+<td style="text-align: left;">Create a new file without any
+extension</td>
+</tr>
+<tr class="even">
+<td
+style="text-align: left;"><code>cp &lt;file&gt; &lt;dir&gt;</code></td>
+<td style="text-align: left;">Copy a file to the folder</td>
+</tr>
+<tr class="odd">
+<td
+style="text-align: left;"><code>cp &lt;file&gt; &lt;newfile&gt;</code></td>
+<td style="text-align: left;">Copy a file to the current folder</td>
+</tr>
+<tr class="even">
+<td
+style="text-align: left;"><code>cp &lt;file&gt;~/&lt;dir&gt;/&lt;newfile&gt;</code></td>
+<td style="text-align: left;">Copy a file to the folder and rename the
+copied file</td>
+</tr>
+<tr class="odd">
+<td
+style="text-align: left;"><code>cp -R &lt;dir&gt; &lt;"new dir"&gt;</code></td>
+<td style="text-align: left;">Copy a folder to a new folder with spaces
+in the filename</td>
+</tr>
+<tr class="even">
+<td
+style="text-align: left;"><code>cp -i &lt;file&gt;&lt;dir&gt;</code></td>
+<td style="text-align: left;">Prompts you before copying a file with a
+warning overwrite message</td>
+</tr>
+<tr class="odd">
+<td
+style="text-align: left;"><code>cp &lt;file1&gt; &lt;file2&gt; &lt;file3&gt;/Users/&lt;dir&gt;</code></td>
+<td style="text-align: left;">Copy multiple files to a folder</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">ditto -V [folder path][new folder]</td>
+<td style="text-align: left;">Copy the contents of a folder to new
+folder. In here "-V" print a line of status for every file copied</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>rm &lt;file&gt;</code></td>
+<td style="text-align: left;">Delete a file (This deletes the file
+permanently; use with caution.)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>rm -i &lt;file&gt;</code></td>
+<td style="text-align: left;">Delete a file only when you give
+confirmation</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>rm -f &lt;file&gt;</code></td>
+<td style="text-align: left;">Force removal without confirmation</td>
+</tr>
+<tr class="even">
+<td
+style="text-align: left;"><code>rm &lt;file1&gt; &lt;file2&gt; &lt;file3&gt;</code></td>
+<td style="text-align: left;">Delete multiple files without any
+confirmation</td>
+</tr>
+<tr class="odd">
+<td
+style="text-align: left;"><code>mv &lt;file&gt; &lt;newfilename&gt;</code></td>
+<td style="text-align: left;">Move/rename</td>
+</tr>
+<tr class="even">
+<td
+style="text-align: left;"><code>mv &lt;file&gt; &lt;dir&gt;</code></td>
+<td style="text-align: left;">Move a file to the folder, possibly by
+overwriting an existing file</td>
+</tr>
+<tr class="odd">
+<td
+style="text-align: left;"><code>mv -i &lt;file&gt; &lt;dir&gt;</code></td>
+<td style="text-align: left;">Optional -i flag to warn you before
+overwriting the file</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>mv *.png ~/&lt;dir&gt;</code></td>
+<td style="text-align: left;">Move all PNG files from current folder to
+a different folder</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>Command History</strong></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Ctrl + R</td>
+<td style="text-align: left;">Search through previously used
+commands</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">history n</td>
+<td style="text-align: left;">Shows the previous commands you've typed.
+Add a number to limit to the last n items</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">![value]</td>
+<td style="text-align: left;">Execute the last command typed that starts
+with a value</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">!!</td>
+<td style="text-align: left;">Execute the last command typed</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Permissions</strong></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">ls -ld</td>
+<td style="text-align: left;">Display the default permission for a home
+directory</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">ls -ld/<code>&lt;dir&gt;</code></td>
+<td style="text-align: left;">Display the read, write, and access
+permission of a particular folder</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">chmod 755 <code>&lt;file&gt;</code></td>
+<td style="text-align: left;">Change the permission of a file to
+755</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">chmod -R 600 <code>&lt;dir&gt;</code></td>
+<td style="text-align: left;">Change the permission of a folder (and its
+contents) to 600</td>
+</tr>
+<tr class="odd">
+<td
+style="text-align: left;">chown<code>&lt;user&gt;</code>:<code>&lt;group&gt;</code>
+<code>&lt;file&gt;</code></td>
+<td style="text-align: left;">Change the ownership of a file to user and
+group. Add -R to include folder contents</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Processes</strong></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">ps -ax</td>
+<td style="text-align: left;">Output currently running processes. Here,
+a shows processes from all users and x shows processes that are not
+connected with the Terminal</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">ps -aux</td>
+<td style="text-align: left;">Shows all the processes with %cpu, %mem,
+page in, PID, and command</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">top</td>
+<td style="text-align: left;">Display live information about currently
+running processes</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">top -ocpu -s 5</td>
+<td style="text-align: left;">Display processes sorted by CPU usage,
+updating every 5 seconds</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">top -o rsize</td>
+<td style="text-align: left;">Sort top by memory usage</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">kill PID</td>
+<td style="text-align: left;">Quit process with ID
+<code>&lt;PID&gt;</code>. You'll see PID as a column in the Activity
+Monitor</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">ps -ax | grep
+<code>&lt;appname&gt;</code></td>
+<td style="text-align: left;">Find a process by name or PID</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Network</strong></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">ping <code>&lt;host&gt;</code></td>
+<td style="text-align: left;">Ping host and display status</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">whois <code>&lt;domain&gt;</code></td>
+<td style="text-align: left;">Output whois info for a domain</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">curl -O <url/to/file></td>
+<td style="text-align: left;">Download file via HTTP, HTTPS, or FTP</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">ssh
+<code>&lt;username&gt;</code>@<code>&lt;host&gt;</code></td>
+<td style="text-align: left;">Establish SSH connection to
+<code>&lt;host&gt;</code> with user <code>&lt;username&gt;</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">scp<code>&lt;file&gt;</code>
+<code>&lt;user&gt;</code>@<code>&lt;host&gt;</code>:/remote/path</td>
+<td style="text-align: left;"><code>Copy</code>
+<code>&lt;file&gt;</code> to a remote<code>&lt;host&gt;</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">arp -a</td>
+<td style="text-align: left;">View a list of all devices on your local
+network. It will show you the IP and MAC address of all the devices</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">ifconfig en0</td>
+<td style="text-align: left;">View your device IP and MAC address</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">traceroute [hostname]</td>
+<td style="text-align: left;">Identify the path and the hops traversed
+by the packets from your device to the destination address</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>Homebrew</strong></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">brew doctor</td>
+<td style="text-align: left;">Check brew for potential problems</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">brew help</td>
+<td style="text-align: left;">List of useful homebrew formula and cask
+commands</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">brew install
+<code>&lt;formula&gt;</code>|<code>&lt;cask&gt;</code></td>
+<td style="text-align: left;">Install a formula or cask</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">brew uninstall
+<code>&lt;formula&gt;</code>|cask&gt;</td>
+<td style="text-align: left;">Uninstall a formula or cask</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">brew list --formula</td>
+<td style="text-align: left;">List only installed formulas</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">brew list --cask</td>
+<td style="text-align: left;">List only installed cask</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">brew deps
+<code>&lt;formula&gt;</code>|<code>&lt;cask&gt;</code></td>
+<td style="text-align: left;">List all the dependencies of a formula or
+cask</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">brew search text|/regex/</td>
+<td style="text-align: left;">Search formula or cask through regex</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">brew upgrade
+<code>&lt;formula&gt;</code>|<code>&lt;cask&gt;</code></td>
+<td style="text-align: left;">Upgrade the formula or cask</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">brew outdated
+<code>&lt;formula&gt;</code>|<code>&lt;cask&gt;</code></td>
+<td style="text-align: left;">Search for outdated formula or cask</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">brew outdated --formula</td>
+<td style="text-align: left;">Search for outdated formula</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">brew outdated --cask</td>
+<td style="text-align: left;">Search for outdated cask</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">brew pin [installed_formula]</td>
+<td style="text-align: left;">Pin a formula from getting upgraded</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">brew unpin [installed_formula]</td>
+<td style="text-align: left;">Unpin to upgrade a package</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">brew cleanup</td>
+<td style="text-align: left;">Remove stale lock files and outdated
+packages for all formula and casks.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>Environment Variable or
+Path</strong></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">printenv</td>
+<td style="text-align: left;">Display a list of currently set
+environment variables. Also tells you which shell you're using</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">$echo</td>
+<td style="text-align: left;">Tells the terminal to print something and
+show it to you</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">echo $PATH</td>
+<td style="text-align: left;">Check the value of the PATH variable which
+storea a list of directories with executable files</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">echo <span class="math inline">\(PATH
+&gt;path.txt                        | Export the path directory to a
+text file                     |
+| export PATH=\)</span>PATH:absolute/path to/program/</td>
+<td style="text-align: left;">Execute a program via terminal only in
+your current session. If you use a program regularly, add the path to
+shell configuration file.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Search</strong></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">find<code>&lt;dir&gt;</code>-name
+&lt;"file"&gt;</td>
+<td style="text-align: left;">Find all files named
+<code>&lt;file&gt;</code> inside <code>&lt;dir&gt;</code>. Use wildcards
+(*) to search for parts of filenames</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">grep "<code>&lt;text&gt;</code>"
+<code>&lt;file&gt;</code></td>
+<td style="text-align: left;">Output all occurrences of
+<code>&lt;text&gt;</code>inside<code>&lt;file&gt;</code>(add -i for case
+insensitivity)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">grep -rl "<code>&lt;text&gt;</code>"
+<code>&lt;dir&gt;</code></td>
+<td style="text-align: left;">Search for all files containing
+<code>&lt;text&gt;</code> inside <code>&lt;dir&gt;</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Output</strong></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">cat <code>&lt;file&gt;</code></td>
+<td style="text-align: left;">Output the content of
+<code>&lt;file&gt;</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">less <code>&lt;file&gt;</code></td>
+<td style="text-align: left;">Output the contents of
+<code>&lt;file&gt;</code> using the less command that supports
+pagination and more</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">head <code>&lt;file&gt;</code></td>
+<td style="text-align: left;">Output the first 10 lines of
+<code>&lt;file&gt;</code></td>
+</tr>
+<tr class="even">
+<td
+style="text-align: left;"><code>&lt;cmd&gt; &gt; &gt; &lt;file&gt;</code></td>
+<td style="text-align: left;">Appends the output of
+<code>&lt;cmd&gt;</code> to <code>&lt;file&gt;</code></td>
+</tr>
+<tr class="odd">
+<td
+style="text-align: left;"><code>&lt;cmd&gt; &gt; &lt;file&gt;</code></td>
+<td style="text-align: left;">Direct the output
+of<code>&lt;cmd&gt; into</code> <code>&lt;file&gt;</code></td>
+</tr>
+<tr class="even">
+<td
+style="text-align: left;"><code>&lt;cmd1&gt; | &lt;cmd2&gt;</code></td>
+<td style="text-align: left;">Direct the output of
+<code>&lt;cmd1&gt;</code> to <code>&lt;cmd2&gt;</code></td>
+</tr>
+</tbody>
+</table>
 
                 
               </div>
@@ -1069,8 +1220,6 @@
   
 
 
-
-  
 
 
   
@@ -1268,8 +1417,6 @@
   });
 </script>
 
-
-  <script>Fluid.plugins.imageCaption();</script>
 
   
       <script>

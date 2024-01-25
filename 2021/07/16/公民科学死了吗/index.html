@@ -71,7 +71,7 @@
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
     Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"yuzhang.net","root":"/","version":"1.9.7","typing":{"enable":true,"typeSpeed":100,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml","include_content_in_search":true};
+    var CONFIG = {"hostname":"yuzhang.net","root":"/","version":"1.9.7","typing":{"enable":true,"typeSpeed":100,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":false},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml","include_content_in_search":true};
 
     if (CONFIG.web_analytics.follow_dnt) {
       var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
@@ -277,14 +277,20 @@
                 
                 <p>Is Citizen Science Dead?</p>
 <p>Christopher S. Lowry and Kristine F. Stepenuck</p>
-<p>我们的世界因社会、经济、政治和环境事件而两极分化。在讨论科学发现或建议时，不可能不引起负面反应和反对意见——无论是在杂货店的非正式互动中，还是在高影响力期刊的评审过程中。作为专业的科学家，我们经常受到公众的不信任。这部分是由于我们未能有效地沟通我们的工作，也因为我们致力于培育科学研究这个产业，这需要我们保持对研究方向和权威的控制。因此，我们通常把科学发现推向公众，而没有让他们参与新知识的产生。这就产生了一个问题，即公民科学是如何融入科学统一体（scientific continuum）的。从根本上讲，公民科学允许专业科学家与非专业人员结合并参与产生科学成果。这是一个弥合鸿沟的大好机会，可以促进两者之间以及更广泛的科学领域的合作和建立信任。为了实现这一目标，我们必须对加剧不平等和限制公民科学的实施和参与的包容性、偏见、利用和实用性等问题进行评估。如果没有这样的行动，就会引发这样一个问题:“公民科学死了吗?”</p>
-<p>公民科学缺乏包容性，体现在命名法、招募策略、开展科学的机制，甚至是正在解决的科学问题上。“公民科学”一词可能是两极分化的一个驱动因素，将那些感到被纳入的人和感到被排斥的人分开。参与公民科学的人往往受过高等教育，生活富裕，缺乏全体人口的代表性，尽管这一领域被描述为“科学研究的公众参与”和其他一些不那么分裂的术语。使用任何将专业科学家和非专业人士分开的术语来描述科学工作或成果，都会在两者之间形成一道即时的鸿沟，使业余人士的权威受到质疑。公民科学的包容性还受到项目特定要求的影响，包括设备、可达性、时间、能力和参与者分类。正在解决的科学问题也可能将某些人群排除在受益范围之外，比如那些受污染影响过大的人群。然而，合作和共同创造的公民科学模式，即科学家和非专业人员共同开发和实施研究，是成功的包容性方法的例子。以遍布美国的数千所大学扩展办公室（University Extension offices）为例，这些办公室将大学的知识和资源扩展到社区，使公众参与研究。在这一过程中，学院派与社区建立了关系，推动了研究课题的实施，并最终解决了当地的挑战。</p>
+<p>我们的世界因社会、经济、政治和环境事件而两极分化。在讨论科学发现或建议时，不可能不引起负面反应和反对意见——无论是在杂货店的非正式互动中，还是在高影响力期刊的评审过程中。作为专业的科学家，我们经常受到公众的不信任。这部分是由于我们未能有效地沟通我们的工作，也因为我们致力于培育科学研究这个产业，这需要我们保持对研究方向和权威的控制。因此，我们通常把科学发现推向公众，而没有让他们参与新知识的产生。这就产生了一个问题，即公民科学是如何融入科学统一体（scientific
+continuum）的。从根本上讲，公民科学允许专业科学家与非专业人员结合并参与产生科学成果。这是一个弥合鸿沟的大好机会，可以促进两者之间以及更广泛的科学领域的合作和建立信任。为了实现这一目标，我们必须对加剧不平等和限制公民科学的实施和参与的包容性、偏见、利用和实用性等问题进行评估。如果没有这样的行动，就会引发这样一个问题:“公民科学死了吗?”</p>
+<p>公民科学缺乏包容性，体现在命名法、招募策略、开展科学的机制，甚至是正在解决的科学问题上。“公民科学”一词可能是两极分化的一个驱动因素，将那些感到被纳入的人和感到被排斥的人分开。参与公民科学的人往往受过高等教育，生活富裕，缺乏全体人口的代表性，尽管这一领域被描述为“科学研究的公众参与”和其他一些不那么分裂的术语。使用任何将专业科学家和非专业人士分开的术语来描述科学工作或成果，都会在两者之间形成一道即时的鸿沟，使业余人士的权威受到质疑。公民科学的包容性还受到项目特定要求的影响，包括设备、可达性、时间、能力和参与者分类。正在解决的科学问题也可能将某些人群排除在受益范围之外，比如那些受污染影响过大的人群。然而，合作和共同创造的公民科学模式，即科学家和非专业人员共同开发和实施研究，是成功的包容性方法的例子。以遍布美国的数千所大学扩展办公室（University
+Extension
+offices）为例，这些办公室将大学的知识和资源扩展到社区，使公众参与研究。在这一过程中，学院派与社区建立了关系，推动了研究课题的实施，并最终解决了当地的挑战。</p>
 <p>科学的专业化可能导致对公民科学的偏见。例如，<strong>科学家可能不信任业余的数据收集者，尽管他们经常严重依赖训练有限的学生收集“有效”的数据用于自己的研究。</strong>公民科学家在数据收集和分析方面的质量控制问题和伦理问题（比如科学家可以要求志愿者付出多少努力），是专业科学家反对使用这些数据来支持他们的研究的两个最常见的论点。数据质量问题在大型项目中呈指数级增长，在这些项目中，空间和时间数据收集的不一致、培训的可变性和个人偏见都可能影响结果;尽管如此，这对于使用来自不同数据集的专业科学也可能是正确的。事实上，专业科学家是量化不确定性的专家。在此基础上，我们必须制定公民科学错误分析的标准，并帮助实施确定可能的错误来源的计划。现有的模型类似于EPA的质量保证和文件手册，可以作为指导。</p>
 <p>缺乏专业人士的反馈，以及在决策和同行评审过程中不承认公众是有效的科学贡献者，都会导致人们产生被剥削的感觉。此外，公众可能只被视为获取数据的工具，而不是研究合作者。这降低了他们对所产生知识的贡献的价值。这种剥削性质可能会导致志愿者的高流动率和项目的短半衰期。虽然我们知道，只有在信息双向传递的情况下，才能实现公民到专业科学的闭环，但要超越公民作为工具的思维是很困难的，而且需要大量的时间投入来完成。一个解决方案是在研究开始时让公民科学家参与进来，并让他们参与整个科学过程。积极的伙伴关系不仅是一种闭环的方式，而且也是一种建立关系的方式，最终可以给公民科学家平等的地位，以开发和传播满足当地需求的信息。</p>
-<p>最后，公民科学并不是一刀切的模式，它有一些与传统科学研究不同的实践局限性，传统科学研究需要不同的知识、技能和专业科学家的行动。一些研究问题需要昂贵和&#x2F;或专门的设备，这限制了参与。与社区成员有效合作也需要时间。专业科学家最初必须建立对将社区参与纳入研究的机会的认识。之后，需要时间来招募、培训、支持和向参与者提供反馈。也许最重要的是，需要时间来建立关系以促进信任，这可能是专业科学家进入的最高障碍。研究轨迹也可能出现分歧，专业科学家在较长时间内专注于开发同行评议的出版物(尽管保质期较长)，而公民科学家则看重通过演讲或网站提供的短期反馈。这种分歧可归因于对过程而非产品的关注，这在专业科学中甚至是有问题的。承认公民科学并不完美并不是一个完整的解决方案;我们必须扩大在同行评议的文献中已经很明显的科学发现的机会。通过Zooniverse EyeWire、eBird、大型强子对撞机和CoCoRaHS进行的研究证明了这些项目的影响和可扩展性。</p>
+<p>最后，公民科学并不是一刀切的模式，它有一些与传统科学研究不同的实践局限性，传统科学研究需要不同的知识、技能和专业科学家的行动。一些研究问题需要昂贵和/或专门的设备，这限制了参与。与社区成员有效合作也需要时间。专业科学家最初必须建立对将社区参与纳入研究的机会的认识。之后，需要时间来招募、培训、支持和向参与者提供反馈。也许最重要的是，需要时间来建立关系以促进信任，这可能是专业科学家进入的最高障碍。研究轨迹也可能出现分歧，专业科学家在较长时间内专注于开发同行评议的出版物(尽管保质期较长)，而公民科学家则看重通过演讲或网站提供的短期反馈。这种分歧可归因于对过程而非产品的关注，这在专业科学中甚至是有问题的。承认公民科学并不完美并不是一个完整的解决方案;我们必须扩大在同行评议的文献中已经很明显的科学发现的机会。通过Zooniverse
+EyeWire、eBird、大型强子对撞机和CoCoRaHS进行的研究证明了这些项目的影响和可扩展性。</p>
 <p>如果不解决包容、偏见、剥削和实用性等问题，公民科学可能会消亡，失去它在科学统一体中的地位。专业科学家可以改变这一进程。我们必须持续认识到我们在创造包容环境的同时改善人类状况的使命。我们习惯在研究的变革性和影响力之间做权衡，公民科学也不例外。让公众参与科学不仅创造了对科学更大的信任，还提供了重要的观察、分析和视角。认识到与包容性、偏见、剥削和实用性有关的进入障碍是解决这些障碍的第一步。有针对性的招募可以增加参与的多样性。有意的项目设计和质量保证计划的制定可以减少偏见并解决实用性问题。项目通过培训、数据可视化和定期交流来发展强大的实践社区，从而克服了开发的障碍。在最高标准下，公民科学项目定义了预期目标、数据用途和数据质量目标。如果我们作为专业的科学家让包容、偏见、利用和实用性等进入障碍阻碍了我们，公民科学就会死亡。</p>
 <p>原文信息：</p>
-<p>Lowry, C. S., &amp; Stepenuck, K. F. (2021). Is Citizen Science Dead? <em>Environmental Science &amp; Technology</em>, <em>55</em>(8). <a target="_blank" rel="noopener" href="https://doi.org/10.1021/acs.est.0c07873">https://doi.org/10.1021/acs.est.0c07873</a></p>
+<p>Lowry, C. S., &amp; Stepenuck, K. F. (2021). Is Citizen Science Dead?
+<em>Environmental Science &amp; Technology</em>, <em>55</em>(8).
+https://doi.org/10.1021/acs.est.0c07873</p>
 
                 
               </div>
@@ -420,8 +426,6 @@
   
 
 
-
-  
 
 
   
@@ -619,8 +623,6 @@
   });
 </script>
 
-
-  <script>Fluid.plugins.imageCaption();</script>
 
   
       <script>

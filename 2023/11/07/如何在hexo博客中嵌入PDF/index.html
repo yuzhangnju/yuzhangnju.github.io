@@ -71,7 +71,7 @@
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
     Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"yuzhang.net","root":"/","version":"1.9.7","typing":{"enable":true,"typeSpeed":100,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml","include_content_in_search":true};
+    var CONFIG = {"hostname":"yuzhang.net","root":"/","version":"1.9.7","typing":{"enable":true,"typeSpeed":100,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":false},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml","include_content_in_search":true};
 
     if (CONFIG.web_analytics.follow_dnt) {
       var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
@@ -222,7 +222,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          873 字
+          881 字
         
       </span>
     
@@ -280,31 +280,47 @@
 <p>首先，备份本地的blog文件夹，好怕一通操作把我的博客又干碎了哈哈。</p>
 <p>接下来，进入正式流程：</p>
 <ul>
-<li><p>第一步，下载<a target="_blank" rel="noopener" href="https://mozilla.github.io/pdf.js/getting_started/#download">pdf.js</a>，将文件夹解压放到指定的位置。我的博客应用的是<a target="_blank" rel="noopener" href="https://github.com/fluid-dev/hexo-theme-fluid">Fluid</a>主题，与其他hexo博客主题不同，fluid主题文件夹是有实际操作意义的，于是我在主题文件夹里新建了<code>myjs</code>文件夹，将解压后的文件夹放入其中，并命名为<code>pdfjs</code>，其他主题的博客似乎放在博客根目录的<code>source</code>即可；</p>
-<p><img src="https://cdn.jsdelivr.net/gh/yuzhangnju/image2022/image-20231107192623637.png" srcset="/img/loading.gif" lazyload alt="image-20231107192623637"></p>
-</li>
+<li><p>第一步，下载<a
+target="_blank" rel="noopener" href="https://mozilla.github.io/pdf.js/getting_started/#download">pdf.js</a>，将文件夹解压放到指定的位置。我的博客应用的是<a
+target="_blank" rel="noopener" href="https://github.com/fluid-dev/hexo-theme-fluid">Fluid</a>主题，与其他hexo博客主题不同，fluid主题文件夹是有实际操作意义的，于是我在主题文件夹里新建了<code>myjs</code>文件夹，将解压后的文件夹放入其中，并命名为<code>pdfjs</code>，其他主题的博客似乎放在博客根目录的<code>source</code>即可；</p>
+<figure>
+<img
+src="https://cdn.jsdelivr.net/gh/yuzhangnju/image2022/image-20231107192623637.png" srcset="/img/loading.gif" lazyload
+alt="image-20231107192623637" />
+<figcaption aria-hidden="true">image-20231107192623637</figcaption>
+</figure></li>
 <li><p>第二步，修改<code>pdfjs/web/viewer.mjs</code>，将里面的特定内容注销，可以使用关键词搜索找到这里⬇️；</p>
-<p><img src="https://cdn.jsdelivr.net/gh/yuzhangnju/image2022/image-20231107193023321.png" srcset="/img/loading.gif" lazyload alt="image-20231107193023321"></p>
-</li>
+<figure>
+<img
+src="https://cdn.jsdelivr.net/gh/yuzhangnju/image2022/image-20231107193023321.png" srcset="/img/loading.gif" lazyload
+alt="image-20231107193023321" />
+<figcaption aria-hidden="true">image-20231107193023321</figcaption>
+</figure></li>
 <li><p>第三步，修改博客配置文件<code>_config.yml</code>（注意不是主题配置文件），将<code>pdfjs</code>文件夹加入到跳过渲染的选项里；</p>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs yaml"><span class="hljs-attr">skip_render:</span> [<span class="hljs-string">myjs/**</span>]<br></code></pre></td></tr></table></figure>
-</li>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs yaml"><span class="hljs-attr">skip_render:</span> [<span class="hljs-string">myjs/**</span>]<br></code></pre></td></tr></table></figure></li>
 <li><p>第四步，在博客根目录的<code>source</code>文件夹里，新建一个pdf文件夹，用于存储需要嵌入的pdf文件。需要注意的是，存入的pdf文件名不能含有非法字符，比如<code>&amp;</code>；</p>
-<p><img src="https://cdn.jsdelivr.net/gh/yuzhangnju/image2022/image-20231107193558689.png" srcset="/img/loading.gif" lazyload alt="image-20231107193558689"></p>
-</li>
+<figure>
+<img
+src="https://cdn.jsdelivr.net/gh/yuzhangnju/image2022/image-20231107193558689.png" srcset="/img/loading.gif" lazyload
+alt="image-20231107193558689" />
+<figcaption aria-hidden="true">image-20231107193558689</figcaption>
+</figure></li>
 <li><p>第五步，在博文的markdown文件中，嵌入代码和pdf路径，如：</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs javascript">&lt;iframe src=<span class="hljs-string">&quot;/myjs/pdfjs/web/viewer.html?file=/pdf/Factors determining household-level food insecurity during COVID-19 epidemic a case of Wuhan, China.pdf&quot;</span> style=<span class="hljs-string">&#x27;width:100%;height:800px&#x27;</span>&gt;&lt;/iframe&gt;<br></code></pre></td></tr></table></figure>
-
 <p>注意此处填写的是相对路径⬆️，嵌入文档的高度和宽度可以调整，对于论文pdf或者ppt转pdf而言，将高度设置为<code>800px</code>似乎是个不错的选择。另外，由于markdown编辑器（比如typora）并不是完整的浏览器，所以在查看<code>.md</code>文档时，本地并不会成功显示pdf控件，而是会看到类似下面的内容：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/yuzhangnju/image2022/image-20231107194724061.png" srcset="/img/loading.gif" lazyload alt="image-20231107194724061"></p>
-<p>不过不用慌，部署完在网页端打开，浏览器是可以正常渲染的！</p>
-</li>
+<figure>
+<img
+src="https://cdn.jsdelivr.net/gh/yuzhangnju/image2022/image-20231107194724061.png" srcset="/img/loading.gif" lazyload
+alt="image-20231107194724061" />
+<figcaption aria-hidden="true">image-20231107194724061</figcaption>
+</figure>
+<p>不过不用慌，部署完在网页端打开，浏览器是可以正常渲染的！</p></li>
 </ul>
-<hr>
+<hr />
 <p>如果一切顺利的话，我们就可以看到嵌入了pdf文件的博文啦，效果如下：</p>
-<iframe src="/myjs/pdfjs/web/viewer.html?file=/pdf/Factors determining household-level food insecurity during COVID-19 epidemic a case of Wuhan, China.pdf" style='width:100%;height:800px'></iframe>
-
-<hr>
+<iframe src="/myjs/pdfjs/web/viewer.html?file=/pdf/Factors determining household-level food insecurity during COVID-19 epidemic a case of Wuhan, China.pdf" style="width:100%;height:800px">
+</iframe>
+<hr />
 <p>在桌面端，嵌入的pdf可以下载、打印和全屏播放，还可以旋转查看，非常厉害！不过移动端我试了几个浏览器，包括微信浏览器、Chrome、edge和Safari，都没有播放pdf的选项，可能是我没有正确配置，不过问题不大。另外在移动端，可能是考虑到pdf文件太大，第一次打开嵌入了pdf的博文时，pdf文件不会加载，需要手动刷新一次。</p>
 <p>至此，就已经实现了在hexo博客中嵌入pdf啦！注意GitHub单个仓库的大小限制是1G，单个文件大小限制是100M，嵌入的pdf应该尽量小一些，以免一不小心把仓库干爆收到GitHub的警告。此外，如果是ppt转pdf，原ppt中有动画播放的部分会静态显示，此时在原ppt中尽量不要有上下层遮挡。</p>
 
@@ -442,8 +458,6 @@
   
 
 
-
-  
 
 
   
@@ -641,8 +655,6 @@
   });
 </script>
 
-
-  <script>Fluid.plugins.imageCaption();</script>
 
   
       <script>

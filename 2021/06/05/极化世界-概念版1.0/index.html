@@ -71,7 +71,7 @@
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
     Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"yuzhang.net","root":"/","version":"1.9.7","typing":{"enable":true,"typeSpeed":100,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml","include_content_in_search":true};
+    var CONFIG = {"hostname":"yuzhang.net","root":"/","version":"1.9.7","typing":{"enable":true,"typeSpeed":100,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":false},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml","include_content_in_search":true};
 
     if (CONFIG.web_analytics.follow_dnt) {
       var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
@@ -277,66 +277,113 @@
                 
                 <p>我们身处在新一轮的马尔萨斯循环之中吗？</p>
 <p>我想先给大家介绍几幅图：</p>
-<img src="https://cdn.jsdelivr.net/gh/yuzhangnju/image/img/a.jpg" srcset="/img/loading.gif" lazyload alt="a" style="zoom:30%;" />
-
+<p><img src="https://cdn.jsdelivr.net/gh/yuzhangnju/image/img/a.jpg" srcset="/img/loading.gif" lazyload alt="a" style="zoom:30%;" /></p>
 <blockquote>
 <p>上图抽象化地表示了两类群体对事件看法的分布，假设横轴的“0”点为相对中立，“0”点的左右都为对中立的偏离，越远离越极端。（横轴也可以理解为“情感值”）</p>
 </blockquote>
 <p>”峰值邻近“是对过去状态的描述，”两极分化“则表示当下人们的看法。群体A与群体B，原本都持有邻近“中立”的观点，但某些因素的变化，使得两个群体的意见分化越来越严重，群体A意见的中心值向左偏移，群体B意见的中心值向右偏移，图中两条线相互分离，两类群体观点交叉的部分越来越少。</p>
 <p>两条线交叉的部分，事实上是“共同话语空间”或“可对话空间”。基于群体立场的不同，可对话空间越来越小。这样的事件在当下广泛发生，如男性与女性、精英与大众、两党之间、城乡之间、穷人与富人、不同宗教之间，群体意见的两极分化越来越明显。于是，旧词被赋予了新的含义，年轻人将这种现象描述为“二极管”。直接体现是群体间以标签化的语言在微博、豆瓣、B站视频留言区展开论战。<br></p>
-<img src="https://cdn.jsdelivr.net/gh/yuzhangnju/image/img/image-20210605223109805.png" srcset="/img/loading.gif" lazyload alt="image-20210605223109805" style="zoom:80%;" />
-
+<p><img src="https://cdn.jsdelivr.net/gh/yuzhangnju/image/img/image-20210605223109805.png" srcset="/img/loading.gif" lazyload alt="image-20210605223109805" style="zoom:80%;" /></p>
 <blockquote>
 <p>这两幅图展示了另一种趋势，即“幂律分布”的极化。假设两幅图都表示群体收入的排序，蓝色状态时，群体收入的差距相对较小，而到红色状态时，富者越富、贫者越贫。</p>
 </blockquote>
-<p>基尼系数是刻画收入差距的重要指标，谢宇教授等基于多个数据源，测度出中国的收入差距不断扩大<a href="#refer-anchor-1"><sup>1</sup></a>。类似的“幂律分布”式极化在其他领域也逐渐发生，如微博评论的点赞数，知乎答复的点赞数。有趣的是，科学论文的引用也在极化。PNAS今年年初上线的一篇文章显示，全球引用的不平等正在加剧，在 2000 年至 2015 年间，被引用次数最多的前 1% 科学家的累积引用份额从 14% 增加到 21%，引用不平等的基尼系数从 0.65 上升到 0.70<a href="#refer-anchor-2"><sup>2</sup></a>。</p>
-<img src="https://cdn.jsdelivr.net/gh/yuzhangnju/image/img/image-20210605105841918.png" srcset="/img/loading.gif" lazyload alt="image-20210605105841918" style="zoom:30%;" />
-
-<br>
-
-<p>两极分化与幂律分布的强化，都是极化的体现，这种极化加剧了社会政治、经济的不安全感。遗憾的是，极化并非是流量时代的传播学错觉，它不止在新闻媒体中发生，事实上，它越来越成为塑造世界的力量。在极化社会经常看到公众对事实可证明的问题的争论，在此过程中，越来越多的人遵循自己集团的信息，事实和道德真理越来越失去分量<a href="#refer-anchor-3"><sup>3</sup></a>。</p>
+<p>基尼系数是刻画收入差距的重要指标，谢宇教授等基于多个数据源，测度出中国的收入差距不断扩大<a
+href="#refer-anchor-1"><sup>1</sup></a>。类似的“幂律分布”式极化在其他领域也逐渐发生，如微博评论的点赞数，知乎答复的点赞数。有趣的是，科学论文的引用也在极化。PNAS今年年初上线的一篇文章显示，全球引用的不平等正在加剧，在
+2000 年至 2015 年间，被引用次数最多的前 1% 科学家的累积引用份额从 14%
+增加到 21%，引用不平等的基尼系数从 0.65 上升到 0.70<a
+href="#refer-anchor-2"><sup>2</sup></a>。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/yuzhangnju/image/img/image-20210605105841918.png" srcset="/img/loading.gif" lazyload alt="image-20210605105841918" style="zoom:30%;" /></p>
+<p><br></p>
+<p>两极分化与幂律分布的强化，都是极化的体现，这种极化加剧了社会政治、经济的不安全感。遗憾的是，极化并非是流量时代的传播学错觉，它不止在新闻媒体中发生，事实上，它越来越成为塑造世界的力量。在极化社会经常看到公众对事实可证明的问题的争论，在此过程中，越来越多的人遵循自己集团的信息，事实和道德真理越来越失去分量<a
+href="#refer-anchor-3"><sup>3</sup></a>。</p>
 <p>我想在保持对宏大叙事敬畏之心的同时，顺应自己内心的好奇，在更抽象和切实的维度对当下的极化寻求某种解释或安慰。是哪些力量塑造了极化，广泛的极化表现在哪些领域（或者说极化在哪些领域更容易被观察到），以及这种极化将如何驱动世界。</p>
-<h3 id="1-极化世界如何可能"><a href="#1-极化世界如何可能" class="headerlink" title="1. 极化世界如何可能"></a>1. 极化世界如何可能</h3><h4 id="1-1-信息茧房"><a href="#1-1-信息茧房" class="headerlink" title="1.1 信息茧房"></a>1.1 信息茧房</h4><p>网络中相对无监督的自由给了人们充分表达的权利，一个理所当然的推论是：在自由环境中，人们各抒己见，允许不同观点同时存在，百花齐放百家争鸣。但奇怪的是，过去一段时间常常可以观察到国内外媒体上充斥着的特朗普式的胡言乱语，不同立场间的对话变得愈加困难，人们在多元开放的网络文化中构建着二元对立。似乎，和而不同的状态，只在互联网早期的蛮荒时代发生。</p>
+<h3 id="极化世界如何可能">1. 极化世界如何可能</h3>
+<h4 id="信息茧房">1.1 信息茧房</h4>
+<p>网络中相对无监督的自由给了人们充分表达的权利，一个理所当然的推论是：在自由环境中，人们各抒己见，允许不同观点同时存在，百花齐放百家争鸣。但奇怪的是，过去一段时间常常可以观察到国内外媒体上充斥着的特朗普式的胡言乱语，不同立场间的对话变得愈加困难，人们在多元开放的网络文化中构建着二元对立。似乎，和而不同的状态，只在互联网早期的蛮荒时代发生。</p>
 <p>有相当多的声音将网络意见的极化归因于信息茧房效应。</p>
-<p>这两天腾讯副总裁的“猪食论”引起了很多关注，因为冠以AI之名的个性算法分发，“你喜欢猪食，看到的就全是猪食”。这是信息茧房接地气的表达。人们对某一类内容看得越多，相似内容被推荐得越多，以下滑屏幕的方式，人们生成单向时光机和信息牢笼。基于推特、Facebook等媒体用户的研究显示，人们倾向于关注特定的叙述并加入两极分化的群体<a href="#refer-anchor-4"><sup>4-</sup></a><a href="#refer-anchor-5"><sup>5</sup></a>。用户基于社交媒体展示的喜好被精确捕捉，并进一步被投喂。</p>
-<h4 id="1-2-非完全竞争下的数字赋权"><a href="#1-2-非完全竞争下的数字赋权" class="headerlink" title="1.2 非完全竞争下的数字赋权"></a>1.2 非完全竞争下的数字赋权</h4><p>个体可以在互联网上相对自由地发声，但人们获取信息的基础却是不平等的、不同群体的声量亦是不平等的。在排序算法加持下，点赞多的声音排在前列。为了进一步迎合算法，语不惊人死不休，事实被进一步加工。二手的、简化的、倾向性的叙事吸引了大批拥趸，而数字赋权使个体不甘于平庸与被安排，于是不同群体聚集在不同的意见之下，形成网络世界地标。讽刺的是，这常常给人一种，从此岸到彼岸的虚幻认同感。</p>
+<p>这两天腾讯副总裁的“猪食论”引起了很多关注，因为冠以AI之名的个性算法分发，“你喜欢猪食，看到的就全是猪食”。这是信息茧房接地气的表达。人们对某一类内容看得越多，相似内容被推荐得越多，以下滑屏幕的方式，人们生成单向时光机和信息牢笼。基于推特、Facebook等媒体用户的研究显示，人们倾向于关注特定的叙述并加入两极分化的群体<a
+href="#refer-anchor-4"><sup>4-</sup></a><a
+href="#refer-anchor-5"><sup>5</sup></a>。用户基于社交媒体展示的喜好被精确捕捉，并进一步被投喂。</p>
+<h4 id="非完全竞争下的数字赋权">1.2 非完全竞争下的数字赋权</h4>
+<p>个体可以在互联网上相对自由地发声，但人们获取信息的基础却是不平等的、不同群体的声量亦是不平等的。在排序算法加持下，点赞多的声音排在前列。为了进一步迎合算法，语不惊人死不休，事实被进一步加工。二手的、简化的、倾向性的叙事吸引了大批拥趸，而数字赋权使个体不甘于平庸与被安排，于是不同群体聚集在不同的意见之下，形成网络世界地标。讽刺的是，这常常给人一种，从此岸到彼岸的虚幻认同感。</p>
 <p>这种不均衡的数字赋权似乎在中文互联网更容易被观察到。</p>
 <p>网络并不是平的，相反，它是由山峰堆叠的世界。</p>
-<h4 id="1-3-公民科学的消亡"><a href="#1-3-公民科学的消亡" class="headerlink" title="1.3 公民科学的消亡"></a>1.3 公民科学的消亡</h4><p>现代科学的发展至今不过400余年，指数化的技术进步是现实幂律的倒影。由于学科的分化与深化，逻辑实证主义与实验室精密实验的范式使科学研究越来越成为圈子里的游戏，以致于有科学家无奈地问到：公民科学死了吗？<a href="#refer-anchor-6"><sup>6</sup></a>（Is Citizen Science Dead?）在社会科学研究中，公众越来越样本化，对代表性的普遍追逐必然造就忽视与偏见。</p>
+<h4 id="公民科学的消亡">1.3 公民科学的消亡</h4>
+<p>现代科学的发展至今不过400余年，指数化的技术进步是现实幂律的倒影。由于学科的分化与深化，逻辑实证主义与实验室精密实验的范式使科学研究越来越成为圈子里的游戏，以致于有科学家无奈地问到：公民科学死了吗？<a
+href="#refer-anchor-6"><sup>6</sup></a>（Is Citizen Science
+Dead?）在社会科学研究中，公众越来越样本化，对代表性的普遍追逐必然造就忽视与偏见。</p>
 <p>逻辑实证主义的优势是可复制性，但这种可复制性也成为了易复制性，导致学术的虚假繁荣。在同行评审机制不健全的情况下，易复制性使初学者以及一些不得志的中老年学者进行着重复的、流水线式的科研工作，大量的论文被冠以相似的标题。这抑制了多样化。</p>
 <p>学科分化还导致了百科全书式学者的消亡，以及，加重了科普工作难度。数学是唯一精确的语言，然而科普工作者不得不以具象化的方式向大众解释研究成果，这容易导致“以形补形”式的荒诞。</p>
-<h4 id="1-4-广泛的不平等加剧"><a href="#1-4-广泛的不平等加剧" class="headerlink" title="1.4 广泛的不平等加剧"></a>1.4 广泛的不平等加剧</h4><p>在一系列制度安排下，广泛的不平等正在加剧。资本主义常被认为是一系列不平等的根源。由于资本扩张的本性，骑手被困在系统里、开发人员的命运与快递员紧密相连。人们享受了资本主义带来的便利与繁华，那些外卖员、快递员、菜场工作人员、清洁工、建筑工人、农民构筑了“便利”体系的底层。在体系形成后，精英们以一系列正式制度、非正式制度和治理结构，维护着它。这种不平等是一部分人幸福的来源。</p>
+<h4 id="广泛的不平等加剧">1.4 广泛的不平等加剧</h4>
+<p>在一系列制度安排下，广泛的不平等正在加剧。资本主义常被认为是一系列不平等的根源。由于资本扩张的本性，骑手被困在系统里、开发人员的命运与快递员紧密相连。人们享受了资本主义带来的便利与繁华，那些外卖员、快递员、菜场工作人员、清洁工、建筑工人、农民构筑了“便利”体系的底层。在体系形成后，精英们以一系列正式制度、非正式制度和治理结构，维护着它。这种不平等是一部分人幸福的来源。</p>
 <p>资本主义的体系下，资本的回报远高于劳动的回报，这导致了广泛的收入不平等。</p>
 <p>收入不平等是一系列不公平的后果，同时进一步塑造了不平等。这种不平等体现在住房、教育、医疗、养老，甚至包括死亡方面。</p>
 <p>收入的不平等是广泛发生的，然而为何，在最近的中国，才被广泛提起？</p>
-<p>大流行可能加剧了这一不平等。在过去，尽管群体间收入差距持续扩大，但总体而言，两个群体的状态都在进步中。在大流行的背景下，一系列政策使得富人的财富通胀，而穷人的”财产”通货紧缩。</p>
-<img src="https://cdn.jsdelivr.net/gh/yuzhangnju/image/img/image-20210605223149706.png" srcset="/img/loading.gif" lazyload alt="image-20210605223149706" style="zoom:80%;" />
-
+<p>大流行可能加剧了这一不平等。在过去，尽管群体间收入差距持续扩大，但总体而言，两个群体的状态都在进步中。在大流行的背景下，一系列政策使得富人的财富通胀，而穷人的"财产"通货紧缩。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/yuzhangnju/image/img/image-20210605223149706.png" srcset="/img/loading.gif" lazyload alt="image-20210605223149706" style="zoom:80%;" /></p>
 <blockquote>
 <p>上图中，左图表示惯常状态下不同群体的财富变化，尽管差距在不断扩大，但两个群体都获得了财富改善。而在大流行的背景下（右图），富人的财富经历了进一步增值，而穷人的处于停滞或者恶化状态。恶化加剧了极化。</p>
 </blockquote>
 <p>然而以上所有的解释可能只是二阶的或N阶的，它没有提供对极化世界的本质回答。</p>
-<h3 id="2-极化世界观察"><a href="#2-极化世界观察" class="headerlink" title="2. 极化世界观察"></a>2. 极化世界观察</h3><h4 id="2-1-语言的腐败与贫困"><a href="#2-1-语言的腐败与贫困" class="headerlink" title="2.1 语言的腐败与贫困"></a>2.1 语言的腐败与贫困</h4><p>在极化的世界中，人们无法满足于平和的交流，常规语言的情感阈值过低，大量的标签话、抽象话被发明出来。</p>
+<h3 id="极化世界观察">2. 极化世界观察</h3>
+<h4 id="语言的腐败与贫困">2.1 语言的腐败与贫困</h4>
+<p>在极化的世界中，人们无法满足于平和的交流，常规语言的情感阈值过低，大量的标签话、抽象话被发明出来。</p>
 <p>一个例子是传统公共知识分子的陨落。从“公共知识分子”到“公知”，词汇的简化暗含了背后民众情感的简单化。“就这？”、“不会吧”，还有一大堆表情构成的抽象话，大众行使着语言暴力。以阴阳怪气式的幽默，人们消解着传统的民间权威，然而这种解构也进一步塑造了分歧。</p>
 <p>聚集在算法之下，点赞数排名靠前的评论更容易被看到。这些评论常常像一种政治米姆，以极快的速度扩散，并塑造着日常语言的藩篱。话语的单一化与极化导致了语言的腐败与贫困。</p>
-<h4 id="2-2-左的兴起"><a href="#2-2-左的兴起" class="headerlink" title="2.2 左的兴起"></a>2.2 左的兴起</h4><p>当早期公共知识分子传播的美好想象没有得到实现时，他们被打倒，另一批声音占据主流叙事。历史事件表明，这种声音常常是左的声音。在广泛的极化下，左的声量逐渐升高。</p>
+<h4 id="左的兴起">2.2 左的兴起</h4>
+<p>当早期公共知识分子传播的美好想象没有得到实现时，他们被打倒，另一批声音占据主流叙事。历史事件表明，这种声音常常是左的声音。在广泛的极化下，左的声量逐渐升高。</p>
 <p>在中文互联网上，知乎、豆瓣、微博，都可以发现，对资本的批判成为主流。人民富豪及时抛出了996福报论，成为资本的代言人，也成为了这一轮思潮批判的靶心。在B站，关于伟大导师们的视频越来越多。革命时期的话语、意象被频繁提起，路灯成了紧俏品。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/yuzhangnju/image/img/image-20210605214600555.png" srcset="/img/loading.gif" lazyload alt="image-20210605214600555"></p>
-<h3 id="三、极化世界如何终结"><a href="#三、极化世界如何终结" class="headerlink" title="三、极化世界如何终结"></a>三、极化世界如何终结</h3><p>这一轮的极化将如何收场呢？是传统上马尔萨斯循环的终结点吗？以瘟疫、饥荒、战争的形式重启世界？还是以某种改良，提升共同话语与可对话空间？大众可以期待技术爆炸拯救一切吗？</p>
+<figure>
+<img
+src="https://cdn.jsdelivr.net/gh/yuzhangnju/image/img/image-20210605214600555.png" srcset="/img/loading.gif" lazyload
+alt="image-20210605214600555" />
+<figcaption aria-hidden="true">image-20210605214600555</figcaption>
+</figure>
+<h3 id="三极化世界如何终结">三、极化世界如何终结</h3>
+<p>这一轮的极化将如何收场呢？是传统上马尔萨斯循环的终结点吗？以瘟疫、饥荒、战争的形式重启世界？还是以某种改良，提升共同话语与可对话空间？大众可以期待技术爆炸拯救一切吗？</p>
 <p>References:</p>
-<div id="refer-anchor-1"></div>
-- [1] Xie, Y., & Zhou, X. (2014). Income inequality in today’s China. *Proceedings of the National Academy of Sciences of the United States of America*, *111*(19), 6928–6933. https://doi.org/10.1073/pnas.1403158111.
-<div id="refer-anchor-2"></div>
-- [2] Nielsen, M. W., & Andersen, J. P. (2021). Global citation inequality is on the rise. *Proceedings of the National Academy of Sciences of the United States of America*, *118*(7), 1–10. https://doi.org/10.1073/pnas.2012208118.
-<div id="refer-anchor-3"></div>
-- [3] https://en.wikipedia.org/wiki/Political_polarization.
-<div id="refer-anchor-4"></div>
-- [4] Schmidt, A. L., Zollo, F., Vicario, M. Del, Bessi, A., Scala, A., Caldarelli, G., Stanley, H. E., & Quattrociocchi, W. (2017). Anatomy of news consumption on Facebook. *Proceedings of the National Academy of Sciences of the United States of America*, *114*(12), 3035–3039. https://doi.org/10.1073/pnas.1617052114.
-<div id="refer-anchor-5"></div>
-- [5] Conover, M., Ratkiewicz, J., Francisco, M., Gonçalves, B., Menczer, F., & Flammini, A. (2011). Political polarization on twitter. *Proceedings of the International AAAI Conference on Web and Social Media*, *5*(1).https://www.aaai.org/ocs/index.php/ICWSM/ICWSM11/paper/viewFile/2847/3275.
-<div id="refer-anchor-6"></div>
-- [6] Lowry, C. S., & Stepenuck, K. F. (2021). Is Citizen Science Dead? *Environmental Science & Technology*, *55*(8), 4194–4196. https://doi.org/10.1021/acs.est.0c07873.
+<div id="refer-anchor-1">
 
+</div>
+<ul>
+<li>[1] Xie, Y., &amp; Zhou, X. (2014). Income inequality in today’s
+China. <em>Proceedings of the National Academy of Sciences of the United
+States of America</em>, <em>111</em>(19), 6928–6933.
+https://doi.org/10.1073/pnas.1403158111.
+<div id="refer-anchor-2">
+
+</div></li>
+<li>[2] Nielsen, M. W., &amp; Andersen, J. P. (2021). Global citation
+inequality is on the rise. <em>Proceedings of the National Academy of
+Sciences of the United States of America</em>, <em>118</em>(7), 1–10.
+https://doi.org/10.1073/pnas.2012208118.
+<div id="refer-anchor-3">
+
+</div></li>
+<li>[3] https://en.wikipedia.org/wiki/Political_polarization.
+<div id="refer-anchor-4">
+
+</div></li>
+<li>[4] Schmidt, A. L., Zollo, F., Vicario, M. Del, Bessi, A., Scala,
+A., Caldarelli, G., Stanley, H. E., &amp; Quattrociocchi, W. (2017).
+Anatomy of news consumption on Facebook. <em>Proceedings of the National
+Academy of Sciences of the United States of America</em>,
+<em>114</em>(12), 3035–3039. https://doi.org/10.1073/pnas.1617052114.
+<div id="refer-anchor-5">
+
+</div></li>
+<li>[5] Conover, M., Ratkiewicz, J., Francisco, M., Gonçalves, B.,
+Menczer, F., &amp; Flammini, A. (2011). Political polarization on
+twitter. <em>Proceedings of the International AAAI Conference on Web and
+Social Media</em>,
+<em>5</em>(1).https://www.aaai.org/ocs/index.php/ICWSM/ICWSM11/paper/viewFile/2847/3275.
+<div id="refer-anchor-6">
+
+</div></li>
+<li>[6] Lowry, C. S., &amp; Stepenuck, K. F. (2021). Is Citizen Science
+Dead? <em>Environmental Science &amp; Technology</em>, <em>55</em>(8),
+4194–4196. https://doi.org/10.1021/acs.est.0c07873.</li>
+</ul>
 
                 
               </div>
@@ -472,8 +519,6 @@
   
 
 
-
-  
 
 
   
@@ -671,8 +716,6 @@
   });
 </script>
 
-
-  <script>Fluid.plugins.imageCaption();</script>
 
   
       <script>

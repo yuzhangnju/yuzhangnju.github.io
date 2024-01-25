@@ -72,7 +72,7 @@
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
     Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"yuzhang.net","root":"/","version":"1.9.7","typing":{"enable":true,"typeSpeed":100,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml","include_content_in_search":true};
+    var CONFIG = {"hostname":"yuzhang.net","root":"/","version":"1.9.7","typing":{"enable":true,"typeSpeed":100,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":false},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml","include_content_in_search":true};
 
     if (CONFIG.web_analytics.follow_dnt) {
       var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
@@ -276,86 +276,86 @@
             
               <div class="markdown-body">
                 
-                <h3 id="1-赋值"><a href="#1-赋值" class="headerlink" title="1.赋值"></a>1.赋值</h3><h4 id="1-1基础"><a href="#1-1基础" class="headerlink" title="1.1基础"></a>1.1基础</h4><p>matlab中，可以用类似于python中的方法赋值，不需要宣告，如：</p>
+                <h3 id="赋值">1.赋值</h3>
+<h4 id="基础">1.1基础</h4>
+<p>matlab中，可以用类似于python中的方法赋值，不需要宣告，如：</p>
 <figure class="highlight abnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs abnf"><span class="hljs-attribute">A</span><span class="hljs-operator">=</span><span class="hljs-number">10</span> 将<span class="hljs-number">10</span>赋值给A<br></code></pre></td></tr></table></figure>
-
 <p>Note：赋值时，代数区分大小写；变量只能以字母开头，不能以数字开头（如2A）</p>
-<h4 id="1-2数据类型"><a href="#1-2数据类型" class="headerlink" title="1.2数据类型"></a>1.2数据类型</h4><p>默认是双精度（double）</p>
+<h4 id="数据类型">1.2数据类型</h4>
+<p>默认是双精度（double）</p>
 <p>命令：who（输出已有变量） 和 whos（输出已有变量及数据类型）</p>
-<h4 id="1-3MATLAB关键字"><a href="#1-3MATLAB关键字" class="headerlink" title="1.3MATLAB关键字"></a>1.3MATLAB关键字</h4><figure class="highlight makefile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs makefile">ans<br><span class="hljs-section">i,j: complex number</span><br><span class="hljs-section">Inf: ∞</span><br><span class="hljs-section">eps: 2.2204e-016   极小数</span><br><span class="hljs-section">NaN: not a number</span><br><span class="hljs-section">pi: π</span><br></code></pre></td></tr></table></figure>
-
-<p>To list keywords：</p>
-<figure class="highlight autoit"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs autoit"><span class="hljs-built_in">iskeyword</span><br></code></pre></td></tr></table></figure>
-
+<h4 id="matlab关键字">1.3MATLAB关键字</h4>
+<figure class="highlight makefile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs makefile">ans<br><span class="hljs-section">i,j: complex number</span><br><span class="hljs-section">Inf: ∞</span><br><span class="hljs-section">eps: 2.2204e-016   极小数</span><br><span class="hljs-section">NaN: not a number</span><br><span class="hljs-section">pi: π</span><br></code></pre></td></tr></table></figure>
+<p>To list keywords： <figure class="highlight autoit"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs autoit"><span class="hljs-built_in">iskeyword</span><br></code></pre></td></tr></table></figure></p>
 <p>一般不允许关键词被赋值，不要将keyword赋值成变量</p>
 <p>不当赋值举例：</p>
 <figure class="highlight 1c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs 1c"><span class="hljs-built_in">cos</span>=&#x27;This string.&#x27;;<br><span class="hljs-built_in">cos</span>(<span class="hljs-number">8</span>)<br></code></pre></td></tr></table></figure>
-
 <p>输出的是“This string”的第八个字符（计入空格）</p>
 <p>clear cos 可以清除cos这个var</p>
-<p>MATLAB变量优先级如下：  Calling priority</p>
-<img src="https://i.loli.net/2020/07/26/DmCEwXe3icxt5J6.png" srcset="/img/loading.gif" lazyload style="zoom:50%;" />
-
-<h4 id="1-4更改显示格式-format"><a href="#1-4更改显示格式-format" class="headerlink" title="1.4更改显示格式 format"></a>1.4更改显示格式 format</h4><p><img src="https://i.loli.net/2020/07/26/iTd9sRFmQwLnYKW.png" srcset="/img/loading.gif" lazyload></p>
+<p>MATLAB变量优先级如下： Calling priority</p>
+<p><img src="https://i.loli.net/2020/07/26/DmCEwXe3icxt5J6.png" srcset="/img/loading.gif" lazyload style="zoom:50%;" /></p>
+<h4 id="更改显示格式-format">1.4更改显示格式 format</h4>
+<p><img src="https://i.loli.net/2020/07/26/iTd9sRFmQwLnYKW.png" srcset="/img/loading.gif" lazyload /></p>
 <figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs livecodeserver"><span class="hljs-literal">pi</span><br><span class="hljs-number">3.1416</span><br><br><span class="hljs-built_in">format</span> <span class="hljs-keyword">long</span><br><span class="hljs-number">3.141592653589793</span><br></code></pre></td></tr></table></figure>
-
-<h4 id="1-5一些小命令"><a href="#1-5一些小命令" class="headerlink" title="1.5一些小命令"></a>1.5一些小命令</h4><figure class="highlight makefile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs makefile">; 命令的结果后面加分号，不显示运算结果<br><span class="hljs-section">↑:展示上一条命令，同理↓</span><br><span class="hljs-section">clc: 清空命令窗口</span><br><span class="hljs-section">clear: 清空workspace（工作区）</span><br><span class="hljs-section">who: variables in the workspace</span><br><span class="hljs-section">whos: variable information of the workspace</span><br></code></pre></td></tr></table></figure>
-
-<h3 id="2-Array：输入矩阵matrix或向量vector"><a href="#2-Array：输入矩阵matrix或向量vector" class="headerlink" title="2.Array：输入矩阵matrix或向量vector"></a>2.Array：输入矩阵matrix或向量vector</h3><h4 id="2-1向量输入"><a href="#2-1向量输入" class="headerlink" title="2.1向量输入"></a>2.1向量输入</h4><p>横向量row：</p>
+<h4 id="一些小命令">1.5一些小命令</h4>
+<figure class="highlight makefile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs makefile">; 命令的结果后面加分号，不显示运算结果<br><span class="hljs-section">↑:展示上一条命令，同理↓</span><br><span class="hljs-section">clc: 清空命令窗口</span><br><span class="hljs-section">clear: 清空workspace（工作区）</span><br><span class="hljs-section">who: variables in the workspace</span><br><span class="hljs-section">whos: variable information of the workspace</span><br></code></pre></td></tr></table></figure>
+<h3
+id="array输入矩阵matrix或向量vector">2.Array：输入矩阵matrix或向量vector</h3>
+<h4 id="向量输入">2.1向量输入</h4>
+<p>横向量row：</p>
 <figure class="highlight abnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs abnf"><span class="hljs-attribute">a</span> <span class="hljs-operator">=</span> [<span class="hljs-number">1</span> <span class="hljs-number">2</span> <span class="hljs-number">3</span> <span class="hljs-number">4</span>]<br></code></pre></td></tr></table></figure>
-
 <p>列向量column：</p>
 <figure class="highlight abnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs abnf"><span class="hljs-attribute">b</span> <span class="hljs-operator">=</span> [<span class="hljs-number">1</span><span class="hljs-comment">; 2; 3; 4]</span><br></code></pre></td></tr></table></figure>
-
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs css">试试看<span class="hljs-selector-tag">a</span>*<span class="hljs-selector-tag">b</span> 与 <span class="hljs-selector-tag">b</span>*<span class="hljs-selector-tag">a</span><br></code></pre></td></tr></table></figure>
-
-<h4 id="2-2矩阵输入-semicolon-分号"><a href="#2-2矩阵输入-semicolon-分号" class="headerlink" title="2.2矩阵输入 semicolon 分号"></a>2.2矩阵输入 semicolon 分号</h4><figure class="highlight abnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs abnf"><span class="hljs-attribute">A</span> <span class="hljs-operator">=</span> [<span class="hljs-number">1</span> <span class="hljs-number">2</span> <span class="hljs-number">3</span><span class="hljs-comment">; 4 5 6; 7 8 9]</span><br></code></pre></td></tr></table></figure>
-
+<h4 id="矩阵输入-semicolon-分号">2.2矩阵输入 semicolon 分号</h4>
+<figure class="highlight abnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs abnf"><span class="hljs-attribute">A</span> <span class="hljs-operator">=</span> [<span class="hljs-number">1</span> <span class="hljs-number">2</span> <span class="hljs-number">3</span><span class="hljs-comment">; 4 5 6; 7 8 9]</span><br></code></pre></td></tr></table></figure>
 <p>index 索引出矩阵或向量中特定位置的数：变量+括号，A(5)</p>
 <p><strong>列为主向量</strong></p>
 <p>方法一： A（row, column） 即指定行数、列数，如A(3,2)，输出8</p>
 <p>方法二：列为主向量：A（8），从上到下，从左到右数第八个数</p>
 <figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">A</span>(<span class="hljs-number">8</span>)<br><span class="hljs-attribute">A</span>([<span class="hljs-number">1</span> <span class="hljs-number">3</span> <span class="hljs-number">5</span>])<br><span class="hljs-attribute">A</span>([<span class="hljs-number">1</span> <span class="hljs-number">3</span>; <span class="hljs-number">1</span> <span class="hljs-number">4</span>]) 第一行为第<span class="hljs-number">1</span>、<span class="hljs-number">3</span>个数，第二行为第<span class="hljs-number">1</span>、<span class="hljs-number">4</span>个数<br><span class="hljs-attribute">A</span>(<span class="hljs-number">3</span>,<span class="hljs-number">2</span>)  第三行第二个数<br><span class="hljs-attribute">A</span>([<span class="hljs-number">1</span> <span class="hljs-number">3</span>],<span class="hljs-meta"> [1 3])   取交集，前为row，后为column，一三行与一三列的交集</span><br></code></pre></td></tr></table></figure>
-
 <p>可以用上面的方法给已生成的矩阵中的元素赋值（替换数值）</p>
-<p><img src="https://i.loli.net/2020/07/27/fOmonwGxeLu5qJt.png" srcset="/img/loading.gif" lazyload></p>
-<img src="https://i.loli.net/2020/07/27/BDEmqih8klGrNgO.png" srcset="/img/loading.gif" lazyload style="zoom: 33%;" />
-
+<p><img src="https://i.loli.net/2020/07/27/fOmonwGxeLu5qJt.png" srcset="/img/loading.gif" lazyload /></p>
+<p><img src="https://i.loli.net/2020/07/27/BDEmqih8klGrNgO.png" srcset="/img/loading.gif" lazyload style="zoom: 33%;" /></p>
 <p>妙用交集：</p>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs css"><span class="hljs-selector-tag">A</span>(<span class="hljs-selector-attr">[1 2]</span>, <span class="hljs-selector-attr">[1 2 3]</span>)<br></code></pre></td></tr></table></figure>
-
 <p>也可以：</p>
 <figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs stylus"><span class="hljs-function"><span class="hljs-title">A</span><span class="hljs-params">(<span class="hljs-number">3</span>,:)</span></span>  表示第三行<br><span class="hljs-function"><span class="hljs-title">A</span><span class="hljs-params">(<span class="hljs-number">3</span>,:)</span></span> = <span class="hljs-selector-attr">[]</span>  将第三行删去<br></code></pre></td></tr></table></figure>
-
 <p>同理，可以用此法增删列！</p>
-<h4 id="2-3Colon-Operator"><a href="#2-3Colon-Operator" class="headerlink" title="2.3Colon Operator"></a>2.3Colon Operator</h4><figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs ini"><span class="hljs-attr">a</span> = [<span class="hljs-number">1</span>:<span class="hljs-number">100</span>]   输入a为<span class="hljs-number">1</span>-<span class="hljs-number">100</span>的行向量,其实就是差距为<span class="hljs-number">1</span><br><span class="hljs-attr">a</span> = [<span class="hljs-number">1</span>:<span class="hljs-number">2</span>:<span class="hljs-number">99</span>]  输入<span class="hljs-number">1</span>-<span class="hljs-number">99</span>之间的奇数，第一个数为一，间隔为<span class="hljs-number">2</span>的等差数列<br></code></pre></td></tr></table></figure>
-
+<h4 id="colon-operator">2.3Colon Operator</h4>
+<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs ini"><span class="hljs-attr">a</span> = [<span class="hljs-number">1</span>:<span class="hljs-number">100</span>]   输入a为<span class="hljs-number">1</span>-<span class="hljs-number">100</span>的行向量,其实就是差距为<span class="hljs-number">1</span><br><span class="hljs-attr">a</span> = [<span class="hljs-number">1</span>:<span class="hljs-number">2</span>:<span class="hljs-number">99</span>]  输入<span class="hljs-number">1</span>-<span class="hljs-number">99</span>之间的奇数，第一个数为一，间隔为<span class="hljs-number">2</span>的等差数列<br></code></pre></td></tr></table></figure>
 <p>语法如下：</p>
 <figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs mipsasm"><span class="hljs-keyword">j:k </span>→ [<span class="hljs-keyword">j, </span><span class="hljs-keyword">j+1, </span><span class="hljs-keyword">j+2,..., </span><span class="hljs-keyword">j+m]</span><br><span class="hljs-keyword"></span><span class="hljs-keyword">j:i:k </span>→ [<span class="hljs-keyword">j, </span><span class="hljs-keyword">j+i, </span><span class="hljs-keyword">j+2i, </span>..., <span class="hljs-keyword">j+m*i]</span><br></code></pre></td></tr></table></figure>
-
 <p>也可以混用：</p>
 <figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ini"><span class="hljs-attr">B</span> = [<span class="hljs-number">1</span>:<span class="hljs-number">5</span><span class="hljs-comment">; 2:3:15; -2:0.5:0]</span><br></code></pre></td></tr></table></figure>
-
-<img src="https://i.loli.net/2020/07/27/LOKIDqa7npTFieU.png" srcset="/img/loading.gif" lazyload style="zoom: 50%;" />
-
+<p><img src="https://i.loli.net/2020/07/27/LOKIDqa7npTFieU.png" srcset="/img/loading.gif" lazyload style="zoom: 50%;" /></p>
 <p>也可以输出有规律的字符串：</p>
 <figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ini"><span class="hljs-attr">a</span> = <span class="hljs-string">&#x27;a&#x27;</span>:<span class="hljs-number">2</span>:<span class="hljs-string">&#x27;z&#x27;</span><br></code></pre></td></tr></table></figure>
-
-<h4 id="2-4矩阵增减"><a href="#2-4矩阵增减" class="headerlink" title="2.4矩阵增减"></a>2.4矩阵增减</h4><figure class="highlight abnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs abnf"><span class="hljs-attribute">A</span><span class="hljs-operator">=</span>[<span class="hljs-number">1</span> <span class="hljs-number">2</span><span class="hljs-comment">; 3 4]</span><br><span class="hljs-attribute">B</span><span class="hljs-operator">=</span>[<span class="hljs-number">9</span> <span class="hljs-number">9</span><span class="hljs-comment">; 9 9]</span><br><span class="hljs-attribute">F</span><span class="hljs-operator">=</span>[A B]  横向相加  <br><span class="hljs-attribute">F</span><span class="hljs-operator">=</span>[A<span class="hljs-comment">;B]  纵向相接</span><br></code></pre></td></tr></table></figure>
-
-<h4 id="2-5矩阵运算"><a href="#2-5矩阵运算" class="headerlink" title="2.5矩阵运算"></a>2.5矩阵运算</h4><p><img src="https://i.loli.net/2020/07/27/Iedi3gjKkorzpE1.png" srcset="/img/loading.gif" lazyload></p>
-<p><img src="https://i.loli.net/2020/07/27/NRqZtJEPLY5HuDs.png" srcset="/img/loading.gif" lazyload></p>
-<p>注：点乘  . 对应位置相乘;  ‘为转置</p>
+<h4 id="矩阵增减">2.4矩阵增减</h4>
+<figure class="highlight abnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs abnf"><span class="hljs-attribute">A</span><span class="hljs-operator">=</span>[<span class="hljs-number">1</span> <span class="hljs-number">2</span><span class="hljs-comment">; 3 4]</span><br><span class="hljs-attribute">B</span><span class="hljs-operator">=</span>[<span class="hljs-number">9</span> <span class="hljs-number">9</span><span class="hljs-comment">; 9 9]</span><br><span class="hljs-attribute">F</span><span class="hljs-operator">=</span>[A B]  横向相加  <br><span class="hljs-attribute">F</span><span class="hljs-operator">=</span>[A<span class="hljs-comment">;B]  纵向相接</span><br></code></pre></td></tr></table></figure>
+<h4 id="矩阵运算">2.5矩阵运算</h4>
+<p><img src="https://i.loli.net/2020/07/27/Iedi3gjKkorzpE1.png" srcset="/img/loading.gif" lazyload /></p>
+<p><img src="https://i.loli.net/2020/07/27/NRqZtJEPLY5HuDs.png" srcset="/img/loading.gif" lazyload /></p>
+<p>注：点乘 . 对应位置相乘; '为转置</p>
 <figure class="highlight asciidoc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs asciidoc"><span class="hljs-bullet">. </span>点乘<br>&#x27; 转置<br></code></pre></td></tr></table></figure>
-
-<h4 id="2-6特殊矩阵"><a href="#2-6特殊矩阵" class="headerlink" title="2.6特殊矩阵"></a>2.6特殊矩阵</h4><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs stylus"><span class="hljs-function"><span class="hljs-title">linspace</span><span class="hljs-params">()</span></span>: linear spaced vectors<br><span class="hljs-function"><span class="hljs-title">eye</span><span class="hljs-params">(n)</span></span>: n*n identity matrix  单位矩阵<br><span class="hljs-function"><span class="hljs-title">zeros</span><span class="hljs-params">(n1,n2)</span></span>: n1*n2 zero matrix<br><span class="hljs-function"><span class="hljs-title">ones</span><span class="hljs-params">(n1,n2)</span></span>: n1*n2 matrix with every entry as <span class="hljs-number">1</span><br><span class="hljs-function"><span class="hljs-title">diag</span><span class="hljs-params">()</span></span>: diagonal matrix 对角矩阵<br><span class="hljs-function"><span class="hljs-title">rand</span><span class="hljs-params">()</span></span>: uniformly distributed random numbers<br></code></pre></td></tr></table></figure>
-
-<p>linspace(1, 2, 6)  →输出1-2之间的6个等间距矩阵（此处间距为0.2）</p>
+<h4 id="特殊矩阵">2.6特殊矩阵</h4>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs stylus"><span class="hljs-function"><span class="hljs-title">linspace</span><span class="hljs-params">()</span></span>: linear spaced vectors<br><span class="hljs-function"><span class="hljs-title">eye</span><span class="hljs-params">(n)</span></span>: n*n identity matrix  单位矩阵<br><span class="hljs-function"><span class="hljs-title">zeros</span><span class="hljs-params">(n1,n2)</span></span>: n1*n2 zero matrix<br><span class="hljs-function"><span class="hljs-title">ones</span><span class="hljs-params">(n1,n2)</span></span>: n1*n2 matrix with every entry as <span class="hljs-number">1</span><br><span class="hljs-function"><span class="hljs-title">diag</span><span class="hljs-params">()</span></span>: diagonal matrix 对角矩阵<br><span class="hljs-function"><span class="hljs-title">rand</span><span class="hljs-params">()</span></span>: uniformly distributed random numbers<br></code></pre></td></tr></table></figure>
+<p>linspace(1, 2, 6) →输出1-2之间的6个等间距矩阵（此处间距为0.2）</p>
 <p>diag([2 3 4]) →输出对角线为2 3 4的对角矩阵</p>
-<h4 id="2-7Matrix-Function"><a href="#2-7Matrix-Function" class="headerlink" title="2.7Matrix Function"></a>2.7Matrix Function</h4><p>如：<br>$$<br>\begin{equation}       %开始数学环境<br>\left[                 %左括号<br>  \begin{array}{ccc}   %该矩阵一共3列，每一列都居中放置<br>    1 &amp; 2 &amp; 3\  %第一行元素<br>    4 &amp; 5 &amp; 6\  %第二行元素<br>    7 &amp; 8 &amp; 9\  %第三行元素<br>  \end{array}<br>\right]                 %右括号<br>\end{equation}<br>$$</p>
+<h4 id="matrix-function">2.7Matrix Function</h4>
+<p>如： <span class="math display">\[
+\begin{equation}       %开始数学环境
+\left[                 %左括号
+  \begin{array}{ccc}   %该矩阵一共3列，每一列都居中放置
+    1 &amp; 2 &amp; 3\\  %第一行元素
+    4 &amp; 5 &amp; 6\\  %第二行元素
+    7 &amp; 8 &amp; 9\\  %第三行元素
+  \end{array}
+\right]                 %右括号
+\end{equation}
+\]</span></p>
 <figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs stylus"><span class="hljs-function"><span class="hljs-title">max</span><span class="hljs-params">(A)</span></span>  取每一列的最大值<br><span class="hljs-function"><span class="hljs-title">sort</span><span class="hljs-params">(A)</span></span> 将A中的每一列元素按大小排序<br><span class="hljs-function"><span class="hljs-title">max</span><span class="hljs-params">(max((A)</span></span>) 取所有元素的最大值<br><span class="hljs-function"><span class="hljs-title">sortrows</span><span class="hljs-params">(A)</span></span>  默认依据第一列的数值按升序移动每一行，如果第一列的数值有相同的，依次往右比较<br><span class="hljs-function"><span class="hljs-title">min</span><span class="hljs-params">(A)</span></span><br><span class="hljs-function"><span class="hljs-title">size</span><span class="hljs-params">(A)</span></span> 输出矩阵的行数与列数<br><span class="hljs-function"><span class="hljs-title">sum</span><span class="hljs-params">(A)</span></span>  将每一列加总<br><span class="hljs-function"><span class="hljs-title">length</span><span class="hljs-params">(A)</span></span> <br><span class="hljs-function"><span class="hljs-title">mean</span><span class="hljs-params">(A)</span></span>  输出每一列的平均值<br><span class="hljs-function"><span class="hljs-title">find</span><span class="hljs-params">(A)</span></span>  如： <span class="hljs-built_in">find</span>(A==<span class="hljs-number">5</span>)  找到矩阵中的第几个位置为<span class="hljs-number">5</span>，从上到下，从左到右<br></code></pre></td></tr></table></figure>
-
-<p><img src="https://i.loli.net/2020/07/27/nWeo98gz4OhYAPC.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="https://i.loli.net/2020/07/27/nWeo98gz4OhYAPC.png" srcset="/img/loading.gif" lazyload /></p>
 
                 
               </div>
@@ -493,8 +493,6 @@
   
 
 
-
-  
 
 
   
@@ -692,8 +690,6 @@
   });
 </script>
 
-
-  <script>Fluid.plugins.imageCaption();</script>
 
   
       <script>

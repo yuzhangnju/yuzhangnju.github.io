@@ -74,7 +74,7 @@
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
     Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"yuzhang.net","root":"/","version":"1.9.7","typing":{"enable":true,"typeSpeed":100,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml","include_content_in_search":true};
+    var CONFIG = {"hostname":"yuzhang.net","root":"/","version":"1.9.7","typing":{"enable":true,"typeSpeed":100,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":false},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml","include_content_in_search":true};
 
     if (CONFIG.web_analytics.follow_dnt) {
       var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
@@ -278,21 +278,26 @@
             
               <div class="markdown-body">
                 
-                <h4 id="一、引言"><a href="#一、引言" class="headerlink" title="一、引言"></a>一、引言</h4><p>如果社会学科的最终归途是社会科学，那么其经验研究必须经历一场“可信性革命”<a href="#" title="Angrist J D, Pischke J S. The credibility revolution in empirical economics: How better research design is taking the con out of econometrics[J]. Journal of economic perspectives, 2010, 24(2): 3-30."><sup>[1]</sup></a>，即在研究范式上，特别是政策效果评估研究上，向自然科学的实验方法靠拢。但出于伦理要求和研究设计的限制，我们很难严格地选取处理组与控制组进行对照实验，大多数情形下只能利用观测数据而非实验数据进行因果推断。为向“大样本随机双盲对照实验”的黄金判则逼近，社会学科（尤其是经济学）的研究者们基于潜在因果框架开发了一系列“准实验方法”用以进行因果推断，主要有匹配方法、双重差分法、合成控制法和断点回归设计<a href="#" title="赵西亮. 基本有用的计量经济学: 北京大学出版社, 2017."><sup>[2]</sup></a>。</p>
+                <h4 id="一引言">一、引言</h4>
+<p>如果社会学科的最终归途是社会科学，那么其经验研究必须经历一场“可信性革命”<a href="#" title="Angrist J D, Pischke J S. The credibility revolution in empirical economics: How better research design is taking the con out of econometrics[J]. Journal of economic perspectives, 2010, 24(2): 3-30."><sup>[1]</sup></a>，即在研究范式上，特别是政策效果评估研究上，向自然科学的实验方法靠拢。但出于伦理要求和研究设计的限制，我们很难严格地选取处理组与控制组进行对照实验，大多数情形下只能利用观测数据而非实验数据进行因果推断。为向“大样本随机双盲对照实验”的黄金判则逼近，社会学科（尤其是经济学）的研究者们基于潜在因果框架开发了一系列“准实验方法”用以进行因果推断，主要有匹配方法、双重差分法、合成控制法和断点回归设计<a href="#" title="赵西亮. 基本有用的计量经济学: 北京大学出版社, 2017."><sup>[2]</sup></a>。</p>
 <p>遵循着“国外理论→国外验证→国内引进→国内验证”的学术生产基本轨迹，准实验方法在国内日渐流行。且随着知识付费的接受程度越来越高，我们常常可以在一些微信公号的文章页发现抓人眼球的焦虑感制造机式标题，下拉后发现是xx方法的培训课程推广，准实验方法的教学是其中的重要内容，然而这些方法有着严苛的假设条件和检验程序，使用时需要识别可能的因果陷阱。</p>
 <p>下面回到我的老本行，基于一个房地产领域的政策效果评估案例，提出其中可能存在的因果推断陷阱。</p>
-<h4 id="二、案例阐释"><a href="#二、案例阐释" class="headerlink" title="二、案例阐释"></a>二、案例阐释</h4><p>对房产税开征及潜在政策效果的讨论在大陆处于观点争鸣之势，随着2011年上海和重庆成为两个房产税开征试点城市，相关讨论有了实验落脚点。本文选取的案例聚焦于房产税对产业转移的影响<a href="#" title="刘友金,曾小明.房产税对产业转移的影响:来自重庆和上海的经验证据[J].中国工业经济,2018(11):98-116."><sup>[3]</sup></a>，作者重点运用合成控制法对这一复杂效果进行了解析。</p>
+<h4 id="二案例阐释">二、案例阐释</h4>
+<p>对房产税开征及潜在政策效果的讨论在大陆处于观点争鸣之势，随着2011年上海和重庆成为两个房产税开征试点城市，相关讨论有了实验落脚点。本文选取的案例聚焦于房产税对产业转移的影响<a href="#" title="刘友金,曾小明.房产税对产业转移的影响:来自重庆和上海的经验证据[J].中国工业经济,2018(11):98-116."><sup>[3]</sup></a>，作者重点运用合成控制法对这一复杂效果进行了解析。</p>
 <p>（一）Gaps &amp; Issues</p>
 <p>现有研究关注到了房价上升对产业转移的影响，具体而言：</p>
 <p>一种观点认为：</p>
 <blockquote>
-<p>房价上升促使了产业在区域间转移。Rabe and Taylor（2012）、Murphy et al.（2006）等认为房价上涨会抑制劳动力流入，引起企业实际负担的成本增加，对非房地产业产生挤出效应而引发产业转移。高波等（2012）研究发现，在地区间相对工资、交通成本等其他条件不变的情况下，城市相对房价上升，将促使东、中部地区城市低附加值的产业向外转移，高端制造业和第三产业得到相应发展。邵挺和范剑勇（2010）的研究认为，大型城市的房价过快上涨是长三角地区制造业产业转移的重要原因。</p>
+<p>房价上升促使了产业在区域间转移。Rabe and Taylor（2012）、Murphy et
+al.（2006）等认为房价上涨会抑制劳动力流入，引起企业实际负担的成本增加，对非房地产业产生挤出效应而引发产业转移。高波等（2012）研究发现，在地区间相对工资、交通成本等其他条件不变的情况下，城市相对房价上升，将促使东、中部地区城市低附加值的产业向外转移，高端制造业和第三产业得到相应发展。邵挺和范剑勇（2010）的研究认为，大型城市的房价过快上涨是长三角地区制造业产业转移的重要原因。</p>
 </blockquote>
 <p>另一种观点认为：</p>
 <blockquote>
-<p>房价上升对产业转移的影响存在“倒U 型”关系。房价的适度上涨会通过集聚效应促进第二产业和第三产业的发展，过高的房价会对第二产业造成挤出效应，抑制其就业和产出，但与第三产业的就业和产出呈正相关关系（席艳玲，2013）。陈晓和张文杰（2017）的研究也得出类似结论，认为房价对产业转移的影响存在“倒U 型”关系，只有当相对房价超过某一临界值，才会对第二产业的就业产生挤出效应，但对第三产业的就业和产出具有促进作用。</p>
+<p>房价上升对产业转移的影响存在“倒U
+型”关系。房价的适度上涨会通过集聚效应促进第二产业和第三产业的发展，过高的房价会对第二产业造成挤出效应，抑制其就业和产出，但与第三产业的就业和产出呈正相关关系（席艳玲，2013）。陈晓和张文杰（2017）的研究也得出类似结论，认为房价对产业转移的影响存在“倒U
+型”关系，只有当相对房价超过某一临界值，才会对第二产业的就业产生挤出效应，但对第三产业的就业和产出具有促进作用。</p>
 </blockquote>
-<p>以上研究结论并不一致，且并未直接涉及房产税对产业转移作用的讨论，而房产税与企业生产成本及企业投资决策紧密相关。 </p>
+<p>以上研究结论并不一致，且并未直接涉及房产税对产业转移作用的讨论，而房产税与企业生产成本及企业投资决策紧密相关。</p>
 <p>理论上，房产税政策对产业转移的影响主要有两条路径：</p>
 <p>房产税影响企业生产成本：</p>
 <blockquote>
@@ -310,15 +315,39 @@
 </ul>
 <p>（二）Data &amp; methodology</p>
 <p>原文的研究设计如下：</p>
-<p><img src="/img/image-20200423191928778.png" srcset="/img/loading.gif" lazyload alt="image-20200423191928778"></p>
-<p><img src="/img/image-20200423192012884.png" srcset="/img/loading.gif" lazyload alt="image-20200423192012884"></p>
-<p><img src="/img/image-20200423192056896.png" srcset="/img/loading.gif" lazyload alt="image-20200423192056896"></p>
-<p>具体而言：文章的实证目标是用其他城市的加权平均来模拟房产税政策实施城市未征收房产税时的产业转移情况， 然后与征收房产税后真实的产业转移情况进行对比来估计房产税征收对产业转移的影响。作者选取了国家统计局确定的35个大中城市作为样本，其中上海、重庆为处理组，其余33个城市为控制组。</p>
-<p>指标：文章的被解释变量是产业和就业的变动，借鉴前人做法，使用相对产值和相对就业率来衡量产业转移的变化情况，分别用城市工业和服务业（第三产业）的产值或从业人数除以所有样本城市的平均值得到。选取了尽可能多的控制变量，包括相对工资、人均GDP、财政支出占GDP 比重、人口密度、年末金融机构存款余额、医院卫生院床位数、国际互联网用户数。其中，相对工资代表企业的劳动力成本；人均GDP 用来代表城市的劳动生产率；财政支出占GDP 比重表示政府对市场的干预程度；人口密度代表城市产生的集聚效应；年末金融机构存款余额、医院卫生院床位数和国际互联网用户数分别代表城市的金融、医疗卫生情况和信息基础设施情况。</p>
+<figure>
+<img src="/img/image-20200423191928778.png" srcset="/img/loading.gif" lazyload
+alt="image-20200423191928778" />
+<figcaption aria-hidden="true">image-20200423191928778</figcaption>
+</figure>
+<figure>
+<img src="/img/image-20200423192012884.png" srcset="/img/loading.gif" lazyload
+alt="image-20200423192012884" />
+<figcaption aria-hidden="true">image-20200423192012884</figcaption>
+</figure>
+<figure>
+<img src="/img/image-20200423192056896.png" srcset="/img/loading.gif" lazyload
+alt="image-20200423192056896" />
+<figcaption aria-hidden="true">image-20200423192056896</figcaption>
+</figure>
+<p>具体而言：文章的实证目标是用其他城市的加权平均来模拟房产税政策实施城市未征收房产税时的产业转移情况，
+然后与征收房产税后真实的产业转移情况进行对比来估计房产税征收对产业转移的影响。作者选取了国家统计局确定的35个大中城市作为样本，其中上海、重庆为处理组，其余33个城市为控制组。</p>
+<p>指标：文章的被解释变量是产业和就业的变动，借鉴前人做法，使用相对产值和相对就业率来衡量产业转移的变化情况，分别用城市工业和服务业（第三产业）的产值或从业人数除以所有样本城市的平均值得到。选取了尽可能多的控制变量，包括相对工资、人均GDP、财政支出占GDP
+比重、人口密度、年末金融机构存款余额、医院卫生院床位数、国际互联网用户数。其中，相对工资代表企业的劳动力成本；人均GDP
+用来代表城市的劳动生产率；财政支出占GDP
+比重表示政府对市场的干预程度；人口密度代表城市产生的集聚效应；年末金融机构存款余额、医院卫生院床位数和国际互联网用户数分别代表城市的金融、医疗卫生情况和信息基础设施情况。</p>
 <p>数据来源：历年《中国城市统计年鉴》和国家统计局网站。</p>
 <p>（三）Results &amp; Conclusions</p>
-<p><img src="/img/image-20200423193004542.png" srcset="/img/loading.gif" lazyload alt="image-20200423193004542"></p>
-<p><img src="/img/image-20200423193025762.png" srcset="/img/loading.gif" lazyload alt="image-20200423193025762"></p>
+<figure>
+<img src="/img/image-20200423193004542.png" srcset="/img/loading.gif" lazyload
+alt="image-20200423193004542" />
+<figcaption aria-hidden="true">image-20200423193004542</figcaption>
+</figure>
+<figure>
+<img src="/img/image-20200423193025762.png" srcset="/img/loading.gif" lazyload
+alt="image-20200423193025762" />
+<figcaption aria-hidden="true">image-20200423193025762</figcaption>
+</figure>
 <ul>
 <li>在房价水平相对较低、处于工业化中期的重庆开征一定强度的房产税，对工业、服务业的相对产值和相对就业率均具有“促增作用”，这种“促增作用”在统计上具有显著性，在时间上具有持续性，总体表现为有效促进了产业转入；</li>
 <li>在房价已经很高、处于工业化后期的上海开征强度较低的房产税，却降低了工业和服务业的相对产值，增加了服务业的相对就业率，没有改变已经形成的产业转出态势，但也没有达到“腾笼换鸟”的理想预期。</li>
@@ -329,18 +358,32 @@
 <blockquote>
 <p>刘友金,曾小明.房产税对产业转移的影响:来自重庆和上海的经验证据[J].中国工业经济,2018(11):98-116.</p>
 </blockquote>
-<h4 id="三、可能的陷阱解析——政策的长期放置"><a href="#三、可能的陷阱解析——政策的长期放置" class="headerlink" title="三、可能的陷阱解析——政策的长期放置"></a>三、可能的陷阱解析——政策的长期放置</h4><p>（一）房产税对房价的影响确切吗</p>
+<h4
+id="三可能的陷阱解析政策的长期放置">三、可能的陷阱解析——政策的长期放置</h4>
+<p>（一）房产税对房价的影响确切吗</p>
 <p>文章的核心理论为：房产税影响房价进而影响产业变动</p>
-<p><img src="/img/image-20200423194819055.png" srcset="/img/loading.gif" lazyload alt="image-20200423194819055"></p>
+<figure>
+<img src="/img/image-20200423194819055.png" srcset="/img/loading.gif" lazyload
+alt="image-20200423194819055" />
+<figcaption aria-hidden="true">image-20200423194819055</figcaption>
+</figure>
 <p>从作用路径看，<strong>房产税对房价确切的平抑作用</strong>是全文的前提，然而外界对这一前提本身存在诸多质疑。</p>
 <p>若房产税不能有效调节房价？</p>
-<p><img src="/img/image-20200423201805969.png" srcset="/img/loading.gif" lazyload alt="image-20200423201805969"></p>
+<figure>
+<img src="/img/image-20200423201805969.png" srcset="/img/loading.gif" lazyload
+alt="image-20200423201805969" />
+<figcaption aria-hidden="true">image-20200423201805969</figcaption>
+</figure>
 <p>出于技术角度的需要，作者在文章中引用了两条房产税对房价具有抑制作用的文献，但对与此相悖的研究结论选择回避，如房产税对房价的抑制作用具有局限性且预期比房产税对房价影响更大（况伟大等，2012），开征房产税能在短期内降低房价,但是有可能拉高未来长期的房价（王敏等，2013）。</p>
 <p>上述（包括作者引用的文献）关于房产税对房价影响的研究基本在2013年以前完成，处于政策的短期效应内，在2020年回看相关研究，则可能发现既有研究的一些问题。</p>
 <p>对于重庆的样本，本文提出：</p>
 <p><strong>重庆房产税试点对当地房价的短期抑制作用是领导人身份特征作用的代理</strong></p>
 <p>即，真正在短期内抑制房价的不是房产税，而是地区行政长官，我们来看一幅图：</p>
-<p><img src="/img/image-20200423202910621.png" srcset="/img/loading.gif" lazyload alt="image-20200423202910621"></p>
+<figure>
+<img src="/img/image-20200423202910621.png" srcset="/img/loading.gif" lazyload
+alt="image-20200423202910621" />
+<figcaption aria-hidden="true">image-20200423202910621</figcaption>
+</figure>
 <ul>
 <li>2010年起，黄奇帆先生开始任重庆市行政机关一把手</li>
 <li>2011年起，重庆市开启房产税征收试点工作</li>
@@ -362,30 +405,65 @@
 <p>（二）<strong>对合成控制法过程的疑问</strong></p>
 <p>1.<strong>合成素材的数量</strong></p>
 <p>作者认为文章选用的合成控制法，依据多个与实验组结构相似的样本制造控制对象，可以减少主观误差。此处的“多个”为两个或三个，此时，政策时点前的合成易符合实验对象的数据走势，由于合成素材较少且变异性较大，政策试点之后易发生合成对象与实验对象走势出现分歧的现象，少样本的合成，天然有利于处理效应的解释；</p>
-<p><img src="/img/image-20200423205417521.png" srcset="/img/loading.gif" lazyload alt="image-20200423205417521"></p>
+<figure>
+<img src="/img/image-20200423205417521.png" srcset="/img/loading.gif" lazyload
+alt="image-20200423205417521" />
+<figcaption aria-hidden="true">image-20200423205417521</figcaption>
+</figure>
 <p>2.<strong>对合成对象过程疑问</strong></p>
 <p>以文章的图1（a）为例，作者选取了以下变量用于合成虚拟重庆的相对工业总产值：</p>
-<p><img src="/img/image-20200423210259574.png" srcset="/img/loading.gif" lazyload alt="image-20200423210259574"></p>
+<figure>
+<img src="/img/image-20200423210259574.png" srcset="/img/loading.gif" lazyload
+alt="image-20200423210259574" />
+<figcaption aria-hidden="true">image-20200423210259574</figcaption>
+</figure>
 <p>作者提到用来构造实验对象样本的权重由程序选定，相对客观，确实如此，但合成中的变量选定确是主观操作，如，可能人为删除一些变量，改变合成效果</p>
-<p><img src="/img/image-20200423210846348.png" srcset="/img/loading.gif" lazyload alt="image-20200423210846348"></p>
-<p>在删除“工业相对就业率(2006) 工业相对就业率(2008) 工业相对就业率(2010)”三个变量后，发现合成效果变差了，表明可以通过改变用来合成变量调节合成效果。</p>
+<figure>
+<img src="/img/image-20200423210846348.png" srcset="/img/loading.gif" lazyload
+alt="image-20200423210846348" />
+<figcaption aria-hidden="true">image-20200423210846348</figcaption>
+</figure>
+<p>在删除“工业相对就业率(2006) 工业相对就业率(2008)
+工业相对就业率(2010)”三个变量后，发现合成效果变差了，表明可以通过改变用来合成变量调节合成效果。</p>
 <blockquote>
 <p>事实上，如果加入xx变量的滞后项，会较大地提升合成效果。</p>
 </blockquote>
 <p>3.<strong>对安慰剂检验效果的疑问</strong></p>
 <p>在合成对象的合成素材较少且变异性较大，合成过程中可以主观更改用来合成的变量组合的情况下，安慰剂检验的通过似乎是必然的。</p>
-<h4 id="四、总结"><a href="#四、总结" class="headerlink" title="四、总结"></a>四、总结</h4><p>本文仅基于文本和程序过程，对该案例提出可能的疑问，疑问不代表否定。</p>
+<h4 id="四总结">四、总结</h4>
+<p>本文仅基于文本和程序过程，对该案例提出可能的疑问，疑问不代表否定。</p>
 <p>对于这类疑问，将评估对象的政策期延长，或许会得出截然相反的结论。</p>
 <p>准实验方法中的DID、RDD亦存在类似的因果推断陷阱，如再分配效应会高估政策效果，外溢效应会使得政策效果被低估<a href="#" title="范子英.如何科学评估经济政策的效应?[J].财经智库,2018,3(03):42-64+142-143."><sup>[4]</sup></a>。相关截取如下：</p>
-<p><img src="/img/image-20200423212047842.png" srcset="/img/loading.gif" lazyload alt="image-20200423212047842"></p>
-<p><img src="/img/image-20200423212103842.png" srcset="/img/loading.gif" lazyload alt="image-20200423212103842"></p>
-<p><img src="/img/image-20200423212117148.png" srcset="/img/loading.gif" lazyload alt="image-20200423212117148"></p>
-<p><img src="/img/image-20200423212133308.png" srcset="/img/loading.gif" lazyload alt="image-20200423212133308"></p>
+<figure>
+<img src="/img/image-20200423212047842.png" srcset="/img/loading.gif" lazyload
+alt="image-20200423212047842" />
+<figcaption aria-hidden="true">image-20200423212047842</figcaption>
+</figure>
+<figure>
+<img src="/img/image-20200423212103842.png" srcset="/img/loading.gif" lazyload
+alt="image-20200423212103842" />
+<figcaption aria-hidden="true">image-20200423212103842</figcaption>
+</figure>
+<figure>
+<img src="/img/image-20200423212117148.png" srcset="/img/loading.gif" lazyload
+alt="image-20200423212117148" />
+<figcaption aria-hidden="true">image-20200423212117148</figcaption>
+</figure>
+<figure>
+<img src="/img/image-20200423212133308.png" srcset="/img/loading.gif" lazyload
+alt="image-20200423212133308" />
+<figcaption aria-hidden="true">image-20200423212133308</figcaption>
+</figure>
 <p><strong>References</strong></p>
-<p>[1] Angrist J D, Pischke J S. The credibility revolution in empirical economics: How better research design is taking the con out of econometrics[J]. Journal of economic perspectives, 2010, 24(2): 3-30.</p>
+<p>[1] Angrist J D, Pischke J S. The credibility revolution in empirical
+economics: How better research design is taking the con out of
+econometrics[J]. Journal of economic perspectives, 2010, 24(2):
+3-30.</p>
 <p>[2] 赵西亮. 基本有用的计量经济学: 北京大学出版社, 2017.</p>
-<p>[3] 刘友金,曾小明.房产税对产业转移的影响:来自重庆和上海的经验证据[J].中国工业经济,2018(11):98-116.</p>
-<p>[4] 范子英.如何科学评估经济政策的效应?[J].财经智库,2018,3(03):42-64+142-143.</p>
+<p>[3]
+刘友金,曾小明.房产税对产业转移的影响:来自重庆和上海的经验证据[J].中国工业经济,2018(11):98-116.</p>
+<p>[4]
+范子英.如何科学评估经济政策的效应?[J].财经智库,2018,3(03):42-64+142-143.</p>
 
                 
               </div>
@@ -527,8 +605,6 @@
   
 
 
-
-  
 
 
   
@@ -726,8 +802,6 @@
   });
 </script>
 
-
-  <script>Fluid.plugins.imageCaption();</script>
 
   
       <script>

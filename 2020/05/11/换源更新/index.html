@@ -73,7 +73,7 @@
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
     Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"yuzhang.net","root":"/","version":"1.9.7","typing":{"enable":true,"typeSpeed":100,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml","include_content_in_search":true};
+    var CONFIG = {"hostname":"yuzhang.net","root":"/","version":"1.9.7","typing":{"enable":true,"typeSpeed":100,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":false},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml","include_content_in_search":true};
 
     if (CONFIG.web_analytics.follow_dnt) {
       var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
@@ -224,7 +224,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          217 字
+          218 字
         
       </span>
     
@@ -278,15 +278,23 @@
               <div class="markdown-body">
                 
                 <p>先前在同门师兄的介绍下，get了半年阿里云的ECS，但是我的域名没有备案，应该无法使用。此外，阿里云终究是要收费的，故此，寻找一项稳定的博客存储仓库成为刚需。</p>
-<p>简单试用了一下<a target="_blank" rel="noopener" href="https://gitee.com/">码云</a>，可以无缝Fork github仓库，但是，速度很慢很不稳定。搜寻得知vercel平台（原名zeit），服务器据说在台湾，试用了一下，速度很快，最低的延迟只有50ms。</p>
+<p>简单试用了一下<a target="_blank" rel="noopener" href="https://gitee.com/">码云</a>，可以无缝Fork
+github仓库，但是，速度很慢很不稳定。搜寻得知vercel平台（原名zeit），服务器据说在台湾，试用了一下，速度很快，最低的延迟只有50ms。</p>
 <p>vercel具有诸多优点：</p>
 <ul>
 <li>无缝链接github repo，本地deploy之后，vercel能即刻同步</li>
 <li>设置页面简洁、人性化</li>
 <li>免费</li>
 </ul>
-<p>故此，本博客暂存到vercel服务器，但同时保留github page，github.io页面与vercel页面同时定向至<a target="_blank" rel="noopener" href="https://yuzhangnju.me/">yuzhangnju.me</a>。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/yuzhangnju/image2022/img/image-20200511172822078.png" srcset="/img/loading.gif" lazyload alt="image-20200511172822078"></p>
+<p>故此，本博客暂存到vercel服务器，但同时保留github
+page，github.io页面与vercel页面同时定向至<a
+target="_blank" rel="noopener" href="https://yuzhangnju.me/">yuzhangnju.me</a>。</p>
+<figure>
+<img
+src="https://cdn.jsdelivr.net/gh/yuzhangnju/image2022/img/image-20200511172822078.png" srcset="/img/loading.gif" lazyload
+alt="image-20200511172822078" />
+<figcaption aria-hidden="true">image-20200511172822078</figcaption>
+</figure>
 <p>对比github page，优势巨大！</p>
 <p>PS：今晚专卖店四人组，时隔多年再聚首，期待！</p>
 
@@ -428,8 +436,6 @@
   
 
 
-
-  
 
 
   
@@ -627,8 +633,6 @@
   });
 </script>
 
-
-  <script>Fluid.plugins.imageCaption();</script>
 
   
       <script>

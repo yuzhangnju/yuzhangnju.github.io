@@ -72,7 +72,7 @@
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
     Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"yuzhang.net","root":"/","version":"1.9.7","typing":{"enable":true,"typeSpeed":100,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml","include_content_in_search":true};
+    var CONFIG = {"hostname":"yuzhang.net","root":"/","version":"1.9.7","typing":{"enable":true,"typeSpeed":100,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":false},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml","include_content_in_search":true};
 
     if (CONFIG.web_analytics.follow_dnt) {
       var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
@@ -276,132 +276,143 @@
             
               <div class="markdown-body">
                 
-                <h3 id="1-矩阵表达"><a href="#1-矩阵表达" class="headerlink" title="1 矩阵表达"></a>1 矩阵表达</h3><table>
+                <h3 id="矩阵表达">1 矩阵表达</h3>
+<table>
+
 <thead>
-<tr>
+<tr class="header">
 <th></th>
 <th>表达式</th>
 <th>函数功能</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr class="odd">
 <td>1</td>
 <td>A(1)</td>
 <td>将二维矩阵<strong>A</strong>重组为一维数组，返回数组中第一个元素</td>
 </tr>
-<tr>
+<tr class="even">
 <td>2</td>
 <td>A(: , j)</td>
 <td>返回二维矩阵<strong>A</strong>中第 j 列 列向量</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>3</td>
 <td>A( i , :)</td>
 <td>返回二维矩阵<strong>A</strong>中第 i 行 行向量</td>
 </tr>
-<tr>
+<tr class="even">
 <td>4</td>
 <td>A(: , j : k)</td>
-<td>返回二维矩阵<strong>A</strong>中第 j 列到第 k列 列向量组成的子矩阵</td>
+<td>返回二维矩阵<strong>A</strong>中第 j 列到第 k列
+列向量组成的子矩阵</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>5</td>
 <td>A( i : k , :)</td>
-<td>返回二维矩阵<strong>A</strong>中第 i 行到第 k行 行向量组成的子矩阵</td>
+<td>返回二维矩阵<strong>A</strong>中第 i 行到第 k行
+行向量组成的子矩阵</td>
 </tr>
-<tr>
+<tr class="even">
 <td>6</td>
 <td>A( i : k , j : m)</td>
-<td>返回二维矩阵<strong>A</strong>中第 i 行到第 k 行 行向量和第 j 列到第 m 列 列向量的交集组成的子矩阵</td>
+<td>返回二维矩阵<strong>A</strong>中第 i 行到第 k 行 行向量和第 j 列到第
+m 列 列向量的交集组成的子矩阵</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>7</td>
 <td>A(:)</td>
 <td>将二维矩阵<strong>A</strong>中得每列合并成一个列向量</td>
 </tr>
-<tr>
+<tr class="even">
 <td>8</td>
 <td>A( j : k)</td>
 <td>返回一个行向量，其元素为A(:)中的第 j 个元素到第 k 个元素</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>9</td>
 <td>A([ j1 j2…])</td>
 <td>返回一个行向量，其元素为A(:)中的第 j1，j2…个元素</td>
 </tr>
-<tr>
+<tr class="even">
 <td>10</td>
 <td>A(: , [ j1 j2 …])</td>
 <td>返回矩阵<strong>A</strong>的第 j1 列、第 j2 列等的列向量</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>11</td>
 <td>A([ i1 i2 …] : ,)</td>
 <td>返回矩阵<strong>A</strong>的第 i1 行、第 i2 行等的行向量</td>
 </tr>
-<tr>
+<tr class="even">
 <td>12</td>
 <td>A([ i1 i2 …] , [ j1 j2 …])</td>
-<td>返回矩阵<strong>A</strong>的第 j1列、第 j2 列等和矩阵<strong>A</strong>的第 i1 行、第 i2 行等的元素</td>
+<td>返回矩阵<strong>A</strong>的第 j1列、第 j2
+列等和矩阵<strong>A</strong>的第 i1 行、第 i2 行等的元素</td>
 </tr>
-</tbody></table>
-<h3 id="2-单位矩阵和零矩阵"><a href="#2-单位矩阵和零矩阵" class="headerlink" title="2 单位矩阵和零矩阵"></a>2 单位矩阵和零矩阵</h3><table>
+</tbody>
+</table>
+<h3 id="单位矩阵和零矩阵">2 单位矩阵和零矩阵</h3>
+<table>
 <thead>
-<tr>
+<tr class="header">
 <th></th>
 <th>表达式</th>
 <th>函数功能</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr class="odd">
 <td>1</td>
 <td>ones(n)</td>
 <td>建立一个n×n的1矩阵</td>
 </tr>
-<tr>
+<tr class="even">
 <td>2</td>
 <td>ones(m,n,……,p)</td>
 <td>建立一个m×n×……×p的1矩阵</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>3</td>
 <td>ones(size(A))</td>
 <td>建立一个和矩阵A同样大小的1矩阵</td>
 </tr>
-<tr>
+<tr class="even">
 <td>4</td>
 <td>zeros(n)</td>
 <td>建立一个n×n的0矩阵</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>5</td>
 <td>zeros(m,n,……,p)</td>
 <td>建立一个m×n×……×p的0矩阵</td>
 </tr>
-<tr>
+<tr class="even">
 <td>6</td>
 <td>zeros(size(A))</td>
 <td>建立一个和矩阵A同样大小的0矩阵</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>7</td>
 <td>eye(n)</td>
 <td>建立一个n×n的单位矩阵</td>
 </tr>
-<tr>
+<tr class="even">
 <td>8</td>
 <td>eye(m,n)</td>
 <td>建立一个m×n的单位矩阵</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>9</td>
 <td>eye(size(A))</td>
 <td>建立一个和矩阵A同样大小的单位矩阵</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
 <p>Reference：</p>
-<p>1.<a target="_blank" rel="noopener" href="https://blog.csdn.net/zaishuiyifangxym/article/details/81746332">https://blog.csdn.net/zaishuiyifangxym/article/details/81746332</a></p>
-<p>2.<a target="_blank" rel="noopener" href="https://blog.csdn.net/huzhizhewudi/article/details/84404452?depth_1-">https://blog.csdn.net/huzhizhewudi/article/details/84404452?depth_1-</a></p>
+<p>1.https://blog.csdn.net/zaishuiyifangxym/article/details/81746332</p>
+<p>2.https://blog.csdn.net/huzhizhewudi/article/details/84404452?depth_1-</p>
 
                 
               </div>
@@ -539,8 +550,6 @@
   
 
 
-
-  
 
 
   
@@ -738,8 +747,6 @@
   });
 </script>
 
-
-  <script>Fluid.plugins.imageCaption();</script>
 
   
       <script>
