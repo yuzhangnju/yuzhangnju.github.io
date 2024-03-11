@@ -335,9 +335,9 @@
       
       <tag>DID</tag>
       
-      <tag>人类行为</tag>
-      
       <tag>因果推断</tag>
+      
+      <tag>人类行为</tag>
       
       <tag>队列DID</tag>
       
@@ -385,9 +385,9 @@
     
     <tags>
       
-      <tag>因果推断</tag>
-      
       <tag>断点回归</tag>
+      
+      <tag>因果推断</tag>
       
       <tag>RDD</tag>
       
