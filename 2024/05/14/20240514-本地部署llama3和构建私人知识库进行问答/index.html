@@ -14,28 +14,30 @@
   
   <meta name="theme-color" content="#2f4154">
   <meta name="author" content="Yu Zhang">
-  <meta name="keywords" content="RDD, 因果推断, 断点回归">
+  <meta name="keywords" content="Llama, RAG, ChatGPT, Claude, LLM">
   
-    <meta name="description" content="RDD的基本原理及一篇空间断点论文精读，讲述地区行政级别提升的经济价值。">
+    <meta name="description" content="在工业革命到来之前，法国生育转型已经开始，这是与经济发展推动生育转型的观点不同的故事。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="CIT5-断点回归设计基本原理、代码实现与文章解读">
-<meta property="og:url" content="https://yuzhang.net/2023/07/22/CIT5_20230722/index.html">
+<meta property="og:title" content="本地部署Llama3并构建私人知识库进行问答">
+<meta property="og:url" content="https://yuzhang.net/2024/05/14/20240514-%E6%9C%AC%E5%9C%B0%E9%83%A8%E7%BD%B2llama3%E5%92%8C%E6%9E%84%E5%BB%BA%E7%A7%81%E4%BA%BA%E7%9F%A5%E8%AF%86%E5%BA%93%E8%BF%9B%E8%A1%8C%E9%97%AE%E7%AD%94/index.html">
 <meta property="og:site_name" content="Yu&#39;s Space">
-<meta property="og:description" content="RDD的基本原理及一篇空间断点论文精读，讲述地区行政级别提升的经济价值。">
+<meta property="og:description" content="在工业革命到来之前，法国生育转型已经开始，这是与经济发展推动生育转型的观点不同的故事。">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/yuzhangnju/image2022/image-20231107160822109.png">
-<meta property="article:published_time" content="2023-07-22T14:00:00.000Z">
-<meta property="article:modified_time" content="2023-11-07T08:09:02.922Z">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/yuzhangnju/image2024/0*hm4MyR91BqUlZWBT.jpeg">
+<meta property="article:published_time" content="2024-05-14T10:00:00.000Z">
+<meta property="article:modified_time" content="2024-05-13T14:09:08.857Z">
 <meta property="article:author" content="Yu Zhang">
-<meta property="article:tag" content="断点回归">
-<meta property="article:tag" content="因果推断">
-<meta property="article:tag" content="RDD">
+<meta property="article:tag" content="Llama">
+<meta property="article:tag" content="RAG">
+<meta property="article:tag" content="ChatGPT">
+<meta property="article:tag" content="Claude">
+<meta property="article:tag" content="LLM">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/yuzhangnju/image2022/image-20231107160822109.png">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/yuzhangnju/image2024/0*hm4MyR91BqUlZWBT.jpeg">
   
   
   
-  <title>CIT5-断点回归设计基本原理、代码实现与文章解读 - Yu&#39;s Space</title>
+  <title>本地部署Llama3并构建私人知识库进行问答 - Yu&#39;s Space</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -201,7 +203,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="CIT5-断点回归设计基本原理、代码实现与文章解读"></span>
+            <span id="subtitle" data-typed-text="本地部署Llama3并构建私人知识库进行问答"></span>
           
         </div>
 
@@ -212,8 +214,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2023-07-22 22:00" pubdate>
-          2023年7月22日 晚上
+        <time datetime="2024-05-14 18:00" pubdate>
+          2024年5月14日 晚上
         </time>
       </span>
     
@@ -224,7 +226,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          71 字
+          1.4k 字
         
       </span>
     
@@ -235,7 +237,7 @@
         
         
         
-          1 分钟
+          12 分钟
         
       </span>
     
@@ -272,16 +274,136 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">CIT5-断点回归设计基本原理、代码实现与文章解读</h1>
+            <h1 id="seo-header">本地部署Llama3并构建私人知识库进行问答</h1>
             
             
               <div class="markdown-body">
                 
-                <p>本期Casual
-Inference读书会和大家交流了断点回归设计的基本原理和代码实现，并重点解析了马光荣老师等发表在JPubE上的空间断点<a
-target="_blank" rel="noopener" href="https://doi.org/10.1016/j.jpubeco.2020.104352">论文</a>，该文提供了部分代码，故事也很有趣，值得细读！</p>
-<iframe src="/myjs/pdfjs/web/viewer.html?file=/pdf/20230722-RDD.pdf" style="width:100%;height:800px">
-</iframe>
+                <p>Meta于上个月发布了<strong>Llama3</strong>大语言模型，其技术文档里提到，Llama3
+8B版本的性能相比同规模的开源模型强出不少，而后网友测试显示Llama3
+70B的性能甚至不逊于早期版本的GPT4。开源、可本地运行的大语言模型给了我们更多关于LLM使用场景的想象。包括但不限于：</p>
+<ul>
+<li>在本地与GPT3.5级别的LLM聊天；</li>
+<li>调用本地模型的api进行文本分析，如情感识别、文本分类；</li>
+<li>构建私人知识库，进行问答。</li>
+</ul>
+<p><img
+src="https://cdn.jsdelivr.net/gh/yuzhangnju/image2024/439319690_397886903122928_1260706828132327359_n.png?_nc_cat=105&amp;ccb=1-7&amp;_nc_sid=f537c7&amp;_nc_ohc=pm6Hu7Pd9XwQ7kNvgEDveT9&amp;_nc_oc=AdgzNdYahSHN9M86klLxNzo7MaawxcQYKd_Sg9ZEtwRkL6PUh5aoeY6wtKjmavuqyaM&amp;_nc_ht=scontent-hkg1-1.png" srcset="/img/loading.gif" lazyload /></p>
+<p>在最新的<a
+target="_blank" rel="noopener" href="https://huggingface.co/spaces/lmsys/chatbot-arena-leaderboard">大模型竞技场</a>中（https://huggingface.co/spaces/lmsys/chatbot-arena-leaderboard），Llama3
+70B的排名在GPT-4-0314之前，Llama3 8B也超越了GPT-3.5-Turbo。</p>
+<p><img
+src="https://cdn.jsdelivr.net/gh/yuzhangnju/image2024/image-20240513200410629.png" srcset="/img/loading.gif" lazyload /></p>
+<p><img
+src="https://cdn.jsdelivr.net/gh/yuzhangnju/image2024/image-20240513200556843.png" srcset="/img/loading.gif" lazyload /></p>
+<p>现在，就让我们在本地部署Llama3
+8B并构建私人知识库，进行简单试用吧！</p>
+<p>我的设备：2021款 Macbook Pro 16G + 1T，处理器为M1 Pro基础款。</p>
+<p>其实我更想在本地部署Llama3
+70B，但这需要发动钞能力，而我目前只是个社科土博，等后面吧。</p>
+<h2 id="利用ollama和open-webui使用本地llm">1 利用Ollama和Open
+WebUI使用本地LLM</h2>
+<h4 id="基于ollama本地部署llama3-8b"><strong>1.1
+基于Ollama本地部署Llama3 8B</strong></h4>
+<p>Ollama是一个简易的LLM本地部署工具，可直接在Ollama官方网站下载安装。</p>
+<p>Ollama官方网址：https://ollama.com/</p>
+<p>Ollama的Github仓库：https://github.com/ollama/ollama</p>
+<p><img src="https://cdn.jsdelivr.net/gh/yuzhangnju/image2024/image-20240513202229808.png" srcset="/img/loading.gif" lazyload style="zoom:50%;" /></p>
+<p>Ollama官方提供了许多模型供大家部署，在模型页面，可以找到Llama3，我这里下载的是8B的instruct版本，大小为4.7GB：</p>
+<p><img
+src="https://cdn.jsdelivr.net/gh/yuzhangnju/image2024/image-20240513202530989.png" srcset="/img/loading.gif" lazyload /></p>
+<p>在<code>Terminal</code>运行<code>ollama run llama3:70b</code>，等待模型在本地部署完成。模型部署完成后已经可以在终端进行对话了，但过于简陋，我们可以用WebUI装潢一下。</p>
+<h4 id="部署open-webui"><strong>1.2 部署Open WebUI</strong></h4>
+<p>Open
+WebUI也是一个Github项目，它对基于Ollama部署的模型，提供了类ChatGPT的UI支持！</p>
+<p>Github仓库：https://github.com/open-webui/open-webui</p>
+<p>在这里，我们使用Open
+WebUI官方推荐的Docker安装方式（相见官方文档）：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs python">docker run -d -p <span class="hljs-number">3000</span>:<span class="hljs-number">8080</span> --add-host=host.docker.internal:host-gateway -v <span class="hljs-built_in">open</span>-webui:/app/backend/data --name <span class="hljs-built_in">open</span>-webui --restart always ghcr.io/<span class="hljs-built_in">open</span>-webui/<span class="hljs-built_in">open</span>-webui:main<br></code></pre></td></tr></table></figure>
+<p>安装完成后，在浏览器3000端口可以打开WebUI，注册登陆，网站布局是不是很熟悉？和ChatGPT很像！在设置里，Connections填写Ollama的地址：<code>http://host.docker.internal:11434</code>。</p>
+<p><img
+src="https://cdn.jsdelivr.net/gh/yuzhangnju/image2024/image-20240513204831487.png" srcset="/img/loading.gif" lazyload /></p>
+<p><img
+src="https://cdn.jsdelivr.net/gh/yuzhangnju/image2024/image-20240513204653700.png" srcset="/img/loading.gif" lazyload /></p>
+<p>在对话之前，点击顶部的<code>+</code>选择模型。如果使用Ollama安装了多个模型，则都会显示出来。</p>
+<p><img
+src="https://cdn.jsdelivr.net/gh/yuzhangnju/image2024/image-20240513204934221.png" srcset="/img/loading.gif" lazyload /></p>
+<p>我们测试几个问题，由于Llama3对中文的支持比较差，我们在提问时，需要加上让它使用中文回答的提示词：</p>
+<p><img
+src="https://cdn.jsdelivr.net/gh/yuzhangnju/image2024/image-20240513205234218.png" srcset="/img/loading.gif" lazyload /></p>
+<p>可以发现，它对这个问题的回答，给了我们熟悉的GPT3.5的感觉，本质就是<strong>胡说八道</strong>！</p>
+<p>再问一个： <img
+src="https://cdn.jsdelivr.net/gh/yuzhangnju/image2024/image-20240513205837087.png" srcset="/img/loading.gif" lazyload /></p>
+<p>再来挑战几个弱智吧问题，居然回答得还不错：</p>
+<p><img
+src="https://cdn.jsdelivr.net/gh/yuzhangnju/image2024/image-20240513205920156.png" srcset="/img/loading.gif" lazyload /></p>
+<p><img
+src="https://cdn.jsdelivr.net/gh/yuzhangnju/image2024/image-20240513210111752.png" srcset="/img/loading.gif" lazyload /></p>
+<p>如果使用<strong>英语</strong>提问，并且问题不涉及事实问题，它的回答质量会高很多：</p>
+<p><img
+src="https://cdn.jsdelivr.net/gh/yuzhangnju/image2024/image-20240513205510014.png" srcset="/img/loading.gif" lazyload /></p>
+<p><img
+src="https://cdn.jsdelivr.net/gh/yuzhangnju/image2024/image-20240513205613271.png" srcset="/img/loading.gif" lazyload /></p>
+<p>即使在GPT时代，用好英语，仍然非常有必要。</p>
+<h4 id="llama3-对话体验"><strong>1.3 Llama3 对话体验</strong></h4>
+<p>就Llama3
+8B而言，我感觉使用体验已经很不错了，对话流畅度完全没有问题，配合文本转语音，日常练习口语非常可用！</p>
+<p>如果可以在本地部署Llama3
+70B的话，使用体验会更上一层楼。我在Groq试用过Llama3
+70B，其对于涉及事实问题的回答会好很多：</p>
+<p><img
+src="https://cdn.jsdelivr.net/gh/yuzhangnju/image2024/image-20240513210943148.png" srcset="/img/loading.gif" lazyload /></p>
+<p><img
+src="https://cdn.jsdelivr.net/gh/yuzhangnju/image2024/image-20240513211028036.png" srcset="/img/loading.gif" lazyload /></p>
+<h2 id="构建私人知识库并进行问答">2 构建私人知识库并进行问答</h2>
+<p>现在市面上有许多基于<strong>RAG</strong>（检索增强生成，Retrieval-Augmented
+Generation，RAG）的工具，方便构建本地知识库，并进行问答。我试用过的有：</p>
+<p><strong>Dify</strong>：https://github.com/langgenius/dify</p>
+<p><strong>ChatOllama</strong>：https://github.com/sugarforever/chat-ollama</p>
+<p><strong>MaxKB</strong>：https://github.com/1Panel-dev/MaxKB</p>
+<p>整体而言，使用体验都比较差！！！但作为一种可能的方向，或许在未来有很大的改进效果，这里先以MaxKB试试看。</p>
+<h4 id="部署maxkb"><strong>2.1 部署MaxKB</strong></h4>
+<p>使用MaxKB官方提供的一键安装命令即可：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs python">docker run -d --name=maxkb -p <span class="hljs-number">8080</span>:<span class="hljs-number">8080</span> -v ~/.maxkb:/var/lib/postgresql/data 1panel/maxkb<br><br><span class="hljs-comment"># 用户名: admin</span><br><span class="hljs-comment"># 密码: MaxKB@123..</span><br></code></pre></td></tr></table></figure>
+<p>安装完成后，可以在本地的8080端口打开，登陆信息使用默认的就行：</p>
+<p><img
+src="https://cdn.jsdelivr.net/gh/yuzhangnju/image2024/image-20240513212206275.png" srcset="/img/loading.gif" lazyload /></p>
+<p>进入后，在设置里，“模型设置”添加Ollama部署的Llama3，信息如下，其中API
+Key可以随便填：</p>
+<p><img
+src="https://cdn.jsdelivr.net/gh/yuzhangnju/image2024/image-20240513212407082.png" srcset="/img/loading.gif" lazyload /></p>
+<p>现在，我们已经完成了简单配置，已经可以使用MaxKB进行问答了（也就是说，MaxKB也可以作为简单的UI使用）：</p>
+<p><img
+src="https://cdn.jsdelivr.net/gh/yuzhangnju/image2024/image-20240513212651537.png" srcset="/img/loading.gif" lazyload /></p>
+<h4 id="搭建私人知识库并进行问答"><strong>2.2
+搭建私人知识库并进行问答</strong></h4>
+<p>在这里，我简单构建了两个知识库，一个是我的博客，一个是一个特定主题（政治信任）的10篇论文，按要求提交内容即可：</p>
+<p><img
+src="/../../Library/Application%20Support/typora-user-images/image-20240513213106812.png" srcset="/img/loading.gif" lazyload /></p>
+<p>自动获取的博客内容如下：</p>
+<p><img
+src="https://cdn.jsdelivr.net/gh/yuzhangnju/image2024/image-20240513213035044.png" srcset="/img/loading.gif" lazyload /></p>
+<p>导入pdf后，MaxKB需要一段时间进行文档处理：</p>
+<p><img
+src="https://cdn.jsdelivr.net/gh/yuzhangnju/image2024/image-20240513213731092.png" srcset="/img/loading.gif" lazyload /></p>
+<p>现在，进行问答试试，先配置一下：</p>
+<p><img
+src="https://cdn.jsdelivr.net/gh/yuzhangnju/image2024/image-20240513213903579.png" srcset="/img/loading.gif" lazyload /></p>
+<p>在问题和文档强相关，尤其是直接涉及知识库论文的标题的时候，它是会索引知识库内容的，但回答的结果质量不高：</p>
+<p><img
+src="https://cdn.jsdelivr.net/gh/yuzhangnju/image2024/image-20240513214129282.png" srcset="/img/loading.gif" lazyload /></p>
+<p>何为Missing
+women这个问题，我在博客有直接的内容，但它在回答时并没有引用：</p>
+<p><img
+src="https://cdn.jsdelivr.net/gh/yuzhangnju/image2024/image-20240513214338243.png" srcset="/img/loading.gif" lazyload /></p>
+<p>再用中文试一次，效果仍然比较差： <img
+src="https://cdn.jsdelivr.net/gh/yuzhangnju/image2024/image-20240513214624788.png" srcset="/img/loading.gif" lazyload /></p>
+<h2 id="总结">3 总结</h2>
+<p>最新的Llama3，基础版本在对话方面，已经非常可用，相当于本地有了一个随时可以聊天的助手。</p>
+<p>在构建私人知识库进行问答方面，我试的几个工具，目前都还处于不太可用的状态，我调过一些参数，也尝试了使用Markdown文本的知识库，都不OK。</p>
+<p>期待早日这类工具能更完善些，或者LLM运营商提供私人知识库服务。</p>
+<p>更期待Llama3 70B级别的LLM能在本地便捷地运行起来。</p>
+<p>如果您在这方面有经验，也请随时和我交流！不胜感激！</p>
 
                 
               </div>
@@ -294,11 +416,15 @@ target="_blank" rel="noopener" href="https://doi.org/10.1016/j.jpubeco.2020.1043
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/%E6%96%AD%E7%82%B9%E5%9B%9E%E5%BD%92/" class="print-no-link">#断点回归</a>
+        <a href="/tags/Llama/" class="print-no-link">#Llama</a>
       
-        <a href="/tags/%E5%9B%A0%E6%9E%9C%E6%8E%A8%E6%96%AD/" class="print-no-link">#因果推断</a>
+        <a href="/tags/RAG/" class="print-no-link">#RAG</a>
       
-        <a href="/tags/RDD/" class="print-no-link">#RDD</a>
+        <a href="/tags/ChatGPT/" class="print-no-link">#ChatGPT</a>
+      
+        <a href="/tags/Claude/" class="print-no-link">#Claude</a>
+      
+        <a href="/tags/LLM/" class="print-no-link">#LLM</a>
       
     </div>
   
@@ -310,8 +436,8 @@ target="_blank" rel="noopener" href="https://doi.org/10.1016/j.jpubeco.2020.1043
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>CIT5-断点回归设计基本原理、代码实现与文章解读</div>
-      <div>https://yuzhang.net/2023/07/22/CIT5_20230722/</div>
+      <div>本地部署Llama3并构建私人知识库进行问答</div>
+      <div>https://yuzhang.net/2024/05/14/20240514-本地部署llama3和构建私人知识库进行问答/</div>
     </div>
     <div class="license-meta">
       
@@ -323,7 +449,7 @@ target="_blank" rel="noopener" href="https://doi.org/10.1016/j.jpubeco.2020.1043
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2023年7月22日</div>
+          <div>2024年5月14日</div>
         </div>
       
       
@@ -367,18 +493,12 @@ target="_blank" rel="noopener" href="https://doi.org/10.1016/j.jpubeco.2020.1043
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2023/09/23/CIT5_20230923/" title="CIT5-历史生育率转变-RES和EJ论文共读">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">CIT5-历史生育率转变-RES和EJ论文共读</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2023/06/22/%E5%AD%A6%E7%A7%91%E7%9B%B8%E5%85%B3%E6%9C%9F%E5%88%8A%E4%B8%BB%E9%A1%B5/" title="学科相关期刊主页及资源站">
-                        <span class="hidden-mobile">学科相关期刊主页及资源站</span>
+                      <a href="/2024/05/09/20240509-EJ-%E8%BF%91%E4%BB%A3%E6%AC%A7%E6%B4%B2%E7%94%9F%E8%82%B2%E8%BD%AC%E5%9E%8B%E4%BB%8E%E6%B5%AA%E6%BC%AB%E7%9A%84%E6%B3%95%E5%9B%BD%E6%89%A9%E6%95%A3%E5%BC%80%E6%9D%A5/" title="EJ-近代欧洲生育转型从浪漫的法国扩散开来">
+                        <span class="hidden-mobile">EJ-近代欧洲生育转型从浪漫的法国扩散开来</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>

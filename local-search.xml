@@ -4,6 +4,33 @@
   
   
   <entry>
+    <title>本地部署Llama3并构建私人知识库进行问答</title>
+    <link href="/2024/05/14/20240514-%E6%9C%AC%E5%9C%B0%E9%83%A8%E7%BD%B2llama3%E5%92%8C%E6%9E%84%E5%BB%BA%E7%A7%81%E4%BA%BA%E7%9F%A5%E8%AF%86%E5%BA%93%E8%BF%9B%E8%A1%8C%E9%97%AE%E7%AD%94/"/>
+    <url>/2024/05/14/20240514-%E6%9C%AC%E5%9C%B0%E9%83%A8%E7%BD%B2llama3%E5%92%8C%E6%9E%84%E5%BB%BA%E7%A7%81%E4%BA%BA%E7%9F%A5%E8%AF%86%E5%BA%93%E8%BF%9B%E8%A1%8C%E9%97%AE%E7%AD%94/</url>
+    
+    <content type="html"><![CDATA[<p>Meta于上个月发布了<strong>Llama3</strong>大语言模型，其技术文档里提到，Llama38B版本的性能相比同规模的开源模型强出不少，而后网友测试显示Llama370B的性能甚至不逊于早期版本的GPT4。开源、可本地运行的大语言模型给了我们更多关于LLM使用场景的想象。包括但不限于：</p><ul><li>在本地与GPT3.5级别的LLM聊天；</li><li>调用本地模型的api进行文本分析，如情感识别、文本分类；</li><li>构建私人知识库，进行问答。</li></ul><p><imgsrc="https://cdn.jsdelivr.net/gh/yuzhangnju/image2024/439319690_397886903122928_1260706828132327359_n.png?_nc_cat=105&amp;ccb=1-7&amp;_nc_sid=f537c7&amp;_nc_ohc=pm6Hu7Pd9XwQ7kNvgEDveT9&amp;_nc_oc=AdgzNdYahSHN9M86klLxNzo7MaawxcQYKd_Sg9ZEtwRkL6PUh5aoeY6wtKjmavuqyaM&amp;_nc_ht=scontent-hkg1-1.png" /></p><p>在最新的<ahref="https://huggingface.co/spaces/lmsys/chatbot-arena-leaderboard">大模型竞技场</a>中（https://huggingface.co/spaces/lmsys/chatbot-arena-leaderboard），Llama370B的排名在GPT-4-0314之前，Llama3 8B也超越了GPT-3.5-Turbo。</p><p><imgsrc="https://cdn.jsdelivr.net/gh/yuzhangnju/image2024/image-20240513200410629.png" /></p><p><imgsrc="https://cdn.jsdelivr.net/gh/yuzhangnju/image2024/image-20240513200556843.png" /></p><p>现在，就让我们在本地部署Llama38B并构建私人知识库，进行简单试用吧！</p><p>我的设备：2021款 Macbook Pro 16G + 1T，处理器为M1 Pro基础款。</p><p>其实我更想在本地部署Llama370B，但这需要发动钞能力，而我目前只是个社科土博，等后面吧。</p><h2 id="利用ollama和open-webui使用本地llm">1 利用Ollama和OpenWebUI使用本地LLM</h2><h4 id="基于ollama本地部署llama3-8b"><strong>1.1基于Ollama本地部署Llama3 8B</strong></h4><p>Ollama是一个简易的LLM本地部署工具，可直接在Ollama官方网站下载安装。</p><p>Ollama官方网址：https://ollama.com/</p><p>Ollama的Github仓库：https://github.com/ollama/ollama</p><p><img src="https://cdn.jsdelivr.net/gh/yuzhangnju/image2024/image-20240513202229808.png" style="zoom:50%;" /></p><p>Ollama官方提供了许多模型供大家部署，在模型页面，可以找到Llama3，我这里下载的是8B的instruct版本，大小为4.7GB：</p><p><imgsrc="https://cdn.jsdelivr.net/gh/yuzhangnju/image2024/image-20240513202530989.png" /></p><p>在<code>Terminal</code>运行<code>ollama run llama3:70b</code>，等待模型在本地部署完成。模型部署完成后已经可以在终端进行对话了，但过于简陋，我们可以用WebUI装潢一下。</p><h4 id="部署open-webui"><strong>1.2 部署Open WebUI</strong></h4><p>OpenWebUI也是一个Github项目，它对基于Ollama部署的模型，提供了类ChatGPT的UI支持！</p><p>Github仓库：https://github.com/open-webui/open-webui</p><p>在这里，我们使用OpenWebUI官方推荐的Docker安装方式（相见官方文档）：</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs python">docker run -d -p <span class="hljs-number">3000</span>:<span class="hljs-number">8080</span> --add-host=host.docker.internal:host-gateway -v <span class="hljs-built_in">open</span>-webui:/app/backend/data --name <span class="hljs-built_in">open</span>-webui --restart always ghcr.io/<span class="hljs-built_in">open</span>-webui/<span class="hljs-built_in">open</span>-webui:main<br></code></pre></td></tr></table></figure><p>安装完成后，在浏览器3000端口可以打开WebUI，注册登陆，网站布局是不是很熟悉？和ChatGPT很像！在设置里，Connections填写Ollama的地址：<code>http://host.docker.internal:11434</code>。</p><p><imgsrc="https://cdn.jsdelivr.net/gh/yuzhangnju/image2024/image-20240513204831487.png" /></p><p><imgsrc="https://cdn.jsdelivr.net/gh/yuzhangnju/image2024/image-20240513204653700.png" /></p><p>在对话之前，点击顶部的<code>+</code>选择模型。如果使用Ollama安装了多个模型，则都会显示出来。</p><p><imgsrc="https://cdn.jsdelivr.net/gh/yuzhangnju/image2024/image-20240513204934221.png" /></p><p>我们测试几个问题，由于Llama3对中文的支持比较差，我们在提问时，需要加上让它使用中文回答的提示词：</p><p><imgsrc="https://cdn.jsdelivr.net/gh/yuzhangnju/image2024/image-20240513205234218.png" /></p><p>可以发现，它对这个问题的回答，给了我们熟悉的GPT3.5的感觉，本质就是<strong>胡说八道</strong>！</p><p>再问一个： <imgsrc="https://cdn.jsdelivr.net/gh/yuzhangnju/image2024/image-20240513205837087.png" /></p><p>再来挑战几个弱智吧问题，居然回答得还不错：</p><p><imgsrc="https://cdn.jsdelivr.net/gh/yuzhangnju/image2024/image-20240513205920156.png" /></p><p><imgsrc="https://cdn.jsdelivr.net/gh/yuzhangnju/image2024/image-20240513210111752.png" /></p><p>如果使用<strong>英语</strong>提问，并且问题不涉及事实问题，它的回答质量会高很多：</p><p><imgsrc="https://cdn.jsdelivr.net/gh/yuzhangnju/image2024/image-20240513205510014.png" /></p><p><imgsrc="https://cdn.jsdelivr.net/gh/yuzhangnju/image2024/image-20240513205613271.png" /></p><p>即使在GPT时代，用好英语，仍然非常有必要。</p><h4 id="llama3-对话体验"><strong>1.3 Llama3 对话体验</strong></h4><p>就Llama38B而言，我感觉使用体验已经很不错了，对话流畅度完全没有问题，配合文本转语音，日常练习口语非常可用！</p><p>如果可以在本地部署Llama370B的话，使用体验会更上一层楼。我在Groq试用过Llama370B，其对于涉及事实问题的回答会好很多：</p><p><imgsrc="https://cdn.jsdelivr.net/gh/yuzhangnju/image2024/image-20240513210943148.png" /></p><p><imgsrc="https://cdn.jsdelivr.net/gh/yuzhangnju/image2024/image-20240513211028036.png" /></p><h2 id="构建私人知识库并进行问答">2 构建私人知识库并进行问答</h2><p>现在市面上有许多基于<strong>RAG</strong>（检索增强生成，Retrieval-AugmentedGeneration，RAG）的工具，方便构建本地知识库，并进行问答。我试用过的有：</p><p><strong>Dify</strong>：https://github.com/langgenius/dify</p><p><strong>ChatOllama</strong>：https://github.com/sugarforever/chat-ollama</p><p><strong>MaxKB</strong>：https://github.com/1Panel-dev/MaxKB</p><p>整体而言，使用体验都比较差！！！但作为一种可能的方向，或许在未来有很大的改进效果，这里先以MaxKB试试看。</p><h4 id="部署maxkb"><strong>2.1 部署MaxKB</strong></h4><p>使用MaxKB官方提供的一键安装命令即可：</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs python">docker run -d --name=maxkb -p <span class="hljs-number">8080</span>:<span class="hljs-number">8080</span> -v ~/.maxkb:/var/lib/postgresql/data 1panel/maxkb<br><br><span class="hljs-comment"># 用户名: admin</span><br><span class="hljs-comment"># 密码: MaxKB@123..</span><br></code></pre></td></tr></table></figure><p>安装完成后，可以在本地的8080端口打开，登陆信息使用默认的就行：</p><p><imgsrc="https://cdn.jsdelivr.net/gh/yuzhangnju/image2024/image-20240513212206275.png" /></p><p>进入后，在设置里，“模型设置”添加Ollama部署的Llama3，信息如下，其中APIKey可以随便填：</p><p><imgsrc="https://cdn.jsdelivr.net/gh/yuzhangnju/image2024/image-20240513212407082.png" /></p><p>现在，我们已经完成了简单配置，已经可以使用MaxKB进行问答了（也就是说，MaxKB也可以作为简单的UI使用）：</p><p><imgsrc="https://cdn.jsdelivr.net/gh/yuzhangnju/image2024/image-20240513212651537.png" /></p><h4 id="搭建私人知识库并进行问答"><strong>2.2搭建私人知识库并进行问答</strong></h4><p>在这里，我简单构建了两个知识库，一个是我的博客，一个是一个特定主题（政治信任）的10篇论文，按要求提交内容即可：</p><p><imgsrc="/../../Library/Application%20Support/typora-user-images/image-20240513213106812.png" /></p><p>自动获取的博客内容如下：</p><p><imgsrc="https://cdn.jsdelivr.net/gh/yuzhangnju/image2024/image-20240513213035044.png" /></p><p>导入pdf后，MaxKB需要一段时间进行文档处理：</p><p><imgsrc="https://cdn.jsdelivr.net/gh/yuzhangnju/image2024/image-20240513213731092.png" /></p><p>现在，进行问答试试，先配置一下：</p><p><imgsrc="https://cdn.jsdelivr.net/gh/yuzhangnju/image2024/image-20240513213903579.png" /></p><p>在问题和文档强相关，尤其是直接涉及知识库论文的标题的时候，它是会索引知识库内容的，但回答的结果质量不高：</p><p><imgsrc="https://cdn.jsdelivr.net/gh/yuzhangnju/image2024/image-20240513214129282.png" /></p><p>何为Missingwomen这个问题，我在博客有直接的内容，但它在回答时并没有引用：</p><p><imgsrc="https://cdn.jsdelivr.net/gh/yuzhangnju/image2024/image-20240513214338243.png" /></p><p>再用中文试一次，效果仍然比较差： <imgsrc="https://cdn.jsdelivr.net/gh/yuzhangnju/image2024/image-20240513214624788.png" /></p><h2 id="总结">3 总结</h2><p>最新的Llama3，基础版本在对话方面，已经非常可用，相当于本地有了一个随时可以聊天的助手。</p><p>在构建私人知识库进行问答方面，我试的几个工具，目前都还处于不太可用的状态，我调过一些参数，也尝试了使用Markdown文本的知识库，都不OK。</p><p>期待早日这类工具能更完善些，或者LLM运营商提供私人知识库服务。</p><p>更期待Llama3 70B级别的LLM能在本地便捷地运行起来。</p><p>如果您在这方面有经验，也请随时和我交流！不胜感激！</p>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>Llama</tag>
+      
+      <tag>RAG</tag>
+      
+      <tag>ChatGPT</tag>
+      
+      <tag>Claude</tag>
+      
+      <tag>LLM</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>EJ-近代欧洲生育转型从浪漫的法国扩散开来</title>
     <link href="/2024/05/09/20240509-EJ-%E8%BF%91%E4%BB%A3%E6%AC%A7%E6%B4%B2%E7%94%9F%E8%82%B2%E8%BD%AC%E5%9E%8B%E4%BB%8E%E6%B5%AA%E6%BC%AB%E7%9A%84%E6%B3%95%E5%9B%BD%E6%89%A9%E6%95%A3%E5%BC%80%E6%9D%A5/"/>
     <url>/2024/05/09/20240509-EJ-%E8%BF%91%E4%BB%A3%E6%AC%A7%E6%B4%B2%E7%94%9F%E8%82%B2%E8%BD%AC%E5%9E%8B%E4%BB%8E%E6%B5%AA%E6%BC%AB%E7%9A%84%E6%B3%95%E5%9B%BD%E6%89%A9%E6%95%A3%E5%BC%80%E6%9D%A5/</url>
@@ -528,9 +555,9 @@
     
     <tags>
       
-      <tag>因果推断</tag>
-      
       <tag>断点回归</tag>
+      
+      <tag>因果推断</tag>
       
       <tag>RDD</tag>
       
