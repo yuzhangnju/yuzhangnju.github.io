@@ -1,0 +1,903 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="https://cdn.jsdelivr.net/gh/yuzhangnju/image2024/uchiha.png">
+  <link rel="icon" href="https://cdn.jsdelivr.net/gh/yuzhangnju/image2024/uchiha.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Yu Zhang">
+  <meta name="keywords" content="HIBL, Acemoglu, 起源问题">
+  
+    <meta name="description" content="打开制度的黑箱，探究产权保护制度和契约制度对经济的影响。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JPE-解构制度：产权保护制度和契约制度">
+<meta property="og:url" content="https://yuzhang.net/2024/07/03/20240619-JPE-%E5%8C%BA%E5%88%86%E4%BA%A7%E6%9D%83%E4%BF%9D%E6%8A%A4%E5%88%B6%E5%BA%A6%E5%92%8C%E5%90%88%E7%BA%A6%E5%88%B6%E5%BA%A6/index.html">
+<meta property="og:site_name" content="Yu&#39;s Space">
+<meta property="og:description" content="打开制度的黑箱，探究产权保护制度和契约制度对经济的影响。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/yuzhangnju/image2024/image-20240528172507455.png">
+<meta property="article:published_time" content="2024-07-03T10:00:00.000Z">
+<meta property="article:modified_time" content="2024-07-04T12:41:18.058Z">
+<meta property="article:author" content="Yu Zhang">
+<meta property="article:tag" content="HIBL">
+<meta property="article:tag" content="起源问题">
+<meta property="article:tag" content="Acemoglu">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/yuzhangnju/image2024/image-20240528172507455.png">
+  
+  
+  
+  <title>JPE-解构制度：产权保护制度和契约制度 - Yu&#39;s Space</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"yuzhang.net","root":"/","version":"1.9.7","typing":{"enable":true,"typeSpeed":100,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":false},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 7.1.1"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Yu&#39;s Space</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/" target="_self">
+                <i class="iconfont icon-link-fill"></i>
+                <span>友链</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('https://cdn.jsdelivr.net/gh/yuzhangnju/image/img/bannernew.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="JPE-解构制度：产权保护制度和契约制度"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2024-07-03 18:00" pubdate>
+          2024年7月3日 晚上
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          5.5k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          46 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">JPE-解构制度：产权保护制度和契约制度</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <blockquote>
+<p>在 Acemoglu et al. (2001)
+的AER论文结语中，作者提到需要打开制度的<strong>黑箱</strong>。本文即是这一工作，标题可以直译为“拆解制度”。</p>
+<p>将制度分为<strong>产权制度</strong>和<strong>契约制度</strong>。作者认为，产权制度保护公民免受政府和精英的掠夺，而契约制度则促进公民之间的私人合同。利用殖民历史所带来的法律起源和产权制度外生差异，该论文发现产权制度对长期经济增长、投资和金融发展具有显著影响，而契约制度主要影响金融中介的形式。</p>
+</blockquote>
+<p><strong>标题:</strong> Unbundling Institutions</p>
+<p><strong>期刊:</strong> <em>Journal of Political Economy</em></p>
+<p><strong>作者:</strong></p>
+<ul>
+<li><u>Daron Acemoglu</u>：Institute Professor at MIT and an elected
+fellow of the National Academy of Sciences, American Philosophical
+Society, the British Academy of Sciences, the Turkish Academy of
+Sciences, the American Academy of Arts and Sciences, the Econometric
+Society, the European Economic Association, and the Society of Labor
+Economists.</li>
+<li><u>Simon Johnson</u>：the Ronald A. Kurtz (1954) Professor of
+Entrepreneurship at the MIT Sloan School of Management.</li>
+</ul>
+<p><strong>发布时间：</strong> October 2005</p>
+<p><br/></p>
+<h2 id="产权制度vs契约制度">产权制度vs契约制度</h2>
+<p>在 Acemoglu et al. (2001)
+的AER论文中，作者得出<strong>制度是影响长期经济发展的根本原因</strong>这一重要结论。然而，制度到底起了什么作用，不同类型制度的效果差异如何，需要进一步探究。</p>
+<h4 id="契约理论与掠夺理论"><strong>契约理论与掠夺理论</strong></h4>
+<p>道格拉斯·诺斯（Douglass
+North）在其经典著作《经济史中的结构与变迁》（Structure and Change in
+Economic History）中，将国家的角色分为两种理论：</p>
+<ul>
+<li><strong>契约理论</strong>（Contract
+Theory）：国家及其相关制度提供了法律框架，使得私人合同得以执行，从而促进经济交易的顺利进行。这种框架减少了<strong>交易成本</strong>，使市场经济更为高效；</li>
+<li><strong>掠夺理论</strong>（Predatory
+Theory）：国家被视为一种<strong>工具</strong>，用于从一个群体向另一个群体转移资源。在这种情况下，政府或精英可能利用其权力来掠夺公民的资源。</li>
+</ul>
+<p>诺斯在他的书中综合了这两种理论，提出了一个综合的故事：好的制度不仅支持私人合同的执行，还对政府或其他政治强权的掠夺行为进行限制。</p>
+<h4 id="制度的重要性"><strong>制度的重要性</strong></h4>
+<p>在过去的几十年里，经济学家和政治学家逐渐形成共识，社会、经济、法律和政治的组织形式，即“制度”，是决定经济表现的主要因素。尽管如此，现有文献并没有明确区分支持私人合同的制度（“<strong>契约制度</strong>-contracting
+institutions”）和限制政府及精英掠夺的制度（“<strong>产权制度</strong>-property
+rights
+institutions”）。相反，这些研究通常将两者视为一个综合体来探讨其重要性。</p>
+<p>例如，契约理论文献（如Coase的研究）强调契约的执行和组织效率之间的关系，强调契约制度的重要性。与之相反，其他作者（如Jones、De
+Long和Shleifer）则强调保护私人产权，特别是保护免受政府掠夺的重要性。</p>
+<blockquote>
+<p>也有文献将这两种制度称为“<strong>横向</strong>”和“<strong>纵向</strong>”制度，以强调前者规范普通公民之间的交易，而后者规范国家（精英）与公民之间的关系。</p>
+</blockquote>
+<h4 id="研究目标"><strong>研究目标</strong></h4>
+<p>该论文的主要目标是“拆解”这个综合体，探索契约制度和产权制度在宏观经济层面的相对重要性。作者指出，要进行这种研究需要克服几个概念和实证上的挑战：</p>
+<ul>
+<li><strong>制度的重叠</strong>：契约制度和产权制度之间可能存在重叠，但它们在性质上也有重要区别。契约制度涉及私人之间的交易，而产权制度则涉及公民与政府或精英之间的关系；</li>
+<li><strong>有效的代理变量</strong>：找到衡量这两类制度的有效代理变量具有挑战性。理想的契约制度代理变量应该能衡量执行私人合同的成本，而产权制度的代理变量则应该反映对政府掠夺的保护程度；</li>
+<li><strong>因果关系的识别</strong>：为了识别这两类制度的因果关系，作者需要找到外生的、独立的制度差异来源。</li>
+</ul>
+<h4 id="殖民历史作为工具变量"><strong>殖民历史作为工具变量</strong></h4>
+<p>幸运的是，文献提供了潜在的工具变量来解决上述挑战。作者利用殖民历史作为分析工具：</p>
+<ul>
+<li><strong>契约制度的工具变量</strong>：基于前人的研究，法律起源（如英国普通法和法国民法）对契约制度有显著影响。由于这些法律系统是由殖民者强加的，因此可以视为外生变量；</li>
+<li><strong>产权制度的工具变量</strong>：欧洲定居者的死亡率和殖民前的人口密度对欧洲殖民战略有重要影响。这些变量通过影响殖民时期的制度安排，最终影响了现代的产权制度。</li>
+</ul>
+<h2 id="实证策略与数据">实证策略与数据</h2>
+<h4
+id="产权制度与契约制度的定义"><strong>产权制度与契约制度的定义</strong></h4>
+<ul>
+<li><strong>契约制度</strong>（Contracting
+Institutions）：指管理普通公民之间合同的条例和法规，例如债权人与债务人或供应商与客户之间的合同。契约制度的关键部分是法律系统的运作方式。不同国家在法律和法律实施上的差异导致了执行合同成本的显著差异，从而影响了合同和交易的平衡状态。根据世界银行的统计数据，在多米尼加共和国执行一个简单商业债务合同的成本超过人均收入的440%，平均需要495天，而在新西兰，这一成本不到人均收入的12%，只需要50天。</li>
+<li><strong>产权制度</strong>（Property Rights
+Institutions）：指保护公民免受政府和精英掠夺的条例和法规。这类制度与政治和国家-社会互动有关。产权制度的一个明显例子是保护投资者免受政府掠夺的法规。各国的产权制度存在重大差异，例如，在许多撒哈拉以南非洲国家和中美洲国家，<strong>政府掠夺企业收入或资产</strong>被认为是非常可能的。</li>
+</ul>
+<p><strong>关键区别</strong>在于公民在面对弱契约制度和弱产权制度时可采取的应对措施。当契约制度较弱时，债权人可以通过提高利率、改变合同形式或使用基于声誉的安排（如长期贷款协议）来部分缓解问题。然而，当产权制度较弱时，公民难以找到类似的应对措施，因为问题的根源在于政府和精英的政治权力滥用，无法通过合同来约束未来的政治权力使用。</p>
+<h4 id="基准回归"><strong>基准回归</strong></h4>
+<p>本文构建了一个基本的经济关系模型，不考虑非线性关系，表达为： <span
+class="math display">\[
+Y_c = \alpha \cdot F_c + \beta \cdot I_c + \pmb{Z}&#39;_c \cdot
+\pmb{\gamma}_0 + \epsilon_c
+\]</span> 其中， <span class="math inline">\(Y_c\)</span> 是国家 <span
+class="math inline">\(c\)</span> 的结果变量， <span
+class="math inline">\(F_c\)</span> 是契约制度的衡量指标， <span
+class="math inline">\(I_c\)</span> 是产权制度的衡量指标， <span
+class="math inline">\(\pmb{Z}&#39;_c\)</span> 是其他控制变量的向量，
+<span class="math inline">\(\alpha\)</span> 和 <span
+class="math inline">\(\beta\)</span> 是参数， <span
+class="math inline">\(\pmb{\gamma}_0\)</span> 是控制变量的效应， <span
+class="math inline">\(\epsilon_c\)</span> 是误差项。</p>
+<p>本文关注的四个主要结果变量是：</p>
+<ul>
+<li>人均GDP水平（长期增长的衡量指标）</li>
+<li>投资占GDP的比例（衡量一个社会将资金转化为投资的能力）</li>
+<li>私人信贷占GDP的比例（衡量通过银行和贸易信贷提供的金融资源）</li>
+<li>股票市值占GDP的比例（衡量股权融资的发展）</li>
+</ul>
+<p><strong>契约制度的测量</strong> <span
+class="math inline">\(F_c\)</span></p>
+<p>契约制度的主要功能是促进公民之间的合同执行，确保交易的顺利进行。作者使用了以下三个指标：</p>
+<ul>
+<li><p><strong>法律形式主义（Legal
+Formalism）指数</strong>：衡量法律程序的形式主义程度，即法律程序的复杂性和严格性。数据来自Djankov等人（2003），数值越高表示法律形式主义程度越高，合同执行成本越高；</p></li>
+<li><p><strong>程序复杂性（Procedural
+Complexity）</strong>：衡量解决商业纠纷所需的程序数量和复杂性。数据来自世界银行，数值越高表示程序越复杂，合同执行成本越高；</p></li>
+<li><p><strong>程序数量（Number of
+Procedures）</strong>：衡量解决商业债务纠纷所需的程序数量。数据来自世界银行，数值越高表示程序数量越多，合同执行成本越高。</p></li>
+</ul>
+<p><strong>产权制度的测量</strong> <span
+class="math inline">\(I_c\)</span></p>
+<p>产权制度的主要功能是保护公民免受政府和精英的掠夺行为，确保财产权的安全。作者使用了以下三个指标：</p>
+<ul>
+<li><strong>行政限制（Constraint on
+Executive）</strong>：衡量政府权力受限的程度，即政府在多大程度上受制于法律和其他制衡机构。来自
+Polity IV
+数据集的“对行政人员的约束”，捕捉了对政治家和政治上有权势的精英的约束程度（Gurr
+1997）。此度量值范围从 1 到 7，其中分数越高表示约束越大；</li>
+<li><strong>反掠夺保护（Protection Against
+Expropriation）</strong>：评估政府是否会随意征用私人财产。这个数据来自政治风险服务(Political
+Risk Services)，数值越高表示反掠夺保护越强；</li>
+<li><strong>私人产权（Private
+Property）指数</strong>：反映私人财产权的保护程度。来自Heritage
+Foundation，数值越高表示私人产权保护越强。</li>
+</ul>
+<p>实证中，还通过添加交互项 <span class="math inline">\(F_c \cdot
+I_c\)</span>
+和两类制度的高阶项，来检验是否存在交互作用和非线性关系，结果都是否定性的。</p>
+<h4 id="实证策略">实证策略</h4>
+<p>最简单的策略是使用普通最小二乘法（OLS）回归来估计模型。然而，这种策略存在两个问题：</p>
+<ul>
+<li><strong>内生性</strong>：契约制度和产权制度可能是内生的，因此OLS回归可能捕捉到反向因果关系或遗漏变量的影响。</li>
+<li><strong>测量误差</strong>：如果这两个变量存在测量误差，那么OLS回归可能会导致向下的衰减偏差，更重要的是，如果契约制度和产权制度相关，那么测量误差较大的变量的效应可能会加载到另一个变量上。</li>
+</ul>
+<p>为了应对这些问题，作者使用了<strong>两阶段最小二乘法（2SLS）</strong>回归，并为契约制度和产权制度分别选择了合理的工具变量。这些工具变量应与内生解释变量相关，但与通过任何其他途径影响结果变量的遗漏特征无关。</p>
+<p>2SLS策略的两个第一阶段方程是： <span class="math display">\[
+F_c = \delta_1 \cdot L_c + \eta_1 \cdot M_c + \pmb{Z}&#39;_c \cdot
+\pmb{\gamma}_1 + u_{1c}
+\]</span></p>
+<p><span class="math display">\[
+I_c = \delta_2 \cdot L_c + \eta_2 \cdot M_c + \pmb{Z}&#39;_c \cdot
+\pmb{\gamma}_2 + u_{2c}
+\]</span></p>
+<p>其中，<span class="math inline">\(M_c\)</span>
+是欧洲定居者死亡率或1500年土著人口密度的对数；<span
+class="math inline">\(L_c\)</span>
+是英国法律起源的虚拟变量（即该国是否为英国殖民地）； <span
+class="math inline">\(u_c\)</span> 是第二阶段方程的误差项。</p>
+<h4
+id="定居者死亡率和1500年人口密度"><strong>定居者死亡率和1500年人口密度</strong></h4>
+<p>使用定居者死亡率和1500年人口密度作为产权制度的工具变量。这些变量是由Acemoglu
+et al. (2001)构建的，主要基于Gutierrez（1986）和Curtin（1989,
+1998）的研究。这些研究表明，欧洲殖民策略对经济发展有显著影响。在欧洲人定居环境良好的地方，他们建立了保护私人产权的制度，而在定居环境恶劣的地方，欧洲人则倾向于建立掠夺性制度。关于这一点的论述可参见前文：</p>
+<ul>
+<li><a
+target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/jpiCisT0ZxCnCnAV5V5YZg">AER-殖民者死亡率差异塑造了殖民地的制度差异，并影响了当今的经济发展</a></li>
+<li><a
+target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/6yq-UcxVHzQoLHMcS8WLMw">QJE-制度塑造了近500年全球财富格局，而不是地理</a></li>
+</ul>
+<h4 id="法律起源"><strong>法律起源</strong></h4>
+<p>法律起源的概念对于理解各国在法律、经济和金融结果上的差异至关重要。La
+Porta等人（1997,
+1998）的研究广泛探讨了两大主要法律传统之间的区别：“<strong>普通法系，common-law</strong>”和“<strong>大陆法系，civil-law</strong>”。普通法系是英国帝国时期国家的特征，而大陆法系则在受法国、德国或斯堪的纳维亚法律体系影响的国家中普遍存在。</p>
+<p>对于前殖民地国家来说，法律起源通常被认为是外生的，因为殖民大国将其法律体系强加给了被殖民地区。这种强加使研究人员能够使用法律起源作为工具变量来衡量契约制度的影响。</p>
+<h2 id="结果">结果</h2>
+<ul>
+<li><strong>单变量回归</strong>结果：表2展示了契约制度和产权制度的衡量指标与主要经济结果变量之间的单变量回归结果。结果显示，高法律形式主义和程序复杂性与较低的人均GDP、投资率和金融发展（私人信贷和股票市值）相关。这表明，<strong>合同执行成本较高的国家，经济表现较差</strong>。同时，严格的行政限制和有效的产权保护与较高的人均GDP、投资率和金融发展相关。这表明，<strong>保护公民免受政府和精英掠夺的国家，经济表现更好</strong>。<img
+src="https://cdn.jsdelivr.net/gh/yuzhangnju/image2024/image-20240704192526964.png" srcset="/img/loading.gif" lazyload /></li>
+<li><strong>契约制度与产权制度的比较分析</strong>：一阶段。表3的Panel
+A展示了契约制度的第一阶段回归结果，显示英国法律起源对法律形式主义、程序复杂性和程序数量有显著负向影响，而定居者死亡率和1500年人口密度没有显著影响。表3的Panel
+B展示了产权制度的第一阶段回归结果，显示定居者死亡率和1500年人口密度对行政限制、反掠夺保护和私人产权有显著负向影响，而英国法律起源的影响较小。<img
+src="https://cdn.jsdelivr.net/gh/yuzhangnju/image2024/image-20240704193325479.png" srcset="/img/loading.gif" lazyload /></li>
+<li><strong>契约制度与产权制度的比较分析</strong>：主要结果。表4和表5分别展示了人均GDP、投资占GDP比率、私人信贷占GDP比率和股票市值占GDP比率的多变量回归结果。这些表格包含了不同组合的契约制度和产权制度指标，以及不同的工具变量组合。使用行政限制和法律形式主义作为解释变量，并用定居者死亡率和英国法律起源作为工具变量，发现行政限制对人均GDP有显著正向影响，而法律形式主义的影响不显著。行政限制和法律形式主义对投资占GDP比率的回归结果显示，行政限制的正向影响显著，而法律形式主义的影响不显著。其他产权制度指标的回归结果也支持这一结论。行政限制和法律形式主义的回归结果显示，行政限制对金融发展（包括私人信贷和股票市值）的正向影响显著，而法律形式主义的影响不显著。其他产权制度指标的回归结果也支持这一结论。这些结果表明，<strong>产权制度在促进经济增长和金融发展方面起着关键作用，而契约制度的影响较为有限</strong>。作者进行了多种稳健性检验，以确保结果的可靠性<img
+src="https://cdn.jsdelivr.net/gh/yuzhangnju/image2024/image-20240704193705281.png" srcset="/img/loading.gif" lazyload /><img
+src="https://cdn.jsdelivr.net/gh/yuzhangnju/image2024/image-20240704193804435.png" srcset="/img/loading.gif" lazyload /></li>
+</ul>
+<h2 id="黑箱内的分析">黑箱内的分析</h2>
+<p>在这一部分，作者进一步探讨了契约制度和产权制度如何通过不同的途径影响经济结果。</p>
+<h4
+id="契约制度影响经济的理论阐释"><strong>契约制度影响经济的理论阐释</strong></h4>
+<ul>
+<li><strong>法律系统的效率</strong>：契约制度的关键在于法律系统的效率。法律系统越高效，合同执行成本越低，交易得以顺利进行。反之，低效的法律系统会增加交易成本，抑制经济活动；</li>
+<li><strong>程序复杂性和执行成本</strong>：作者使用了来自Djankov等人（2003）的法律形式主义指数和世界银行（2004）的程序复杂性和程序数量数据。这些数据反映了法律程序的复杂性和执行合同的成本。程序越复杂，执行成本越高，经济交易越受阻；</li>
+<li><strong>金融中介的形式</strong>：契约制度影响金融中介的形式。尽管契约制度对整体经济增长的直接影响较小，但它影响了金融市场的发展形式。例如，契约执行成本较高的国家，可能更依赖于银行等监控能力强的金融中介机构，而不是依赖于资本市场。</li>
+</ul>
+<h4
+id="产权影响经济的理论阐释"><strong>产权影响经济的理论阐释</strong></h4>
+<ul>
+<li><strong>政治权力的制约</strong>：产权制度通过对政治权力的制约保护公民的财产权。有效的产权制度限制了政府和精英的掠夺行为，提供了投资和经济活动所需的安全感；</li>
+<li><strong>制度的持久性</strong>：作者强调，殖民历史中的定居者死亡率和人口密度影响了制度的持久性。这些历史因素决定了殖民者是建立掠夺性制度还是保护性制度。保护性制度得以延续，使得这些国家在现代拥有更好的产权保护；</li>
+<li><strong>政治和经济环境的稳定性</strong>：有效的产权制度增强了政治和经济环境的稳定性，减少了不确定性，促进了长期投资和经济增长。反之，弱产权制度下的掠夺行为会导致投资减少，经济增长受限。</li>
+</ul>
+<h4 id="实证检验与结果"><strong>实证检验与结果</strong></h4>
+<p>作者使用了世界银行的世界企业调查（WBES）数据，分析了企业对各种经营问题的评估。这些问题包括合同执行、政府腐败、立法和行政的可预测性等。</p>
+<p>在表9的A和B部分中，使用了与企业面临的法律问题相关的三个变量：</p>
+<ul>
+<li>企业对法院总体质量的评估：请评价法院提供的服务质量和效率；</li>
+<li>企业对司法系统在处理商业纠纷方面具体运作情况的评估。基于以下问题：“在解决商业纠纷时，您认为本国的法院系统是否：(a)
+公平和公正，(b) 诚实/不腐败，(c) 迅速，(d) 可负担，(e) 一致，(f)
+判决执行？（decisions enforced）”使用企业对所有六个问题的平均回答；</li>
+<li>企业对竞争对手侵犯知识产权的看法，这涉及到受访企业与其他类似企业之间的互动。</li>
+</ul>
+<p>对这些指数进行归一化处理，使得分数越高表示受访者面临的问题越大。因此，预期较好的契约制度和英国法律起源会与这些指数的较低值相关，而产权制度衡量指标及其工具变量不应与这些指数相关。表9中的结果正好显示了这一模式。即，企业对法院质量、司法系统运作和知识产权保护的评估与契约制度相关，而与产权制度和历史变量无关。<img
+src="https://cdn.jsdelivr.net/gh/yuzhangnju/image2024/image-20240704195009293.png" srcset="/img/loading.gif" lazyload /></p>
+<p>表9的Panel
+C和D研究了产权制度与企业面临的政治问题之间的关系。在WBES中，有三个不同的变量与企业面临的政治问题和掠夺风险有关：</p>
+<ul>
+<li>向政府官员支付任何形式的“额外付款”的频率；</li>
+<li>企业对政府腐败问题严重程度的评估；</li>
+<li>企业对立法和法规可预测性的看法。</li>
+</ul>
+<p>结果显示，企业对政府腐败和立法、行政可预测性的评估与产权制度和历史变量相关，而与契约制度无关。</p>
+<h2 id="结语">结语</h2>
+<ul>
+<li><strong>产权制度的关键作用</strong>：产权制度对长期经济增长、投资和金融发展具有显著的正向影响。产权制度通过限制政府和精英的掠夺行为，提供了一个稳定和安全的环境，鼓励私人投资和经济活动；</li>
+<li><strong>契约制度的有限作用</strong>：尽管契约制度在影响经济结果上也起一定作用，但其影响较为有限。契约制度主要通过影响金融中介的形式来间接影响经济发展。在契约制度较弱的环境中，私人部门可以通过调整合同条款和活动形式来部分规避负面影响。例如，当合同执行成本高时，贷款利率会提高，银行的监控作用增强，或者声誉机制发挥作用。</li>
+<li><strong>黑匣子需要打得更开</strong>：未来的研究需要通过详细的宏观和微观数据分析，进一步探讨个体是否通过改变合同条款和金融关系形式来规避弱契约制度带来的成本。此外，尽管产权制度对经济结果的影响非常稳健，但其具体机制仍然有待深入探讨：产权制度究竟是如何影响投资、信贷和增长的？是通过政府和政治强势群体掠夺其他群体的收入？还是通过阻止新群体和生产者的进入？作者认为这些都是未来研究的有益方向。</li>
+</ul>
+<h2 id="号外">号外</h2>
+<ul>
+<li>看到好多论文做政策评估，认为xx政策促进了受影响地区的经济发展，通常会在机制部分加入政策对当地营商环境的影响。原来这篇论文也是，可能还属于比较早的那一批。</li>
+<li>这篇论文的几个被解释变量和解释变量都很有意思，对于理解当下中国经济的困境很有帮助。（当然实际决策者的立场和想法是另一回事）</li>
+<li>听规划院的同学说，这些年接政府的城市/区域规划项目，已经默认合同金额会打折并且尾款要不回来。🙂‍↔︎️</li>
+</ul>
+<h2 id="原文信息">原文信息</h2>
+<p>Daron Acemoglu, and Simon Johnson. "Unbundling institutions."
+<em>Journal of political Economy</em> 113, no. 5 (2005): 949-995.
+https://doi.org/10.1086/432166</p>
+<p><img
+src="https://cdn.jsdelivr.net/gh/yuzhangnju/image2024/image-20240703204548004.png" srcset="/img/loading.gif" lazyload /></p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/HIBL/" class="print-no-link">#HIBL</a>
+      
+        <a href="/tags/%E8%B5%B7%E6%BA%90%E9%97%AE%E9%A2%98/" class="print-no-link">#起源问题</a>
+      
+        <a href="/tags/Acemoglu/" class="print-no-link">#Acemoglu</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>JPE-解构制度：产权保护制度和契约制度</div>
+      <div>https://yuzhang.net/2024/07/03/20240619-JPE-区分产权保护制度和合约制度/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>Yu Zhang</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2024年7月3日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="NC - 非商业性使用">
+                    <i class="iconfont icon-nc"></i>
+                  </span>
+                </a>
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="SA - 相同方式共享">
+                    <i class="iconfont icon-sa"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2024/06/26/20240626-REStat-%E5%8D%B7%E7%8E%8B%E5%AE%A4%E5%8F%8B%E7%9A%84%E8%B4%9F%E9%9D%A2%E5%BD%B1%E5%93%8D/" title="REStat-卷王室友的负面效果？竞争如何影响同侪效应">
+                        <span class="hidden-mobile">REStat-卷王室友的负面效果？竞争如何影响同侪效应</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  
+      <script>
+        if (!window.MathJax) {
+          window.MathJax = {
+            tex    : {
+              inlineMath: { '[+]': [['$', '$']] }
+            },
+            loader : {
+              load: ['ui/lazy']
+            },
+            options: {
+              renderActions: {
+                insertedScript: [200, () => {
+                  document.querySelectorAll('mjx-container').forEach(node => {
+                    let target = node.parentNode;
+                    if (target.nodeName.toLowerCase() === 'li') {
+                      target.parentNode.classList.add('has-jax');
+                    }
+                  });
+                }, '', false]
+              }
+            }
+          };
+        } else {
+          MathJax.startup.document.state(0);
+          MathJax.texReset();
+          MathJax.typeset();
+          MathJax.typesetPromise();
+        }
+
+        Fluid.events.registerRefreshCallback(function() {
+          if ('MathJax' in window && MathJax.startup.document && typeof MathJax.startup.document.state === 'function') {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+            MathJax.typesetPromise();
+          }
+        });
+      </script>
+    
+
+  <script  src="https://lib.baomitu.com/mathjax/3.2.2/es5/tex-mml-chtml.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
