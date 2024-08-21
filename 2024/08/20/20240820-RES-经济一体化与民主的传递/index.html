@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/yuzhangnju/image2024/AdobeStock_441669259.jpeg">
 <meta property="article:published_time" content="2024-08-20T10:00:00.000Z">
-<meta property="article:modified_time" content="2024-08-20T07:45:11.935Z">
+<meta property="article:modified_time" content="2024-08-21T08:55:02.578Z">
 <meta property="article:author" content="Yu Zhang">
 <meta property="article:tag" content="HIBL">
 <meta name="twitter:card" content="summary_large_image">
@@ -368,7 +368,7 @@ class="math inline">\(\beta^A\)</span> 表示。</p>
 Integration)</strong></p>
 <p>在构建经济一体化的工具变量时，作者使用了一个基于空运相对于海运重要性的变化来预测国家之间的贸易。这一策略的主要思路是，不同国家之间的双边贸易量受空运和海运距离的不同程度的影响。随着1960年代中期以来空运技术的改进，空运相对于海运变得更加重要，因此对于空运和海运距离差异较大的国家对之间的贸易量影响也不同。</p>
 <p>作者采用了时间变化的重力方程模型来估计双边贸易流量，这一模型考虑了空运和海运距离，并允许在1960年至2015年期间每五年变化一次。与Feyrer（2019）的研究类似，作者将双边阻力项<span
-class="math inline">\(\tau_{ijp}\)</span>建模如下：</p>
+class="math inline">\(\tau_{ijp}\)</span>建模如下(公式有可能会渲染错误，如遇到错误情况，请查看原文)：</p>
 <p><span class="math display">\[
 \ln(\tau_{ijp}) = \beta_{p}^ \ln({seadist}_{ij}) +
 \beta_{p}^ \ln({airdist}_{ij})
@@ -386,7 +386,7 @@ class="math inline">\({trade}_{ijt}\)</span>可以表示为：</p>
 <p><span class="math display">\[
 \ln({trade}_{ijt}) = \chi_{ij} + \phi_{it} + \psi_{jt} +
 \beta_{p}^{\text{sea}} \ln({seadist}_{ij}) +
-\beta{p}^ \ln({airdist}_{ij}) + u_{ijt}
+\beta_{p}^ \ln({airdist}_{ij}) + u_{ijt}
 \]</span></p>
 <ul>
 <li><span
@@ -399,12 +399,12 @@ class="math inline">\(\psi_{jt}\)</span>：国家-年份固定效应，控制了
 class="math inline">\(j\)</span> 进行求和，以计算国家 <span
 class="math inline">\(i\)</span> 的总预测贸易流量。公式如下：</p>
 <p><span class="math display">\[
-\widehat{it} = \sum_{j \neq i} \omega_{ij}
+\widehat_{it} = \sum_{j \neq i} \omega_{ij}
 \exp(\ln{trade}_{ijt})
 \]</span></p>
 <p>可以进一步展开为：</p>
 <p><span class="math display">\[
-\widehat{it} = \sum_{j \neq i} \omega_{ij} \left[
+\widehat_{it} = \sum_{j \neq i} \omega_{ij} \left[
 e^{\beta_{p}^ \ln({seadist}_{ij}) +
 \beta{p}^ \ln({airdist}_{ij})} \right]
 \]</span> 这里，作者将双边贸易流量根据国家 <span
