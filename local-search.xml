@@ -938,15 +938,15 @@
     <link href="/2023/07/22/CIT5_20230722/"/>
     <url>/2023/07/22/CIT5_20230722/</url>
     
-    <content type="html"><![CDATA[<p>本期CasualInference读书会和大家交流了断点回归设计的基本原理和代码实现，并重点解析了马光荣老师等发表在JPubE上的空间断点<ahref="https://doi.org/10.1016/j.jpubeco.2020.104352">论文</a>，该文提供了部分代码，故事也很有趣，值得细读！</p><iframe src="/myjs/pdfjs/web/viewer.html?file=/pdf/20230722-RDD.pdf" style="width:100%;height:800px"></iframe>]]></content>
+    <content type="html"><![CDATA[<p>本期CausalInference读书会和大家交流了断点回归设计的基本原理和代码实现，并重点解析了马光荣老师等发表在JPubE上的空间断点<ahref="https://doi.org/10.1016/j.jpubeco.2020.104352">论文</a>，该文提供了部分代码，故事也很有趣，值得细读！</p><iframe src="/myjs/pdfjs/web/viewer.html?file=/pdf/20230722-RDD.pdf" style="width:100%;height:800px"></iframe>]]></content>
     
     
     
     <tags>
       
-      <tag>因果推断</tag>
-      
       <tag>断点回归</tag>
+      
+      <tag>因果推断</tag>
       
       <tag>RDD</tag>
       
