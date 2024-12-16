@@ -4,6 +4,27 @@
   
   
   <entry>
+    <title>介绍两个AI文献综述平台</title>
+    <link href="/2024/12/16/20241216-AI%20for%20Science/"/>
+    <url>/2024/12/16/20241216-AI%20for%20Science/</url>
+    
+    <content type="html"><![CDATA[<blockquote><p><strong>文献梳理</strong>是一项耗时耗力的工作。</p><p>在本文中，我将介绍<strong>NotebookLM</strong>和<strong>ScopusAI</strong>的使用经验，讲述AI如何帮助我们减少文献部分的工作量。</p></blockquote><h2 id="notebooklm">NotebookLM</h2><h4 id="知识库需求"><strong>知识库需求</strong></h4><p>我在五月份发过一篇推文“<ahref="https://mp.weixin.qq.com/s/iGpRRKeX_n-uTQh3487I3A">本地部署Llama3并构建私人知识库进行问答</a>”，这是一个本地的<strong>RAG</strong>项目（检索增强生成，Retrieval-AugmentedGeneration），我希望它能对本地的大量文献进行索引并回答我想要的问题，减少文献梳理的工作压力。实验结果表明，本地算力和模型能力，远远达不到可用标准。</p><p><strong>本地知识库</strong>旨在应对下面的场景：</p><ul><li><strong>新话题进入</strong>：本地存在40-60篇相同主题文献，在进入一个新话题时，需要快速了解研究现状脉络（未到深入的文献对话）；</li><li><strong>私密文件</strong>：对于一些私密文件，可能不放心上传。</li></ul><p>我在本地构建的知识库，无法满足上述要求，它存在很多的局限性：</p><ul><li><strong>模型能力</strong>：Llama3 8B的版本，仍然处在toymodel层面，其索引质量比较差；</li><li><strong>本地算力</strong>：在构建知识库时，需要对文献（通常为pdf格式）进行分块和<strong>文档向量化（Embedding）</strong>操作，这一过程本身又需要用到相关模型，而本地算力进行这一过程费时费力且效果一般。</li></ul><p>以上实验的结果就是，一通折腾下来，本地知识库明确有的内容，模型索引效果也非常差，且常常遗漏。因此，这项工作，要么发动钞能力，要么需要大厂开发的产品来满足。谷歌的NotebookLM就是一个非常不错的产品，很好地解决了大批量文献索引的问题。</p><h4 id="notebooklm介绍"><strong>NotebookLM介绍</strong></h4><p>这部分直接让最新的Gemini 2.0 Flash来回答：</p><blockquote><p><strong>谷歌NotebookLM：你的AI研究和笔记助手</strong></p><p>NotebookLM是谷歌推出的一款强大的AI驱动的笔记和研究工具，旨在帮助用户更有效地处理、理解和利用大量信息。它通过结合大型语言模型（LLM）的强大功能，将你的笔记和文档转化为一个互动式的学习和研究环境。</p><p><strong>核心功能和特点：</strong></p><ul><li><strong>文档理解和摘要：</strong>你可以上传各种文档（如PDF、文本文件等），NotebookLM能够自动提取关键信息，生成简洁明了的摘要，帮助你快速抓住核心内容，节省大量阅读时间。</li><li><strong>智能问答：</strong>基于你提供的文档和笔记，NotebookLM可以回答你的问题。这意味着你可以像与一位知识渊博的助手对话一样，快速获取所需信息。</li><li><strong>自动生成问题：</strong>NotebookLM不仅能回答问题，还能根据笔记内容自动生成一系列问题，引导你更深入地思考和理解，促进更有效的学习和研究。</li><li><strong>知识网络构建：</strong>NotebookLM可以将多篇笔记、文件和资料连接在一起，构建出一个相互关联的知识网络。这有助于你更清晰地看到不同信息之间的联系，更好地组织和理解复杂知识，尤其适用于需要整合多方面知识的研究人员和学生。</li><li><strong>AI播客生成：</strong>NotebookLM最近新增了一项非常有趣的功能，它可以理解你上传的文档、链接和文本信息，并生成一个对谈式的播客，以更生动有趣的方式呈现信息。</li><li><strong>Gemini Pro 加持:</strong> NotebookLM 采用了更强大的 GeminiPro模型，带来了更强大的理解和推理能力，让信息处理和知识提取更加精准高效。</li></ul><p><strong>适用人群：</strong></p><ul><li><strong>学生：</strong>帮助学生更有效地学习和复习课程材料，准备考试和论文。</li><li><strong>研究人员：</strong>帮助研究人员快速分析和整合大量研究资料，提高研究效率。</li><li><strong>专业人士：</strong>帮助专业人士快速掌握行业信息，做出更明智的决策。</li><li><strong>任何需要处理和理解大量信息的人：</strong>无论你是需要整理会议记录、分析市场报告，还是学习新知识，NotebookLM都能为你提供强大的支持。</li></ul><p><strong>使用方式：</strong></p><p>NotebookLM目前可以通过谷歌账号登录使用（https://notebooklm.google.com/）。部分企业GoogleWorkspace用户和GoogleWorkspace教育版用户也可以使用。如果使用公司或学校邮箱但无法访问，可能需要联系管理员开通。</p><p><strong>总结：</strong></p><p>NotebookLM是一款集成了先进AI技术的强大工具，它通过智能化的方式帮助用户更有效地管理、理解和利用信息，极大地提高了学习和研究效率。如果你经常需要处理大量信息，那么NotebookLM绝对值得一试。</p></blockquote><p>NotebookLM经历了几个大的版本更新，在最新版，其基座模型由Gemini 1.5Pro改为Gemini 2.0 Flash，这是谷歌目前为止最强的模型。</p><p>最重要的是，NotebookLM目前有<strong>免费版</strong>可以使用！</p><p>下面，我们一起来试试它的效果。</p><h4 id="notebooklm使用案例"><strong>NotebookLM使用案例</strong></h4><p>1️⃣ 登录NotebookLM，网站是：<ahref="https://notebooklm.google.com/">https://notebooklm.google.com/</a>；</p><p>2️⃣ 成功登录后，可以新建项目。如图所示，我已经建立过几个项目：<imgsrc="https://cdn.jsdelivr.net/gh/yuzhangnju/image2024/image-20241216142511498.png" /></p><p>3️⃣这里，我新建了一个项目，将Acemoglu关于制度与长期经济增长关系的多篇论文导入：</p><p><imgsrc="https://cdn.jsdelivr.net/gh/yuzhangnju/image2024/image-20241216143324099.png" /></p><p>项目页面分成了三个部分，左侧是上传的<strong>文档资料区</strong>，右上为<strong>笔记区</strong>域，右下为主要交互区，包含预设笔记、建议的提问、对话框和播客音频生成区域。我们逐一看一下这几部分：</p><ul><li><p><strong>文档资料区</strong>：在这个演示中，我上传了14篇论文，皆为pdf格式，上传不久NotebookLM就完成了解析，速度比本地RAG不知道高到哪里去了。点击文档可以发现，其将pdf转成了纯文本，比如AJR(2001)的转换结果如下：<imgsrc="https://cdn.jsdelivr.net/gh/yuzhangnju/image2024/image-20241216143915074.png" /></p></li><li><p><strong>笔记区</strong>：笔记区下方的交互区通常会有些预设问题，比如研究的总结、时间线、FAQ等。在这里，我点击了<strong>BriefingDoc</strong>，看看结果。可以发现，其为pdf文档进行了简单的内容分割与解释；<imgsrc="https://cdn.jsdelivr.net/gh/yuzhangnju/image2024/image-20241216144829867.png" /></p></li><li><p><strong>交互区</strong>：现在，我们简单提问看看。使用中文提问，它也可以正确理解。<imgsrc="https://cdn.jsdelivr.net/gh/yuzhangnju/image2024/image-20241216145155390.png" /></p><p>如果你的谷歌账户首选语言是中文，那么在最新版的NotebookLM里，它可以使用中文回答，如下：<imgsrc="https://cdn.jsdelivr.net/gh/yuzhangnju/image2024/image-20241216145542896.png" /></p><p>大家可以点开图片感受一下回答质量，比本地模型不知道高到哪里去了。同时，对于观点类的回答，提供了明确的引文标记，可以点击查看。</p></li><li><p><strong>综述演示</strong>：现在，我让其帮我写一段综述，看看效果：<imgsrc="https://cdn.jsdelivr.net/gh/yuzhangnju/image2024/image-20241216150042374.png" /></p><p>NotebookLM对我的提问进行了回答，并给出了引文。由于我构建的知识库只包含十几篇文献，因此此处的引文较少。有网友测试发现，NotebookLM的一个项目中，可以上传近百篇文献。如果你的文献库质量比较高，此处回答的质量也会更高。</p></li><li><p><strong>播客音频</strong>：在“笔记本助手”（Notebookguide）处，可以让NotebookLM生成一段双人对话的播客音频，以对话的形式，递进式展示文献库的内容，我们来听听看：<imgsrc="https://cdn.jsdelivr.net/gh/yuzhangnju/image2024/image-20241216150709712.png" /></p><p><ahref="https://notebooklm.google.com/notebook/ec155384-6270-4568-a3fe-862a1c7b1a66/audio">https://notebooklm.google.com/notebook/ec155384-6270-4568-a3fe-862a1c7b1a66/audio</a></p><p>一个字，绝！对话人声自然，提问不浮于表面，回答有深度。甚至可以当听力材料（目前只支持英文）。大家一定要自己试试！（感受一下美式英语的<strong>exactly</strong>冲击！）</p></li></ul><h4 id="notebooklm-plus"><strong>NotebookLM Plus</strong></h4><p>在最近的更新中（2024年12月），谷歌推出了NotebookLMPlus，可以团队使用，大大增加了单个项目的容量，同时扩展了上下文的长度，并可以自定义回答方式。如果您有此需求并恰好财力雄厚，不妨联系销售订阅试试。</p><p><imgsrc="https://cdn.jsdelivr.net/gh/yuzhangnju/image2024/image-20241216151627600.png" /></p><h2 id="观点发现类引文搜索-scopus-ai">观点发现类引文搜索 <strong>ScopusAI</strong></h2><p>在写作中，我们常常需要了解同一研究问题下不同学者们的观点，在深度阅读外，可以借助AI引擎先行快速了解。在这里，我推荐一下近期在使用的Elsevier构建的<strong>ScopusAI</strong>：<ahref="https://www.sciencedirect.com/ai">https://www.sciencedirect.com/ai</a>（可能需要权限认证）。</p><p>以 <em>How do housing prices affect fertility rates?</em>为例进行提问：</p><p><imgsrc="https://cdn.jsdelivr.net/gh/yuzhangnju/image2024/image-20241216153727367.png" /></p><p>⬆️AI很快给出了回答，可以发现，其首先回答了房价与生育率之间的<strong>负相关</strong>关系，在接下来的回复中，其展示了房价影响生育率的异质性或渠道。</p><p><strong>ScopusAI</strong>解决了大模型推荐文献或撰写综述的两大痛点：</p><ul><li><strong>精确的引文获取</strong>：通用的大语言模型在撰写综述时，常常杜撰文献，而ScopusAI的回答基于大量真实文献，可以给出引文来源。比如点击下面的 (Du, Hui&amp; Chen, 2024)，就会跳出原文信息，并可一键直达：<imgsrc="https://cdn.jsdelivr.net/gh/yuzhangnju/image2024/image-20241216154347363.png" /></li><li><strong>观点支持类文献搜索</strong>：如果在撰写综述时，需要寻找明确支持某一观点的文献，比如“<em>房价上涨降低了生育率</em>”，AI引文可以迅速找到支持的文献。</li></ul><p>Scopus AI不仅收录了Elsevier的文献，其他出版平台的文献也有收录。</p><p>与ScopusAI相似的平台还有一些，但我试用下来发现它们要么体验不佳，要么没有权限，要么需要钞能力。所以，现阶段比较推荐ScopusAI。</p><h2 id="号外">号外</h2><ul><li>最近一个月赶了一篇论文，更新暂停了一下，后面争取正常更新。</li><li>国内也有大厂在做类NotebookLM的产品，但试用下来效果一般。</li><li>ChatGPT的<strong>Projects</strong>功能，和NotebookLM类似，都支持多文档索引回复，但我试了一下发现效果一般，首先是GPT4o降智问题，回答质量比较差，其次是单个Project目前最多支持20个文档，数量太少了。</li><li>目前有一些大厂和创业公司，开展了AI自动全流程科研项目，即AI自己收集文献、做实验、撰写论文和投稿，知识生产的自动化正在路上。</li><li>最近咬牙开通了一个月的<strong>ChatGPTPro</strong>，可以使用<strong>o1Pro</strong>模型，非常强大！大家的课题组如经费充足，可以试试。这个比招RA的成本低。</li><li>大家有关于AI在科研方面的经验，欢迎分享给我！谢谢！</li></ul>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>HIBL</tag>
+      
+      <tag>AI</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>QJE-中国大一统与欧洲多中心的地理起源</title>
     <link href="/2024/11/18/20241119-QJE-%E4%B8%AD%E5%9B%BD%E5%A4%A7%E4%B8%80%E7%BB%9F%E4%B8%8E%E6%AC%A7%E6%B4%B2%E5%A4%9A%E4%B8%AD%E5%BF%83%E7%9A%84%E5%9C%B0%E7%90%86%E8%A7%A3%E9%87%8A/"/>
     <url>/2024/11/18/20241119-QJE-%E4%B8%AD%E5%9B%BD%E5%A4%A7%E4%B8%80%E7%BB%9F%E4%B8%8E%E6%AC%A7%E6%B4%B2%E5%A4%9A%E4%B8%AD%E5%BF%83%E7%9A%84%E5%9C%B0%E7%90%86%E8%A7%A3%E9%87%8A/</url>
@@ -926,9 +947,9 @@
     
     <tags>
       
-      <tag>MRIO</tag>
-      
       <tag>MATLAB</tag>
+      
+      <tag>MRIO</tag>
       
       <tag>投入产出分析</tag>
       
@@ -949,9 +970,9 @@
     
     <tags>
       
-      <tag>MRIO</tag>
-      
       <tag>MATLAB</tag>
+      
+      <tag>MRIO</tag>
       
       <tag>投入产出分析</tag>
       
@@ -1087,9 +1108,9 @@
     
     <tags>
       
-      <tag>断点回归</tag>
-      
       <tag>因果推断</tag>
+      
+      <tag>断点回归</tag>
       
       <tag>RDD</tag>
       
@@ -1863,9 +1884,9 @@
     
     <tags>
       
-      <tag>MRIO</tag>
-      
       <tag>MATLAB</tag>
+      
+      <tag>MRIO</tag>
       
     </tags>
     
@@ -1907,9 +1928,9 @@
     
     <tags>
       
-      <tag>MRIO</tag>
-      
       <tag>MATLAB</tag>
+      
+      <tag>MRIO</tag>
       
     </tags>
     
@@ -1974,9 +1995,9 @@
     
     <tags>
       
-      <tag>MRIO</tag>
-      
       <tag>MATLAB</tag>
+      
+      <tag>MRIO</tag>
       
     </tags>
     
@@ -1995,9 +2016,9 @@
     
     <tags>
       
-      <tag>MRIO</tag>
-      
       <tag>MATLAB</tag>
+      
+      <tag>MRIO</tag>
       
     </tags>
     
@@ -2016,9 +2037,9 @@
     
     <tags>
       
-      <tag>MRIO</tag>
-      
       <tag>MATLAB</tag>
+      
+      <tag>MRIO</tag>
       
     </tags>
     
@@ -2037,9 +2058,9 @@
     
     <tags>
       
-      <tag>MRIO</tag>
-      
       <tag>MATLAB</tag>
+      
+      <tag>MRIO</tag>
       
     </tags>
     
