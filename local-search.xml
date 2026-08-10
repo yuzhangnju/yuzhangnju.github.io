@@ -4,6 +4,25 @@
   
   
   <entry>
+    <title>基于Markdown的论文修改工作流</title>
+    <link href="/2026/08/10/20260810-md_paper/"/>
+    <url>/2026/08/10/20260810-md_paper/</url>
+    
+    <content type="html"><![CDATA[<blockquote><p>人文社会科学的论文写作、合作修改和期刊投稿，长期以来都以<strong>Word</strong> 为中心。Word对作者十分友好：它所见即所得，便于排版、批注和修订，也能与<strong>Zotero</strong> 等文献管理工具配合。但在 AI Agent已经能够读取文件、调用工具并连续完成复杂任务的今天，Word逐渐成为论文自动化修改中的一个<strong>障碍</strong>。它的内部结构复杂，包含样式、引用域、图表关系、修订记录和嵌入对象，模型很难稳定读取，也很难在不破坏原有结构的情况下持续修改。</p><p>为了解决这一问题，我们(主要是pw)开发了<strong>md-paper</strong>，一套面向 AI Agent 的论文修改<em>Skills</em>。它先将 Word 原稿转换为 <strong>Markdown</strong>，让Agent 在 Markdown文件中整理审稿意见、修改正文、核对引用并检查全文，完成后再重新生成Word。由此形成一条完整的 <strong>Word → Markdown → Agent 修改 →转回Word</strong> 流程：Word继续承担阅读、排版、合作和投稿的功能，Markdown 则成为 AI修改论文时的工作格式。</p></blockquote><p><imgsrc="https://cdn.jsdelivr.net/gh/yuzhangnju/image2025/image-20260810162951083.png" /></p><h2id="worddocx作为社科论文的默认格式">Word（DOCX）作为社科论文的默认格式</h2><p>人文社会科学中的论文写作和修改以 Word为默认格式，这是由<strong>整套学术交流方式</strong>共同决定的。许多<strong>期刊</strong>要求作者提交<code>.docx</code>文件；<strong>导师</strong>和<strong>合作者</strong>习惯在 Word中阅读论文、添加批注和开启修订模式；即使作者自己使用 LaTeX、Typora或其他工具写作，到了与导师讨论、向合作者发送版本或者正式投稿时，往往还是要转回Word。尤其在文科和社会科学中，导师“只看 Word”并不少见。Word已经嵌入论文从写作、修改到投稿的各个环节，短期内很难被完全替代。</p><p><strong>Word对人类非常友好</strong>。研究者不需要理解文件内部结构，就可以直接调整字体、行距和标题，插入图表、脚注和公式，也可以通过Zotero管理引用。页面上看到的内容，基本就是最后打印或投稿时的样子。对于需要频繁批注、修订和交换版本的论文来说，这种图形界面具有明显优势。</p><p>但我们的<strong>大语言模型</strong>或者<strong>Agent</strong>首先是一类处理文本的模型。现代<code>.docx</code> 文件实际上是一个压缩包，内部包含多份 <strong>OfficeOpen XML（OOXML）</strong>文件，以及图片、公式和其他资源。正文、样式、编号、批注、修订记录、脚注、书签、图片关系和Zotero 域分别保存在不同位置，最后由 Word将它们组合成用户看到的页面。让AI直接读Word其实会造成很大的注意力浪费，对于AI来说，越接近纯自然语言，其读起来越方便。</p><p>Word文件本身也比较<strong>笨重</strong>。同样一篇以文字为主的论文，保存为<code>.docx</code>时，除了正文，还要携带样式表、关系文件、媒体文件和插件写入的信息。不同版本的Word、Windows 和 macOS对字体、分页、公式、图表位置以及插件的支持也可能存在差异。文件在作者、导师、合作者和编辑之间反复传递以后，还容易出现多个近似版本，混入不同的批注、修订记录和格式设置。</p><p>因此，我们<strong>仍然需要 Word</strong>，但没有必要让 AI 始终在 Word内部工作。比较合理的做法，是保留 Word作为人与人交流以及最终投稿的格式，同时在中间增加一种更接近纯文本、更适合模型处理的工作格式。</p><h2 id="ai直接改word有什么问题">AI直接改Word有什么问题</h2><p><strong>ChatBot时代</strong>最常见的 AI 改稿方式，是把 Word中的一段文字复制到 ChatGPT 或Claude，等模型修改以后再粘贴回来。只改一两个句子时，这种方式已经足够方便；一旦面对整轮审稿意见，它就会重新变成大量人工操作。作者需要逐条复制意见、提供上下文、定位原文，再把修改结果放回正确位置。摘要、引言、理论、结果和结论之间如果需要联动修改，还要靠作者自己反复检查。</p><p>目前，<strong>Claude Code</strong>和<strong>Codex</strong>等AI Agent已经能够读取本地文件并直接修改文档，看起来可以省掉复制粘贴，但让 Agent直接操作 Word 仍然存在几个比较棘手的问题：</p><ul><li><p><strong>Word文件占用的上下文过长，容易导致注意力丢失</strong>。相比纯文字，word的所占的存储空间要大得多，也就意味着，LLM读进去的Token要多得多，而论文又都是长文，没必要给LLM增加负担了；</p></li><li><p><strong>Zotero 引用域容易损坏。</strong>作者在页面上看到的引用只是最终显示结果，Word 内部还保存着 Zotero用来识别文献、刷新格式和生成参考文献的信息。模型重写段落时，可能把活引用变成普通文字，也可能删掉引用、拆开一组文献，或者破坏引用域；</p></li><li><p><strong>图表、题注和交叉引用容易失效。</strong> “见图 2”或“如表 4所示”通常与 Word 的书签、题注和自动编号相连。AI可能保留页面上显示的文字，却破坏背后的对应关系。公式编号、脚注和表下注释也有类似问题；</p></li><li><p><strong>修订和格式很难稳定保留。</strong> Word中的修订模式、批注、段落样式和分页并不是普通正文。模型直接改写文件以后，可能出现格式漂移、批注位置错乱，或者在不同系统上呈现不同结果；</p></li><li><p><strong>全文修改容易前后不一致。</strong>一条审稿意见常常同时影响多个章节。理论部分更换一个核心概念后，引言、假设、结果和结论都要同步调整。逐段修改很容易漏掉其中一部分；</p></li><li><p><strong>多个 Agent 直接改同一份文件容易相互覆盖。</strong> 不同Agent 可能基于不同版本起草修改，后一次写入也可能覆盖前一次结果。每个Agent 都声称任务已经完成，并不意味着最终文档保留了所有改动。</p></li></ul><p>这些问题说明，AI改论文面临处理文档转换、任务拆分、版本管理、引用保护、修改写入和最终检查等不便之处。Word可以继续作为最终文档，但中间的修改过程需要换一种更简单的表示方式。</p><h2 id="为什么选择-markdown">为什么选择 Markdown</h2><p>md-paper 选择 <strong>Markdown</strong> 作为 Word 与 AI Agent之间的中间格式。Markdown是一种<strong>轻量级标记语言</strong>，它用少量符号表示标题、加粗、列表、链接、引用和其他结构。例如：</p><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs markdown"><span class="hljs-section"># 文章标题</span><br><br><span class="hljs-section">## 理论分析</span><br><br>这是一个正文段落。<br><br><span class="hljs-strong">**这是加粗文字。**</span><br><br>这里引用一篇文献 [@acemoglu2001]。<br></code></pre></td></tr></table></figure><p>这种格式首先是普通文本。即使不熟悉 Markdown语法，也可以直接读懂大部分内容；对模型来说，标题、段落、引用和图表标签又清楚地写在文本中，不需要从复杂的Word结构里重新辨认。它在人的可读性和机器的可处理性之间取得了比较好的平衡。</p><p>Markdown 适合 AI 改论文，主要有以下几个原因：</p><ul><li><strong>文件更轻，正文更直接。</strong> Markdown主要保存文字和少量结构标记，不需要携带 Word中大量样式、关系和界面信息。</li><li><strong>模型更容易理解结构。</strong>标题层级、段落边界、引用标记和图表标签直接可见，模型可以把更多注意力放在论文内容上。</li><li><strong>修改记录更清楚。</strong> Markdown 是普通文本，可以用 Git比较不同版本。哪些句子被替换、哪些段落被删除、哪些概念被统一，都能直接看到。</li><li><strong>更容易恢复旧版本。</strong>某一轮修改效果不好时，可以回到之前的版本，不必在多个名称相近的 Word文件中寻找正确版本。</li><li><strong>便于自动检查。</strong> 文献可以写成<code>[@citekey]</code>，图、表和公式可以设置固定标签。程序能够在每轮修改后检查引用有没有丢失、图表是否仍然存在、交叉引用是否有效。</li></ul><p>Markdown 并不承担最终排版和投稿功能。它主要服务于 AI修改阶段。论文在进入这一阶段前从 Word 转成 Markdown，修改完成后再转回Word。这样既保留了 Word 在社科学术交流中的现实地位，也为 Agent提供了更简单、更稳定的工作环境。</p><h2 id="md-paper-如何工作">md-paper 如何工作</h2><p>md-paper 包含五阶段工作内容：</p><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs text">Word 原稿<br>    ↓<br>md-unpack：转换为 Markdown<br>    ↓<br>manuscript.md<br>    ↓<br>md-iterate：修改一处文字<br>或<br>md-triage → 作者确认 → md-swarm：处理整轮修改意见<br>    ↓<br>md-build：重新生成 Word<br>    ↓<br>Word 终稿<br></code></pre></td></tr></table></figure><ol type="1"><li><p><strong><code>md-unpack</code>：把 Word 原稿转换为Markdown。</strong> 它读取原始 <code>.docx</code> 文件，将正文转换成<code>manuscript.md</code>，同时处理 Zotero引用、图片、表格、题注、脚注、公式和交叉引用。此后，Agent 主要围绕这份Markdown 文件修改论文，不再反复直接操作 Word。</p></li><li><p><strong><code>md-iterate</code>：完成一处具体修改。</strong>如果只需要修改一段文字或者一个小节，作者可以在 VS Code中选中相应内容，然后告诉Agent“压缩这一段，但保留引用”或“这段表达太生硬，重新写一下”。系统会先检查修改位置和引用，再将结果写入文件，并保留前后版本供作者比较。</p></li><li><p><strong><code>md-triage</code>：整理整轮修改意见。</strong>输入可以是期刊审稿意见、编辑来信、Word批注、导师意见、会议记录、语音转写，或者作者自己写的修改方案。系统会把这些内容整理成一项项具体任务，标出可能涉及的章节、意见之间的关系、需要补充的文献或数据，以及必须由作者亲自完成的部分。任务清单生成后，作者先进行检查和调整。</p></li><li><p><strong><code>md-swarm</code>：让多个 Agent分工修改并进行检查。</strong> 作者确认任务以后，系统会把不同工作交给多个Agent。每个 Agent阅读整篇论文，但只负责自己分到的任务。为了避免相互覆盖，它们先分别生成修改内容，再由程序按顺序写入论文。每一轮完成后，系统会检查引用、图表、公式和交叉引用是否正常；全部任务完成后，还会核对每条意见是否得到回应，并检查全文中的概念、数字、变量名和表述是否一致。</p></li><li><p><strong><code>md-build</code>：从 Markdown 重新生成Word。</strong> 修改完成后，系统将 <code>manuscript.md</code> 编译成新的<code>.docx</code> 文件。生成的 Word 可以包含 Zotero引用、图表编号、交叉引用、公式、脚注和参考文献，也可以使用预设的排版样式。至此，论文完成一次从Word 到 Markdown、再从 Markdown 返回 Word 的完整流程。</p></li></ol><h2 id="如何使用">如何使用</h2><p>项目已经在 GitHub 开源：</p><p><ahref="https://github.com/pwya/md-paper">https://github.com/pwya/md-paper</a></p><p>可以直接下载 ZIP，也可以使用 Git：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">git <span class="hljs-built_in">clone</span> https://github.com/pwya/md-paper.git<br></code></pre></td></tr></table></figure><p>或者在 Claude Code、Codex、OpenCode 或 Hermes 等<strong>Agent</strong> 工具中输入：</p><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs text">读一下 https://github.com/pwya/md-paper 里的 INSTALL.md，帮我把 md-paper 装好。<br></code></pre></td></tr></table></figure><p>Agent 会按照安装文档配置相关 Skills、Pandoc工具链和检查程序。仓库中也提供了完整的中文使用说明。</p><h2 id="号外">号外</h2><ul><li>最近老是听说很多论文已经是<strong>AI写-AI审-AI改</strong>，AI的审稿意见又非常严格，来用md-paper<strong>魔法对轰</strong>吧，早日把传统出版制度干碎;</li><li>长远来看，我比较推崇<strong>ARA</strong>，即Agent-Native ResearchArtifact，反正大家都在用AI，未避免消化不良，保留中间产物非常有必要，参见报道：<ahref="https://mp.weixin.qq.com/s/AhCq486Hl4L_71ULjB-AyA">PDF当死，ARA该立！论文是时候Agent原生了</a>；</li><li>这个repo主要好友pw同学开发的，他哐哐干了好久哈，欢迎大家专注他的公众号“<strong>计算公共治理</strong>”。</li></ul><p><imgsrc="https://github.com/pwya/md-paper/blob/main/assets/wechat-computational-public-governance.jpg?raw=true" /></p>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>AAAR</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>落在深秋，无人签收</title>
     <link href="/2026/03/06/20260228-autumn_leaf/"/>
     <url>/2026/03/06/20260228-autumn_leaf/</url>
@@ -1438,9 +1457,9 @@
     
     <tags>
       
-      <tag>MRIO</tag>
-      
       <tag>MATLAB</tag>
+      
+      <tag>MRIO</tag>
       
       <tag>投入产出分析</tag>
       
@@ -1461,9 +1480,9 @@
     
     <tags>
       
-      <tag>MRIO</tag>
-      
       <tag>MATLAB</tag>
+      
+      <tag>MRIO</tag>
       
       <tag>投入产出分析</tag>
       
@@ -1578,9 +1597,9 @@
       
       <tag>DID</tag>
       
-      <tag>因果推断</tag>
-      
       <tag>生育率</tag>
+      
+      <tag>因果推断</tag>
       
     </tags>
     
@@ -2375,9 +2394,9 @@
     
     <tags>
       
-      <tag>MRIO</tag>
-      
       <tag>MATLAB</tag>
+      
+      <tag>MRIO</tag>
       
     </tags>
     
@@ -2419,9 +2438,9 @@
     
     <tags>
       
-      <tag>MRIO</tag>
-      
       <tag>MATLAB</tag>
+      
+      <tag>MRIO</tag>
       
     </tags>
     
@@ -2486,9 +2505,9 @@
     
     <tags>
       
-      <tag>MRIO</tag>
-      
       <tag>MATLAB</tag>
+      
+      <tag>MRIO</tag>
       
     </tags>
     
@@ -2507,9 +2526,9 @@
     
     <tags>
       
-      <tag>MRIO</tag>
-      
       <tag>MATLAB</tag>
+      
+      <tag>MRIO</tag>
       
     </tags>
     
@@ -2528,9 +2547,9 @@
     
     <tags>
       
-      <tag>MRIO</tag>
-      
       <tag>MATLAB</tag>
+      
+      <tag>MRIO</tag>
       
     </tags>
     
@@ -2549,9 +2568,9 @@
     
     <tags>
       
-      <tag>MRIO</tag>
-      
       <tag>MATLAB</tag>
+      
+      <tag>MRIO</tag>
       
     </tags>
     
