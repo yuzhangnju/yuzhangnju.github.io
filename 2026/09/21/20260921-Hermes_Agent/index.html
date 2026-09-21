@@ -1,0 +1,915 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="https://cdn.jsdelivr.net/gh/yuzhangnju/image2024/uchiha.png">
+  <link rel="icon" href="https://cdn.jsdelivr.net/gh/yuzhangnju/image2024/uchiha.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Yu Zhang">
+  <meta name="keywords" content="AAAR">
+  
+    <meta name="description" content="Scaling law，不仅仅在模型端，也可以在用户端。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Sclaing！基于Hermes Agent的学术分身构建">
+<meta property="og:url" content="https://yuzhang.net/2026/09/21/20260921-Hermes_Agent/index.html">
+<meta property="og:site_name" content="Yu&#39;s Space">
+<meta property="og:description" content="Scaling law，不仅仅在模型端，也可以在用户端。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/yuzhangnju/image2025/hermes-agent-use-cases%20(1).png">
+<meta property="article:published_time" content="2026-09-21T15:00:00.000Z">
+<meta property="article:modified_time" content="2026-09-21T14:27:43.728Z">
+<meta property="article:author" content="Yu Zhang">
+<meta property="article:tag" content="AAAR">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/yuzhangnju/image2025/hermes-agent-use-cases%20(1).png">
+  
+  
+  
+  <title>Sclaing！基于Hermes Agent的学术分身构建 - Yu&#39;s Space</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"yuzhang.net","root":"/","version":"1.9.7","typing":{"enable":true,"typeSpeed":100,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":false},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 7.1.1"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Yu&#39;s Space</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/" target="_self">
+                <i class="iconfont icon-link-fill"></i>
+                <span>友链</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('https://cdn.jsdelivr.net/gh/yuzhangnju/image/img/bannernew.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="Sclaing！基于Hermes Agent的学术分身构建"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2026-09-21 23:00" pubdate>
+          2026年9月21日 晚上
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          4.9k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          41 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">Sclaing！基于Hermes Agent的学术分身构建</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h2 id="引言">引言</h2>
+<p>去年 2 月，我写过一篇推文<a
+target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/ge-KVWtyXxvKWH8rm-4tww">《AAAR-使用AI加速学术研究的方法论与经验》</a>，尝试把
+AI 在社会科学中的应用分为 RA、Supervisor、Domain expert、Agent 和
+Governance 五个层次。当时介绍的重点，主要是如何将 AI
+作为<strong>研究助理</strong>、学术同行和专业工具纳入日常工作流；Agent
+主要作为<strong>被动</strong>响应的导师或硅基样本出现。随着Claude
+code、Cursor等<strong>Coding Agent</strong>的兴起，以及<strong>Opus
+4.5</strong>在Agent能力上的进步，我们的AI，终于可以稳定获取用户本地环境，发挥其规划和自主行动的能力，接管更多日常任务。</p>
+<p>从Chatbot到Agent，AI跨越了一大步，它终于可以干生产力的活儿，狠狠冲击<strong>知识工作者</strong>了（让人退化为按<strong>Accept</strong>的工具，bushi）。</p>
+<p>OpenClaw的作者Peter Steinberger较早探索了Opus
+4.5模型的自主能力，搓出了<strong>小龙虾</strong>，在X上火了一阵子之后，春节期间又席卷中国。小龙虾主要解决的问题是，原来的
+Claude Code、Cursor
+这类工具，对大众来说还是有一些使用门槛的，它们大多需要在终端或 IDE
+里操作，要配置环境，也要理解一些基本的使用方式。在交互上，OpenClaw
+可以接入各种聊天软件和即时通信工具，方便很多，用户可以直接体验当老板的感觉。然而半年过去，一切归于沉寂，小龙虾仿佛上世纪的产物。</p>
+<p>但这半年里，我自己还是用小龙虾干了不少活儿，包括聊天扯淡、远程修bug，给朋友们分享我的bot，让他们用上前沿模型等等。</p>
+<p>因此，在这里，我还是想把我的经验分享给大家，我的主要用法是构建自己的学术分身，<strong>Scaling我自己</strong>，同时也有个镜像的自己，能有不一样的视角和我对话。本篇仅个人经验，大家如有相关意见建议，也欢迎和我联系。</p>
+<h2 id="为什么需要一个学术分身">为什么需要一个学术分身</h2>
+<p>我先介绍一些概念，和一些师友交流的时候，我发现人们对AI能力的<strong>偏置</strong>，常常来源于不清楚自己使用的是哪个层次的工具。</p>
+<h4 id="从-llm-到-agent"><strong>从 LLM 到 Agent</strong></h4>
+<p>LLM、Chatbot 和 Agent
+是三个不同层次的概念。<strong>LLM</strong>本质上是一组训练完成的权重，接收输入，进行计算，再输出文本或其他内容。它可以具有很强的知识与推理能力，但模型本身并没有文件、终端、浏览器和工作空间，也无法独立在真实环境中执行任务。<strong>Chatbot</strong>
+则是在模型之上增加对话界面，使普通使用者能够通过自然语言与模型持续交互。ChatGPT
+的重要意义，不仅来自 GPT
+模型本身，也来自它将大模型转化为大众可直接使用的产品。</p>
+<p><strong>Agent</strong>这个词，有叫代理，有叫智能体，我更倾向叫<strong>智能体</strong>，它进一步为模型提供了自主规划、工具调用和环境交互能力。接到任务后，它可以读取指令和本地环境，规划下一步操作，调用文件、终端、浏览器等工具，再根据执行结果进行检查和修正，直至交付结果或请求人工介入。因此，Agent
+的基本结构可以理解为一个循环：规划、执行、观察、调整。若将 LLM 或
+Chatbot 比作一个只能在空房间中与人对话的知识工作者，那么 Agent
+相当于为其提供<strong>电脑、资料、网络和工作空间</strong>，使其能够实际完成任务。</p>
+<p><img
+src="https://cdn.jsdelivr.net/gh/yuzhangnju/image2025/image-20260921182440395.png" srcset="/img/loading.gif" lazyload /></p>
+<h4
+id="harness连接模型工具与环境"><strong>Harness：连接模型、工具与环境</strong></h4>
+<p>Harness 原指马的挽具，在当前的 Agent
+语境中，可以理解为连接模型、工具与环境的<strong>脚手架</strong>。模型能力决定基础智能水平，Harness
+则决定模型能够获得什么上下文、使用哪些工具、如何执行动作、怎样检查结果以及在发生偏差时如何恢复。同一个模型置于不同
+Harness 中，最终表现可能存在明显差异。例如，Claude 在 Claude Code
+中的项目理解与工具调用方式，与其在其他 Agent
+框架中的表现并不完全相同。</p>
+<p>过去人们重视 <strong>prompt engineering</strong>，如今又开始讨论
+<strong>context engineering</strong> 和 <strong>harness
+engineering</strong>。这些概念背后的共同问题，是如何为模型提供更合适的任务信息、工具与反馈机制。使用
+Agent
+与<strong>指导学生</strong>存在某种相似之处：了解其优势和不足之后，才能判断哪些任务可以简要交代，哪些要求必须明确写出，哪些操作需要严格限制。模型并不是决定结果的唯一因素，环境组织、权限设计与验收机制同样重要。</p>
+<p><img
+src="https://cdn.jsdelivr.net/gh/yuzhangnju/image2025/image-20260921182909724.png" srcset="/img/loading.gif" lazyload /></p>
+<h4 id="从会话工具到长期分身"><strong>从会话工具到长期分身</strong></h4>
+<p>ChatGPT的网页版已经可以完成很多任务，但我们不可能一直在窗口会话中复制粘贴或切来切去。Claude
+Code 和 Codex
+更适合围绕具体代码仓库或项目开展工作，代码能力和项目执行能力很强；但如果希望
+AI
+长期驻留在一套稳定环境中，跨会话<strong>记住</strong>使用者与项目，并通过<strong>即时通讯</strong>软件随时接受任务，还需要另一种产品形态。</p>
+<p><img
+src="https://cdn.jsdelivr.net/gh/yuzhangnju/image2025/01-tool-vs-avatar.jpg" srcset="/img/loading.gif" lazyload /></p>
+<p>学术分身的关键不只是能力更强，而是<strong>协作关系</strong>发生变化。会话工具通常由使用者主动打开，围绕当前任务提供帮助，任务结束后关系也随之中止；<strong>分身</strong>则具有相对稳定的身份、资料、工作环境与长期记忆，可以持续推进任务并积累经验。与此同时，更强的能动性意味着更高的权限和更大的风险。使用者需要从“如何向模型提问”进一步转向“如何定义任务、设置边界、追踪执行并验收结果”。</p>
+<h4 id="scaling-yourself"><strong>Scaling Yourself</strong></h4>
+<p>工业界长期讨论 <strong>Scaling
+Law</strong>，即通过增加模型参数、训练数据或测试时计算来提升能力。但我认为，
+Scaling
+的对象不一定只能是模型，也可以是<strong>研究者本人</strong>。传统上，研究者扩大个人能力的方式之一是培养学生，将选题、数据、方法、写作和判断标准逐步传递给下一代。学生获得了导师的部分知识与方法，这可以视为一种缓慢而长期的人类知识蒸馏。</p>
+<p>构建学术分身提供了另一条路径，将个人简历、研究资料、工作习惯、学术品味和方法论转化为可被
+Agent
+理解和执行的数字资产。理想状态下，一个研究者可以在参加会议或处理其他事务时，让多个分身分别阅读文献、执行分析、管理实验和修改草稿，使部分研究工作获得横向扩展。</p>
+<figure>
+<img
+src="https://cdn.jsdelivr.net/gh/yuzhangnju/image2025/02-scaling-yourself.jpg" srcset="/img/loading.gif" lazyload
+alt="Scaling Yourself" />
+<figcaption aria-hidden="true">Scaling Yourself</figcaption>
+</figure>
+<p>这一过程的意义不仅在于提升产出，还在于促使研究者重新认识自己的工作方式。许多研究经验原本以默会知识的形式存在，例如怎样判断研究品味、哪些数据源更可靠、什么结果需要特别警惕、论文应当如何
+framing。只有将这些判断显性化，才有可能进一步转化为具有复利的工作流。</p>
+<h4 id="为什么是现在"><strong>为什么是现在</strong></h4>
+<p>构建长期分身在两年前是比较困难的，主要是模型能力太拉胯，harness也不完善，但最近逐渐成熟了。首先，前沿模型的
+coding
+能力明显提升，使其能够更可靠地调用工具、访问环境并执行多步骤任务；其次，上下文、持久记忆和
+<strong>Skills</strong> 机制逐渐成熟，Agent
+可以跨会话积累对使用者和项目的认识；再次，飞书等消息渠道和定时任务使异步协作成为可能；最后，API
+价格持续下降，较便宜的模型也能够承担大量日常任务。模型、记忆、工具、通信和成本几方面的变化，共同使个人长期运行
+Agent 变得更加可行。</p>
+<h2 id="为什么选择-hermes-agent">为什么选择 Hermes Agent</h2>
+<h4 id="hermes-agent-的定位"><strong>Hermes Agent 的定位</strong></h4>
+<p><a target="_blank" rel="noopener" href="https://hermes-agent.nousresearch.com/docs/">Hermes
+Agent</a> 是 Nous Research 开源的通用 Agent，采用 MIT
+许可证，支持多模型、CLI、消息
+Gateway、持久记忆、Skills、定时任务和多种运行后端。它较为突出的特征是
+<strong>self-improving</strong>：使用者在工作中纠正其行为、补充操作方法后，Agent
+可以更新 memory，也可以将成功流程整理为可复用的
+Skill。与一次性对话相比，这种机制更适合长期协作。从 <a
+target="_blank" rel="noopener" href="https://openrouter.ai/apps/hermes-agent">OpenRouter 的 Agent
+使用数据</a>来看，Hermes 的使用量长期处于较高位置。</p>
+<h4 id="hermesopenclaw-与-codex"><strong>Hermes、OpenClaw 与
+Codex</strong></h4>
+<p>不同 Agent 的定位并不相同。Claude Code 和 Codex
+主要面向代码仓库和具体项目，适合代码密集型研究；OpenClaw
+更偏向多渠道个人助理，生态较为丰富，但整体系统和配置相对复杂；Hermes
+Agent 同样支持长期运行和消息交互，同时更强调多模型、持久记忆和 Skills
+学习循环。</p>
+<p>我目前运行了多个<strong>分身</strong>实例。主力是Hermes +
+Astra，搭配了OpenClaw + DS
+4.1flash，用Hermes做主力主要是OpenClaw太容易炸了，经常一升级莫名其妙就挂了。但保险起见，也把OpenClaw装上，在网络有问题的时候，OpenClaw可以临时顶上，并且DeepSeek
+4.1 flash又快又便宜。</p>
+<p><img
+src="https://cdn.jsdelivr.net/gh/yuzhangnju/image2025/image-20260921183923979.png" srcset="/img/loading.gif" lazyload /></p>
+<h2 id="如何制作一个学术分身">如何制作一个学术分身</h2>
+<h4 id="蒸馏自己"><strong>蒸馏自己</strong></h4>
+<p>制作分身的第一步是蒸馏自己。</p>
+<p>我的做法是整理一份较为完整的
+<strong>CV</strong>，其中包括教育和工作经历、发表论文、研究方向及正在开展的项目，再将这些信息交给
+Agent。此后，通过真实任务逐步补充项目状态、常用工具和稳定偏好。相比直接复制一份篇幅很长的通用人格提示词，这种基于真实资料和持续协作形成的身份与记忆通常更有针对性。</p>
+<p>Hermes 会将身份、使用者信息、记忆、会话与 Skills
+保存在工作目录中。不同版本的内部结构可能调整，但从使用者角度，可以将其理解为以下<strong>长期资产</strong>：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs python">~/.hermes/<br>├── SOUL.md        <span class="hljs-comment"># Agent 身份、语气与稳定行为原则</span><br>├── memories/<br>│   ├── USER.md    <span class="hljs-comment"># 使用者信息与偏好</span><br>│   └── MEMORY.md  <span class="hljs-comment"># 环境事实、项目进展与经验</span><br>├── sessions/      <span class="hljs-comment"># 历史会话</span><br>└── skills/        <span class="hljs-comment"># 可重复调用的工作方法</span><br></code></pre></td></tr></table></figure>
+<h4 id="给ta一间房子">给TA一间房子</h4>
+<p>研究生需要工位，分身同样需要稳定的运行环境。我使用的是一台独立的
+<strong>MacBook Air</strong>，加上教育优惠和国补，成本约为 6500
+元（我是今年上半年买的，现在涨了不少）。它平时保持开机，专门用于运行
+Agent；即使短暂断电，也可以依靠电池继续工作。独立设备的首要价值是隔离，如果
+Agent 在操作文件或配置环境时出现问题，不会直接影响主力电脑。</p>
+<p>Hermes
+本身对本地算力要求并不高。如果底层使用云端模型，闲置笔记本或低配置云服务器通常也可以承担运行环境。云服务器便于远程部署，但配置、升级和访问本地资料可能稍显复杂；独立电脑则更容易复制研究者原有的软件与目录结构。我个人更倾向于
+<strong>Mac</strong> ，因为 Windows 的环境、路径和 PowerShell
+可能增加额外配置成本，就不要强行让Astra大战PowerShell吧。</p>
+<p>设备准备完成后，还需要配置 Python、Stata、R、LaTeX、Zotero
+等研究工具，并尽量保持与主工作区相近的目录结构。这里，有人可能会说要装<strong>Stata
+MCP</strong>，其实不需要哈，跟Agent说好电脑里有Stata就行，模型可以直接通过Stata的Python接口进行调用的。</p>
+<h4 id="交互渠道"><strong>交互渠道</strong></h4>
+<p>我主要通过<strong>飞书</strong>与Agent交互。飞书在很早期就做了小龙虾的适配，接入Hermes很方便。作为旗舰办公软件，飞书对文档、群消息、超链接、Markdown格式的支持，远好于微信，飞书cli也越来越强大。推荐大家用飞书，以及我认为，<strong>现代科层组织，都应该运行在飞书之上</strong>。</p>
+<h2 id="hermes-agent-的部署与配置">Hermes Agent 的部署与配置</h2>
+<p>官方目前提供桌面端和命令行版。在 macOS、Linux 或 WSL2
+中，可以使用以下命令完成安装，再依次进行初始化、模型选择和环境检查：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># macOS / Linux / WSL2</span><br>curl -fsSL https://hermes-agent.nousresearch.com/install.sh | bash<br><br><span class="hljs-comment"># 如果当前使用 zsh，可重新加载 shell</span><br><span class="hljs-built_in">source</span> ~/.zshrc<br><br><span class="hljs-comment"># 初始化、选择模型并检查环境</span><br>hermes setup<br>hermes model<br>hermes doctor --fix<br></code></pre></td></tr></table></figure>
+<p>原生 Windows 可以在 PowerShell 中运行官方安装脚本：</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs powershell"><span class="hljs-built_in">iex</span> (<span class="hljs-built_in">irm</span> https://hermes<span class="hljs-literal">-agent</span>.nousresearch.com/install.ps1)<br></code></pre></td></tr></table></figure>
+<p>如果安装过程中出现仓库克隆或依赖下载失败，首先可以检查网络并重新运行安装命令，在大陆经常会出现网络不稳定导致的<strong>error</strong>，多试几次。安装后，会进入配置引导页面，可以配置模型、接入的即时通讯工具等等。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># Nous Portal 快速配置</span><br>hermes setup --portal<br><br><span class="hljs-comment"># 查看帮助、切换模型、检查组件状态</span><br>hermes --<span class="hljs-built_in">help</span><br>hermes model<br>hermes status --all<br><br><span class="hljs-comment"># 不带子命令，直接进入交互</span><br>hermes<br></code></pre></td></tr></table></figure>
+<p><strong>Ps</strong>：如果安装有困难，可以直接让您的AI来装，或者B站有一些教程看看。</p>
+<h4 id="接入飞书"><strong>接入飞书</strong></h4>
+<p>飞书接入可以通过 Gateway
+向导完成。向导支持扫码创建应用，也可以手动输入飞书开放平台提供的 App ID
+与 Secret：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 配置消息渠道</span><br>hermes gateway setup<br><br><span class="hljs-comment"># 前台启动 Gateway</span><br>hermes gateway<br></code></pre></td></tr></table></figure>
+<p>如果扫码流程不可用，也可以手动将凭证写入
+<code>~/.hermes/.env</code>。下列内容仅为结构示例，真实 App Secret
+不应写入公开文章、代码仓库或群聊：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs dotenv">FEISHU_APP_ID=cli_xxx<br>FEISHU_APP_SECRET=secret_xxx<br>FEISHU_DOMAIN=feishu<br>FEISHU_CONNECTION_MODE=websocket<br><br># 建议限制允许访问机器人的用户<br>FEISHU_ALLOWED_USERS=ou_xxx,ou_yyy<br></code></pre></td></tr></table></figure>
+<p>WebSocket 长连接不需要公网
+IP，适合本地电脑与私有服务器。具体权限、事件订阅和环境变量应以<a
+target="_blank" rel="noopener" href="https://hermes-agent.nousresearch.com/docs/user-guide/messaging/feishu">飞书接入文档</a>为准。第一次私聊可能需要
+pairing，相关用户可以通过命令行审批或撤销：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash">hermes pairing list<br>hermes pairing approve &lt;platform&gt; &lt;code&gt;<br>hermes pairing revoke &lt;platform&gt; &lt;user-id&gt;<br></code></pre></td></tr></table></figure>
+<h2 id="案例演示">案例演示</h2>
+<h4 id="接入飞书的情况"><strong>接入飞书的情况</strong></h4>
+<p>进入飞书<strong>开发者后台</strong>（open.feishu.cn），能看到自己的bot，如图：</p>
+<p><img
+src="https://cdn.jsdelivr.net/gh/yuzhangnju/image2025/image-20260921213318470.png" srcset="/img/loading.gif" lazyload /></p>
+<p>我实际在用bot是<strong>徐长卿</strong>和<strong>林业平</strong>，其中林业平由Astra驱动，配的是Hermes，徐长卿则是OpenClaw
++ DeepSeek V4.1 Flash。</p>
+<p>下面让林业平做个自我介绍：</p>
+<p><img
+src="https://cdn.jsdelivr.net/gh/yuzhangnju/image2025/image-20260921213527871.png" srcset="/img/loading.gif" lazyload /></p>
+<p><img
+src="https://cdn.jsdelivr.net/gh/yuzhangnju/image2025/image-20260921214325623.png" srcset="/img/loading.gif" lazyload /></p>
+<p><img
+src="https://cdn.jsdelivr.net/gh/yuzhangnju/image2025/image-20260921214417490.png" srcset="/img/loading.gif" lazyload /></p>
+<h4 id="政府数据开放did"><strong>政府数据开放DID</strong></h4>
+<p>为了测试分身能否完成一条较为完整的社会科学工作流，我准备了一个<strong>练习性</strong>的
+DID 题目：政府数据开放是否会影响居民的Political
+Trust？我之前提供过我的工作目录，其中包含地级市公共数据开放试点、微观调查个体数据，以及一部分不完整的
+Stata 代码。我说明代码仅供参考，要求 Agent 自行检查数据并完成分析。</p>
+<p>Agent
+随后读取数据、合并面板并执行回归，使用我本地的latex，编译了一份较完整结果说明PDF。</p>
+<figure>
+<img
+src="https://cdn.jsdelivr.net/gh/yuzhangnju/image2025/image-20260921214723603.png" srcset="/img/loading.gif" lazyload
+alt="image-20260921214723603" />
+<figcaption aria-hidden="true">image-20260921214723603</figcaption>
+</figure>
+<p>读一下，结果还是相当可以的。您可以自己找一些项目试试。</p>
+<h4 id="安装经济学-skills"><strong>安装经济学 Skills</strong></h4>
+<p>网上有一些不错的econ skills，比如<strong><a
+target="_blank" rel="noopener" href="https://github.com/meleantonio/awesome-econ-ai-stuff">AI Skills
+for Economists</a></strong>，我把GitHub 地址发送给
+Agent，要求它检查并安装其中适用的 Skills。Agent 识别出 17 个标准的
+<code>SKILL.md</code>，内容涉及使用 R 完成 IV、DID 与 RDD，使用 Python
+处理面板数据，执行 Stata 回归，编写 LaTeX
+经济学模型，以及开展文献综述和论文写作。</p>
+<p>与只提供固定流程的科研网站相比，通用 Agent
+的优势在于能力可以继续扩展。研究者既可以安装已有
+Skill，也可以将自己的工作方法整理为新的 Skill。</p>
+<h2 id="生成完整论文意味着什么">生成完整论文意味着什么</h2>
+<p>另一个值得讨论的问题是：Agent 能否直接生成一篇完整
+paper？答案是<strong>当然可以</strong>。我测试过一个较完整的任务，让 AI
+编写一篇题为 <em>Gig Economy and Crime: The Causal Effect of Food
+Delivery Platform Expansion on Urban Crime Rates in China</em>
+的英文论文。研究设想是：外卖平台扩张吸收了大量骑手，而就业可能影响犯罪，那么零工经济是否降低了城市犯罪率？我将研究问题、基本设定和材料交给
+<strong>Cursor</strong>，当时用的是Opus
+4.6，由其完成整篇草稿（使用模拟数据）。</p>
+<p>整个过程约一小时，API 成本约 200
+元（如果用国产模型，可能只要几块钱），最终得到 41
+页内容，包括摘要、文献综述、理论机制、DID、安慰剂检验、稳健性分析与参考文献。</p>
+<figure>
+<img
+src="https://cdn.jsdelivr.net/gh/yuzhangnju/image2025/image-20260921220702500.png" srcset="/img/loading.gif" lazyload
+alt="image-20260921220702500" />
+<figcaption aria-hidden="true">image-20260921220702500</figcaption>
+</figure>
+<p>基于模拟数据的<strong>梦中情图</strong>：</p>
+<p><img
+src="https://cdn.jsdelivr.net/gh/yuzhangnju/image2025/image-20260921220728210.png" srcset="/img/loading.gif" lazyload /></p>
+<p>程序开发领域曾流行 <em>Talk is cheap, show me the
+code</em>。随着前沿模型代码能力的提升，代码本身的生产成本开始下降，大家都在用AI编程，怎么正确给AI许愿变得重要，于是便有了
+<em>Code is cheap, show me the talk</em> 。学术界过去也可以说 <em>Idea
+is cheap, show me the paper</em>
+，因为把一个设想转化为完整论文需要长期执行；下一阶段可能会转向 <em>Paper
+is cheap, show me the idea</em>
+。或许未来，研究会回到兴趣驱动。今年，计算机领域重要会议ICLR的投稿量，比以往所有年份加起来都要多，CS会议的DDos攻击已经到来，社科领域由于付费墙和一些问题，这一天的到来会晚一些，但也只是时间问题。</p>
+<p><img
+src="https://cdn.jsdelivr.net/gh/yuzhangnju/image2025/image-20260921220319293.png" srcset="/img/loading.gif" lazyload /></p>
+<h2 id="学术分身的优势与局限">学术分身的优势与局限</h2>
+<h4
+id="即时性持续性与可追踪性"><strong>即时性、持续性与可追踪性</strong></h4>
+<p>通过飞书分配任务较为自然，研究者不需要持续停留在电脑前，Agent
+可以在收到任务后独立执行，完成后返回结果，出现问题时再根据反馈修改，体验一把<strong>当老板</strong>的感觉。执行过程通常会保留日志，因此研究者可以追踪其运行过哪些命令、读取过哪些文件。随着记忆和
+Skills 的积累，Agent
+也会逐渐熟悉项目背景与个人偏好，从临时工具转变为更稳定的协作者。</p>
+<h4 id="验证困难与信息消化"><strong>验证困难与信息消化</strong></h4>
+<p>独立设备带来隔离，也增加了<strong>验收成本</strong>。如果 Agent
+在另一台电脑上清洗数据、编写 Stata
+代码，研究者未必会像本机操作那样随时看到中间数据和代码变化；分身越能自主执行，越需要提前设计日志、同步、抽查和回滚机制，否则执行环节节省的时间可能在验收阶段重新付出。</p>
+<p>另一个问题是<strong>信息消化</strong>。AI
+可以在短时间内生成长篇报告、筛选大量摘要和运行多组回归，但研究者未必有足够时间理解全部产出。陶哲轩所说的“证明的消化不良”，会成为一个大问题，不仅仅在数学领域。</p>
+<h2 id="号外">号外</h2>
+<ul>
+<li>这篇推文有一部分是AI写的，我原本想<strong>手搓</strong>的，但实在是太难了，人懒了就回不去。现在终于明白为什么减肥难了，淦！</li>
+<li>同时搭配两个Agent是有必要的，做好冗余设计，炸机的时候相互修；</li>
+<li>Mac平台推荐使用<strong>Amphetamine</strong>，一个免费好用的App，来让系统保持活跃，避免睡眠。</li>
+</ul>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/AAAR/" class="print-no-link">#AAAR</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>Sclaing！基于Hermes Agent的学术分身构建</div>
+      <div>https://yuzhang.net/2026/09/21/20260921-Hermes_Agent/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>Yu Zhang</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2026年9月21日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="NC - 非商业性使用">
+                    <i class="iconfont icon-nc"></i>
+                  </span>
+                </a>
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="SA - 相同方式共享">
+                    <i class="iconfont icon-sa"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2026/08/10/20260810-md_paper/" title="基于Markdown的论文修改工作流">
+                        <span class="hidden-mobile">基于Markdown的论文修改工作流</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  
+      <script>
+        if (!window.MathJax) {
+          window.MathJax = {
+            tex    : {
+              inlineMath: { '[+]': [['$', '$']] }
+            },
+            loader : {
+              load: ['ui/lazy']
+            },
+            options: {
+              renderActions: {
+                insertedScript: [200, () => {
+                  document.querySelectorAll('mjx-container').forEach(node => {
+                    let target = node.parentNode;
+                    if (target.nodeName.toLowerCase() === 'li') {
+                      target.parentNode.classList.add('has-jax');
+                    }
+                  });
+                }, '', false]
+              }
+            }
+          };
+        } else {
+          MathJax.startup.document.state(0);
+          MathJax.texReset();
+          MathJax.typeset();
+          MathJax.typesetPromise();
+        }
+
+        Fluid.events.registerRefreshCallback(function() {
+          if ('MathJax' in window && MathJax.startup.document && typeof MathJax.startup.document.state === 'function') {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+            MathJax.typesetPromise();
+          }
+        });
+      </script>
+    
+
+  <script  src="https://lib.baomitu.com/mathjax/3.2.2/es5/tex-mml-chtml.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
