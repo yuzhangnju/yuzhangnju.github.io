@@ -16,16 +16,16 @@
   <meta name="author" content="Yu Zhang">
   <meta name="keywords" content="AI, HIBL">
   
-    <meta name="description" content="RLVR在写作上，很难行得通。">
+    <meta name="description" content="RLHF&#x2F;RLVR在写作上，很难行得通。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="GPT模型的“防御性写作”">
 <meta property="og:url" content="https://yuzhang.net/2026/10/19/20261019-Defensive_Writing_in_GPT/index.html">
 <meta property="og:site_name" content="Yu&#39;s Space">
-<meta property="og:description" content="RLVR在写作上，很难行得通。">
+<meta property="og:description" content="RLHF&#x2F;RLVR在写作上，很难行得通。">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/yuzhangnju/image2025/what-is-rlhf-for-llms.webp">
 <meta property="article:published_time" content="2026-10-19T11:00:00.000Z">
-<meta property="article:modified_time" content="2026-10-19T07:37:18.777Z">
+<meta property="article:modified_time" content="2026-10-19T07:42:40.427Z">
 <meta property="article:author" content="Yu Zhang">
 <meta property="article:tag" content="HIBL">
 <meta property="article:tag" content="AI">
@@ -314,7 +314,8 @@ ChatGPT 使用最为广泛。当近期版本的 GPT
 修改论文以使其<strong>经受住同行评审</strong>时，它们改变的不只是语言表达，还会改变<strong>作者对自己研究结论的判断</strong>（图
 1）：模型会增加<strong>限定词</strong>（qualifications），有时甚至直接放弃作者已经确认的结论。例如，原文作者发现“eLife
 摘要简化程度更高”，模型在改写时却写成“<strong>作者身份和长度本身并不能确立简化的程度</strong>”。这些改动集中在作者表达立场的段落中，如<strong>结果分析</strong>和<strong>讨论</strong>。修改之后，论文中的论断可能会偏离作者原本的想法。</p>
-<p><img src="/blog/images/figure-1.png" srcset="/img/loading.gif" lazyload /></p>
+<p><img
+src="https://cdn.jsdelivr.net/gh/yuzhangnju/image2025/figure-11.png" srcset="/img/loading.gif" lazyload /></p>
 <p>学术写作需要<strong>审慎</strong>（caution, Hyland,
 1996）。但合理的审慎应当指向证据中真实存在的局限，以便读者了解结论成立的范围。本文将另一种修改行为定义为<strong>防御性写作</strong>：在写作者所获材料没有支撑的情况下，收窄或质疑作者的论断。</p>
 <p>防御性写作带来两方面的代价：</p>
@@ -438,7 +439,8 @@ class="math inline">\(\kappa = 0.66\)</span>），12 个写作者与人类原文
 <h4 id="rq1gpt-是否存在防御性写作"><strong>RQ1：GPT
 是否存在防御性写作？</strong></h4>
 <p>表 1 和图 2 展示了 12 个模型在默认提示词下完成两项任务的结果。</p>
-<p><img src="/blog/images/figure-2.png" srcset="/img/loading.gif" lazyload /></p>
+<p><img
+src="https://cdn.jsdelivr.net/gh/yuzhangnju/image2025/figure-22.png" srcset="/img/loading.gif" lazyload /></p>
 <p><img
 src="https://cdn.jsdelivr.net/gh/yuzhangnju/image2025/image-20261019122331129.png" srcset="/img/loading.gif" lazyload /></p>
 <ul>
@@ -479,7 +481,8 @@ class="math inline">\(0.52\)</span>）和讨论（<span
 class="math inline">\(0.98\)</span>）中添加了最多的无据限定，且每个讨论段落至少包含一条。由于证据表已列出包括不利结果在内的所有实验数值，缺少实验结果并不能解释这些限定。</li>
 </ul>
 <p>图 4 展示了默认提示词下的具体改写案例：</p>
-<p><img src="/blog/images/figure-4.png" srcset="/img/loading.gif" lazyload /></p>
+<p><img
+src="https://cdn.jsdelivr.net/gh/yuzhangnju/image2025/figure-4.png" srcset="/img/loading.gif" lazyload /></p>
 <blockquote>
 <p><strong>案例 a（结果分析，Ferrando et al., 2022）</strong>： -
 <strong>作者原文</strong>：“可以看出，在每种不同的配置下，我们提出的
@@ -498,7 +501,8 @@ token。</em>” - <strong>GPT-5.5 改写</strong>：“<u>在所评估的配置
 <h4
 id="rq2什么触发了防御性写作"><strong>RQ2：什么触发了防御性写作？</strong></h4>
 <p>作者假设防御是对<strong>经受住同行评审</strong>这一请求的回应：模型预期文本会受到攻击，于是预先代审稿人撤回论断。如果这一假设成立，应当出现两个推论：<strong>第一</strong>，当提示词不提及审稿时防御应当消失，且其强度应随调用审稿的方式而变化；<strong>第二</strong>，一旦模型实际收到审稿意见，防御应当增强。研究分别通过<strong>改变提示词情境</strong>和<strong>多轮修改</strong>来检验这两点。</p>
-<p><img src="/blog/images/figure-3.png" srcset="/img/loading.gif" lazyload /></p>
+<p><img
+src="https://cdn.jsdelivr.net/gh/yuzhangnju/image2025/figure-3.png" srcset="/img/loading.gif" lazyload /></p>
 <p><strong>1. 改变提示词情境（P1–P9）</strong></p>
 <p>作者将相同的改写请求置于 9
 种提示词情境中（共享同一禁止添加新结果、数字或引用的模板）： -
